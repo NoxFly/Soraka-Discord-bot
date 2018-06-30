@@ -1,5 +1,6 @@
+var firebase = require('firebase');
 const Discord = require('discord.js');
-//var firebase = require('firebase');
+//
 
 var aBotList = [
 	
