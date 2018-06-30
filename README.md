@@ -1,4 +1,4 @@
-Discord bots - copyright NoxFly 2018
+<h3>Discord bots - copyright NoxFly 2018</h3>
 <br>tag: a!
 <br>see all commands: a!help
 <br>Bot link : https://discordapp.com/oauth2/authorize?client_id=%20433365347463069716&scope=bot&permissions=1364720855
