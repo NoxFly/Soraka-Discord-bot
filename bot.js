@@ -16,7 +16,7 @@ var aBotList = [
 	}
 ];
 
-/*var config = {
+var config = {
     apiKey: process.env.FIREBASE_TOKEN,
     authDomain: NAME_FIREBASE+".firebaseapp.com",
     databaseURL: "https://"+NAME_FIREBASE+".firebaseio.com",
@@ -25,7 +25,7 @@ var aBotList = [
     messagingSenderId: SENDERID_FIREBASE
 };
 firebase.initializeApp(config);
-*/
+
 
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
