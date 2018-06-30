@@ -1690,7 +1690,7 @@ const commands = [
  		usage: 'a!ping',
  		group: 'utility',
  		result: (msg) => {
- 			msg.channel.send("pong !\n*"+((msg.createdTimestamp-Date.now())-1300)+" ms*");
+ 			msg.channel.send("pong !\n*"+(msg.createdTimestamp-Date.now())+" ms*");
  		}
  	},
  	// PAS finie
