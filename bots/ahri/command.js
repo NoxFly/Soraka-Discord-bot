@@ -1,7 +1,7 @@
 let bot = require('../../bot.js');
-let firebase = require('firebase');
+//let firebase = require('firebase');
 const Discord = require('discord.js');
-
+/*
 var config = {
     apiKey: "AIzaSyCyBzTHpY-FrJPsqAfTdlJaSIa9lQi5EVc",
     authDomain: "ahri-561c5.firebaseapp.com",
@@ -12,7 +12,7 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
+*/
 /* **** */
 let avatar = '';
 
