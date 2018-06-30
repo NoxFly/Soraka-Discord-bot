@@ -18,11 +18,11 @@ var aBotList = [
 
 var config = {
     apiKey: process.env.FIREBASE_TOKEN,
-    authDomain: NAME_FIREBASE+".firebaseapp.com",
-    databaseURL: "https://"+NAME_FIREBASE+".firebaseio.com",
-    projectId: NAME_FIREBASE,
-    storageBucket: NAME_FIREBASE+".appspot.com",
-    messagingSenderId: SENDERID_FIREBASE
+    authDomain: process.env.NAME_FIREBASE+".firebaseapp.com",
+    databaseURL: "https://"+process.env.NAME_FIREBASE+".firebaseio.com",
+    projectId: process.env.NAME_FIREBASE,
+    storageBucket: process.env.NAME_FIREBASE+".appspot.com",
+    messagingSenderId: process.env.SENDERID_FIREBASE
 };
 firebase.initializeApp(config);
 
