@@ -17,11 +17,11 @@ var aBotList = [
 
 /*var config = {
     apiKey: process.env.FIREBASE_TOKEN,
-    authDomain: "ahri-561c5.firebaseapp.com",
-    databaseURL: "https://ahri-561c5.firebaseio.com",
-    projectId: "ahri-561c5",
-    storageBucket: "ahri-561c5.appspot.com",
-    messagingSenderId: "90077155476"
+    authDomain: NAME_FIREBASE+".firebaseapp.com",
+    databaseURL: "https://"+NAME_FIREBASE+".firebaseio.com",
+    projectId: NAME_FIREBASE,
+    storageBucket: NAME_FIREBASE+".appspot.com",
+    messagingSenderId: SENDERID_FIREBASE
 };
 firebase.initializeApp(config);
 */
