@@ -4,12 +4,12 @@ const Discord = require('discord.js');
 var aBotList = [
 	
 	{
-		'name'	:	'Ahri',
+		'name'	:	'ahri',
 		'tag'  	: 	'a!',
 		'token' :	process.env.TOKEN_AHRI
 	},
 	{
-		'name'	:	'Caitlyn',
+		'name'	:	'caitlyn',
 		'tag'	:	'$',
 		'token'	:	process.env.TOKEN_CAITLYN
 	}
