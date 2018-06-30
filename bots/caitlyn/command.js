@@ -10,7 +10,7 @@ function randPass() {
 }
 
 function ahri(msg) {
-	if(msg.guild.members.find('id', '433365347463069716')==true) {
+	if(msg.guild.members.get('433365347463069716')==true) {
 		return true;
 	} else {
 		return false;
@@ -77,7 +77,6 @@ const commands = [
 {
 	name: 'test',
 	result: (msg) => {
-		return msg.guild.members.find('id', '433365347463069716');
 		if(ahri(msg)) {
 			return 'Ya Ahri';
 		} else {
