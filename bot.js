@@ -3,17 +3,28 @@ var aBotList = [
 	{
 		'name'	:	'Ahri',
 		'tag'  	: 	'a!',
-		'token' :	TOKEN_AHRI
+		'token' :	process.env.TOKEN_AHRI
 	},
 	{
 		'name'	:	'Caitlyn',
 		'tag'	:	'$',
-		'token'	:	TOKEN_CAITLYN
+		'token'	:	process.env.TOKEN_CAITLYN
 	}
 ];
 
 const Discord = require('discord.js');
 var firebase = require('firebase');
+
+var config = {
+    apiKey: process.env.FIREBASE_TOKEN,
+    authDomain: "ahri-561c5.firebaseapp.com",
+    databaseURL: "https://ahri-561c5.firebaseio.com",
+    projectId: "ahri-561c5",
+    storageBucket: "ahri-561c5.appspot.com",
+    messagingSenderId: "90077155476"
+};
+firebase.initializeApp(config);
+
 
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
