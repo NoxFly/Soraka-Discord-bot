@@ -1,18 +1,7 @@
 let bot = require('../../bot.js');
-//let firebase = require('firebase');
+let firebase = require('firebase');
 const Discord = require('discord.js');
-/*
-var config = {
-    apiKey: "AIzaSyCyBzTHpY-FrJPsqAfTdlJaSIa9lQi5EVc",
-    authDomain: "ahri-561c5.firebaseapp.com",
-    databaseURL: "https://ahri-561c5.firebaseio.com",
-    projectId: "ahri-561c5",
-    storageBucket: "ahri-561c5.appspot.com",
-    messagingSenderId: "90077155476"
-};
 
-firebase.initializeApp(config);
-*/
 /* **** */
 let avatar = '';
 
