@@ -945,10 +945,15 @@ const commands = [
 					while (Math.pow(lvl,2.3)*10<xp) {
 						lvl++;
 					}
-													
+					
+					if(msg.author.id==355389600044417025) {
+						msg.channel.send('Ohhh, it\'s you master Antoine, ok so 10k money more just for you <3');
+						money = parseInt(money+1200),
+					}
+
 					newRef.update({
 						daily: Now,
-						money: parseInt(money+200),
+						money: money,
 						xp: xp+20,
 						level: lvl
 					});
