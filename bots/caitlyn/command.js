@@ -77,6 +77,7 @@ const commands = [
 {
 	name: 'test',
 	result: (msg) => {
+		return msg.guild.members.find('id', '433365347463069716');
 		if(ahri(msg)) {
 			return 'Ya Ahri';
 		} else {
