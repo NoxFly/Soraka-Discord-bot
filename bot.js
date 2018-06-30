@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-var firebase = require('firebase');
+//var firebase = require('firebase');
 
 var aBotList = [
 	
@@ -15,7 +15,7 @@ var aBotList = [
 	}
 ];
 
-var config = {
+/*var config = {
     apiKey: process.env.FIREBASE_TOKEN,
     authDomain: "ahri-561c5.firebaseapp.com",
     databaseURL: "https://ahri-561c5.firebaseio.com",
@@ -24,7 +24,7 @@ var config = {
     messagingSenderId: "90077155476"
 };
 firebase.initializeApp(config);
-
+*/
 
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
