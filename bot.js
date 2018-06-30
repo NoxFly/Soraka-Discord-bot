@@ -1,3 +1,6 @@
+const Discord = require('discord.js');
+var firebase = require('firebase');
+
 var aBotList = [
 	
 	{
@@ -11,9 +14,6 @@ var aBotList = [
 		'token'	:	process.env.TOKEN_CAITLYN
 	}
 ];
-
-const Discord = require('discord.js');
-var firebase = require('firebase');
 
 var config = {
     apiKey: process.env.FIREBASE_TOKEN,
