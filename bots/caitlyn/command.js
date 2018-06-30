@@ -1,4 +1,4 @@
-let firebase = require('firebase');
+//let firebase = require('firebase');
 
 const commands = [
 	
@@ -109,41 +109,6 @@ const commands = [
 			return false;
 		}
 	}*/
-	
-	{
-		name : 'test',
-		description : 'Show info about Caitlyn and her invite link',
-		result : (msg) => {
-				return 'a!profile';
-		}
-	},
-
-	{//getLanguages
-        name : 'getLanguages',
-        description : 'get all languages',
-        result : (msg) => {
-
-			var ref = firebase.database().ref('languages');
-        	var array = [];
-        	ref.on('child_added',function(data) {
-            	array.push(data.val());
-        	});
-
-
-
-            setTimeout(function(){
-                var txt = '';
-                for(var a = 0;a<array.length;a++){
-                    let element = array[a];
-                    txt += '`' + element + '`\n';
-                };
-                if(array.length == 0){
-                    txt = 'No languages';
-                }
-        		msg.channel.send(txt);
-            },2000);
-        }
-    },
 
 ];
 
