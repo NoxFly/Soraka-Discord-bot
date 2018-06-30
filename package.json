@@ -10,7 +10,6 @@
   "author": "ドリアン#8850",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.0",
-    "firebase": "5.12.1"
+    "discord.js": "^11.3.0"
   }
 }
