@@ -3,12 +3,12 @@ var aBotList = [
 	{
 		'name'	:	'Ahri',
 		'tag'  	: 	'a!',
-		'token' :	'NDMzMzY1MzQ3NDYzMDY5NzE2.Da91xA.CIdIZaHIntJe-QA5uKLmF6Gofmk'
+		'token' :	TOKEN_AHRI
 	},
 	{
 		'name'	:	'Caitlyn',
 		'tag'	:	'$',
-		'token'	:	'NDQzNDMwMDgyNDU5OTkyMDY1.DdNQAA.m82wNEvZwIbTMj0LT3yzoG34kK8'
+		'token'	:	TOKEN_CAITLYN
 	}
 ];
 
@@ -17,7 +17,6 @@ var firebase = require('firebase');
 
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
-	//console.log(index+': '+val);
 });
 
 
