@@ -9,9 +9,13 @@ function randPass() {
 	return Math.random().toString(36).slice(-8);
 }
 
-/*function ahri(msg) {
-	if(msg.guild.members.find('id', '433365347463069716'))
-}*/
+function ahri(msg) {
+	if(msg.guild.members.find('id', '433365347463069716')==true) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 function checkGame(msg,ref,id) {
 	let a = 0;
@@ -73,7 +77,11 @@ const commands = [
 {
 	name: 'test',
 	result: (msg) => {
-		console.log(msg.guild.members.find('id', '433365347463069716'));
+		if(ahri(msg)) {
+			return 'Ya Ahri';
+		} else {
+			return 'ya pas Ahri';
+		}
 	}
 },
 {
