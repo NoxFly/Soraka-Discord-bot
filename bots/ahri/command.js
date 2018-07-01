@@ -88,7 +88,7 @@ function profile(msg,id,name,avatar) {
 		});
 
 		setTimeout(function(){
-			msg.channel.stopTyping();
+			 
 			let money = Actuel[5];
 			let xp = Actuel[10];
 			let lvl = Actuel[4];
@@ -355,7 +355,7 @@ const commands = [
 			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let refp = firebase.database().ref('profile/'+id);
-			msg.channel.startTyping();
+			 
 			let Actuel = [];
 			refp.on('child_added',function (data) {
 				Actuel.push(data.val());
@@ -371,7 +371,7 @@ const commands = [
 						for(let i=0;i<languages.length;i++) {
 							txt += '`'+languages[i]+'`,';
 						}
-						msg.channel.stopTyping();
+						 
 						msg.channel.send('Languages available : '+txt);
 					} else {
 				
@@ -379,7 +379,7 @@ const commands = [
 							lang: lang
 						});
 						msg.channel.send('Your language has been saved ('+lang+')');
-						msg.channel.stopTyping();
+						 
 					}
 				},3000);
 				return '';
@@ -512,7 +512,7 @@ const commands = [
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let refp = firebase.database().ref('profile/'+id);
 			
-			msg.channel.startTyping();
+			 
 			let Actuel = [];
 			refp.on('child_added',function (data) {
 				Actuel.push(data.val());
@@ -558,7 +558,7 @@ const commands = [
 					msg.channel.send('the piece turns on itself ...\n '+r+' ! You '+p+Math.abs(somme)+s+'\nYour money : ' + money);
 				}
 			},3000);
-			msg.channel.stopTyping();
+			 
 			return '';
 		}
 	},
@@ -572,7 +572,7 @@ const commands = [
 			
 			let refj = firebase.database().ref('jokes');
 			
-			msg.channel.startTyping();
+			 
 			let jokes = [];
 			refj.on('child_added',function (data) {
 				jokes.push(data.val());
@@ -589,7 +589,7 @@ const commands = [
 			
 				msg.channel.send(embed);
 			},1000);
-			msg.channel.stopTyping();
+			 
 			return '';
 		}
 
@@ -608,7 +608,7 @@ const commands = [
 			
 			let refp = firebase.database().ref('profile/'+id);
 			
-			msg.channel.startTyping();
+			 
 			let quotes = [];
 			let Actuel = [];
 			refp.on('child_added',function (data) {
@@ -634,7 +634,7 @@ const commands = [
 					msg.channel.send(embed);
 				},1000);
 			},1000);
-			msg.channel.stopTyping();
+			 
 			return '';
 		}
 
@@ -824,7 +824,7 @@ const commands = [
 		usage : '`a!clearnote {an integer} (optional)`',
 		group: 'personal',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let n = msg.content.split('clearnote ')[1];
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let id = msg.author.id;
@@ -846,7 +846,7 @@ const commands = [
 						setTimeout(function() {
 							if(notes.length==1) {
 								msg.channel.send('You don\'t have any notes 🙃');
-								msg.channel.stopTyping();
+								 
 							} else {
 								if((notes.length-1)>=n) {
 									let a = 'note'+n;
@@ -870,19 +870,19 @@ const commands = [
 									
 									
 									msg.channel.send('note '+n+' deleted');
-									msg.channel.stopTyping();
+									 
 								} else {
 									msg.channel.send('Sorry I can\'t find this note');
 								}
-								msg.channel.stopTyping();
+								 
 							}
 						},1000);
 					},1000);
 					
-					msg.channel.stopTyping();
+					 
 				} else {
 					return 'Your integer must be between 1 and 10';
-					msg.channel.stopTyping();
+					 
 				}
 			} else {
 				setTimeout(function() {
@@ -896,14 +896,14 @@ const commands = [
 					setTimeout(function() {
 						if(notes.length==1) {
 							msg.channel.send('You don\'t have any notes 🙃');
-							msg.channel.stopTyping();
+							 
 						} else {
 							for(i=1;i<notes.length;i++) {
 								let a = 'note'+i;
 									firebase.database().ref('profile/'+id+'/notes/'+a).remove();
 							}
 							msg.channel.send('All notes cleared');
-							msg.channel.stopTyping();
+							 
 						}
 					},1000);
 				},1000);
@@ -919,7 +919,7 @@ const commands = [
 		usage : '`a!daily`',
 		group: 'personal',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
     		let refp = firebase.database().ref('profile/'+id);
@@ -963,7 +963,7 @@ const commands = [
 									   
 				ans = mtsm(43200000-(Now-daily));
 				msg.channel.send('Next daily available in : '+ans+' :hourglass:');
-				msg.channel.stopTyping();
+				 
 				return '';
 				
 			},1000);
@@ -976,7 +976,7 @@ const commands = [
 		usage : '`a!money`',
 		group: 'personal',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let refp = firebase.database().ref('profile/'+id);
@@ -992,7 +992,7 @@ const commands = [
 				msg.channel.send('You currently have $'+money);
 			},3000);
 			
-			msg.channel.stopTyping();
+			 
 			return '';
 		}
 	},
@@ -1003,7 +1003,7 @@ const commands = [
 		usage: '`a!profile`',
 		group: 'personal',
 		result: (msg) => {
-			msg.channel.startTyping();
+			 
 			let a1; // ID
 			let a2; // user#0000
 			
@@ -1040,7 +1040,7 @@ const commands = [
 				
 			}
 			
-			msg.channel.stopTyping();
+			 
 			return '';
 		}
 	},
@@ -1113,7 +1113,7 @@ const commands = [
 		usage : '`a!follow {user tag}`',
 		group: 'social',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let m = msg.content.substring(9);
 			let id = new RegExp('<@!?'+msg.author.id+'>');
 			
@@ -1172,7 +1172,7 @@ const commands = [
 				return 'Need a real tag of someone !';
 			}
 			
-			msg.channel.stopTyping();
+			 
 		}
 	},
 	// finie
@@ -1182,7 +1182,7 @@ const commands = [
 		usage : '`a!unfollow {user tag}`',
 		group: 'social',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let m = msg.content.substring(11);
 			let id = new RegExp('<@!?'+msg.author.id+'>');
 			let idP = msg.author.id;
@@ -1235,7 +1235,7 @@ const commands = [
 					msg.channel.send(rep);
 				},3000);
 			}
-			msg.channel.stopTyping();
+			 
 		}
 	},
 	// PAS finie
@@ -1245,7 +1245,7 @@ const commands = [
 		usage : '`a!role {role name}`',
 		group: 'management',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let Nroles = msg.guild.roles.map(role => role.name);
 			let Iroles = msg.guild.roles.map(role => role.id);
 			
@@ -1264,7 +1264,7 @@ const commands = [
 					.setTitle('List of roles in '+msg.guild.name+' server')
 					.setColor(0x007FFF)
 					.addField('Total roles : '+tt,txt);
-				msg.channel.stopTyping();
+				 
 				return embed;
 				
 			} else {
@@ -1285,11 +1285,11 @@ const commands = [
 
 						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							msg.guild.members.get(msg.author.id).removeRole(role);
-							msg.channel.stopTyping();
+							 
 							return add+' role unroled'
 						}
 	
-						msg.channel.stopTyping();
+						 
 						setTimeout(function() {
 							if(msg.guild.members.get(msg.author.id).addRole(role)) {
 								msg.channel.send(add+' role added');
@@ -1300,7 +1300,7 @@ const commands = [
 					} else {
 						
 						add = add.split(/ ?, ?/g);
-						msg.channel.stopTyping();
+						 
 						
 						role = [];
 						txt = "these roles have been added: ";
@@ -1339,7 +1339,7 @@ const commands = [
 					}
 
 				} catch(error) {
-					msg.channel.stopTyping();
+					 
 					for(i in NRoles) {
 						if(i==0) continue;
 						txt += NRoles[i]+' ('+IRoles[i]+')\n';
@@ -1387,7 +1387,7 @@ const commands = [
 
 				if(id!=msg.author.id) {
 					//return 'cmd pas finie';
-					msg.channel.startTyping();
+					 
 					let ref = firebase.database().ref('profile/'+autID);
 					let ref2 = firebase.database().ref('profile/'+id);
 					let a = 0;
@@ -1407,17 +1407,17 @@ const commands = [
 					setTimeout(function() {
 						if(a==0) {
 							msg.channel.send('This user doesn\'t have an account');
-							msg.channel.stopTyping();
+							 
 						} else {
 							let money = user[5];
 							let recMoney = rec[5];
 							if(money==0) {
 								msg.channel.send('You don\'t have money');
-								msg.channel.stopTyping();
+								 
 							} else {
 								if(give>money) {
 									msg.channel.send('You can\'t send more than you have');
-									msg.channel.stopTyping();
+									 
 								} else {
 									ref2.update({
 										money: parseInt(recMoney+give)
@@ -1426,14 +1426,14 @@ const commands = [
 										money: parseInt(money-give)
 									});
 									msg.channel.send('You gave '+give+' :dollar: to <@'+id+'>');
-									msg.channel.stopTyping();
+									 
 								}
 							}
 						}
 					},1000);
 				} else {
 					return 'You can\'t give money to yourself';
-					msg.channel.stopTyping();
+					 
 				}
 			} else {
 				return 'You must write how much money you want to give and for who\nExample: `a!give 10 @user#0000`';
@@ -1466,7 +1466,7 @@ const commands = [
 		group: 'social',
 		result : (msg) => {
 			let r = msg.content;
-			msg.channel.startTyping();
+			 
 			let reg = /rep(utation)? <@!?\d+>/;
 			
 			if(reg.test(r)) {
@@ -1498,7 +1498,7 @@ const commands = [
 				setTimeout(function() {
 					if(a==0) {
 						msg.channel.send('Tag a valid user, who already have an Ahri\'s account');
-						msg.channel.stopTyping();
+						 
 					} else {
 						let Actuel2 = [];
 						refR.on('child_added', function(data) {
@@ -1518,7 +1518,7 @@ const commands = [
 								});
 									
 								msg.channel.send('You give a reputation point to '+u2+' !');
-								msg.channel.stopTyping();
+								 
 								let Actuel3 = [];	
 								firebase.database().ref('profile/'+id2+'/rep').on('child_added', function(data) {
 									Actuel3.push(data.val());
@@ -1534,13 +1534,13 @@ const commands = [
 								
 							} else {
 								msg.channel.send('You need to wait '+ans+' before give a reputation point');
-								msg.channel.stopTyping();
+								 
 							}
 						},1000);
 					}
 				},1000);
 			} else {
-				msg.channel.stopTyping();
+				 
 				return 'You need to tag someone';
 			}
 		}
@@ -1552,7 +1552,7 @@ const commands = [
 		usage : '`a!post {message}`',
 		group: 'social',
 		result : (msg) => {
-			msg.channel.startTyping();
+			 
 			let reg = /\S/;
 			let post = msg.content.substring(7);
 			let user = msg.author.username+'#'+msg.author.discriminator;
@@ -1601,21 +1601,21 @@ const commands = [
 									});
 							
 								}
-								msg.channel.stopTyping();
+								 
 								msg.channel.send('Your post has been send\nYou need to wait '+ans+' to send another post :hourglass:');
   	 					},1000);
   	 				} else {
-  	 					msg.channel.stopTyping();
+  	 					 
   	 					msg.channel.send('You don\'t have followers !');
   	 				}
   	 			} else {
-  	 				msg.channel.stopTyping();
+  	 				 
   	 				msg.channel.send('You need to wait '+ans+' to send another post');
   	 			}
   	 		},1000);
 				
 			} else {
-				msg.channel.stopTyping();
+				 
 				return 'Post length too short';
 			}
 		}

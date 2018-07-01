@@ -49,7 +49,7 @@ function startbot(params) {
 		
 		let content = msg.content;
 		if(content.indexOf(params.tag) === 0) {
-			
+		msg.channel.startTyping();	
 	
 		for(let a=0; a<commands.length; a++) {
 			let command = commands[a];
@@ -61,8 +61,10 @@ function startbot(params) {
 					} else {
 						send(msg, txt);
 					}
+					msg.channel.stopTyping();
 				} catch(error) {
 					msg.channel.send('error: '+error);
+					msg.channel.stopTyping();
 				}
 				return false;
 			}
