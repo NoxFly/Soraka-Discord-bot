@@ -78,6 +78,7 @@ const commands = [
 	name: 'test',
 	result: (msg) => {
 		console.log(msg.guild.members.get('433365347463069716'));
+		if(msg.guild.members.get('433365347463069716')===undefined) return;
 		if(ahri(msg)) {
 			return 'Ya Ahri';
 		} else {
