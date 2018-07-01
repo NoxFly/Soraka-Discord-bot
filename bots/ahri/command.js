@@ -1773,7 +1773,7 @@ const commands = [
  				let reg = /\S/;
  				if(reg.test(r)) {
  					msg.guild.roles.find('name',r).delete();
- 					return 'role `'+r+'` removed';
+ 					return 'role `'+r+'` deleted';
  				}
  				
  			}
