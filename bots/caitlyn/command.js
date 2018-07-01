@@ -10,7 +10,7 @@ function randPass() {
 }
 
 function ahri(msg) {
-	if(msg.guild.members.get('433365347463069716')==true) {
+	if(msg.guild.members.get('433365347463069716') instanceof Object) {
 		return true;
 	} else {
 		return false;
@@ -77,8 +77,6 @@ const commands = [
 {
 	name: 'test',
 	result: (msg) => {
-		console.log(msg.guild.members.get('433365347463069716'));
-		if(msg.guild.members.get('433365347463069716')===undefined) return;
 		if(ahri(msg)) {
 			return 'Ya Ahri';
 		} else {
@@ -181,57 +179,61 @@ const commands = [
 		usage : '`a!info {name}`',
 		group: 'game',
 		result : (msg) => {
-			let c = msg.content.split('info')[1].replace(' ','');
-			
-			if(reg.test(c)) {
-				let a = 0;
-				let ref = firebase.database().ref('game/champions/'+c);
-				let info = [];
-				ref.on('child_added', function(data) {
-					info.push(data.val());
-					a++
-				});
+			if(ahri(msg)) {
+				let c = msg.content.split('info')[1].replace(' ','');
 				
-				let picture = "http://ddragon.leagueoflegends.com/cdn/8.11.1/img/champion/";
-				
-				setTimeout(function() {
-					if(a==0) {
-						msg.channel.send('Need to write a real champion name');
-					} else {
-					let armor = info[0];
-					let attack = info[1];
-					let critics = info[2];
-					let hp = info[3];
-					let regene = info[4];
-					let magic = info[5];
-					let mana = info[6];
-					let mRegene = info[7]
-					let name = info[8];
-					picture += info[8]+'.png';
-					let power = info[9];
-					let role = info[10];
-					let type = info[11];
-						
-					let embed = new Discord.RichEmbed()
-						.setTitle(name)
-						.setThumbnail(picture)
-						.setColor(0x494C51)
-						.addField('Role',role)
-						.addField('Type',type)
-						.addField('Health',hp)
-						.addField('Regeneration per minutes',regene)
-						.addField('Mana / Energy',mana)
-						.addField('Mana regeneration per seconde',mRegene)
-						.addField('Attack',attack)
-						.addField('Critics',critics+'%')
-						.addField('Armor',armor)
-						.addField('Magic resistance',magic);
-						
-					msg.channel.send(embed);
-					}
-				},1000);
+				if(reg.test(c)) {
+					let a = 0;
+					let ref = firebase.database().ref('game/champions/'+c);
+					let info = [];
+					ref.on('child_added', function(data) {
+						info.push(data.val());
+						a++
+					});
+					
+					let picture = "http://ddragon.leagueoflegends.com/cdn/8.11.1/img/champion/";
+					
+					setTimeout(function() {
+						if(a==0) {
+							msg.channel.send('Need to write a real champion name');
+						} else {
+						let armor = info[0];
+						let attack = info[1];
+						let critics = info[2];
+						let hp = info[3];
+						let regene = info[4];
+						let magic = info[5];
+						let mana = info[6];
+						let mRegene = info[7]
+						let name = info[8];
+						picture += info[8]+'.png';
+						let power = info[9];
+						let role = info[10];
+						let type = info[11];
+							
+						let embed = new Discord.RichEmbed()
+							.setTitle(name)
+							.setThumbnail(picture)
+							.setColor(0x494C51)
+							.addField('Role',role)
+							.addField('Type',type)
+							.addField('Health',hp)
+							.addField('Regeneration per minutes',regene)
+							.addField('Mana / Energy',mana)
+							.addField('Mana regeneration per seconde',mRegene)
+							.addField('Attack',attack)
+							.addField('Critics',critics+'%')
+							.addField('Armor',armor)
+							.addField('Magic resistance',magic);
+							
+						msg.channel.send(embed);
+						}
+					},1000);
+				} else {
+					return 'Need to write a champion name';
+				}
 			} else {
-				return 'Need to write a champion name';
+				return 'There is not Ahri on the server, please invite here then I will work';
 			}
 		}
 	}
