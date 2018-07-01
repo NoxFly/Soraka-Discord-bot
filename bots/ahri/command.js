@@ -1443,7 +1443,7 @@ const commands = [
 	// finie
 	{
 		name : 'donate',
-		description : 'show you the link of my Paypal. The goal is to be host in a VPS to be online h24. Even $1 is enought',
+		description : 'show you the link of my Paypal. The goal is to be host in a VPS to be online 24/7. Even $1 is enought',
 		usage : '`a!donate`',
 		group: 'social',
 		result : (msg) => {
@@ -1452,7 +1452,7 @@ const commands = [
 				let embed = new Discord.RichEmbed()
 					.setTitle('My paypal :')
 					.setColor(0x007FFF)
-					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 year')
+					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online 24/7. \n$12 = 1 year')
 					.addField('Link :','https://paypal.me/NoxFly');
 				return embed;
 			}
@@ -1687,7 +1687,7 @@ const commands = [
  	{
  		name: 'ping',
  		description: 'Show the ms you have between when you send message and my reaction',
- 		usage: 'a!ping',
+ 		usage: '`a!ping`',
  		group: 'utility',
  		result: (msg) => {
  			msg.channel.send("pong !\n*"+(msg.createdTimestamp-Date.now())+" ms*");
@@ -1697,42 +1697,74 @@ const commands = [
  	{
  		name: 'createRole',
  		description: 'Create a role (only Administrator of the server)',
- 		usage: 'a!createRole {name} {+} (if you want to add to you)',
+ 		usage: '`a!createRole {name} {+}` (if you want to add to you)',
  		result: (msg) => {
- 			let id = msg.author.id;
- 			
- 			if(id==msg.guild.ownerID || admin(id)) {
- 				let r = msg.content.split('createRole ')[1];
- 				let reg = /\S/;
- 				r = r.split(' ');
- 			
- 				if(reg.test(r)) {
- 					msg.guild.createRole({
- 						name: r[0]
- 					});
- 					
- 					let res = "";
- 					if(r[1]=="+") {
- 						setTimeout(function() {
- 							res = "and added to you";
- 							let role = msg.guild.roles.find('name',r[0]);
- 							msg.guild.members.get(id).addRole(role);
- 						},500);
- 					}
- 					setTimeout(function() {
- 						msg.channel.send("the role `"+r+"` has been created "+res);
- 					},600);
- 				}
- 			} else {
- 				return "you don't have the permission :x:";
- 			}
+			let id = msg.author.id;
+			let ref = firebase.database().ref('servers/'+msg.guild.id);
+			let perms = [];
+			let a = 0;
+			ref.on('child_added', function(data) {
+				a++;
+				perms.push(data.val());
+			});
+
+			let roleOK = 0;
+			
+
+			setTImeout(function() {
+				console.log(perms);
+				if(a==0) {
+					ref.set({
+						id: msg.guild.id,
+						name: msg.guild.name,
+						permRole: {
+							1: msg.guild.ownerID
+						}
+					});
+					perm.push(msg.channel.ownerID);
+				}
+
+				for(i=0;i<perms.length;i++) {
+					if(msg.guild.members.get(msg.author.id).roles.has('433658009013452800')) {
+						roleOK++;
+					}
+				}
+
+				if(roleOK>0) roleOK = true;
+
+				if(id==msg.guild.ownerID || admin(id) || roleOK) {
+					let r = msg.content.split('createRole ')[1];
+					let reg = /\S/;
+					r = r.split(' ');
+				
+					if(reg.test(r)) {
+						msg.guild.createRole({
+							name: r[0]
+						});
+						
+						let res = "";
+						if(r[1]=="+") {
+							setTimeout(function() {
+								res = "and added to you";
+								let role = msg.guild.roles.find('name',r[0]);
+								msg.guild.members.get(id).addRole(role);
+							},500);
+						}
+						setTimeout(function() {
+							msg.channel.send("the role `"+r+"` has been created "+res);
+						},600);
+					}
+				} else {
+					return "you don't have the permission :x:";
+				}
+			},1000);
  		}
  	},
  	// PAS finie
  	{
  		name: 'deleteRole',
- 		description: 'Create a role (only Administrator of the server)',
- 		usage: 'a!createRole {name} {+} (if you want to add to you)',
+ 		description: 'Delete a role (only Administrator of the server)',
+ 		usage: '`a!deleteRole {name}`',
  		result: (msg) => {
  			let id = msg.author.id;
  			
@@ -1751,7 +1783,7 @@ const commands = [
  	{
  		name: 'setPermTo',
  		description: 'Set `createRole` command accessible to member of role you want (only for Administrator of the server)',
- 		usage: 'a!setPermTo {role}',
+ 		usage: '`a!setPermTo {role}`',
  		result: (msg) => {
 
  			let ref = firebase.database().ref('servers/'+msg.guild.id);
@@ -1810,7 +1842,7 @@ const commands = [
 	 {
 		name: 'remPermTo',
 		description: 'Set `createRole` command unaccessible to member of role you want (only for Administrator of the server)',
-		usage: 'a!setPermTo {role}',
+		usage: '`a!setPermTo {role}`',
 		result: (msg) => {
 
 			let ref = firebase.database().ref('servers/'+msg.guild.id);
@@ -1871,7 +1903,7 @@ const commands = [
 	{
 		name: 'my',
 		description: 'Show information you want',
-		usage: 'a!my {setting}',
+		usage: '`a!my {setting}`',
 		group: 'personal',
 		result: (msg) => {
 			let sett = msg.content.split("my ")[1];
@@ -1896,7 +1928,7 @@ const commands = [
 	{
 		name: 'extension',
 		description: 'Show possible extensions of Ahri. These extensions add more commands and unlock more possibilities.',
-		usage: 'a!extension',
+		usage: '`a!extension`',
 		group: 'utility',
 		result: (msg) => {
 			let txt = '__**Extensions:**__\n';
