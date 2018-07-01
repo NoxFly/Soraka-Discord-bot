@@ -1711,7 +1711,7 @@ const commands = [
 			let roleOK = 0;
 			
 
-			setTImeout(function() {
+			setTimeout(function() {
 				console.log(perms);
 				if(a==0) {
 					ref.set({
@@ -1812,13 +1812,6 @@ const commands = [
 					});
 					perm.push(msg.channel.ownerID);
 				}
-
-				/*let j = 0;
-				for(i=0; i<perm.length; i++) {
-					if(msg.author.id==perm[i]) {
-						j++;
-					}
-				}*/
 
 				if(msg.author.id!=msg.guild.ownerID) {
 					msg.channel.send('You\'re not allowed to use this command');
