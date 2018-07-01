@@ -1899,7 +1899,8 @@ const commands = [
 		usage: 'a!extension',
 		group: 'utility',
 		result: (msg) => {
-			let txt = '__**Extensions:**__\n• Caitlyn `in development`';
+			let txt = '__**Extensions:**__\n';
+			txt += '• Caitlyn `in development`\nhttps://discordapp.com/oauth2/authorize?client_id=443430082459992065&scope=bot&permissions=1364720855';
 			return txt;
 		}
 	}
