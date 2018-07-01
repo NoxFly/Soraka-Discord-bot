@@ -1891,40 +1891,16 @@ const commands = [
 				return msg.author.bot;
 			}*/
 		}
-	}, {
-		name: 'mute',
-		description: 'mute someone',
-		usage: 'a!mute user#0000',
-		group: 'basic',
+	},
+
+	{
+		name: 'extension',
+		description: 'Show possible extensions of Ahri. These extensions add more commands and unlock more possibilities.',
+		usage: 'a!extension',
+		group: 'utility',
 		result: (msg) => {
-			let user = msg.content.split('mute ')[1];
-			user = user.replace(/<@!?(\d+)>/,'$1');
-			
-			if(admin(msg.author.id)) {
-				module.exports.run = async(bot,msg,args) => {
-					let muteRole = msg.guild.roles.find('name',"muted");
-
-					if(!muteRole) {
-						try {
-							muteRole = await msg.guild.createRole({
-								name: "muted",
-								color: "#000000",
-								permissions: []
-							});
-
-							msg.guild.channels.forEach(async(channel, id) => {
-								await channel.overwritePermission(muteRole, {
-									SEND_MESSAGES: false,
-									ADD_REACTIONS: false
-								});
-							msg.channel.send('Ok chef, jlai mute ce batard, on verra dans le temps');
-							});
-						} catch(error) {
-							console.log(error.stack);
-						}
-					}
-				}
-			}
+			let txt = '__**Extensions:**__\n• Caitlyn `in development`';
+			return txt;
 		}
 	}
 ];
