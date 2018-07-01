@@ -1725,7 +1725,7 @@ const commands = [
 				}
 
 				for(i=0;i<perms.length;i++) {
-					if(msg.guild.members.get(msg.author.id).roles.has('433658009013452800')) {
+					if(msg.guild.members.get(msg.author.id).roles.has(perms[i].toString())) {
 						roleOK++;
 					}
 				}
