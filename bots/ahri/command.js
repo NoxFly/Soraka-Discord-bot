@@ -388,7 +388,7 @@ const commands = [
 		}
 	},*/
 	{
-		name: 'clearChannel',
+		name: 'clear',
 		result: (msg) => {
 			if(msg.author.id==msg.guild.ownerID || admin(msg.author.id)) {
 				msg.channel.fetchMessages().then(function(list) {
@@ -400,7 +400,7 @@ const commands = [
 	// finie
 	{
 		name : 'set_lang',
-		description : 'set your personnal language.',
+		description : 'set your personnal language for the quotes.',
 		usage : '`a!set_lang EN/FR/IT/DE/ES/RU/JP/CH`',
 		group: 'personal',
 		result : (msg) => {
