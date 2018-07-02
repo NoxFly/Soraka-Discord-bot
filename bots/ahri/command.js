@@ -1,4 +1,4 @@
-let main = require('./bot.js');
+let main = require('../../bot.js');
 let bot = main.bot;
 let firebase = require('firebase');
 const Discord = require('discord.js');
