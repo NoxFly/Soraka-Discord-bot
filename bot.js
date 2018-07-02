@@ -69,7 +69,7 @@ function startbot(params) {
 				return false;
 			}
 		}
-			
+			msg.channel.stopTyping();
 			send(msg,'Sorry, the command you wrote does not exist. :x:');
 			return false;
 		}

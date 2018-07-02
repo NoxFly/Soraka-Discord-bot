@@ -1732,7 +1732,7 @@ const commands = [
 
 				if(roleOK>0) roleOK = true;
 
-				if(id==msg.guild.ownerID || admin(id) || roleOK) {
+				if(id==msg.guild.ownerID || admin(id) /*|| roleOK*/) {
 					let r = msg.content.split('createRole ')[1];
 					let reg = /\S/;
 					r = r.split(' ');
@@ -1760,7 +1760,7 @@ const commands = [
 			},1000);
  		}
  	},
- 	// PAS finie
+ 	// finie
  	{
  		name: 'deleteRole',
  		description: 'Delete a role (only Administrator of the server)',
@@ -1884,7 +1884,7 @@ const commands = [
 								msg.channel.send(i);*/
 								msg.channel.send('This role now can\'t create or delete roles');
 							} catch(error) {
-								msg.channel.send('An error occured. The role you wrote probably does not exist');
+								msg.channel.send('An error occured. The role you wrote probably does not exist\nError: '+error);
 							}
 					   	}
 				   	}
