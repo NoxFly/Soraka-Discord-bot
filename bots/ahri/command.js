@@ -72,11 +72,14 @@ function check(msg,ref,id,name) {
 }
 
 function profile(msg,id,name,avatar) {
+	msg.channel.send(id);
 	let refp = firebase.database().ref('profile/'+id);
 	let Actuel = [];
+	let a = 0;
 
 	refp.on('child_added', function(data) {
 		Actuel.push(data.val());
+		a++;
 	});
 	
 	try {
@@ -88,36 +91,40 @@ function profile(msg,id,name,avatar) {
 		});
 
 		setTimeout(function(){
-			 
-			let money = Actuel[5];
-			let xp = Actuel[10];
-			let lvl = Actuel[4];
-			let lang = Actuel[3];
-			let followers = Actuel2.length-1;
-			while(Math.pow(lvl,2.3)*10<xp) {
-				lvl++;
-			}
-			
-			refp.update({
-				level: lvl
-			});
-			
-			let lowN = Math.round(Math.pow(lvl-1,2.3)*10);
-			let upN = Math.round(Math.pow(lvl,2.3)*10);
-			let mXP = upN-lowN;
-			let aXP = xp-lowN;
-			let perc = Math.round((aXP*100)/mXP);
+			if(a==0) {
+				msg.channel.send('This user does not have an account');
+			} else {
+				let money = Actuel[5];
+				let xp = Actuel[10];
+				let lvl = Actuel[4];
+				let lang = Actuel[3];
+				let followers = Actuel2.length-1;
+				while(Math.pow(lvl,2.3)*10<xp) {
+					lvl++;
+				}
+				
+				refp.update({
+					level: lvl
+				});
+				
+				let lowN = Math.round(Math.pow(lvl-1,2.3)*10);
+				let upN = Math.round(Math.pow(lvl,2.3)*10);
+				let mXP = upN-lowN;
+				let aXP = xp-lowN;
+				let perc = Math.round((aXP*100)/mXP);
 
-			let embed = new Discord.RichEmbed()
-				.setAuthor(name+' ('+id+')')
-				.setColor(0x494C51)
-				.setThumbnail(avatar)
-				.addField("Level :",lvl)
-				.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
-				.addField("Money :",money)
-				.addField("Followers :",followers)
-				.addField("Lang :",lang);
+				let embed = new Discord.RichEmbed()
+					.setAuthor(name+' ('+id+')')
+					.setColor(0x494C51)
+					.addField("Level :",lvl)
+					.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
+					.addField("Money :",money)
+					.addField("Followers :",followers)
+					.addField("Lang :",lang);
+
+				if(avatar!=null) embed.setThumbnail(avatar);
 				msg.channel.send(embed);
+			}
 		},3000);
 	} catch(error) {
 		msg.channel.send('Sorry, an error occurred, I was unable to view the profile');
