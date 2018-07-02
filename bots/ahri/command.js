@@ -308,8 +308,8 @@ const commands = [
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				if(/a!add \d+ <@(\d+)>/.test(msg.content)) {
-					let id = msg.content.replace(/a!add -?\d+ <@(\d+)>/, '$1');
-					let add = msg.content.replace(/a!add (-?\d+) <@\d+>/, '$1');
+					let id = msg.content.replace(/a!add \d+ <@(\d+)>/, '$1');
+					let add = msg.content.replace(/a!add (\d+) <@\d+>/, '$1');
 					
 					bot.fetchUser(id).then(user => {
 						let name = user.username+'#'+user.discriminator;
@@ -332,7 +332,44 @@ const commands = [
 									ref.update({
 										money: money
 									});
-									msg.channel.send('money added');
+									msg.channel.send('money added from '+name);
+								}
+							},1000);
+					});
+				}
+			}
+		}
+	},
+
+	{
+		name: 'rem',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				if(/a!rem \d+ <@(\d+)>/.test(msg.content)) {
+					let id = msg.content.replace(/a!rem \d+ <@(\d+)>/, '$1');
+					let add = msg.content.replace(/a!rem (\d+) <@\d+>/, '$1');
+					bot.fetchUser(id).then(user => {
+						let name = user.username+'#'+user.discriminator;
+						let a = 0;
+						let us = [];
+						let ref = 	firebase.database().ref('profile/'+id);
+						ref.on('child_added', function(data) {
+							a++;
+							us.push(data.val());
+						});
+						
+						setTimeout(function() {
+								if(a==0) {
+									msg.channel.send('This user does not have an account');
+								} else {
+									let money = parseInt(us[5]);
+									
+									money -= parseInt(add);
+									
+									ref.update({
+										money: money
+									});
+									msg.channel.send('money removed from '+name);
 								}
 							},1000);
 					});
