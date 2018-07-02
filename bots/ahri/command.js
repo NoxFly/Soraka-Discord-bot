@@ -1841,8 +1841,7 @@ const commands = [
 			let ref = firebase.database().ref('servers/'+msg.guild.id);
 		   	let ref2 = firebase.database().ref('servers/'+msg.guild.id+'/permRole');
 
-		   	let role = msg.content.split('setPermTo ')[1];
-		   
+		   	let role = msg.content.split('remPermTo ')[1];
 		   	let perm = [];
 			let a = 0;
 			ref.on('child_added', function(data) {
@@ -1884,7 +1883,7 @@ const commands = [
 								msg.channel.send(i);*/
 								msg.channel.send('This role now can\'t create or delete roles');
 							} catch(error) {
-								msg.channel.send('An error occured. The role you wrote probably does not exist\nError: '+error);
+								msg.channel.send('An error occured. The role you wrote probably does not exist\n'+error);
 							}
 					   	}
 				   	}
