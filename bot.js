@@ -1,6 +1,6 @@
 var firebase = require('firebase');
 const Discord = require('discord.js');
-//
+let exportObj = module.exports = {};
 
 var aBotList = [
 	
@@ -35,6 +35,7 @@ aBotList.forEach(function(val, index, array) {
 
 function startbot(params) {
 	const bot = new Discord.Client();
+	exportObj.bot = bot;
 	let commands = require('./bots/'+params.name+'/command.js');
 	module.exports = bot;
 

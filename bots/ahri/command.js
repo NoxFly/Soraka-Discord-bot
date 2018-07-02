@@ -1,4 +1,5 @@
-let bot = require('../../bot.js');
+let main = require('./bot.js');
+let bot = main.bot;
 let firebase = require('firebase');
 const Discord = require('discord.js');
 
@@ -72,7 +73,6 @@ function check(msg,ref,id,name) {
 }
 
 function profile(msg,id,name,avatar) {
-	msg.channel.send(id);
 	let refp = firebase.database().ref('profile/'+id);
 	let Actuel = [];
 	let a = 0;
@@ -113,8 +113,9 @@ function profile(msg,id,name,avatar) {
 				let aXP = xp-lowN;
 				let perc = Math.round((aXP*100)/mXP);
 
-				if(avatar==null) {
-					let embed = new Discord.RichEmbed()
+                let embed;
+				if(avatar=="no") {
+					embed = new Discord.RichEmbed()
 						.setAuthor(name+' ('+id+')')
 						.setColor(0x494C51)
 						.addField("Level :",lvl)
@@ -123,7 +124,7 @@ function profile(msg,id,name,avatar) {
 						.addField("Followers :",followers)
 						.addField("Lang :",lang);
 				} else {
-					let embed = new Discord.RichEmbed()
+					embed = new Discord.RichEmbed()
 						.setAuthor(name+' ('+id+')')
 						.setColor(0x494C51)
 						.setThumbnail(avatar)
@@ -1034,7 +1035,8 @@ const commands = [
 
 			} else {
 				a1 = msg.content.replace(/a!profile <@!?(\d+)>/,'$1');
-				ref = firebase.database().ref('profile/'+a1);
+                ref = firebase.database().ref('profile/'+a1);
+                
 				let a = 0;
 				ref.on('child_added', function() {
 					a++;
@@ -1046,7 +1048,7 @@ const commands = [
 					} else {
 						bot.fetchUser(a1).then(user => {
 							a2 = user.username+'#'+user.discriminator;
-							profile(msg,a1,a2,null);
+							profile(msg,a1,a2,"no");
 						});
 						//msg.channel.send('this command is under development :tools:');
 					}
