@@ -113,16 +113,26 @@ function profile(msg,id,name,avatar) {
 				let aXP = xp-lowN;
 				let perc = Math.round((aXP*100)/mXP);
 
-				let embed = new Discord.RichEmbed()
-					.setAuthor(name+' ('+id+')')
-					.setColor(0x494C51)
-					.addField("Level :",lvl)
-					.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
-					.addField("Money :",money)
-					.addField("Followers :",followers)
-					.addField("Lang :",lang);
-
-				if(avatar!=null) embed.setThumbnail(avatar);
+				if(avatar==null) {
+					let embed = new Discord.RichEmbed()
+						.setAuthor(name+' ('+id+')')
+						.setColor(0x494C51)
+						.addField("Level :",lvl)
+						.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
+						.addField("Money :",money)
+						.addField("Followers :",followers)
+						.addField("Lang :",lang);
+				} else {
+					let embed = new Discord.RichEmbed()
+						.setAuthor(name+' ('+id+')')
+						.setColor(0x494C51)
+						.setThumbnail(avatar)
+						.addField("Level :",lvl)
+						.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
+						.addField("Money :",money)
+						.addField("Followers :",followers)
+						.addField("Lang :",lang);
+				}
 				msg.channel.send(embed);
 			}
 		},3000);
