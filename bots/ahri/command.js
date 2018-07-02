@@ -953,7 +953,7 @@ const commands = [
 
 					newRef.update({
 						daily: Now,
-						money: money,
+						money: money+200,
 						xp: xp+20,
 						level: lvl
 					});
@@ -1875,12 +1875,12 @@ const commands = [
 						} else {
 							try {
 								let fRole = msg.guild.roles.find('name',role).id;
-								msg.channel.send(fRole);
+								
 								let i = 0;
-								/*for(i; i<perm.length; i++) {
+								for(i; i<perm.length; i++) {
 									if(perm[i]==role) break;
 								}
-								msg.channel.send(i);*/
+								msg.channel.send(i);
 								msg.channel.send('This role now can\'t create or delete roles');
 							} catch(error) {
 								msg.channel.send('An error occured. The role you wrote probably does not exist\n'+error);
