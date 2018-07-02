@@ -388,7 +388,7 @@ const commands = [
 		}
 	},*/
 	{
-		name: 'clear',
+		name: 'clearChannel',
 		result: (msg) => {
 			if(msg.author.id==msg.guild.ownerID || admin(msg.author.id)) {
 				msg.channel.fetchMessages().then(function(list) {
