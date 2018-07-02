@@ -1877,11 +1877,19 @@ const commands = [
 								let fRole = msg.guild.roles.find('name',role).id;
 								
 								let i = 0;
+								let j = false;
 								for(i; i<perm.length; i++) {
-									if(perm[i]==role) break;
+									if(perm[i]==fRole) j = true;
 								}
-								msg.channel.send(i);
-								msg.channel.send('This role now can\'t create or delete roles');
+								
+								if(j) {
+									firebase.database().ref('servers/'+msg.guild.id+'/permRole/'+fRole).remove();
+									msg.channel.send('This role now can\'t create or delete roles');
+								} else {
+									msg.channel.send('This role does not exist or does not already have the permission');
+								}
+
+								
 							} catch(error) {
 								msg.channel.send('An error occured. The role you wrote probably does not exist\n'+error);
 							}

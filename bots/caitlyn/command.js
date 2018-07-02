@@ -74,20 +74,10 @@ function mtsm(mills) {
 }
 
 const commands = [
-{
-	name: 'test',
-	result: (msg) => {
-		if(ahri(msg)) {
-			return 'Ya Ahri';
-		} else {
-			return 'ya pas Ahri';
-		}
-	}
-},
-{
-   name : 'help',
-   description : 'show all commands with their description and usage',
-   result : (msg) => {
+	{
+		name : 'help',
+		description : 'show all commands with their description and usage',
+		result : (msg) => {
 			let reg = /^help (\w+)$/, txt = '';
 			
 			// Si il y a quelque chose après
@@ -119,13 +109,14 @@ const commands = [
 	},
 	
 	{
-   name : 'invite',
-   description : 'Show info about Caitlyn and her invite link',
-   result : (msg) => {
- 			let cmd = msg.content.replace('$step','');
-     return 'I\'m an extension of Ahri. If she is not on the server, I could not work.\nhttps://discordapp.com/api/oauth2/authorize?client_id=443430082459992065&permissions=2110258391&scope=bot';
+		name : 'invite',
+		description : 'Show info about Caitlyn and her invite link',
+		result : (msg) => {
+			let cmd = msg.content.replace('$step','');
+			return 'I\'m an extension of Ahri. If she is not on the server, I could not work.\nhttps://discordapp.com/api/oauth2/authorize?client_id=443430082459992065&permissions=2110258391&scope=bot';
 		}
 	},
+	
 	{
 		name : 'chp',
 		description : 'Play with your champion !',
