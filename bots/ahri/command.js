@@ -1883,7 +1883,7 @@ const commands = [
 								}
 								
 								if(j) {
-									firebase.database().ref('servers/'+msg.guild.id+'/permRole/'+fRole).delete();
+									firebase.database().ref('servers/'+msg.guild.id+'/permRole/'+fRole).remove();
 									msg.channel.send('This role now can\'t create or delete roles');
 								} else {
 									msg.channel.send('This role does not exist or does not already have the permission');
