@@ -502,7 +502,8 @@ const commands = [
 					.setDescription(link)
 					.addField('Note','If my creator doesn\'t have internet, I will not be able to be connected.')
 					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
-					.addField('Link :','https://paypal.me/NoxFly');
+					.addField('Link :','https://paypal.me/NoxFly')
+					.setImage('./ahri.gif');
 				return embed;
 			} else {
 				return 'not_find';
