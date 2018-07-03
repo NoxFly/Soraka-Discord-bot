@@ -2,6 +2,7 @@ let main = require('../../bot.js');
 let bot = main.bot;
 let firebase = require('firebase');
 const Discord = require('discord.js');
+let champ = require('../../champions.json');
 
 /* **** */
 let avatar = '';
@@ -1991,7 +1992,58 @@ const commands = [
 			txt += '• Caitlyn `in development`\nhttps://discordapp.com/oauth2/authorize?client_id=443430082459992065&scope=bot&permissions=1364720855';
 			return txt;
 		}
-	}
+	},
+
+	{
+		name: 'champ',
+		description: 'Show image of a League of Legends champion',
+		usage: '`a!champ {name} {skin digit}`',
+		group: 'game',
+		result: (msg) => {
+			if(msg.content=='a!champ') {
+            let r = Math.round(Math.random()*141);
+            let embed = new Discord.RichEmbed()
+                .setTitle(champ[r].name)
+                .setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+champ[r].name)
+                .setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[r].name+".png");
+           return embed;
+        } else if(/a!champ [a-zA-Z]+ skin \d+/.test(msg.content)) {
+        	let c = msg.content.split('champ ')[1];
+        	c = c.replace(/\d+/,'').replace(' skin ','');
+			c = c.toLowerCase();
+			for(i in champ) {
+				let ch = champ[i].name;
+				let cha = ch.toLowerCase();
+				if(c==cha) {
+					let s = msg.content.split('champ ')[1];
+					s = s.replace(/[a-zA-Z ]+/,'');
+					
+					let embed = new Discord.RichEmbed()
+						.setTitle(ch)
+						.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+ch+"_"+s+".jpg");
+					return embed;
+				}
+				msg.channel.send(ch);
+			}
+        	return 'This champion does not exist :x:';
+        } else {
+        	let c = msg.content.split('champ ')[1];
+        	c = c.toLowerCase();
+        	for(i in champ) {
+				let ch = champ[i].name;
+				let cha = ch.toLowerCase();
+				if(c==cha) {
+					let embed = new Discord.RichEmbed()
+						.setTitle(c)
+						.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+ch)
+						.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+ch+".png");
+					return embed;
+				}
+			}
+			return 'This champion does not exist :x:';
+        }
+      }
+    }
 ];
 
 module.exports = commands; 
