@@ -116,6 +116,24 @@ const commands = [
 			return 'I\'m an extension of Ahri. If she is not on the server, I could not work.\nhttps://discordapp.com/api/oauth2/authorize?client_id=443430082459992065&permissions=2110258391&scope=bot';
 		}
 	},
+
+	{
+		name : 'joke',
+		description : 'interact with Jinx',
+		result : (msg) => {
+			if(msg.author.id=='463677787790901248') {
+				if(msg.content=='a!joke') {
+					let embed = new Discord.RichEmbed()
+						.setTitle('Joke')
+						.setColor(0xFF0000)
+						.setDescription('It\s a crazy woman who destroy everything on his way, joking... And the worst, she has a police sister');
+				
+					msg.channel.send(embed);
+					return;
+				}
+			}
+		}
+	},
 	
 	{
 		name : 'chp',

@@ -47,18 +47,6 @@ function startbot(params) {
 		if(msg.author.id === '433365347463069716') {
 			return;
 		}
-
-		if(msg.author.id=='463677787790901248') {
-			if(msg.content=='a!joke') {
-				let embed = new Discord.RichEmbed()
-					.setTitle('Joke')
-					.setColor(0xFF0000)
-					.setDescription('It\s a crazy woman who destroy everything on his way, joking... And the worst, she has a police sister');
-			
-				msg.channel.send(embed);
-				return;
-			}
-		}
 		
 		let content = msg.content;
 		if(content.indexOf(params.tag) === 0) {
