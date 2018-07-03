@@ -486,7 +486,7 @@ const commands = [
 			}
 		}
 	},
-	// finie
+	// finie 
 	{
 		name : 'invite',
 		description : 'display the invite link of the super bot Ahri.',
