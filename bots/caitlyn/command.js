@@ -122,7 +122,7 @@ const commands = [
 		description : 'interact with Jinx',
 		result : (msg) => {
 			if(msg.author.id=='463677787790901248') {
-				if(msg.content=='a!joke') {
+				if(msg.content=='$joke') {
 					let embed = new Discord.RichEmbed()
 						.setTitle('Joke')
 						.setColor(0xFF0000)
