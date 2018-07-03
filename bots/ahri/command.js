@@ -2023,7 +2023,7 @@ const commands = [
 						.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+ch+"_"+s+".jpg");
 					return embed;
 				}
-				msg.channel.send(ch);
+				//msg.channel.send(ch);
 			}
         	return 'This champion does not exist :x:';
         } else {
