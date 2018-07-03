@@ -56,6 +56,7 @@ function startbot(params) {
 					.setDescription('It\s a crazy woman who destroy everything on his way, joking... And the worst, she has a police sister');
 			
 				msg.channel.send(embed);
+				return;
 			}
 		}
 		
