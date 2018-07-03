@@ -497,13 +497,12 @@ const commands = [
 				let link = 'https://discordapp.com/oauth2/authorize?client_id=%20433365347463069716&scope=bot&permissions=1364720855';
 				let embed = new Discord.RichEmbed()
 					.setTitle('Ahri\'s link')
-					.setThumbnail('https://cdn.discordapp.com/app-icons/433365347463069716/72eed0ac82ac1f947b1a413c4c6c9ad2.png')
+					.setThumbnail('https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif')
 					.setColor(0xDA004E)
 					.setDescription(link)
 					.addField('Note','If my creator doesn\'t have internet, I will not be able to be connected.')
 					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
-					.addField('Link :','https://paypal.me/NoxFly')
-					.setImage('./ahri.gif');
+					.addField('Link :','https://paypal.me/NoxFly');
 				return embed;
 			} else {
 				return 'not_find';
