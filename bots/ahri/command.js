@@ -2042,7 +2042,21 @@ const commands = [
 			return 'This champion does not exist :x:';
         }
       }
-    }
+	},
+
+	{
+		name: 'perm',
+		result: (msg) => {
+			let role = msg.content.split('perm')[1];
+			let id = msg.guild.roles.find('name',role);
+			if(id==undefined) {
+				return "The role probably does not exist";
+			} else {
+				msg.channel.send('ok');
+				return msg.guild.roles.find('id',id).permissions;
+			}
+		}
+	}
 ];
 
 module.exports = commands; 
