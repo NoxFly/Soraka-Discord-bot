@@ -2064,15 +2064,26 @@ const commands = [
 		name: 'guilds',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
-				let guildList = bot.guilds.array();
-				let txt = "";
-				try {
-					guildList.forEach(guild => txt += "• "+guild.name+"\n");
-				} catch (err) {
-					console.log("Could not send message to one server: "+guild.name);
-				}
+				if(msg.content=="b!guilds") {
+					let guildList = bot.guilds.array();
+					let txt = "";
+					try {
+						guildList.forEach(guild => txt += "• "+guild.name+"\n");
+					} catch (err) {
+						console.log("Could not return one server: "+guild.name);
+					}
 
-				return txt;
+					return txt;
+				} else {
+					let guildList = bot.guilds.array();
+					let txt = "";
+					try {
+						guildList.forEach(guild => txt += "• "+guild.name+"\n"+guild.id+"\n"+guild.owner+"\n");
+					} catch (err) {
+						console.log("Could not return one server: "+guild.name);
+					}
+					return txt;
+				}
 			}
 		}
 	}
