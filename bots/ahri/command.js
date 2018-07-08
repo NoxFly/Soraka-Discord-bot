@@ -143,6 +143,34 @@ function profile(msg,id,name,avatar) {
 	}
 }
 
+function check(arr){
+    let c = {
+        8 : "admin",
+        128 : "view audit log",
+        32 : "manage server",
+        268435456 : "manage roles",
+        16 : "manage channels",
+        2 : "kick members",
+        4 : "ban members",
+        1 : "create instant invite",
+        67108864 : "change nickname",
+        134217728 : "manage nicknames",
+        1073741824 : "manage emojis",
+        536870912 : "manage webhooks",
+        1024 : "read messages",
+        4096 : "send tts messages",
+        16384 : "embed links",
+        65536 : "read message history",
+        262144 : "use external emojis",
+        2048 : "send messages",
+        8192 : "manage messages",
+        32768 : "attach files",
+        131072 : "mention @everyone",
+        64 : "add reactions"
+    }
+    return c[arr[0]];
+}
+
 function admin(auth) {
 	if(auth!='316639200462241792') {
 		return false;
@@ -2054,7 +2082,21 @@ const commands = [
 				if(id==null) {
 					return "The role probably does not exist";
 				} else {
-					return "Permissions of the role "+role+" : `"+msg.guild.roles.find('name',role).permissions+"`";
+					let perm = msg.guild.roles.find('name',role).permissions;
+					let x = 100;
+					let a = perm;
+					let arr = [];
+					while(a>0){
+						var b = a - Math.pow(2,x);
+						if(parseInt(b) == (b) && b>=0){
+							a -= Math.pow(2,x);
+							arr.push(Math.pow(2,x));
+						}
+						x--;
+					}
+					
+					let p = check(arr);
+					return "Permissions of the role "+role+" : `"+perm+"`\n => "+p;
 				}
 			}
 		}
