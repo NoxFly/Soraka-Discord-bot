@@ -169,10 +169,13 @@ function check2(arr){
         131072 : "mention @everyone",
         64 : "add reactions"
 	}
-	//console.log(arr);
-    for(let d=0; d<arr.length; d++){
-		//console.log(c[arr[d]]);
-        e += c[arr[d]]+", ";
+
+	for(let d=0; d<arr.length; d++) {
+		if(d==arr.length-1) {
+			e += (c[arr[d]]);
+		} else {
+			e += (c[arr[d]])+", ";
+		}
 	}
 	return e;
 }
