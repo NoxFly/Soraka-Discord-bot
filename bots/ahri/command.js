@@ -2064,7 +2064,7 @@ const commands = [
 		name: 'guilds',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
-				if(msg.content=="b!guilds") {
+				if(msg.content=="a!guilds") {
 					let guildList = bot.guilds.array();
 					let txt = "";
 					try {
