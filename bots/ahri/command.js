@@ -143,7 +143,7 @@ function profile(msg,id,name,avatar) {
 	}
 }
 
-function check(arr){
+function check(arr,p){
     let c = {
         8 : "admin",
         128 : "view audit log",
@@ -167,8 +167,11 @@ function check(arr){
         32768 : "attach files",
         131072 : "mention @everyone",
         64 : "add reactions"
+	}
+	
+    for(let d=0; d<arr.length; d++){
+        p += c[arr[d]]+", ";
     }
-    return c[arr[0]];
 }
 
 function admin(auth) {
@@ -2095,7 +2098,8 @@ const commands = [
 						x--;
 					}
 					
-					let p = check(arr);
+					let p = "";
+					p = check(arr,p);
 					return "Permissions of the role "+role+" : `"+perm+"`\n => "+p;
 				}
 			}
