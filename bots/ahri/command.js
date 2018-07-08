@@ -143,7 +143,8 @@ function profile(msg,id,name,avatar) {
 	}
 }
 
-function check(arr,p){
+function check2(arr){
+	let e = "";
     let c = {
         8 : "admin",
         128 : "view audit log",
@@ -168,10 +169,12 @@ function check(arr,p){
         131072 : "mention @everyone",
         64 : "add reactions"
 	}
-	
+	//console.log(arr);
     for(let d=0; d<arr.length; d++){
-        p += c[arr[d]]+", ";
-    }
+		//console.log(c[arr[d]]);
+        e += c[arr[d]]+", ";
+	}
+	return e;
 }
 
 function admin(auth) {
@@ -1113,7 +1116,7 @@ const commands = [
 	
 				setTimeout(function() {
 					if(a==0) {
-						msg.channel.send('This user has not an account :frowning:');
+						msg.channel.send('This user does not have an account :frowning:');
 					} else {
 						bot.fetchUser(a1).then(user => {
 							a2 = user.username+'#'+user.discriminator;
@@ -2081,7 +2084,7 @@ const commands = [
 			if(admin(msg.author.id)) {
 				let role = msg.content.split('perm ')[1];
 				let id = msg.guild.roles.find('name',role);
-				console.log(msg.guild.roles.find('name',role).permissions);
+				
 				if(id==null) {
 					return "The role probably does not exist";
 				} else {
@@ -2097,10 +2100,10 @@ const commands = [
 						}
 						x--;
 					}
-					
+
 					let p = "";
-					p = check(arr,p);
-					return "Permissions of the role "+role+" : `"+perm+"`\n => "+p;
+					p = check2(arr,p);
+					return "Permissions of the role "+role+" : ```"+p+"```";
 				}
 			}
 		}
