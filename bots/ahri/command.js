@@ -145,7 +145,7 @@ function profile(msg,id,name,avatar) {
 
 function check2(arr){
 	let e = "";
-    let c = {
+    var c = {
         8 : "admin",
         128 : "view audit log",
         32 : "manage server",
@@ -167,8 +167,15 @@ function check2(arr){
         8192 : "manage messages",
         32768 : "attach files",
         131072 : "mention @everyone",
-        64 : "add reactions"
-	}
+        64 : "add reactions",
+        1024 : "view channel (voice)",
+        1048576 : "connect (voice)",
+        4194304 : "mute members (voice)",
+        16777216 : "move members (voice)",
+        2097152 : "speak (voice)",
+        8388608 : "deafen members (voice)",
+        33554432 : "use voice activity"
+    }
 
 	for(let d=0; d<arr.length; d++) {
 		if(d==arr.length-1) {
