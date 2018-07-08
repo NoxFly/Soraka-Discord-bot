@@ -2047,13 +2047,13 @@ const commands = [
 	{
 		name: 'perm',
 		result: (msg) => {
-			let role = msg.content.split('perm')[1];
+			let role = msg.content.split('perm ')[1];
 			let id = msg.guild.roles.find('name',role);
-			if(id==undefined) {
+			console.log(msg.guild.roles.find('name',role).permissions);
+			if(id==null) {
 				return "The role probably does not exist";
 			} else {
-				msg.channel.send('ok');
-				return msg.guild.roles.find('id',id).permissions;
+				return "Permissions of the role "+role+" : `"+msg.guild.roles.find('name',role).permissions+"`";
 			}
 		}
 	}
