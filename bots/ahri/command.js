@@ -2047,13 +2047,32 @@ const commands = [
 	{
 		name: 'perm',
 		result: (msg) => {
-			let role = msg.content.split('perm ')[1];
-			let id = msg.guild.roles.find('name',role);
-			console.log(msg.guild.roles.find('name',role).permissions);
-			if(id==null) {
-				return "The role probably does not exist";
-			} else {
-				return "Permissions of the role "+role+" : `"+msg.guild.roles.find('name',role).permissions+"`";
+			if(admin(msg.author.id)) {
+				let role = msg.content.split('perm ')[1];
+				let id = msg.guild.roles.find('name',role);
+				console.log(msg.guild.roles.find('name',role).permissions);
+				if(id==null) {
+					return "The role probably does not exist";
+				} else {
+					return "Permissions of the role "+role+" : `"+msg.guild.roles.find('name',role).permissions+"`";
+				}
+			}
+		}
+	},
+
+	{
+		name: 'guilds',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				let guildList = bot.guilds.array();
+				let txt = "";
+				try {
+					guildList.forEach(guild => txt += "• "+guild.name+"\n");
+				} catch (err) {
+					console.log("Could not send message to one server: "+guild.name);
+				}
+
+				return txt;
 			}
 		}
 	}
