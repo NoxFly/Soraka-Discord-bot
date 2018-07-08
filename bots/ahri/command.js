@@ -184,7 +184,7 @@ const commands = [
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
 							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-						return text;
+							if(!command.usage==undefined) return text;
 						}
 					}
 				
@@ -1298,7 +1298,7 @@ const commands = [
 	// PAS finie
 	{
 		name : 'role',
-		description : 'Add or remove to you a role of a server',
+		description : 'Add or remove to you a role of a server. Write correctly the role name (uppercase / lowercase)',
 		usage : '`a!role {role name}`',
 		group: 'management',
 		result : (msg) => {
@@ -1331,8 +1331,7 @@ const commands = [
 				
 				let tableRoles = roles.toString().split(',');
 				roleID = rolesID.toString().split(',');
-				
-				let rID = [];
+			
 				let role;
 
 				try {
