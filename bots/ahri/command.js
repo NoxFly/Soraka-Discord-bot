@@ -1082,7 +1082,7 @@ const commands = [
 	
 				setTimeout(function() {
 					if(a==0) {
-						msg.channel.send('This user have not account :frowning:');
+						msg.channel.send('This user has not an account :frowning:');
 					} else {
 						bot.fetchUser(a1).then(user => {
 							a2 = user.username+'#'+user.discriminator;
