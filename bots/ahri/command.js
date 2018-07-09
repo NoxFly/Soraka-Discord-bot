@@ -228,7 +228,7 @@ const commands = [
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
 							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(!command.usage==undefined) return text;
+							if(!commands.usage==undefined) return text;
 						}
 					}
 				
