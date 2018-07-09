@@ -2156,6 +2156,13 @@ const commands = [
 				}
 			}
 		}
+	},
+
+	{
+		name: 'a',
+		result: (msg) => {
+			return 'ah si ca marche';
+		}
 	}
 ];
 
