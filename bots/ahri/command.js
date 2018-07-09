@@ -228,7 +228,7 @@ const commands = [
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
 							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(!commands.group=='hidden') return text;
+							if(commands[i].group=='hidden'){} else {return text;}
 						}
 					}
 				
@@ -2159,7 +2159,7 @@ const commands = [
 	},
 
 	{
-		name: 'a',
+		name: 'ak',
 		result: (msg) => {
 			return 'ah si ca marche';
 		}
