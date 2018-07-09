@@ -228,7 +228,7 @@ const commands = [
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
 							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(!commands.usage==undefined) return text;
+							if(!commands.group=='hidden') return text;
 						}
 					}
 				
@@ -317,6 +317,7 @@ const commands = [
 	// finie
 	{
 		name: 'id',
+		group: 'hidden',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				msg.channel.send('server id: '+msg.guild.id).then((msg) => {
@@ -330,6 +331,7 @@ const commands = [
 	// pas finie
 	{
 		name: 'deleteChannel',
+		group: 'hidden',
 		result: (msg) => {
 			if(msg.author.id==msg.guild.ownerID || admin(msg.channel.id)) {
 				let a = 3;
@@ -350,6 +352,7 @@ const commands = [
 	// pas finie
 	{
 		name: 'add',
+		group: 'hidden',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				if(/a!add \d+ <@(\d+)>/.test(msg.content)) {
@@ -388,6 +391,7 @@ const commands = [
 
 	{
 		name: 'rem',
+		group: 'hidden',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				if(/a!rem \d+ <@(\d+)>/.test(msg.content)) {
@@ -434,6 +438,7 @@ const commands = [
 	},*/
 	{
 		name: 'clearChannel',
+		group: 'hidden',
 		result: (msg) => {
 			if(msg.author.id==msg.guild.ownerID || admin(msg.author.id)) {
 				msg.channel.fetchMessages().then(function(list) {
@@ -1725,7 +1730,7 @@ const commands = [
 		name : 'reset',
 		description : 'reset you password',
 		usage : '`a!reset`',
-		group: '',
+		group: 'hidden',
 		result : (msg) => {
 			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
@@ -1797,7 +1802,8 @@ const commands = [
  	{
  		name: 'createRole',
  		description: 'Create a role (only Administrator of the server)',
- 		usage: '`a!createRole {name} {+}` (if you want to add to you)',
+		usage: '`a!createRole {name} {+}` (if you want to add to you)',
+		group: 'hidden',
  		result: (msg) => {
 			let id = msg.author.id;
 			let ref = firebase.database().ref('servers/'+msg.guild.id);
@@ -1864,7 +1870,8 @@ const commands = [
  	{
  		name: 'deleteRole',
  		description: 'Delete a role (only Administrator of the server)',
- 		usage: '`a!deleteRole {name}`',
+		usage: '`a!deleteRole {name}`',
+		group: 'hidden',
  		result: (msg) => {
  			let id = msg.author.id;
  			
@@ -1883,7 +1890,8 @@ const commands = [
  	{
  		name: 'setPermTo',
  		description: 'Set `createRole` command accessible to member of role you want (only for Administrator of the server)',
- 		usage: '`a!setPermTo {role}`',
+		usage: '`a!setPermTo {role}`',
+		group: 'hidden',
  		result: (msg) => {
 
  			let ref = firebase.database().ref('servers/'+msg.guild.id);
@@ -1936,6 +1944,7 @@ const commands = [
 		name: 'remPermTo',
 		description: 'Set `createRole` command unaccessible to member of role you want (only for Administrator of the server)',
 		usage: '`a!setPermTo {role}`',
+		group: 'hidden',
 		result: (msg) => {
 
 			let ref = firebase.database().ref('servers/'+msg.guild.id);
@@ -2090,6 +2099,7 @@ const commands = [
 
 	{
 		name: 'perm',
+		group: 'hidden',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				let role = msg.content.split('perm ')[1];
@@ -2121,6 +2131,7 @@ const commands = [
 
 	{
 		name: 'guilds',
+		group: 'hidden',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				if(msg.content=="a!guilds") {
