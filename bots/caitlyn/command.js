@@ -47,9 +47,10 @@ function checkGame(msg,ref,id) {
 					critics: 0
 				}
 			});
-			msg.channel.send('Account created``` ```');
+			msg.channel.send('__Account created__`');
+		} else {
+			msg.channel.send('__Account already existing__');
 		}
-			msg.channel.send('Account already existing``` ```');
 	},1000);
 }
 
