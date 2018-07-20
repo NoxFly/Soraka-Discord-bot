@@ -2156,6 +2156,28 @@ const commands = [
 				}
 			}
 		}
+	}, 
+	
+	{
+		name: 'ans',
+		group: 'hidden',
+		result: (msg) => {
+			var id = msg.content.replace(/a!ans <@!?(\d+)>\s+\w+/,'$1');
+			var message = msg.content.replace(/a!ans <@!?\d+>\s+(\w+)/,'$1');
+
+			bot.fetchUser(id).then(user => {
+				user.createDM().then(channel => {
+					let embed = new Discord.RichEmbed()
+						.setAuthor("ドリアン#8850 answered you :")
+						.setColor(0x007FFF)
+						.setThumbnail(msg.author.avatarURL)
+						.addField("message :",message);
+					channel.send(embed);
+				});
+			});
+
+			return 'Message envoyé à <@'+id+'>';
+		}
 	}
 ];
 
