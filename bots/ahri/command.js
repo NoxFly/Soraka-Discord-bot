@@ -2162,7 +2162,7 @@ const commands = [
 		name: 'ans',
 		group: 'hidden',
 		result: (msg) => {
-			var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+]+/,'');
+			var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+,\/\\\.:\!\?\-\(\)]+/,'');
 			var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
 
 			bot.fetchUser(id).then(user => {
