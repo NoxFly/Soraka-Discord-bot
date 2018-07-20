@@ -2162,8 +2162,8 @@ const commands = [
 		name: 'ans',
 		group: 'hidden',
 		result: (msg) => {
-			var id = msg.content.replace(/a!ans <@!?(\d+)>\s+\w+/,'$1');
-			var message = msg.content.replace(/a!ans <@!?\d+>\s+(\w+)/,'$1');
+			var id = msg.content.replace(/b!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+]+/,'');
+			var message = msg.content.replace(/b!ans\s+<@!?\d+>\s+(\w+)/,'$1');
 
 			bot.fetchUser(id).then(user => {
 				user.createDM().then(channel => {
