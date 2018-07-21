@@ -1390,18 +1390,23 @@ const commands = [
 
 						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							msg.guild.members.get(msg.author.id).removeRole(role);
-							 
-							return add+' role unroled'
+							setTimeout(function() {
+								if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+									msg.channel.send(add+' role removed');
+								} else {
+									msg.channel.send('this role cannot be removed :thinking:');
+								}
+							},2000);
+						} else {
+							msg.guild.members.get(msg.author.id).addRole(role);
+							setTimeout(function() {
+								if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+									msg.channel.send(add+' role added');
+								} else {
+									msg.channel.send('this role cannot be added');
+								}
+							},2000);
 						}
-	
-						 
-						setTimeout(function() {
-							if(msg.guild.members.get(msg.author.id).addRole(role)) {
-								msg.channel.send(add+' role added');
-							} else {
-								msg.channel.send('this role cannot be added');
-							}
-						},500);
 					} else {
 						
 						add = add.split(/ ?, ?/g);
