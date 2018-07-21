@@ -2061,7 +2061,7 @@ const commands = [
            return embed;
         } else if(/a!champ [a-zA-Z]+ skin \d+/.test(msg.content)) {
         	let c = msg.content.split('champ ')[1];
-        	c = c.replace(/\d+/,'').replace(' skin ','');
+        	c = c.replace(/\d+/,'').replace(' skin ','').replace(/\s+/,'');
 			c = c.toLowerCase();
 			for(i in champ) {
 				let ch = champ[i].name;
@@ -2079,7 +2079,7 @@ const commands = [
 			}
         	return 'This champion does not exist :x:';
         } else {
-        	let c = msg.content.split('champ ')[1];
+        	let c = msg.content.split('champ ')[1].replace(/\s+/,'');
         	c = c.toLowerCase();
         	for(i in champ) {
 				let ch = champ[i].name;
