@@ -1362,7 +1362,7 @@ const commands = [
 			if(/roles(list)?/.test(msg.content)) {
 				for(i in NRoles) {
 					if(i==0) continue;
-					txt += NRoles[i]+' ('+IRoles[i]+')\n';
+					txt += NRoles[i]+/*' ('+IRoles[i]+')*/'\n';
 				}
 				
 				let tt = (NRoles.length)-1;
@@ -1452,7 +1452,7 @@ const commands = [
 					 
 					for(i in NRoles) {
 						if(i==0) continue;
-						txt += NRoles[i]+' ('+IRoles[i]+')\n';
+						txt += NRoles[i]+/*' ('+IRoles[i]+')*/'\n';
 					}
 			
 					let tt = (NRoles.length)-1;
