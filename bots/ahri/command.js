@@ -1347,7 +1347,7 @@ const commands = [
 	// PAS finie
 	{
 		name : 'role',
-		description : 'Add or remove to you a role of a server. Write correctly the role name (uppercase / lowercase)',
+		description : 'Add or remove to you a role of a server.',
 		usage : '`a!role {role name}`',
 		group: 'management',
 		result : (msg) => {
