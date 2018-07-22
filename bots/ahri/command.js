@@ -1377,8 +1377,6 @@ const commands = [
 				let add = msg.content.split('role ')[1];
 				let roles = msg.guild.roles.map(role => role.name);
 				let rolesID = msg.guild.roles.map(role => role.id);
-				
-				let tableRoles = roles.toString().split(',');
 				roleID = rolesID.toString().split(',');
 			
 				let role;
@@ -1847,7 +1845,7 @@ const commands = [
 							1: msg.guild.ownerID
 						}
 					});
-					perm.push(msg.channel.ownerID);
+					perms.push(msg.channel.ownerID);
 				}
 
 				for(i=0;i<perms.length;i++) {
@@ -1864,9 +1862,17 @@ const commands = [
 					r = r.split(' ');
 				
 					if(reg.test(r)) {
+						let a = 0;
+						let roles = msg.guild.roles.map(role => role.name);
+						let regRole = new RegExp(r.toLowerCase());
+						for(i=0; i<roles.length; i++) {
+							if(regRole.test(roles[i].toLowerCase())) a++;
+						}
+
+						if(a==0) return 'this role already exist !';
+
 						msg.guild.createRole({
 								name: r[0],
-								color: 'red'
 						});
 						
 						let res = "";
