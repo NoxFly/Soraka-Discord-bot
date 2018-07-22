@@ -1877,7 +1877,7 @@ const commands = [
 							},500);
 						}
 						setTimeout(function() {
-							msg.channel.send("the role `"+r+"` has been created "+res);
+							msg.channel.send("the role `"+r[0]+"` has been created "+res);
 						},600);
 					}
 				} else {
