@@ -1406,7 +1406,7 @@ const commands = [
 						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							msg.guild.members.get(msg.author.id).removeRole(role);
 							setTimeout(function() {
-								if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+								if(!msg.guild.members.get(msg.author.id).roles.has(role)) {
 									msg.channel.send(aRole+' role removed');
 								} else {
 									msg.channel.send('this role cannot be removed :thinking:');
