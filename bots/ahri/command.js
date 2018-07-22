@@ -1385,14 +1385,29 @@ const commands = [
 
 				try {
 					if(!(/,/.test(add))) {
+						let a = 0;
+						let aRole;
 						
-						role = msg.guild.roles.find('name',add).id;
+						let regRole = add.toLowerCase();
+						console.log(regRole);
+						regRole = new RegExp(regRole);
+						console.log(regRole);
+						for(i=1; i<roles.length; i++) {
+							let r = roles[i].toLowerCase();
+							if(regRole.test(r)) {
+								aRole = roles[i];
+								role = msg.guild.roles.find('name',roles[i]).id;
+								a++;
+							}
+						}
+
+						if(a==0) return 'The role doesn\'t exist';
 
 						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							msg.guild.members.get(msg.author.id).removeRole(role);
 							setTimeout(function() {
 								if(msg.guild.members.get(msg.author.id).roles.has(role)) {
-									msg.channel.send(add+' role removed');
+									msg.channel.send(aRole+' role removed');
 								} else {
 									msg.channel.send('this role cannot be removed :thinking:');
 								}
@@ -1401,13 +1416,13 @@ const commands = [
 							msg.guild.members.get(msg.author.id).addRole(role);
 							setTimeout(function() {
 								if(msg.guild.members.get(msg.author.id).roles.has(role)) {
-									msg.channel.send(add+' role added');
+									msg.channel.send(aRole+' role added');
 								} else {
 									msg.channel.send('this role cannot be added');
 								}
 							},1000);
 						}
-					} else {
+					}/* else {
 						
 						add = add.split(/ ?, ?/g);
 						 
@@ -1446,7 +1461,7 @@ const commands = [
 							return txt+"\n"+txt3;
 						}
 						return txt+'\n'+txt2+'\n'+txt3;;
-					}
+					}*/
 
 				} catch(error) {
 					 
