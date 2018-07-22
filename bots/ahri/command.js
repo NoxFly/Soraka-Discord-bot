@@ -1857,16 +1857,17 @@ const commands = [
 				if(roleOK>0) roleOK = true;
 
 				if(id==msg.guild.ownerID || admin(id) /*|| roleOK*/) {
-					let r = msg.content.split('createRole ')[1];
+					let r = msg.content.split('createRole ')[1].toLowerCase();
 					let reg = /\S/;
 					r = r.split(' ');
 				
 					if(reg.test(r)) {
 						let a = 0;
 						let roles = msg.guild.roles.map(role => role.name);
-						let regRole = new RegExp(r.toLowerCase());
+						let regRole = new RegExp(r);
 						for(i=0; i<roles.length; i++) {
-							if(regRole.test(roles[i].toLowerCase())) a++;
+							let ro = roles[i].toLowerCase();
+							if(regRole.test(ro)) a++;
 						}
 
 						if(a==0) return 'this role already exist !';
