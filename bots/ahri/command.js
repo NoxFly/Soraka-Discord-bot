@@ -1865,7 +1865,10 @@ const commands = [
 				
 					if(reg.test(r)) {
 						msg.guild.createRole({
-							name: r[0]
+							data: {
+								name: r[0],
+								color: 'red'
+							}
 						});
 						
 						let res = "";
