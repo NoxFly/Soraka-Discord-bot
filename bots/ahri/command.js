@@ -2170,26 +2170,40 @@ const commands = [
 		group: 'hidden',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
-				if(msg.content=="a!guilds") {
-					let guildList = bot.guilds.array();
-					let txt = "";
-					try {
-						guildList.forEach(guild => txt += "• "+guild.name+"\n");
-					} catch (err) {
-						console.log("Could not return one server: "+guild.name);
-					}
+				let guildList = bot.guilds.array();
+				let txt = "";
+				let aGuild = [];
 
-					return txt;
-				} else {
-					let guildList = bot.guilds.array();
-					let txt = "";
-					try {
-						guildList.forEach(guild => txt += "• Guild name: "+guild.name+"\n\tGuild ID: "+guild.id+"\n\tGuild owner: "+guild.owner+"\n");
-					} catch (err) {
-						console.log("Could not return one server: "+guild.name);
-					}
-					return txt;
+				try {
+					guildList.forEach(guild => 
+						aGuild.push(
+							{
+								name: guild.name,
+								id: guild.id,
+								owner: guild.owner
+							}
+						)
+					);
+				} catch (err) {
+					
 				}
+
+				let iPage = Math.round(msg.content.split('guilds ')[1]);
+				console.log(iPage);
+				if(iPage<1 || iPage>aGuild.length || isNaN(iPage)) iPage = 1
+				console.log(iPage);
+				let iEnd = iPage*10-1;
+				let iStart = iPage*10-10;
+				console.log(iStart);
+				let iMaxPage = Math.ceil(aGuild.length/10);
+				console.log(aGuild[0].name);
+				for(i=iStart; i<iEnd; i++) {
+					if(i==aGuild.length) break;
+					txt += "• Guild name: "+aGuild[i].name+"\n\tGuild ID: "+aGuild[i].id+"\n\tGuild owner: "+aGuild[i].owner+"\n"
+				}
+				
+				//txt += "• Guild name: "+guild.name+"\t\tGuild ID: "+guild.id+"\t\tGuild owner: "+guild.owner+"\n"
+				return '```'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```';
 			}
 		}
 	}, 
