@@ -1836,7 +1836,7 @@ const commands = [
 			
 
 			setTimeout(function() {
-				console.log(perms);
+				
 				if(a==0) {
 					ref.set({
 						id: msg.guild.id,
@@ -1849,7 +1849,7 @@ const commands = [
 				}
 
 				for(i=0;i<perms.length;i++) {
-					if(msg.guild.members.get(msg.author.id).roles.has(perms[i].toString())) {
+					if(msg.guild.members.get(msg.author.id).roles.has(perms[i])) {
 						roleOK++;
 					}
 				}
@@ -1858,38 +1858,41 @@ const commands = [
 
 				if(id==msg.guild.ownerID || admin(id) /*|| roleOK*/) {
 					let r = msg.content.split('createRole ')[1].toLowerCase();
+					console.log(r);
 					let reg = /\S/;
 					r = r.split(' ');
 				
-					if(reg.test(r)) {
+					if(reg.test(r[0])) {
 						let a = 0;
 						let roles = msg.guild.roles.map(role => role.name);
-						let regRole = new RegExp(r);
+						let regRole = new RegExp(r[0]);
 						for(i=0; i<roles.length; i++) {
 							let ro = roles[i].toLowerCase();
+							console.log(ro+'\t\t | \t'+regRole+' | \t'+(regRole.test(ro))+' | \t'+typeof(ro)+' | \t'+typeof(regRole));
 							if(regRole.test(ro)) a++;
 						}
 
-						if(a==0) return 'this role already exist !';
-
-						msg.guild.createRole({
-								name: r[0],
-						});
-						
-						let res = "";
-						if(r[1]=="+") {
+						if(a>0) {msg.channel.send('this role already exist !');}
+						else {
+							msg.guild.createRole({
+									name: r[0],
+							});
+							
+							let res = "";
+							if(r[1]=="+") {
+								setTimeout(function() {
+									res = "and added to you";
+									let role = msg.guild.roles.find('name',r[0]);
+									msg.guild.members.get(id).addRole(role);
+								},500);
+							}
 							setTimeout(function() {
-								res = "and added to you";
-								let role = msg.guild.roles.find('name',r[0]);
-								msg.guild.members.get(id).addRole(role);
-							},500);
+								msg.channel.send("the role `"+r[0]+"` has been created "+res);
+							},600);
 						}
-						setTimeout(function() {
-							msg.channel.send("the role `"+r[0]+"` has been created "+res);
-						},600);
 					}
 				} else {
-					return "you don't have the permission :x:";
+					msg.channel.send("you don't have the permission :x:");
 				}
 			},1000);
  		}
