@@ -2190,7 +2190,7 @@ const commands = [
 
 				let iPage = Math.round(msg.content.split('guilds ')[1]);
 				console.log(iPage);
-				if(iPage<1 || iPage>aGuild.length || isNaN(iPage)) iPage = 1
+				if(iPage<1 || iPage*10-10>aGuild.length || isNaN(iPage)) iPage = 1
 				console.log(iPage);
 				let iEnd = iPage*10-1;
 				let iStart = iPage*10-10;
