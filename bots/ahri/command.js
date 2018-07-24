@@ -16,7 +16,7 @@ function randPass() {
 	return Math.random().toString(36).slice(-8);
 }
 
-function getTop() {
+function getTop(msg) {
 	let ref = firebase.database().ref('profile');
 	var user = [];
 	ref.on('child_added', function(data) {
@@ -2262,7 +2262,7 @@ const commands = [
 		usage: '`a!top` or `scoreboard`',
 		group: 'social',
 		result: (msg) => {
-			getTop();
+			getTop(msg);
 		}
 	},
 
@@ -2270,7 +2270,7 @@ const commands = [
 		name: 'scoreboard',
 		group: 'hidden',
 		result: (msg) => {
-			getTop();
+			getTop(msg);
 		}
 	}
 ];
