@@ -2184,7 +2184,7 @@ const commands = [
 					let guildList = bot.guilds.array();
 					let txt = "";
 					try {
-						guildList.forEach(guild => txt += "• "+guild.name+"\n"+guild.id+"\n"+guild.owner+"\n");
+						guildList.forEach(guild => txt += "• Guild name: "+guild.name+"\n\tGuild ID: "+guild.id+"\n\tGuild owner: "+guild.owner+"\n");
 					} catch (err) {
 						console.log("Could not return one server: "+guild.name);
 					}
