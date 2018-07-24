@@ -17,11 +17,16 @@ function randPass() {
 }
 
 function getTop(msg) {
+	let type = '';
+	if(msg.content.includes('top')) {
+		type = 'top ';
+	} else {
+		type = 'scoreboard ';
+	}
 	let ref = firebase.database().ref('profile/');
 	let user = [];
 	ref.on('child_added', function(data) {
 		data = data.val();
-		console.log(data.level);
 		let sName = data.name+"";
 		user.push(
 			{
@@ -35,16 +40,23 @@ function getTop(msg) {
 
 	msg.channel.send('loading...').then(message => {
 		setTimeout(function() {
-			for(i in user) {
-				if(user[i].name=='undefined') continue;
+			let iPage = Math.round(msg.content.split(type)[1]);
+			console.log(iPage);
+			if(iPage<1 || iPage*10-10>user.length || isNaN(iPage)) iPage = 1
+			let iEnd = iPage*10-1;
+			let iStart = iPage*10-10;
+			let iMaxPage = Math.ceil((user.length)/10);
+			console.log('user length: '+(user.length-1)+' | iPage: '+iPage+' | iStart: '+iStart+' | iEnd: '+iEnd+' | iMaxPage: '+iMaxPage);
+
+			for(i=iStart; i<iEnd; i++) {
+				if(i==user.length-1) break;
 				let n = user[i].name+"";
 				let l = user[i].level+"";
 				txt += n+(' '.repeat(30-n.length))+l+(' '.repeat(20-l.length))+user[i].xp+'\n';
 			}
-				message.edit('```'+txt+'```');
+				message.edit('```'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+(user.length-1)+' total users```');
 		},2000);
 	});
-
 }
 
 function check(msg,ref,id,name) {
