@@ -17,26 +17,33 @@ function randPass() {
 }
 
 function getTop(msg) {
-	let ref = firebase.database().ref('profile');
-	var user = [];
+	let ref = firebase.database().ref('profile/');
+	let user = [];
 	ref.on('child_added', function(data) {
 		data = data.val();
-		levels.push(data.level);
-		xp.push(
+		console.log(data.level);
+		let sName = data.name+"";
+		user.push(
 			{
-				name: data.name,
+				name: sName.replace(/#\d+/,''),
 				level: data.level,
 				xp: data.xp
 			}
 		);
 	});
+	let txt = "NAME:"+(' '.repeat(25))+"LEVEL:"+(' '.repeat(14))+"XP:\n";
 
-	let txt = "NAME:\t\tLEVEL:\t\tXP:\n";
-	for(i in user) {
-		txt += user[i].name+'\t\t'+user[i].level+'\t\t'+user[i].xp;
-	}
-
-	msg.channel.send('```'+txt+'```');
+	msg.channel.send('loading...').then(message => {
+		setTimeout(function() {
+			for(i in user) {
+				if(user[i].name=='undefined') continue;
+				let n = user[i].name+"";
+				let l = user[i].level+"";
+				txt += n+(' '.repeat(30-n.length))+l+(' '.repeat(20-l.length))+user[i].xp+'\n';
+			}
+				message.edit('```'+txt+'```');
+		},2000);
+	});
 
 }
 
