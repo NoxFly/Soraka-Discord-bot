@@ -19,7 +19,7 @@ function randPass() {
 function getTop() {
 	let ref = firebase.database().ref('profile');
 	var user = [];
-	re.on('child_added', function(data) {
+	ref.on('child_added', function(data) {
 		data = data.val();
 		levels.push(data.level);
 		xp.push(
