@@ -16,6 +16,30 @@ function randPass() {
 	return Math.random().toString(36).slice(-8);
 }
 
+function getTop() {
+	let ref = firebase.database().ref('profile');
+	var user = [];
+	re.on('child_added', function(data) {
+		data = data.val();
+		levels.push(data.level);
+		xp.push(
+			{
+				name: data.name,
+				level: data.level,
+				xp: data.xp
+			}
+		);
+	});
+
+	let txt = "NAME:\t\tLEVEL:\t\tXP:\n";
+	for(i in levels) {
+		txt += user[i].name+'\t\t'+user[i].level+'\t\t'+user[i].xp;
+	}
+
+	msg.channel.send('```'+txt+'```');
+
+}
+
 function check(msg,ref,id,name) {
 	ref = firebase.database().ref('profile/'+id);
 	let a = 0;
@@ -2212,21 +2236,41 @@ const commands = [
 		name: 'ans',
 		group: 'hidden',
 		result: (msg) => {
-			var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+,\/\\\.:\!\?\-\(\)\'\"]+/,'');
-			var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
+			if(admin(id)) {
+				var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+,\/\\\.:\!\?\-\(\)\'\"]+/,'');
+				var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
 
-			bot.fetchUser(id).then(user => {
-				user.createDM().then(channel => {
-					let embed = new Discord.RichEmbed()
-						.setAuthor("ドリアン#8850 answered you :")
-						.setColor(0x007FFF)
-						.setThumbnail(msg.author.avatarURL)
-						.addField("message :",message);
-					channel.send(embed);
+				bot.fetchUser(id).then(user => {
+					user.createDM().then(channel => {
+						let embed = new Discord.RichEmbed()
+							.setAuthor("ドリアン#8850 answered you :")
+							.setColor(0x007FFF)
+							.setThumbnail(msg.author.avatarURL)
+							.addField("message :",message);
+						channel.send(embed);
+					});
 				});
-			});
 
-			return 'Message envoyé à <@'+id+'>';
+				return 'Message envoyé à <@'+id+'>';
+			}
+		}
+	},
+
+	{
+		name: 'top',
+		description: 'Show the scoreboard of Ahri\'s users',
+		usage: '`a!top` or `scoreboard`',
+		group: 'social',
+		result: (msg) => {
+			getTop();
+		}
+	},
+
+	{
+		name: 'scoreboard',
+		group: 'hidden',
+		result: (msg) => {
+			getTop();
 		}
 	}
 ];
