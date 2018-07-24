@@ -1906,12 +1906,17 @@ const commands = [
  		result: (msg) => {
  			let id = msg.author.id;
  			
- 			if(id==msg.guild.ownerID) {
+ 			if(id==msg.guild.ownerID || admin(id)) {
  				let r = msg.content.split('deleteRole ')[1];
  				let reg = /\S/;
  				if(reg.test(r)) {
- 					msg.guild.roles.find('name',r).delete();
- 					return 'role `'+r+'` deleted';
+ 					try {
+						 let idR = msg.guild.roles.find('name',r).id;
+						 msg.guild.roles.find('name',r).delete();
+						 return 'role `'+r+'` deleted';
+					 } catch(error) {
+						 return 'The role does not exist';
+					 }
  				}
  				
  			}
