@@ -32,7 +32,7 @@ function getTop() {
 	});
 
 	let txt = "NAME:\t\tLEVEL:\t\tXP:\n";
-	for(i in levels) {
+	for(i in user) {
 		txt += user[i].name+'\t\t'+user[i].level+'\t\t'+user[i].xp;
 	}
 
