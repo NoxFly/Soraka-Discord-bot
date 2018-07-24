@@ -31,7 +31,7 @@ function getTop(msg) {
 			}
 		);
 	});
-	let txt = "NAME:"+(' '.repeat(25))+"LEVEL:"+(' '.repeat(14))+"XP:\n";
+	let txt = "NAME:"+(' '.repeat(25))+"LEVEL:"+(' '.repeat(14))+"XP:\n"+"-".repeat(63)+"\n";
 
 	msg.channel.send('loading...').then(message => {
 		setTimeout(function() {
