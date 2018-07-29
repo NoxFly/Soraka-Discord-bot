@@ -5,264 +5,18 @@ const Discord = require('discord.js');
 let champ = require('../../champions.json');
 
 /* **** */
-let avatar = '';
-
 
 // Basic - Games - Utility - Personal - Social
 // management
 
 // External functions
-function randPass() {
-	return Math.random().toString(36).slice(-8);
-}
-
-function getTop(msg) {
-	let type = '';
-	if(msg.content.includes('top')) {
-		type = 'top ';
-	} else {
-		type = 'scoreboard ';
-	}
-	let ref = firebase.database().ref('profile/');
-	let user = [];
-	let id = msg.author.id;
-
-	ref.on('child_added', function(data) {
-		data = data.val();
-		let sName = data.name+"";
-		user.push(
-			{
-				name: sName.replace(/#\d+/,''),
-				level: data.level,
-				xp: data.xp,
-				id: data.id
-			}
-		);
-	});
-	
-	let txt = "📕 Scoreboard:\nNAME:"+(' '.repeat(28))+"XP:\n\n";
-	msg.channel.send('loading...').then(message => {
-		setTimeout(function() {
-			user.sort(function(a,b) {return b.xp-a.xp});
-
-			id = new RegExp(id);
-			
-			let j = 0;
-			for(i in user) {
-				j++;
-				console.log(user[i].id+' | '+id.test(user[i].id));
-				if(id.test(user[i].id)) break;
-			}
-
-			let iPage = Math.round(msg.content.split(type)[1]);
-			console.log(iPage);
-			if(iPage<1 || iPage*10-10>user.length || isNaN(iPage)) iPage = 1
-			let iEnd = iPage*10-1;
-			let iStart = iPage*10-10;
-			let iMaxPage = Math.ceil((user.length)/10);
-			console.log('user length: '+(user.length-1)+' | iPage: '+iPage+' | iStart: '+iStart+' | iEnd: '+iEnd+' | iMaxPage: '+iMaxPage);
-
-			for(i=iStart; i<iEnd; i++) {
-				if(i==user.length-1) break;
-				let n = user[i].name+"";
-				let l = user[i].level+"";
-				txt += n+'('+l+')'+(' '.repeat(30-n.length))+user[i].xp+'\n';
-			}
-				message.edit('```'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+(user.length)+' total users\nYour place: '+j+'```');
-		},2000);
-	});
-}
-
-function check(msg,ref,id,name) {
-	ref = firebase.database().ref('profile/'+id);
-	let a = 0;
-	ref.on('child_added', function() {
-		a++;
-	});
-	
-	setTimeout(function() {
-		if(a==0) {
-			let username = name;
-			let password = randPass();
-			let newRef = firebase.database().ref('profile').child(id);
-			newRef.set({
-				daily: 0,
-				followers: {
-					test: 'test'
-				},
-				id: id,
-				lang: 'EN',
-				level: 1,
-				money: 0,
-				name: name,
-				notes: {
-					note: '**your notes :**'
-				},
-				post: 0,
-				rep: {
-					repPT: 0,
-					repTi: 0
-				},
-				xp: 0,
-				zParam: {
-					_reset: 0,
-					_resetTime: 0,
-					desc: 'A very mysterious person',
-					mpAut: 0,
-					password: password,
-					username: username,
-					zAvatar: avatar,
-					zBG: 'theme/img/pic.png'
-				}
-			});
-			
-			msg.guild.members.get(id).createDM()
-				.then(channel => {
-					channel.send('• Username: '+username+'\n• Password: '+password+'\nConnect you to http://dorian.thivolle.net/ahri to manage your account.')
-					.then(sentMessage => sentMessage.pin());
-				});
-				
-		} else {
-			firebase.database().ref('profile/'+id+'/zParam').update({
-				zAvatar: avatar
-			});
-		}
-	},2000);
-}
-
-function profile(msg,id,name,avatar) {
-	let refp = firebase.database().ref('profile/'+id);
-	let Actuel = [];
-	let a = 0;
-
-	refp.on('child_added', function(data) {
-		Actuel.push(data.val());
-		a++;
-	});
-	
-	try {
-		let refF = firebase.database().ref('profile/'+id+'/followers');
-		let Actuel2 = [];
-
-		refF.on('child_added', function(data) {
-			Actuel2.push(data.val());
-		});
-
-		setTimeout(function(){
-			if(a==0) {
-				msg.channel.send('This user does not have an account');
-			} else {
-				let money = Actuel[5];
-				let xp = Actuel[10];
-				let lvl = Actuel[4];
-				let lang = Actuel[3];
-				let followers = Actuel2.length-1;
-				while(Math.pow(lvl,2.3)*10<xp) {
-					lvl++;
-				}
-				
-				refp.update({
-					level: lvl
-				});
-				
-				let lowN = Math.round(Math.pow(lvl-1,2.3)*10);
-				let upN = Math.round(Math.pow(lvl,2.3)*10);
-				let mXP = upN-lowN;
-				let aXP = xp-lowN;
-				let perc = Math.round((aXP*100)/mXP);
-
-                let embed;
-				if(avatar=="no") {
-					embed = new Discord.RichEmbed()
-						.setAuthor(name+' ('+id+')')
-						.setColor(0x494C51)
-						.addField("Level :",lvl)
-						.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
-						.addField("Money :",money)
-						.addField("Followers :",followers)
-						.addField("Lang :",lang);
-				} else {
-					embed = new Discord.RichEmbed()
-						.setAuthor(name+' ('+id+')')
-						.setColor(0x494C51)
-						.setThumbnail(avatar)
-						.addField("Level :",lvl)
-						.addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
-						.addField("Money :",money)
-						.addField("Followers :",followers)
-						.addField("Lang :",lang);
-				}
-				msg.channel.send(embed);
-			}
-		},3000);
-	} catch(error) {
-		msg.channel.send('Sorry, an error occurred, I was unable to view the profile');
-	}
-}
-
-function check2(arr){
-	let e = "";
-    var c = {
-        8 : "admin",
-        128 : "view audit log",
-        32 : "manage server",
-        268435456 : "manage roles",
-        16 : "manage channels",
-        2 : "kick members",
-        4 : "ban members",
-        1 : "create instant invite",
-        67108864 : "change nickname",
-        134217728 : "manage nicknames",
-        1073741824 : "manage emojis",
-        536870912 : "manage webhooks",
-        1024 : "read messages",
-        4096 : "send tts messages",
-        16384 : "embed links",
-        65536 : "read message history",
-        262144 : "use external emojis",
-        2048 : "send messages",
-        8192 : "manage messages",
-        32768 : "attach files",
-        131072 : "mention @everyone",
-        64 : "add reactions",
-        1024 : "view channel (voice)",
-        1048576 : "connect (voice)",
-        4194304 : "mute members (voice)",
-        16777216 : "move members (voice)",
-        2097152 : "speak (voice)",
-        8388608 : "deafen members (voice)",
-        33554432 : "use voice activity"
-    }
-
-	for(let d=0; d<arr.length; d++) {
-		if(d==arr.length-1) {
-			e += (c[arr[d]]);
-		} else {
-			e += (c[arr[d]])+", ";
-		}
-	}
-	return e;
-}
-
-function admin(auth) {
-	if(auth!='316639200462241792') {
-		return false;
-	}
-	return true;
-}
-
-function mtsm(mills) {
-	let milliseconds = parseInt((mills%1000)/100),
-	seconds = parseInt((mills/1000)%60),
-	minutes = parseInt((mills/(1000*60))%60),
-	hours = parseInt((mills/(1000*60*60))%24);
-
-	hours = (hours < 10) ? "0" + hours : hours;
-	minutes = (minutes < 10) ? "0" + minutes : minutes;
-	seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-	return hours + ":" + minutes + ":" + seconds ;seconds ;
-}
+let profile = require('./../../functions/profile.js');
+let randpass = require('./../../functions/randpass.js');
+let admin = require('./../../functions/admin.js');
+let check = require('./../../functions/check.js');
+let check2 = require('./../../functions/checktwo.js');
+let getTop = require('./../../functions/gettop.js');
+let mtsm = require('./../../functions/mtsm.js');
 
 // *** //
 
@@ -1345,7 +1099,6 @@ const commands = [
 		usage : '`a!unfollow {user tag}`',
 		group: 'social',
 		result : (msg) => {
-			 
 			let m = msg.content.substring(11);
 			let id = new RegExp('<@!?'+msg.author.id+'>');
 			let idP = msg.author.id;
@@ -2304,6 +2057,44 @@ const commands = [
 		group: 'hidden',
 		result: (msg) => {
 			getTop(msg);
+		}
+	},
+
+	{
+		name: 'color',
+		description: 'Personalize your profile embed color',
+		usage: '`a!color #FFFFFF` or `a!color 0xFFFFFF`',
+		group: 'personal',
+		result: (msg) => {
+			let id = msg.author.id;
+			let ref = firebase.database().ref('profile/'+id);
+			let name = msg.author.username+'#'+msg.author.discriminator;
+			let avatar = msg.author.avatarURL;
+			let Actuel = [];
+			ref.on('child_added', function(data) {
+				Actuel.push(data.val());
+  	 		});
+			check(msg,ref,id,name,avatar);
+			let ref2 = firebase.database().ref('profile/'+id+'/zzChoice/');
+
+			let color = msg.content.split('color ')[1];
+			if(color===undefined) return 'Not possible to set a color :cry:';
+			
+			if(/(#|0x)?([a-f0-9A-F]{3}){1,2}/.test(color)) {
+				let c = color.replace('#','').replace('0x','');
+				if(c.length==3) {
+					c = '0x'+c[0]+c[0]+c[1]+c[1]+c[2]+c[2];
+				}
+
+				msg.channel.send('Color updated ('+c+')');
+				setTimeout(function() {
+					ref2.update({
+						color: c
+					});
+				},1000);
+			} else {
+				return 'color couldn\'t be found.';
+			}
 		}
 	}
 ];
