@@ -5,18 +5,19 @@ const Discord = require('discord.js');
 
 const reaction_commands = [
     {
-        from : 'announce',
+        from : '**Announce',
         emoji : '👍',
         result : (reaction,user) => {
-          let message = reaction.message;
-          let id = message.content.split('Announce')[1].split(':')[0];
-          let content = message.content.split(':')[1].split('React with 👍 to apply')[0];
-          user.sendMessage(`Vous avez accepté l'annonce numéro ${id}.\nVoici son contenu : ${content}`);
+            return 'tu as liké';
+            /*let message = reaction.message;
+            let id = message.content.split('Announce')[1].split(':')[0];
+            let content = message.content.split(':')[1].split('React with 👍 to apply')[0];
+            user.sendMessage(`Vous avez accepté l'annonce numéro ${id}.\nVoici son contenu : ${content}`);*/
         }
     },
 
     {
-        from : 'announce',
+        from : '**Announce',
         emoji : '👎',
         result : (reaction,user) => {
           return '<@'+user.id+'> Tu n\'es pas d\'accord';

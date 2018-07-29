@@ -91,8 +91,24 @@ function startbot(params) {
 			msg.channel.send(message);
 		}
 	}
-	function find(content, txt){
-		return content.indexOf(txt)==params.tag.length;
+	function find(content, txt,discussion = false){
+		if(discussion == false){
+		  return content.indexOf(txt)==params.tag.length;
+		}else{
+		  return content.indexOf(txt)==0;
+		}
+	}
+
+	function react(cmds,reaction,user,content) {
+		for(let a = 0;a<cmds.length;a++) {
+			let command = cmds[a];
+			if(find(content, command.from, true) && reaction.emoji.name === command.emoji) {
+				let txt = command.result(reaction,user);
+				if(txt != null){
+				  send(reaction.message, txt);
+				}
+			}
+		}
 	}
 
 	bot.login(params.token);

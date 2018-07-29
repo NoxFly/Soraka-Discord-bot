@@ -2098,8 +2098,28 @@ const commands = [
 		usage: '`a!announce {msg}`',
 		group: 'social',
 		result: (msg) => {
-			let message = msg.content.split('announce')[1];
+			let message = msg.content.split('announce ')[1];
 			return `**Announce from ${msg.author.username}#${msg.author.discriminator}:**\n`+message+'\nReact with 👍 to apply';
+		}
+	},
+
+	{
+		name: 'maj',
+		group: 'hidden',
+		result: (msg) => {
+			let ref = firebase.database().ref('profile/');
+			let users = [];
+			ref.on('child_added', function(data) {
+				data = data.val();
+				users.push(data.id);
+			});
+			   
+			setTimeout(function() {
+				for(i in users) {
+					console.log(users[i]);
+				}
+			},1000);
+
 		}
 	}
 ];
