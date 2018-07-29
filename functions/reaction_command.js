@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 
 const reaction_commands = [
     {
-        from : 'Annonce',
+        from : 'announce',
         emoji : '👍',
         result : (reaction,user) => {
           let message = reaction.message;
@@ -16,7 +16,7 @@ const reaction_commands = [
     },
 
     {
-        from : 'Annonce',
+        from : 'announce',
         emoji : '👎',
         result : (reaction,user) => {
           return '<@'+user.id+'> Tu n\'es pas d\'accord';

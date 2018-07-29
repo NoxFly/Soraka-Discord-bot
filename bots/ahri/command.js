@@ -951,13 +951,7 @@ const commands = [
 						//msg.channel.send('this command is under development :tools:');
 					}
 				},1000);
-
-				
-				
-				
 			}
-			
-			 
 			return '';
 		}
 	},
@@ -2095,6 +2089,17 @@ const commands = [
 			} else {
 				return 'color couldn\'t be found.';
 			}
+		}
+	},
+
+	{
+		name: 'announce',
+		description: 'Create an announce on all Ahri\'s servers',
+		usage: '`a!announce {msg}`',
+		group: 'social',
+		result: (msg) => {
+			let message = msg.content.split('announce')[1];
+			return `**Announce from ${msg.author.username}#${msg.author.discriminator}:**\n`+message;
 		}
 	}
 ];
