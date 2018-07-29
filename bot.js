@@ -2,19 +2,18 @@ var firebase = require('firebase');
 const Discord = require('discord.js');
 let exportObj = module.exports = {};
 let reactionCommands = require('./functions/reaction_command.js');
-let react = require('./functions/react.js');
 
 var aBotList = [
 	
 	{
 		'name'	:	'ahri',
 		'tag'  	: 	'a!',
-		'token' :	process.env.TOKEN_AHRI
+		'token' :	''//process.env.TOKEN_AHRI
 	},
 	{
 		'name'	:	'caitlyn',
 		'tag'	:	'$',
-		'token'	:	process.env.TOKEN_CAITLYN
+		'token'	:	''//process.env.TOKEN_CAITLYN
 	}
 ];
 
