@@ -1,6 +1,8 @@
 var firebase = require('firebase');
 const Discord = require('discord.js');
 let exportObj = module.exports = {};
+let reactionCommands = require('./functions/reaction_command.js');
+let react = require('./functions/react.js');
 
 var aBotList = [
 	
@@ -78,6 +80,10 @@ function startbot(params) {
 	
 	bot.on('guildMemberAdd', (msg) => {
 		msg.author.toString().send("Welcome to the server!\nI can't be connected 24/7, but my creator try to gain money to host me on VPS.\nhttps://paypal.me/NoxFly\nEven if I get one dollar per person I will be able to be connected 1 years ! Thanks :smile:"); 
+	});
+
+	bot.on('messageReactionAdd', (reaction,user) => {
+		react(reactionCommands, reaction, user, reaction.message.content);
 	});
 
 	function send(msg,message){
