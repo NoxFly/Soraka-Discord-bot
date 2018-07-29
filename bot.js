@@ -49,7 +49,7 @@ function startbot(params) {
 		if(msg.author.id === '433365347463069716') {
 			return;
 		}
-		
+		if(msg.author.id!='355389600044417025' && msg.author.id!='316639200462241792') send('I could not be used because I am maintenance...');
 		let content = msg.content;
 		if(content.indexOf(params.tag) === 0) {
 	
