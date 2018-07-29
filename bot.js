@@ -53,6 +53,7 @@ function startbot(params) {
 			send(msg, 'I could not be used because I am maintenance...');
 			return;
 		}
+		return;
 		let content = msg.content;
 		if(content.indexOf(params.tag) === 0) {
 	
