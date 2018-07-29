@@ -18,25 +18,35 @@ const check = function(msg,ref,id,name, avatar) {
                 let password = randPass();
                 let newRef = firebase.database().ref('profile').child(id);
                 newRef.set({
-                    daily: 0,
+                    // les infos qui ne changent pas
+                    user: {
+                        id: id,
+                        name: name,
+                    },
+                    // ce qui necessite du delay
+                    delay: {
+                        daily: 0,
+                        post: 0,
+                        rep: 0,
+                        ad: 0
+                    },
+                    // les follows
                     followers: {
                         test: 'test'
                     },
-                    id: id,
-                    lang: 'EN',
-                    level: 1,
-                    money: 0,
-                    name: name,
+                    // les notes
                     notes: {
                         note: '**your notes :**'
                     },
-                    post: 0,
-                    rep: {
-                        repPT: 0,
-                        repTi: 0
+                    // les variables qui changent dans le temps
+                    data: {
+                        rep: 0,
+                        level: 1,
+                        money: 0,
+                        xp: 0,
                     },
-                    xp: 0,
-                    zParam: {
+                    // les param de compte (important et pas lié au client discord)
+                    param: {
                         _reset: 0,
                         _resetTime: 0,
                         desc: 'A very mysterious person',
@@ -45,6 +55,11 @@ const check = function(msg,ref,id,name, avatar) {
                         username: username,
                         zAvatar: avatar,
                         zBG: 'theme/img/pic.png'
+                    },
+                    // les choix du user sur les couleurs de son profil etc...
+                    choices: {
+                        lang: 'EN',
+                        color: '0x494C51'
                     }
                 });
                 
