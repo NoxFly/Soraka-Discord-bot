@@ -2099,7 +2099,7 @@ const commands = [
 		group: 'social',
 		result: (msg) => {
 			let message = msg.content.split('announce')[1];
-			return `**Announce from ${msg.author.username}#${msg.author.discriminator}:**\n`+message;
+			return `**Announce from ${msg.author.username}#${msg.author.discriminator}:**\n`+message+'\nReact with 👍 to apply';
 		}
 	}
 ];

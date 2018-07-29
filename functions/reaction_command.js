@@ -9,7 +9,7 @@ const reaction_commands = [
         emoji : '👍',
         result : (reaction,user) => {
           let message = reaction.message;
-          let id = message.content.split('(#')[1].split(')')[0];
+          let id = message.content.split('Announce')[1].split(':')[0];
           let content = message.content.split(':')[1].split('React with 👍 to apply')[0];
           user.sendMessage(`Vous avez accepté l'annonce numéro ${id}.\nVoici son contenu : ${content}`);
         }
