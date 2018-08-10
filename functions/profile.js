@@ -1,82 +1,84 @@
 let firebase = require('firebase');
 let main = require('./../bot.js');
 let bot = main.bot;
+let DB = main.database;
 const Discord = require('discord.js');
+let dump = require('./dump.js');
 
-const profile = function(msg,id,name,avatar) {
-        let refp = firebase.database().ref('profile/'+id);
-        let Actuel = [];
-        let a = 0;
-    
-        refp.on('child_added', function(data) {
-            Actuel.push(data.val());
-            a++;
-        });
-        
+function send(msg, message) {
+	msg.channel.send(message);
+}
+
+function log(msg, log) {
+	let embed = new Discord.RichEmbed()
+		.setAuthor('Log')
+		.setColor(0xE82C0C)
+		.setDescription(log);
+	send(msg, embed);
+}
+
+/** **/
+
+const profile = function(msg, id, name, avatar) {
+        if(avatar=="no" || avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
         try {
-            let refF = firebase.database().ref('profile/'+id+'/followers');
-            let refC = firebase.database().ref('profile/'+id+'/zzChoice');
-            let Actuel2 = [];
-            let Actuel3 = [];
-    
-            refF.on('child_added', function(data) {
-                Actuel2.push(data.val());
+            let choices = {},
+                data = {},
+                delay = {},
+                followers = {},
+                desc;
+
+            DB.profile(id).getData('choices', function(d) {
+                choices = d.val();
             });
-            refC.on('child_added', function(data) {
-                Actuel3.push(data.val());
+
+            DB.profile(id).getData('data', function(d) {
+                data = d.val();
             });
-    
-            setTimeout(function(){
-                if(a==0) {
-                    msg.channel.send('This user does not have an account');
-                } else {
-                    let money = Actuel[5];
-                    let xp = Actuel[10];
-                    let lvl = Actuel[4];
-                    let lang = Actuel[3];
-                    let followers = Actuel2.length-1;
-                    let col = Actuel3[0];
-                    console.log(col);
-                    while(Math.pow(lvl,2.3)*10<xp) {
-                        lvl++;
-                    }
-                    
-                    refp.update({
-                        level: lvl
-                    });
-                    
-                    let lowN = Math.round(Math.pow(lvl-1,2.3)*10);
-                    let upN = Math.round(Math.pow(lvl,2.3)*10);
-                    let mXP = upN-lowN;
-                    let aXP = xp-lowN;
-                    let perc = Math.round((aXP*100)/mXP);
-    
-                    let embed;
-                    if(avatar=="no") {
-                        embed = new Discord.RichEmbed()
-                            .setAuthor(name+' ('+id+')')
-                            .setColor(0x494C51)
-                            .addField("Level :",lvl)
-                            .addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
-                            .addField("Money :",money)
-                            .addField("Followers :",followers)
-                            .addField("Lang :",lang);
-                    } else {
-                        embed = new Discord.RichEmbed()
-                            .setAuthor(name+' ('+id+')')
-                            .setColor(col)
-                            .setThumbnail(avatar)
-                            .addField("Level :",lvl)
-                            .addField("XP :",xp+'/'+upN+' ('+perc+'% to reach next level)')
-                            .addField("Money :",money)
-                            .addField("Followers :",followers)
-                            .addField("Lang :",lang);
-                    }
-                    msg.channel.send(embed);
+
+            DB.profile(id).getData('delay', function(d) {
+                delay = d.val();
+            });
+
+            DB.profile(id).getData('followers', function(d) {
+                d = d.val();
+                followers = (Object.keys(d).length)-1;
+            });
+
+            DB.profile(id).getData('param/desc', function(d) {
+                desc = d.val();
+            });
+            
+            setTimeout(function() {
+                while(Math.pow(data.level,2.3)*10<data.xp) {
+                    data.level++;
                 }
-            },3000);
+
+                DB.profile(id).updateData('data/level', data.level);
+
+                let lowN = Math.round(Math.pow(data.level-1,2.3)*10),
+                    upN = Math.round(Math.pow(data.level,2.3)*10),
+                    mXP = upN-lowN,
+                    aXP = data.xp-lowN,
+                    perc = Math.round((aXP*100)/mXP);
+                let embed;
+
+                embed = new Discord.RichEmbed()
+                    .setTitle(':small_orange_diamond: User info')
+                    .setColor(choices.color)
+                    .setThumbnail(avatar)
+                    .addField(name, id)
+                    .addField("Level :", data.level, true)
+                    .addField("Money :", data.money, true)
+                    .addField("XP :", data.xp+'/'+upN+' ('+perc+'% to reach next level)')
+                    .addField("Followers :", followers, true)
+                    .addField("Reputation: ", data.rep, true)
+                    .setFooter(desc, 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349');
+
+                send(msg, embed);
+            },DB.responseTime);
         } catch(error) {
-            msg.channel.send('Sorry, an error occurred, I was unable to view the profile');
+            send(msg, 'Sorry, an error occurred, I was unable to view the profile');
         }
 };
 

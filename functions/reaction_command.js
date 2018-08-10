@@ -8,16 +8,15 @@ const reaction_commands = [
         from : '**Announce',
         emoji : '👍',
         result : (reaction,user) => {
-            return 'tu as liké';
-            /*let message = reaction.message;
-            let id = message.content.split('Announce')[1].split(':')[0];
-            let content = message.content.split(':')[1].split('React with 👍 to apply')[0];
-            user.sendMessage(`Vous avez accepté l'annonce numéro ${id}.\nVoici son contenu : ${content}`);*/
+            let message = reaction.message;
+            let id = Math.random()*9+1;
+            let content = message.content.split(':**')[1].split('React with 👍 to apply')[0];
+            user.send(`Vous avez accepté l'annonce numéro ${id}.\nVoici son contenu : ${content}`);
         }
     },
 
     {
-        from : '**Announce',
+        from : 'announce',
         emoji : '👎',
         result : (reaction,user) => {
           return '<@'+user.id+'> Tu n\'es pas d\'accord';

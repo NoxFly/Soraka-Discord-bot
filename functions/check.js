@@ -4,7 +4,7 @@ let bot = main.bot;
 const Discord = require('discord.js');
 let randPass = require('./randpass.js');
 
-const check = function(msg,ref,id,name, avatar) {
+const check = function(msg, id, name, avatar) {
         avatar = avatar || '';
         ref = firebase.database().ref('profile/'+id);
         let a = 0;
@@ -44,17 +44,17 @@ const check = function(msg,ref,id,name, avatar) {
                         level: 1,
                         money: 0,
                         xp: 0,
+                        mpAuth: 0
                     },
                     // les param de compte (important et pas lié au client discord)
                     param: {
                         _reset: 0,
                         _resetTime: 0,
                         desc: 'A very mysterious person',
-                        mpAut: 0,
                         password: password,
                         username: username,
-                        zAvatar: avatar,
-                        zBG: 'theme/img/pic.png'
+                        Avatar: avatar,
+                        BG: 'theme/img/pic.png'
                     },
                     // les choix du user sur les couleurs de son profil etc...
                     choices: {
@@ -63,18 +63,18 @@ const check = function(msg,ref,id,name, avatar) {
                     }
                 });
                 
-                msg.guild.members.get(id).createDM()
+                /*msg.guild.members.get(id).createDM()
                     .then(channel => {
                         channel.send('• Username: '+username+'\n• Password: '+password+'\nConnect you to http://dorian.thivolle.net/ahri to manage your account.')
                         .then(sentMessage => sentMessage.pin());
-                    });
+                    });*/
                     
             } else {
-                firebase.database().ref('profile/'+id+'/zParam').update({
+                firebase.database().ref('profile/'+id+'/param').update({
                     zAvatar: avatar
                 });
             }
-        },2000);
+        },200);
 };
 
 module.exports = check;
