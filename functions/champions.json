@@ -1,0 +1,1385 @@
+[
+    {
+        "name": "Aatrox",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "0",
+            "attack": "0",
+            "health": "0",
+            "healthRegene": "0",
+            "magicResist": "0",
+            "mana": "0",
+            "power": "0"
+        }
+    },
+    {
+        "name": "Ahri",
+        "armor": "33",
+        "attack": "15",
+        "critics": "2",
+        "health": "526",
+        "healthRegene": "6.5",
+        "magicResist": "32.1",
+        "mana": "520",
+        "manaRegene": "3.2",
+        "power": "53.04",
+        "role": "Mage",
+        "type": "AP",
+        "spells": {
+            "Q": {
+                "name" : "Orb of Deception",
+                "cost": "65",
+                "damages":{
+                    "dmg" : "80",
+                    "ADratio": "0",
+                    "APratio": "35"
+                }
+            },
+            "W": {
+                "name" : "Fox-Fire",
+                "cost": "40",
+                "damages":{
+                    "dmg": "40",
+                    "ADratio": "0",
+                    "APratio": "30"
+                }
+            },
+            "E": {
+                "name" : "Charm",
+                "cost": "85",
+                "damages":{
+                    "dmg": "60",
+                    "ADratio": "0",
+                    "APratio": "40"
+                }
+            },
+            "R": {
+                "name" : "Spirit Rush",
+                "cost": "100",
+                "damages": {
+                    "dmg": "60",
+                    "ADratio": "0",
+                    "APratio": "35"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "Akali",
+        "armor": "31.38",
+        "attack": "58.376",
+        "critics": "2",
+        "health": "593",
+        "healthRegene": "8.5",
+        "magicResist": "32.1",
+        "mana": "200",
+        "manaRegene": "10",
+        "power": "10",
+        "role": "Assassin",
+        "type": "AP",
+        "spells": {
+            "Q": {
+                "name" : "Mark of the Assassin",
+                "cost": "60",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Twilight Shroud",
+                "cost": "60",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Crescent Slash",
+                "cost": "50",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "Shadow Dance",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "3.2",
+            "health": "90",
+            "healthRegene": "0.65",
+            "magicResist": "1.25",
+            "mana": "0",
+            "power": "4"
+        }
+    },
+    {
+        "name": "Alistar",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "Amumu",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "Anivia",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "Annie",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "Ashe",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "AurelionSol",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        },
+        "levels": {
+            "armor": "3.5",
+            "attack": "0",
+            "health": "92",
+            "healthRegene": "0.6",
+            "magicResist": "0.5",
+            "mana": "35",
+            "power": "3"
+        }
+    },
+    {
+        "name": "Bard",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Blitzcrank",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Brand",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Braum",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Caitlyn",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Camille",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Cassiopeia",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Chogath",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Corki",
+        "armor": "33",
+        "attack": "60",
+        "critics": "10",
+        "health": "580",
+        "healthRegene": "5",
+        "magicResist": "32.1",
+        "mana": "no mana",
+        "manaRegene": "0",
+        "power": "0",
+        "role": "Combattant",
+        "type": "AD",
+        "spells": {
+            "Q": {
+                "name" : "The Darkin Blade",
+                "cost": "no cost",
+                "damages":{
+                    "dmg" : "50",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            },
+            "W": {
+                "name" : "Infernal Chains",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "0",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "E": {
+                "name" : "Umbral Dash",
+                "cost": "no cost",
+                "damages":{
+                    "dmg": "50",
+                    "ADratio": "40%",
+                    "APratio": "0"
+                }
+            },
+            "R": {
+                "name" : "World Ender",
+                "cost": "no cost",
+                "damages": {
+                    "dmg": "500",
+                    "ADratio": "20%",
+                    "APratio": "0"
+                }
+            }
+        }
+    },
+    {
+        "name": "Darius"
+    },
+    {
+        "name": "Diana"
+    },
+    {
+        "name": "DrMundo"
+    },
+    {
+        "name": "Draven"
+    },
+    {
+        "name": "Ekko"
+    },
+    {
+        "name": "Elise"
+    },
+    {
+        "name": "Evelynn"
+    },
+    {
+        "name": "Ezreal"
+    },
+    {
+        "name": "Fiddlesticks"
+    },
+    {
+        "name": "Fiora"
+    },
+    {
+        "name": "Fizz"
+    },
+    {
+        "name": "Galio"
+    },
+    {
+        "name": "Gangplank"
+    },
+    {
+        "name": "Garen"
+    },
+    {
+        "name": "Gnar"
+    },
+    {
+        "name": "Gragas"
+    },
+    {
+        "name": "Graves"
+    },
+    {
+        "name": "Hecarim"
+    },
+    {
+        "name": "Heimerdinger"
+    },
+    {
+        "name": "Illaoi"
+    },
+    {
+        "name": "Irelia"
+    },
+    {
+        "name": "Ivern"
+    },
+    {
+        "name": "Janna"
+    },
+    {
+        "name": "JarvanIV"
+    },
+    {
+        "name": "Jax"
+    },
+    {
+        "name": "Jayce"
+    },
+    {
+        "name": "Jhin"
+    },
+    {
+        "name": "Jinx"
+    },
+    {
+        "name": "Kaisa"
+    },
+    {
+        "name": "Kalista"
+    },
+    {
+        "name": "Karma"
+    },
+    {
+        "name": "Karthus"
+    },
+    {
+        "name": "Kassadin"
+    },
+    {
+        "name": "Katarina"
+    },
+    {
+        "name": "Kayle"
+    },
+    {
+        "name": "Kayn"
+    },
+    {
+        "name": "Kennen"
+    },
+    {
+        "name": "Khazix"
+    },
+    {
+        "name": "Kindred"
+    },
+    {
+        "name": "Kled"
+    },
+    {
+        "name": "Kogmaw"
+    },
+    {
+        "name": "Leblanc"
+    },
+    {
+        "name": "LeeSin"
+    },
+    {
+        "name": "Leona"
+    },
+    {
+        "name": "Lissandra"
+    },
+    {
+        "name": "Lucian"
+    },
+    {
+        "name": "Lulu"
+    },
+    {
+        "name": "Lux"
+    },
+    {
+        "name": "Malphite"
+    },
+    {
+        "name": "Malzahar"
+    },
+    {
+        "name": "Maokai"
+    },
+    {
+        "name": "MasterYi"
+    },
+    {
+        "name": "MissFortune"
+    },
+    {
+        "name": "Mordekaiser"
+    },
+    {
+        "name": "Morgana"
+    },
+    {
+        "name": "Nami"
+    },
+    {
+        "name": "Nasus"
+    },
+    {
+        "name": "Nautilus"
+    },
+    {
+        "name": "Nidalee"
+    },
+    {
+        "name": "Nocturne"
+    },
+    {
+        "name": "Nunu"
+    },
+    {
+        "name": "Olaf"
+    },
+    {
+        "name": "Orianna"
+    },
+    {
+        "name": "Ornn"
+    },
+    {
+        "name": "Pantheon"
+    },
+    {
+        "name": "Poppy"
+    },
+    {
+        "name": "Pyke"
+    },
+    {
+        "name": "Quinn"
+    },
+    {
+        "name": "Rakan"
+    },
+    {
+        "name": "Rammus"
+    },
+    {
+        "name": "RekSai"
+    },
+    {
+        "name": "Renekton"
+    },
+    {
+        "name": "Rengar"
+    },
+    {
+        "name": "Riven"
+    },
+    {
+        "name": "Rumble"
+    },
+    {
+        "name": "Ryze"
+    },
+    {
+        "name": "Sejuani"
+    },
+    {
+        "name": "Shaco"
+    },
+    {
+        "name": "Shen"
+    },
+    {
+        "name": "Shyvana"
+    },
+    {
+        "name": "Singed"
+    },
+    {
+        "name": "Sion"
+    },
+    {
+        "name": "Sivir"
+    },
+    {
+        "name": "Skarner"
+    },
+    {
+        "name": "Sona"
+    },
+    {
+        "name": "Soraka"
+    },
+    {
+        "name": "Swain"
+    },
+    {
+        "name": "Syndra"
+    },
+    {
+        "name": "TahmKench"
+    },
+    {
+        "name": "Taliyah"
+    },
+    {
+        "name": "Talon"
+    },
+    {
+        "name": "Taric"
+    },
+    {
+        "name": "Teemo"
+    },
+    {
+        "name": "Thresh"
+    },
+    {
+        "name": "Tristana"
+    },
+    {
+        "name": "Trundle"
+    },
+    {
+        "name": "Tryndamere"
+    },
+    {
+        "name": "TwistedFate"
+    },
+    {
+        "name": "Twitch"
+    },
+    {
+        "name": "Udyr"
+    },
+    {
+        "name": "Urgot"
+    },
+    {
+        "name": "Varus"
+    },
+    {
+        "name": "Vayne"
+    },
+    {
+        "name": "Veigar"
+    },
+    {
+        "name": "Velkoz"
+    },
+    {
+        "name": "Vi"
+    },
+    {
+        "name": "Viktor"
+    },
+    {
+        "name": "Vladimir"
+    },
+    {
+        "name": "Volibear"
+    },
+    {
+        "name": "Warwick"
+    },
+    {
+        "name": "Wukong"
+    },
+    {
+        "name": "Xayah"
+    },
+    {
+        "name": "Xerath"
+    },
+    {
+        "name": "XinZhao"
+    },
+    {
+        "name": "Yasuo"
+    },
+    {
+        "name": "Yorick"
+    },
+    {
+        "name": "Zac"
+    },
+    {
+        "name": "Zed"
+    },
+    {
+        "name": "Ziggs"
+    },
+    {
+        "name": "Zilean"
+    },
+    {
+        "name": "Zoe"
+    },
+    {
+        "name": "Zyra"
+    }
+]
