@@ -14,13 +14,7 @@ let aBotList = [
 		'tag'  	: 	'a!',
 		'id'	:	'433365347463069716',
 		'token' :	'NDMzMzY1MzQ3NDYzMDY5NzE2.Da91xA.CIdIZaHIntJe-QA5uKLmF6Gofmk'
-	},
-	{
-		'name'	:	'blitzcrank',
-		'tag'  	: 	'b!',
-		'id'	:	'463425089673887764',
-		'token' :	"NDYzNDI1MDg5NjczODg3NzY0.DhwNzQ.xS0xr7eb76V8JdiyvYb9Y3swXRI"		
-	},
+	}
 ];
 
 
