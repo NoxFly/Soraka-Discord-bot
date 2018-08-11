@@ -19,12 +19,12 @@ function log(msg, log) {
 class DB {
     constructor() {
         let config = {
-            apiKey: "AIzaSyCyBzTHpY-FrJPsqAfTdlJaSIa9lQi5EVc",
+            apiKey: process.env.FIREBASE_TOKEN,
             authDomain: "ahri-561c5.firebaseapp.com",
             databaseURL: "https://ahri-561c5.firebaseio.com",
-            projectId: "ahri-561c5",
+            projectId: process.env.NAME_FIREBASE,
             storageBucket: "ahri-561c5.appspot.com",
-            messagingSenderId: "90077155476"
+            messagingSenderId: process.env.SENDERID_FIREBASE
         };
         firebase.initializeApp(config);
         let database = firebase.database();

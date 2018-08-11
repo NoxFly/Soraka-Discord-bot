@@ -13,7 +13,7 @@ let aBotList = [
 		'name'	:	'ahri',
 		'tag'  	: 	'a!',
 		'id'	:	'433365347463069716',
-		'token' :	'NDMzMzY1MzQ3NDYzMDY5NzE2.Da91xA.CIdIZaHIntJe-QA5uKLmF6Gofmk'
+		'token' :	process.env.TOKEN_CAITLYN
 	}
 ];
 
