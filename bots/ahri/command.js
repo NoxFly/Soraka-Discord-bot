@@ -2037,7 +2037,7 @@ const commands = [
 				for(i in permID) {
 					for(j in rolesID) {
 						console.log(permID[i]+' | '+rolesID[i]+' | '+(permID[i]==rolesID[j]));
-						if(permID[i]==rolesID[j]) permNAME.push(rolesName[i]);
+						if(permID[i]==rolesID[j]) permNAME.push(rolesName[j]);
 					}
 				}
 
