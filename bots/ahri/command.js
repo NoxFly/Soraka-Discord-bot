@@ -258,7 +258,8 @@ const commands = [
 				.setDescription(link)
 				.addField('Note','If my creator doesn\'t have internet, I will not be able to be connected.')
 				.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
-				.addField('Link :','https://paypal.me/NoxFly');
+				.addField('Link :','https://paypal.me/NoxFly')
+				.setFooter('Version 1.1', 'https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif');
 			return embed;
 		}
 	},
@@ -2007,6 +2008,47 @@ const commands = [
 	},
 
 	{
+		name: 'whohasperm',
+		description: 'show all roles who have the special permissions',
+		usage: '`a!whohasperm`',
+		group: 'management',
+		result: (msg) => {
+			let id_guild = msg.guild.id;
+			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
+
+
+			let perms;
+			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
+				perms = data.val();
+			});
+
+			setTimeout(function() {
+				let rolesName = msg.guild.roles.map(role => role.name);
+				let rolesID = msg.guild.roles.map(role => role.id);
+				let a = 0;
+				let permID = [];
+
+				for(i in perms) {
+					permID[i] = perms[i];
+				}
+
+				let permNAME = [];
+
+				for(i in permID) {
+					for(j in rolesID) {
+						console.log(permID[i]+' | '+rolesID[i]+' | '+(permID[i]==rolesID[j]));
+						if(permID[i]==rolesID[j]) permNAME.push(rolesName[i]);
+					}
+				}
+
+				if(permNAME==[]) permNAME = ['Nobody'];
+				console.log(permNAME);
+				send(msg, '```\n'+permNAME+'```')
+			},DB.responseTime);
+		}
+	},
+
+	{
 		name: 'test',
 		group: 'hidden',
 		result: (msg) => {
@@ -2016,7 +2058,14 @@ const commands = [
 			+	"`a!return Your message` to inform me of your error, and / or improvement.\n"
 			+	"The configuration of the database has undergone many changes.\n"
 			+	"The next major update is to remove all its commands to leave only the main, and we can add a commands module on its server through a command a!config module.import `module`";
-			return txt;
+			
+			var guildList = bot.guilds.array(); 
+			try { 
+				guildList.forEach(guild => 
+				guild.channels.find('name','general').send(txt));
+			} catch (err) { 
+				console.log("Could not send message to one server: "+guild.name);
+			}
 		}
 	}
 ];
