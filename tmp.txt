@@ -1,25 +1,26 @@
-/*var guildList = bot.guilds.array(); 
-	try { 
-		guildList.forEach(guild => 
-		guild.channels.find('name','general').send("I'm come back ! bug fixed : `a!profile`"));
-	} catch (err) { 
-		console.log("Could not send message to one server: "+guild.name);
-	}
+//SEND MSG ON EACH AHRI'S GUILD
+
+var guildList = bot.guilds.array(); 
+try { 
+	guildList.forEach(guild => 
+	guild.channels.find('name','general').send("I'm come back ! bug fixed : `a!profile`"));
+} catch (err) { 
+	console.log("Could not send message to one server: "+guild.name);
+}
+
+
+// SEND MSG TO A TARGET USER
 	
-	bot.fetchUser('316639200462241792').then(user => {
-		user.createDM().then(channel => {
-			channel.send('Bloup bloup bloup. dsl jsp quoi dire.');
-		});
-	});*/
+bot.fetchUser('316639200462241792').then(user => {
+	user.createDM().then(channel => {
+		channel.send('Hello world');
+	});
+});
 
-/*if(msg.guild.id!=433361496802721792) {
-			msg.channel.send('Sorry, I\'m in maintenance for now');
-			return;
-		}*/
 
-/*
-bot.on('messageReactionAdd', (msg, reaction, user) => {
-    if(reaction.emoji.name === ":thumbsdown:") {
-    	msg.channel.send('someone reacted to :thumbsdown:');
-	}
-});*/
+// IF AHRI IS IN MAINTENANCE, ACCEPT ONLY MESSAGES ON SERVER TEST
+
+if(msg.guild.id!=433361496802721792) {
+	msg.channel.send('Sorry, I\'m in maintenance for now');
+	return;
+}
