@@ -250,7 +250,7 @@ const commands = [
 		group: 'basic',
 		result : (msg) => {
 			if(!(msg.content=="a!invite")) return 'not_find';
-			let link = 'https://discordapp.com/oauth2/authorize?client_id=%20433365347463069716&scope=bot&permissions=1364720855';
+			let link = 'https://discordapp.com/oauth2/authorize?client_id=477918672732553216&scope=bot&permissions=519171153';
 			let embed = new Discord.RichEmbed()
 				.setTitle('Ahri\'s link')
 				.setThumbnail('https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif')
