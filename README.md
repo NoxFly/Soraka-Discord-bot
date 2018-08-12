@@ -14,10 +14,10 @@
 
 
 <h1>Discord bots - copyright NoxFly 2018</h1>
-<br>tag: a!
-<br>see all commands: a!help
+<br>tag: <code>a!</code>
+<br>see all commands: <code>a!help</code>
 <br>Bot link : https://discordapp.com/oauth2/authorize?client_id=477918672732553216&scope=bot&permissions=519171153
-<br>Make sure you have this number of permissions, else Ahri will not works : 519171153
+<br>Make sure you have this number of permissions, else Ahri will not works : <code>519171153</code>
 <br>Contact me with my discord tag : <code>ドリアン#8850</code>
 
 <br>Host with Heroku : https://www.heroku.com
