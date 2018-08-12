@@ -2,11 +2,7 @@ var firebase = require('firebase');
 const Discord = require('discord.js');
 let reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
-<<<<<<< HEAD
-var test = false;
-=======
 
->>>>>>> origin/master
 let exportObj = module.exports = {};
 
 let Database = new DB();
@@ -17,11 +13,7 @@ let aBotList = [
 		'name'	:	'ahri',
 		'tag'  	: 	'a!',
 		'id'	:	'433365347463069716',
-<<<<<<< HEAD
-		'token' :	process.env.TOKEN_CAITLYN
-=======
 		'token' :	process.env.TOKEN_AHRI
->>>>>>> origin/master
 	}
 ];
 

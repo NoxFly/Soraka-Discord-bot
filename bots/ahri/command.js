@@ -250,11 +250,7 @@ const commands = [
 		group: 'basic',
 		result : (msg) => {
 			if(!(msg.content=="a!invite")) return 'not_find';
-<<<<<<< HEAD
-			let link = 'https://discordapp.com/oauth2/authorize?client_id=%20433365347463069716&scope=bot&permissions=1364720855';
-=======
 			let link = 'https://discordapp.com/oauth2/authorize?client_id=477918672732553216&scope=bot&permissions=519171153';
->>>>>>> origin/master
 			let embed = new Discord.RichEmbed()
 				.setTitle('Ahri\'s link')
 				.setThumbnail('https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif')
@@ -262,12 +258,8 @@ const commands = [
 				.setDescription(link)
 				.addField('Note','If my creator doesn\'t have internet, I will not be able to be connected.')
 				.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
-<<<<<<< HEAD
-				.addField('Link :','https://paypal.me/NoxFly');
-=======
 				.addField('Link :','https://paypal.me/NoxFly')
 				.setFooter('Version 1.1', 'https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif');
->>>>>>> origin/master
 			return embed;
 		}
 	},
@@ -1208,7 +1200,6 @@ const commands = [
 					data = data.val();
 					if(data===null) {
 						send(msg, 'This user does not have an account :frowning:');
-<<<<<<< HEAD
 					} else {
 						bot.fetchUser(iID).then(user => {
 							sUSER = user.username+'#'+user.discriminator;
@@ -1272,71 +1263,6 @@ const commands = [
 						});
 					}
 				});
-=======
-					} else {
-						bot.fetchUser(iID).then(user => {
-							sUSER = user.username+'#'+user.discriminator;
-							sAVATAR = user.avatarURL;
-							profile(msg,iID,sUSER,sAVATAR);
-						});
-					}
-				});
-			}
-		}
-	},
-
-	{
-		name: 'level',
-		description : 'Show level of a person',
-		usage : '`a!level {tag} (optional)`',
-		group: 'social',
-		result : (msg) => {
-			if(msg.content=='a!level') {
-				let id = msg.author.id;
-				let name = msg.author.username+'#'+msg.author.discriminator;
-				let avatar = msg.author.avatarURL;
-				check(msg, id, name, avatar);
-				
-				if(avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
-
-				DB.getData('data', function(data) {
-					data = data.val();
-					let embed = new Discord.RichEmbed()
-						.setColor(0x333333)
-						.setAuthor(name, avatar)
-						.addField('Level', data.level, true)
-						.addField('Exp.', data.xp, true)
-						//.setImage('canvas');
-					send(msg, embed);
-				});
-			} else {
-				let id = msg.content.replace(/a!level <@!?(\d+)>/,'$1');
-				let name, avatar;
-				DB.profile(id).getData('user/name', function(data) {
-					data = data.val();
-
-					if(data===null) {
-						send(msg, 'This user does not have an account :frowning:');
-					} else {
-						bot.fetchUser(id).then(user => {
-							name = user.username+'#'+user.discriminator;
-							avatar = user.avatarURL;
-							if(avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
-
-							DB.getData('data', function(data) {
-								data = data.val();
-								let embed = new Discord.RichEmbed()
-									.setColor(0x333333)
-									.setAuthor(name, avatar)
-									.addField('Level', data.level, true)
-									.addField('Exp.', data.xp, true)
-									//.setImage('canvas');
-								send(msg, embed);
-							});
-						});
-					}
-				});
->>>>>>> origin/master
 			}
 		}
 	},
@@ -2071,14 +1997,6 @@ const commands = [
 							newPerms[(c+1)+""] = perms[i];
 							dump(msg, newPerms);
 						}
-<<<<<<< HEAD
-
-						DB.setPerms(id_guild, newPerms);
-					}
-				} else {
-					send(msg, 'Cannot find this role');
-				}
-=======
 
 						DB.setPerms(id_guild, newPerms);
 					}
@@ -2126,7 +2044,6 @@ const commands = [
 				if(permNAME==[]) permNAME = ['Nobody'];
 				console.log(permNAME);
 				send(msg, '```\n'+permNAME+'```')
->>>>>>> origin/master
 			},DB.responseTime);
 		}
 	},
@@ -2141,9 +2058,6 @@ const commands = [
 			+	"`a!return Your message` to inform me of your error, and / or improvement.\n"
 			+	"The configuration of the database has undergone many changes.\n"
 			+	"The next major update is to remove all its commands to leave only the main, and we can add a commands module on its server through a command a!config module.import `module`";
-<<<<<<< HEAD
-			return txt;
-=======
 			
 			var guildList = bot.guilds.array(); 
 			try { 
@@ -2152,7 +2066,6 @@ const commands = [
 			} catch (err) { 
 				console.log("Could not send message to one server: "+guild.name);
 			}
->>>>>>> origin/master
 		}
 	}
 ];
