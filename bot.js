@@ -2,7 +2,7 @@ var firebase = require('firebase');
 const Discord = require('discord.js');
 let reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
-
+var test = false;
 let exportObj = module.exports = {};
 
 let Database = new DB();
