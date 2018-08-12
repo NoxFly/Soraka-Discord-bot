@@ -1,4 +1,4 @@
-<style>
+<!--<style>
     h1 {
         border-bottom: 1px solid #eaecef;
     }
@@ -10,7 +10,7 @@
         border-radius: 3px;
         display: inline-block;
     }
-</style>
+</style>-->
 
 <pre>
 <h1>Discord bots - copyright NoxFly 2018</h1>
