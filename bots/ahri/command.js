@@ -40,7 +40,7 @@ const commands = [
 			let txt = '';
 			if(admin(msg.author.id)) {
 				for(i in commands) {
-					txt += commands[i].name+'\n';
+					txt += '`'+commands[i].name+'`, ';
 				}
 				return txt;
 			}
