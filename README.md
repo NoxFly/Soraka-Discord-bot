@@ -1,18 +1,3 @@
-<!--<style>
-    h1 {
-        border-bottom: 1px solid #eaecef;
-    }
-
-    span {
-        background: #f3f4f4;
-        color: #333;
-        padding: 2px 4px;
-        border-radius: 3px;
-        display: inline-block;
-    }
-</style>-->
-
-
 <h1>Discord bots - copyright NoxFly 2018</h1>
 <br>tag: <code>a!</code>
 <br>see all commands: <code>a!help</code>
@@ -25,8 +10,11 @@
 <br>Node JS : https://nodejs.org/en
 <br>npm : https://www.npmjs.com
 <br>
-<br>version : 1.1
-<br>--> faster, new commands, and some bugs fixed.
+<h1>Version log</h1>
+<pre>version 1.0</pre>
+• First appearance of Ahri
+<pre>version : 1.1</pre>
+• faster, new commands, and some bugs fixed.
 <br>
 <br>Next version will create package of commands, as modules, and each servers will be able to add or remove some package of commands.
 <br>
