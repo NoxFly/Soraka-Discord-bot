@@ -17,6 +17,7 @@
 <pre>version : 1.1</pre>
 • faster, new commands, and some bugs fixed.
 <br>
+<h1>Other</h1>
 <br>Next version will create package of commands, as modules, and each servers will be able to add or remove some package of commands.
 <br>
 <br>Create your own Discord Bot : https://discordapp.com/developers
