@@ -34,6 +34,19 @@ function log(msg, log) {
 
 const commands = [
 	{
+		name: 'helplight',
+		group: 'hidden',
+		result: (msg) => {
+			let txt = '';
+			if(admin(msg.author.id)) {
+				for(i in commands) {
+					txt += commands[i].name+'\n';
+				}
+				return txt;
+			}
+		}
+	},
+	{
 		name : 'help',
 		description : 'say the list of commands and their explanation. if you add a key command behind `a!help`, it will say you the explanation of this key command.',
 		usage : '`a!help` `key (optional)`',
