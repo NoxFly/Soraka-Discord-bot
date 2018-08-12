@@ -386,9 +386,7 @@ const commands = [
 						let aRole;
 						
 						let regRole = add.toLowerCase();
-						log(msg, regRole);
 						regRole = new RegExp(regRole);
-						log(msg, regRole);
 						for(i=1; i<roles.length; i++) {
 							let r = roles[i].toLowerCase();
 							if(regRole.test(r)) {
