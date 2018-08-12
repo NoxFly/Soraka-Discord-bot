@@ -13,7 +13,7 @@
 <h1>Version log</h1>
 <pre>version 1.0</pre>
 • First appearance of Ahri
-<br>
+<br><br>
 <pre>version : 1.1</pre>
 • faster, new commands, and some bugs fixed.
 <br>
