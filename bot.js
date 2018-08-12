@@ -2,6 +2,7 @@ var firebase = require('firebase');
 const Discord = require('discord.js');
 let reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
+let check = require('./functions/check.js');
 
 let exportObj = module.exports = {};
 
@@ -36,6 +37,13 @@ function startbot(params) {
 		if(msg.author.id === params.id) {
 			return;
 		}
+
+		let id = msg.author.id;
+		let name = msg.author.username+'#'+msg.author.discriminator;
+		let avatar = msg.author.avatarURL;
+			
+		check(msg, id, name, avatar);
+
 		let content = msg.content;
 		if(content.indexOf(params.tag) === 0) {
 			

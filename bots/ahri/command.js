@@ -8,9 +8,7 @@ const Discord = require('discord.js');
 // Basic - Games - Utility - Personal - Social - management
 
 // External functions
-let randpass = require('./../../functions/randpass.js');
 let admin = require('./../../functions/admin.js');
-let check = require('./../../functions/check.js');
 let check2 = require('./../../functions/checktwo.js');
 let getTop = require('./../../functions/gettop.js');
 let mtsm = require('./../../functions/mtsm.js');
@@ -689,18 +687,6 @@ const commands = [
 			   ///
 			   ///
 			/////////
-	
-	{
-		name: 'init',
-		group: 'hidden',
-		result: (msg) => {
-			if(!(msg.content=="a!init")) return 'not_find';
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
-		}
-	},
 
 	{
 		name: 'add',
@@ -791,10 +777,6 @@ const commands = [
 			let languages = ['EN','FR','IT','DE','ES','PT','RU','JP','CH'];
 			if(/^(set_lang)\s\w+$/.test(msg.content.split('a!')[1])) {
 				let lang = msg.content.split('set_lang ')[1].toUpperCase();
-				let id = msg.author.id;
-				let name = msg.author.username+'#'+msg.author.discriminator;
-				let avatar = msg.author.avatarURL;
-				check(msg,id,name,avatar);
 
 				if(languages.indexOf(lang)<0){
 					let txt = '';
@@ -825,10 +807,6 @@ const commands = [
 				return 'You need to chose `heads` or `tails` and an integer';
 			}
 			
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-  	 		check(msg, id, name, avatar);
 			let money = 0;
 			let somme = n.match(/\d+/);
 
@@ -924,11 +902,6 @@ const commands = [
 		group: 'game',
 		result : (msg) => {
 			let lang = 'EN';
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
-			
 			let quotes = [];
 
 			DB.getData('choices', function(data) {
@@ -967,10 +940,6 @@ const commands = [
 			let reg = /\S+/;
 			if(!(reg.test(note)) || note===undefined) return 'A note cannot be empty';
 
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 			
 			let i, c;
 			let notes = {};
@@ -999,10 +968,6 @@ const commands = [
 		usage : '`a!mynote`',
 		group: 'personal',
 		result : (msg) => {
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let id = msg.author.id;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 			let notes = {};
 
 			DB.getData('notes', function(data) {
@@ -1034,11 +999,6 @@ const commands = [
 		group: 'personal',
 		result : (msg) => {
 			let n = msg.content.split('clearnote ')[1];
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let id = msg.author.id;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
-			
 			let notes = {};
 			let l;
 			let clear = false;
@@ -1117,11 +1077,6 @@ const commands = [
 		usage : '`a!daily`',
 		group: 'personal',
 		result : (msg) => {
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-    		let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
-
 			let Now = Date.now();
 			let oDaily = {};
 			let daily, money, xp, level, ans;
@@ -1164,11 +1119,7 @@ const commands = [
 		usage : '`a!money`',
 		group: 'personal',
 		result : (msg) => {
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
-			let money = 10;
+			let money = 0;
 
 			DB.getData('data/money', function(data) {
 				money = data.val();
@@ -1192,7 +1143,6 @@ const commands = [
 				iID = msg.author.id;
 				sUSER = msg.author.username+'#'+msg.author.discriminator;
 				avatar = msg.author.avatarURL;
-				check(msg, iID, sUSER, avatar);
 				setTimeout(function() {profile(msg, iID, sUSER, avatar)},500);
 			} else {
 				iID = msg.content.replace(/a!profile <@!?(\d+)>/,'$1');
@@ -1219,13 +1169,7 @@ const commands = [
 		group: 'social',
 		result : (msg) => {
 			if(msg.content=='a!level') {
-				let id = msg.author.id;
-				let name = msg.author.username+'#'+msg.author.discriminator;
-				let avatar = msg.author.avatarURL;
-				check(msg, id, name, avatar);
-				
 				if(avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
-
 				DB.getData('data', function(data) {
 					data = data.val();
 					let embed = new Discord.RichEmbed()
@@ -1273,11 +1217,9 @@ const commands = [
 		usage : '`a!return` `your message`',
 		group: 'utility',
 		result : (msg) => {
-			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
 			let authorMSG = msg.content.split('return ')[1];
-			check(msg, id, name, avatar);
+
 
 			if(authorMSG===undefined) return 'Lol, my creator will not read an empty message, don\'t you ? :grimacing::joy:';
 
@@ -1320,9 +1262,6 @@ const commands = [
 			let regID = new RegExp('<@!?'+msg.author.id+'>');
 			
 			let id = msg.author.id;
-			let avatar = msg.author.avatarURL;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-  	 		check(msg, id, name, avatar);
 			
 			if(/<@!?\d+>/.test(target)) {
 				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri') return 'Thanks but you can\'t follow me :heart:';
@@ -1382,11 +1321,7 @@ const commands = [
 		result : (msg) => {
 			let target = msg.content.split('unfollow ')[1];
 			let regID = new RegExp('<@!?'+msg.author.id+'>');
-			
 			let id = msg.author.id;
-			let avatar = msg.author.avatarURL;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-  	 		check(msg, id, name, avatar);
 			
 			if(/<@!?\d+>/.test(target)) {
 				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri' || regID.test(target)) return 'User not valid';
@@ -1445,9 +1380,6 @@ const commands = [
 			let r = msg.content.split('give ')[1];
 			if(/\d+ <@!?\d+>/.test(r)) {
 				let id = msg.author.id;
-				let name = msg.author.username+'#'+msg.author.discriminator;
-				let avatar = msg.author.avatarURL;
-				check(msg, id, name, avatar);
 
 				let id_target = r.replace(/\d+ <@!?(\d+)>/,'$1').replace(' ', '');
 				let give = parseInt(r.replace(/(\d+) <@!?\d+>/,'$1'));
@@ -1499,9 +1431,6 @@ const commands = [
 			let message = msg.content;
 			let reg = /rep(utation)? <@!?\d+>/;
 			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 
 			if(reg.test(message)) {
 				let target;
@@ -1551,10 +1480,6 @@ const commands = [
 		usage: '`a!top` or `a!scoreboard`',
 		group: 'social',
 		result: (msg) => {
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 			getTop(msg);
 		}
 	},
@@ -1562,10 +1487,6 @@ const commands = [
 		name:'scoreboard',
 		group: 'hidden',
 		result: (msg) => {
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 			getTop(msg);
 		}
 	},
@@ -1576,12 +1497,6 @@ const commands = [
 		usage: '`a!color #FFFFFF` or `a!color 0xFFFFFF`',
 		group: 'personal',
 		result: (msg) => {
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			
-			check(msg, id, name, avatar);
-
 			let color = msg.content.split('color ')[1];
 			if(color===undefined) return 'Not possible to set a color :cry:';
 			
@@ -1607,10 +1522,8 @@ const commands = [
 		result : (msg) => {
 			let reg = /\S/;
 			let post = msg.content.split('post ')[1];
-			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 
 			if(post==undefined) return 'You must write a message !';
 			if(reg.test(post) && post.length>12) {
@@ -1673,13 +1586,9 @@ const commands = [
 		usage : '`a!reset`',
 		group: 'hidden',
 		result : (msg) => {
-			let id = msg.author.id;
 			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 
 			let reset;
-			let resetDelay;
 			let Now = Date.now();
 		   
 			DB.getData('param', function(data) {
@@ -1710,10 +1619,6 @@ const commands = [
 		group: 'personal',
 		result: (msg) => {
 			let desc = msg.content.split('set_desc ')[1];
-			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 
 			if(desc===undefined) return 'You cannot have an empty description';
 			if(desc.length<100) {
@@ -1732,9 +1637,6 @@ const commands = [
 	  	group: 'management',
 		result: (msg) => {
 		   	let id = msg.author.id;
-		   	let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 		  	let id_guild = msg.guild.id;
 			let perms;		   
 			let access = 0;
@@ -1772,7 +1674,6 @@ const commands = [
 
 								let a = 0;
 								let roles = msg.guild.roles.map(role => role.name);
-								let regRole = new RegExp(aNewRole);
 								for(i=0; i<roles.length; i++) {
 									let ro = roles[i].toLowerCase();
 									console.log(ro+(' '.repeat(20-ro.length))+' | '+aNewRole+(' '.repeat(20-aNewRole.length))+' | '+(aNewRole==ro));
@@ -1825,9 +1726,6 @@ const commands = [
 	   group: 'management',
 		result: (msg) => {
 		   	let id = msg.author.id;
-		   	let name = msg.author.username+'#'+msg.author.discriminator;
-			let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 		  	let id_guild = msg.guild.id;
 			let perms;
 			let access = 0;
@@ -1888,9 +1786,6 @@ const commands = [
 		group: 'management',
  		result: (msg) => {
 			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-		 	let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 			 
 		   	let id_guild = msg.guild.id;
 			let perms;
@@ -1941,9 +1836,6 @@ const commands = [
 		group: 'management',
  		result: (msg) => {
 			let id = msg.author.id;
-			let name = msg.author.username+'#'+msg.author.discriminator;
-		 	let avatar = msg.author.avatarURL;
-			check(msg, id, name, avatar);
 			 
 		   	let id_guild = msg.guild.id;
 			let perms;
@@ -2016,7 +1908,6 @@ const commands = [
 			let id_guild = msg.guild.id;
 			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
 
-
 			let perms;
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
@@ -2025,7 +1916,6 @@ const commands = [
 			setTimeout(function() {
 				let rolesName = msg.guild.roles.map(role => role.name);
 				let rolesID = msg.guild.roles.map(role => role.id);
-				let a = 0;
 				let permID = [];
 
 				for(i in perms) {
@@ -2052,6 +1942,7 @@ const commands = [
 		name: 'test',
 		group: 'hidden',
 		result: (msg) => {
+			if(!admin(msg.author.id)) return;
 			let txt = "```asciidoc\n= Ahri is back ! =```"
 			+ 	"She is faster (1 second less response)\n"
 			+	"However, it may have some errors, please use the command\n"
