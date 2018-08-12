@@ -348,6 +348,23 @@ const commands = [
 	},
 
 	{
+		name: 'roleID',
+		group: 'hidden',
+		result: (msg) => {
+			let Nroles = msg.guild.roles.map(role => role.name);
+			let Iroles = msg.guild.roles.map(role => role.id);
+			let txt = '```asciidoc\n';
+
+			for(i in Nroles) {
+				txt += Nroles[i] + (' '.repeat(30-Nroles[i].length)) + ':: ' + Iroles[i] + '\n'; 
+			}
+
+			txt += '```';
+			return txt;
+		}
+	},
+
+	{
 		name : 'role',
 		description : 'Add or remove to you a role of a server.',
 		usage : '`a!role {role name}`',

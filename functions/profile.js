@@ -24,7 +24,6 @@ const profile = function(msg, id, name, avatar) {
         try {
             let choices = {},
                 data = {},
-                delay = {},
                 followers = {},
                 desc;
 
@@ -34,10 +33,6 @@ const profile = function(msg, id, name, avatar) {
 
             DB.profile(id).getData('data', function(d) {
                 data = d.val();
-            });
-
-            DB.profile(id).getData('delay', function(d) {
-                delay = d.val();
             });
 
             DB.profile(id).getData('followers', function(d) {
