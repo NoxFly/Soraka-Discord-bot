@@ -59,7 +59,7 @@ const profile = function(msg, id, name, avatar) {
                 let embed;
 
                 embed = new Discord.RichEmbed()
-                    .setTitle(':small_orange_diamond: User info')
+                    .setTitle('🔸️ User info')
                     .setColor(choices.color)
                     .setThumbnail(avatar)
                     .addField(name, id)
