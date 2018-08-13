@@ -142,6 +142,11 @@ class DB {
     setPerms(id, perms) {
         firebase.database().ref('servers/'+id+'/permsRole').set(perms);
     }
+
+    source(way) {
+        this.ref = '';
+        return this;
+    }
 }
 
 module.exports = DB;
