@@ -1411,6 +1411,7 @@ const commands = [
 
 				let id_target = r.replace(/\d+ <@!?(\d+)>/,'$1').replace(' ', '');
 				let give = parseInt(r.replace(/(\d+) <@!?\d+>/,'$1'));
+				if(give<1) return 'You must give more than 0 !';
 				let money, received;
 
 				if(id_target!=msg.author.id) {
