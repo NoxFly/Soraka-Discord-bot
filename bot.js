@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 let reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
 let check = require('./functions/check.js');
+let checkServer = require('./functions/checkServer.js');
 
 let exportObj = module.exports = {};
 
@@ -30,7 +31,28 @@ function startbot(params) {
 	
 
 	bot.on('ready',() => {
+		let m;
+		let members;
+		let activity = 1;
 		bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
+
+		setInterval(function() {
+			activity = 1-activity;
+			Database.source().getData('profile', function(data) {
+				m = data.val();
+			});
+
+			setTimeout(function() {
+				try {
+					members = Object.keys(m).length;
+					console.log(members+' | '+typeof m);
+					if(activity) bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
+					else bot.user.setActivity(params.tag+'help | '+members+' members');
+				} catch(error) {
+					bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
+				}
+			},Database.responseTime);
+		}, 600000);
 	});
 
 	bot.on('message', (msg) => {
@@ -84,6 +106,13 @@ function startbot(params) {
 		});
 	});
 	*/
+
+	bot.on('guildCreate', (guild) => {
+		let id = guild.id;
+		let name = guild.name;
+		let owner = guild.ownerID;
+		checkServer(id, name, owner);
+	});
 
 	bot.on('messageReactionAdd', (reaction,user) => {
 		if(reaction.message.author.id == '463425089673887764'){

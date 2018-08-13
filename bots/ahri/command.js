@@ -14,7 +14,6 @@ let getTop = require('./../../functions/gettop.js');
 let mtsm = require('./../../functions/mtsm.js');
 let dump = require('./../../functions/dump.js');
 let profile = require('./../../functions/profile.js');
-let checkServer = require('./../../functions/checkServer.js');
 
 // *** //
 
@@ -1665,13 +1664,6 @@ const commands = [
 	  	usage: '`a!createRole {name} {+}` (if you want to add to you)',
 	  	group: 'management',
 		result: (msg) => {
-		   	let id = msg.author.id;
-		  	let id_guild = msg.guild.id;
-			let perms;		   
-			let access = 0;
-
-			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
-
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			})
@@ -1755,13 +1747,10 @@ const commands = [
 	   group: 'management',
 		result: (msg) => {
 		   	let id = msg.author.id;
-		  	let id_guild = msg.guild.id;
 			let perms;
 			let access = 0;
 			let delRole = msg.content.split('deleteRole ')[1];
 			if(delRole=='@everyone') return 'You cannot delete this role';
-
-			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
 
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
@@ -1815,12 +1804,8 @@ const commands = [
 		group: 'management',
  		result: (msg) => {
 			let id = msg.author.id;
-			 
-		   	let id_guild = msg.guild.id;
 			let perms;
 			let role = msg.content.split('setPermTo ')[1];
-			
-			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
 
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
@@ -1865,13 +1850,9 @@ const commands = [
 		group: 'management',
  		result: (msg) => {
 			let id = msg.author.id;
-			 
-		   	let id_guild = msg.guild.id;
 			let perms;
 			let role = msg.content.split('remPermTo ')[1];
 			
-			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
-
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			});
@@ -1934,10 +1915,8 @@ const commands = [
 		usage: '`a!whohasperm`',
 		group: 'management',
 		result: (msg) => {
-			let id_guild = msg.guild.id;
-			checkServer(id_guild, msg.guild.name, msg.guild.ownerID);
-
 			let perms;
+
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			});
