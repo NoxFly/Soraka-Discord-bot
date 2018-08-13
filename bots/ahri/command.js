@@ -1125,7 +1125,7 @@ const commands = [
 
 			setTimeout(function() {
 				if(ok) {
-					send(msg, 'You received **20xp** and **$200** ! :gem:\nNext daily available in : **'+ans+'** :hourglass_flowing_sand:');
+					send(msg, 'You received **20xp** and **200**:gem: !\nNext daily available in : **'+ans+'** :hourglass_flowing_sand:');
 					oDaily.xp += 20;
 					oDaily.money += 200;
 					while (Math.pow(oDaily.level,2.3)*10<oDaily.xp) {
