@@ -49,6 +49,7 @@ function startbot(params) {
 					if(activity) bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
 					else bot.user.setActivity(params.tag+'help | '+members+' members');
 				} catch(error) {
+					console.log(error);
 					bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
 				}
 			},Database.responseTime);
