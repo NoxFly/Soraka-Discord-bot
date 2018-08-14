@@ -15,16 +15,12 @@ let mtsm = require('./../../functions/mtsm.js');
 let dump = require('./../../functions/dump.js');
 let profile = require('./../../functions/profile.js');
 
-// *** //
-
 function send(msg, message) {
 	msg.channel.send(message);
 }
 
-// *** //
-
-const commands = [
-
+let hidden = [
+    
 ];
-// 🏆🌐⚠️☢🥇🥈🥉🏅
-module.exports = commands; 
+
+module.export = hidden;

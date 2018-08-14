@@ -19,6 +19,16 @@ let aBotList = [
 	}
 ];
 
+let Selectedmodules = [
+	'basic'
+];
+
+let code = '';
+let mod = [];
+let timeExe = 0;
+let modules = [];
+let App = [];
+
 
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
@@ -26,9 +36,7 @@ aBotList.forEach(function(val, index, array) {
 
 function startbot(params) {
 	const bot = new Discord.Client();
-	exportObj.bot = bot;
-	let commands = require('./bots/'+params.name+'/command.js');
-	
+	exportObj.bot = bot;	
 
 	bot.on('ready',() => {
 		let m;
@@ -61,52 +69,70 @@ function startbot(params) {
 			return;
 		}
 
+		let command = [];
+		bot = [];
+		modules = [];
+
 		let id = msg.author.id;
 		let name = msg.author.username+'#'+msg.author.discriminator;
 		let avatar = msg.author.avatarURL;
-			
 		check(msg, id, name, avatar);
 
-		let content = msg.content;
-		if(content.indexOf(params.tag) === 0) {
+		if(App[msg.guild.id]['modules']===undefined || App[msg.guild.id] === undefined) {
+			DB.server(msg.guild.id).getData('modules', function(data) {
+				App[msg.guild.id]['modules'] = data.val();
+			});
+			setTimeout(function() {code=App[msg.guild.id]['modules'];},Database.responseTime);
+			timeExe = Database.responseTime*2;
+		} else {
+			code = App[msg.guild.id]['modules'];
+			timeExe = 0;
+		}
+
+		setTimeout(function() {
+			for(i in code) {
+				mod.push(code[i]);
+			}
+
+			mod.forEach(n => {
+				let m = require('./bots/'+params.name+'/modules/'+n);
+    			modules.concat(m);
+			});
+
+			exportObj.commands = modules;
+			let commands = require('./bots/'+params.name+'/modules/basic.js');
+			commands = commands.concat(modules);
 			
-	
-		for(let a=0; a<commands.length; a++) {
-			let command = commands[a];
-			if (find(content, command.name)) {
-				try {
-					Database.setAuthor(msg.author);
-					Database.profile(msg.author.id);
-					let txt = command.result(msg);
-					if(txt=='not_find') {
-						return;
-					} else {
-						send(msg, txt);
+			let content = msg.content;
+			if(content.indexOf(params.tag) === 0) {
+				for(let a=0; a<commands.length; a++) {
+					let command = commands[a];
+					if (find(content, command.name)) {
+						try {
+							Database.setAuthor(msg.author);
+							Database.profile(msg.author.id);
+							let txt = command.result(msg);
+							if(txt=='not_find') {
+								return;
+							} else {
+								send(msg, txt);
+							}
+						} catch(error) {
+							let embed = new Discord.RichEmbed()
+								.setAuthor('⚠️ Error ('+error.name+')')
+								.setColor(0xFFA500)
+								.setDescription('```'+error.message+'```');
+							send(msg, embed);
+						}
+						return false;
 					}
-				} catch(error) {
-					let embed = new Discord.RichEmbed()
-						.setAuthor('⚠️ Error ('+error.name+')')
-						.setColor(0xFFA500)
-						.setDescription('```'+error.message+'```');
-					send(msg, embed);
 				}
+				
+				send(msg,'Sorry, the command you wrote does not exist. :x:');
 				return false;
 			}
-		}
-			
-			send(msg,'Sorry, the command you wrote does not exist. :x:');
-			return false;
-		}
-			
+		}, timeExe);
 	});
-	
-	/*
-	bot.on('guildMemberAdd', (msg) => {
-		msg.author.createDM().then(channel => {
-			channel.send("Welcome to the server!\nI can't be connected 24/7, but my creator try to gain money to host me on VPS.\nhttps://paypal.me/NoxFly\nEven if I get one dollar per person I will be able to be connected 1 years ! Thanks :smile:"); 
-		});
-	});
-	*/
 
 	bot.on('guildCreate', (guild) => {
 		let id = guild.id;
