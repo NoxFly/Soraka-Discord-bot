@@ -379,7 +379,7 @@ const commands = [
 	{
 		name : 'role',
 		description : 'Add or remove to you a role of a server.',
-		usage : '`a!role {role name}`',
+		usage : '`a!role {role}`',
 		group: 'management',
 		result : (msg) => {
 			 
@@ -702,6 +702,29 @@ const commands = [
 				+'```asciidoc\n= Markdown =\nasciidoc, autohotkey, bash, coffeescript, cpp (C++), cs (C#), css, diff, fix, glsl, ini, json, md (markdown), ml, prolog, py, tex, xl, xml```'
 				+'Find all demo on https://gist.github.com/ringmatthew/9f7bbfd102003963f9be7dbcf7d40e51'
 			);
+		}
+	},
+
+	{
+		name: 'remindme',
+		description: 'send you a message in PM on the cooldown you wrote',
+		usage: '`a!remindme {seconds}`',
+		group: 'personal',
+		result: (msg) => {
+			let time = msg.content.split('remindme ')[1];
+			if(/^\d+$/.test(time)) {
+				let Rtime = parseInt(time);
+				Rtime *= 1000;
+				setTimeout(function() {
+					msg.author.createDM().then(channel => {
+						channel.send('Hey ! Time to remind you !');
+					});
+				}, Rtime);
+
+				return 'Ok, I\'ll remind you in '+time+' seconds';
+			} else {
+				return 'need a number ! (seconds)';
+			}
 		}
 	},
 
