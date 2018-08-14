@@ -70,7 +70,7 @@ function startbot(params) {
 		}
 
 		let command = [];
-		bot = [];
+		mod = [];
 		modules = [];
 
 		let id = msg.author.id;
@@ -102,7 +102,7 @@ function startbot(params) {
 			exportObj.commands = modules;
 			let commands = require('./bots/'+params.name+'/modules/basic.js');
 			commands = commands.concat(modules);
-			
+
 			let content = msg.content;
 			if(content.indexOf(params.tag) === 0) {
 				for(let a=0; a<commands.length; a++) {
