@@ -80,7 +80,7 @@ function startbot(params) {
 		if(App[msg.guild.id]===undefined || App[msg.guild.id]['modules']===undefined) {
 			if(App[msg.guild.id]===undefined) App[msg.guild.id] = [];
 
-			DB.server(msg.guild.id).getData('modules', function(data) {
+			Database.server(msg.guild.id).getData('modules', function(data) {
 				App[msg.guild.id]['modules'] = data.val();
 			});
 			setTimeout(function() {code=App[msg.guild.id]['modules'];},Database.responseTime);
