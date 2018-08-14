@@ -65,11 +65,10 @@ function startbot(params) {
 	});
 
 	bot.on('message', (msg) => {
-		if(msg.author.id === params.id) {
+		if(msg.author.id === params.id || msg.author.bot==true) {
 			return;
 		}
 
-		let command = [];
 		mod = [];
 		modules = [];
 
@@ -78,7 +77,9 @@ function startbot(params) {
 		let avatar = msg.author.avatarURL;
 		check(msg, id, name, avatar);
 
-		if(App[msg.guild.id]['modules']===undefined || App[msg.guild.id] === undefined) {
+		if(App[msg.guild.id]===undefined || App[msg.guild.id]['modules']===undefined) {
+			if(App[msg.guild.id]===undefined) App[msg.guild.id] = [];
+
 			DB.server(msg.guild.id).getData('modules', function(data) {
 				App[msg.guild.id]['modules'] = data.val();
 			});
