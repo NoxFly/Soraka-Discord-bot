@@ -19,11 +19,7 @@ let aBotList = [
 	}
 ];
 
-let Selectedmodules = [
-	'basic'
-];
-
-let code = '';
+let code = [];
 let mod = [];
 let timeExe = 0;
 let modules = [];
@@ -95,14 +91,14 @@ function startbot(params) {
 				mod.push(code[i]);
 			}
 
-			mod.forEach(n => {
-				let m = require('./bots/'+params.name+'/modules/'+n);
-    			modules.concat(m);
-			});
 
-			exportObj.commands = modules;
+			mod.forEach(n => {
+				let m = require('./bots/'+params.name+'/modules/'+n+'.js');
+				modules = modules.concat(m);
+			});
 			let commands = require('./bots/'+params.name+'/modules/basic.js');
-			commands = commands.concat(modules);
+			exportObj.commands = modules;
+			commands = modules.concat(commands);
 
 			let content = msg.content;
 			if(content.indexOf(params.tag) === 0) {

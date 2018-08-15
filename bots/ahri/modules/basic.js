@@ -1,20 +1,26 @@
 let firebase = require('firebase');
-let main = require('./../../bot.js');
+let main = require('./../../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-let champ = require('./../../functions/champions.json');
+let champ = require('./../../../functions/champions.json');
 const Discord = require('discord.js');
 
 // Basic - Games - Utility - Personal - Social - management
 
 // External functions
 let admin = require('./../../../functions/admin.js');
+let check2 = require('./../../../functions/checktwo.js');
+let getTop = require('./../../../functions/gettop.js');
 let mtsm = require('./../../../functions/mtsm.js');
 let dump = require('./../../../functions/dump.js');
+let profile = require('./../../../functions/profile.js');
+
+// *** //
 
 function send(msg, message) {
 	msg.channel.send(message);
 }
+
 
 let commands = [];
 
@@ -31,12 +37,12 @@ let basic = [
 				let n = msg.content.split('help ')[1];
 				let text = '';
 				
-				for(let i=0; i<commands.length;i++) {
-						let reg2 = new RegExp(commands[i].name);
+				for(let i=0; i<basic.length;i++) {
+						let reg2 = new RegExp(basic[i].name);
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
-							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(commands[i].group=='hidden'){} else {return text;}
+							text += basic[i].description+'\n\tWrite → '+basic[i].usage;
+							if(basic[i].group=='hidden'){} else {return text;}
 						}
 					}
 				
@@ -55,8 +61,8 @@ let basic = [
 			
 			let cmd;
 			
-			for(i in commands) {
-				cmd = commands[i];
+			for(i in basic) {
+				cmd = basic[i];
 				
 				switch(cmd.group) {
 					case 'basic':
@@ -137,8 +143,8 @@ let basic = [
 		result: (msg) => {
 			let txt = '';
 			if(admin(msg.author.id)) {
-				for(i in commands) {
-					txt += '`'+commands[i].name+'`, ';
+				for(i in basic) {
+					txt += '`'+basic[i].name+'`, ';
 				}
 				return txt;
 			}
@@ -536,9 +542,9 @@ let basic = [
   	 			
   	 		},DB.responseTime);
 		}
-	},
+	}
 ];
 
 commands = basic.concat(main.commands);
-
-module.export = basic;
+console.log('commands infile ('+commands.length+')');
+module.exports = basic;
