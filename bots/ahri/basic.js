@@ -265,13 +265,7 @@ let basic = [
 		result: (msg) => {
             if(!(msg.content=="a!modules")) return 'not_find';
             let embed = new Discord.RichEmbed()
-                .setTitle('Modules')
-                .setDescription('Basic (x commands)', true)
-                .setDescription('Game (x commands)', true)
-                .setDescription('Utility (x commands)', true)
-                .setDescription('Social (x commands)', true)
-                .setDescription('Management (x commands)', true)
-                .setDescription('Personal (x commands)', true);
+                .addField('Modules', 'Basic (x commands) Game (x commands)\nUtility (x commands) Social (x commands)\nManagement (x commands) Personal (x commands)');
 
 			return embed;
 		}
