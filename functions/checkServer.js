@@ -19,6 +19,9 @@ const checkServer = function(id, name, owner) {
                 owner: owner,
                 permsRole: {
                     0: 'test'
+                },
+                modules: {
+                    test: 'test'
                 }
             }
 

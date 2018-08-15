@@ -88,7 +88,7 @@ function startbot(params) {
 
 		setTimeout(function() {
 			for(i in code) {
-				mod.push(code[i]);
+				if(code[i]!='test') mod.push(code[i]);
 			}
 
 
@@ -100,6 +100,7 @@ function startbot(params) {
 			exportObj.commands = modules;
 			commands = modules.concat(commands);
 
+			console.log(commands);
 			let content = msg.content;
 			if(content.indexOf(params.tag) === 0) {
 				for(let a=0; a<commands.length; a++) {

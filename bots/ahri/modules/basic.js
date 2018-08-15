@@ -21,7 +21,6 @@ function send(msg, message) {
 	msg.channel.send(message);
 }
 
-
 let commands = [];
 
 let basic = [
@@ -546,5 +545,4 @@ let basic = [
 ];
 
 commands = basic.concat(main.commands);
-console.log('commands infile ('+commands.length+')');
 module.exports = basic;
