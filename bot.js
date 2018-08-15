@@ -96,7 +96,7 @@ function startbot(params) {
 				let m = require('./bots/'+params.name+'/modules/'+n+'.js');
 				modules = modules.concat(m);
 			});
-			let commands = require('./bots/'+params.name+'/modules/basic.js');
+			let commands = require('./bots/'+params.name+'/basic.js');
 			exportObj.commands = modules;
 			commands = modules.concat(commands);
 
