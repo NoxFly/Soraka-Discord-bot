@@ -320,7 +320,7 @@ let basic = [
 		name: 'remindme',
 		description: 'send you a message in PM on the cooldown you wrote',
 		usage: '`a!remindme {seconds}`',
-		group: 'personal',
+		group: 'basic',
 		result: (msg) => {
 			let time = msg.content.split('remindme ')[1];
 			if(/^\d+$/.test(time)) {
