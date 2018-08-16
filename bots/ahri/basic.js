@@ -268,7 +268,7 @@ let basic = [
 				.setTitle('Modules')
 				.setColor(0x43FF4E)
 				.addField(
-					'You can install or uninstall group of commands on the server writing `a!config modules.add {name}`',
+					'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`',
 					'Game - Personal - Social - Utility - Management'
 				)
 				.setDescription('I recommend you to install the modules game, personal and social');
