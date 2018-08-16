@@ -24,14 +24,6 @@ function send(msg, message) {
 let commands = [];
 
 let basic = [
-	{
-		name: 'stplog',
-		result: (msg) => {
-			console.log(main.commands);
-			return 'ok j\'ai log';
-		}
-	},
-
     {
 		name : 'help',
 		description : 'say the list of commands and their explanation. if you add a key command behind `a!help`, it will say you the explanation of this key command.',
@@ -273,13 +265,13 @@ let basic = [
 		result: (msg) => {
             if(!(msg.content=="a!modules")) return 'not_find';
             let embed = new Discord.RichEmbed()
-                .setTitle('Modules')
-                .setDescription('Basic (x commands)', true)
-                .setDescription('Game (x commands)', true)
-                .setDescription('Utility (x commands)', true)
-                .setDescription('Social (x commands)', true)
-                .setDescription('Management (x commands)', true)
-                .setDescription('Personal (x commands)', true);
+				.setTitle('Modules')
+				.setColor(0x43FF4E)
+				.addField(
+					'You can install or uninstall group of commands on the server',
+					'Game'+(' '.repeat(16))+'Personal\nSocial'+(' '.repeat(14))+'Utility\nManagement'
+				)
+				.setDescription('I recommend you to install the modules game, personal and social');
 
 			return embed;
 		}
