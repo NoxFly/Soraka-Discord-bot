@@ -269,7 +269,7 @@ let basic = [
 				.setColor(0x43FF4E)
 				.addField(
 					'You can install or uninstall group of commands on the server',
-					'Game'+(' '.repeat(16))+'Personal\nSocial'+(' '.repeat(14))+'Utility\nManagement'
+					'Game - Personal - Social - Utility - Management'
 				)
 				.setDescription('I recommend you to install the modules game, personal and social');
 
