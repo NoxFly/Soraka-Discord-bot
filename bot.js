@@ -4,6 +4,7 @@ let reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
 let check = require('./functions/check.js');
 let checkServer = require('./functions/checkServer.js');
+let dump = require('./functions/dump.js');
 
 let exportObj = module.exports = {};
 
@@ -14,7 +15,7 @@ let aBotList = [
 	{
 		'name'	:	'ahri',
 		'tag'  	: 	'a!',
-		'id'	:	'477918672732553216',
+		'id'	:	'463425089673887764',
 		'token' :	process.env.TOKEN_AHRI
 	}
 ];
@@ -32,9 +33,10 @@ aBotList.forEach(function(val, index, array) {
 
 function startbot(params) {
 	const bot = new Discord.Client();
-	exportObj.bot = bot;	
+	exportObj.bot = bot;
 
 	bot.on('ready',() => {
+		console.log(params.name+' ready !');
 		let m;
 		let members;
 		let activity = 1;
@@ -87,10 +89,12 @@ function startbot(params) {
 		}
 
 		setTimeout(function() {
+			console.log(code);
 			for(i in code) {
 				if(code[i]!='test') mod.push(code[i]);
 			}
 
+			console.log(mod);
 
 			mod.forEach(n => {
 				let m = require('./bots/'+params.name+'/modules/'+n+'.js');
@@ -99,8 +103,7 @@ function startbot(params) {
 			let commands = require('./bots/'+params.name+'/basic.js');
 			exportObj.commands = modules;
 			commands = modules.concat(commands);
-
-			console.log(commands);
+			//console.log(commands);
 			let content = msg.content;
 			if(content.indexOf(params.tag) === 0) {
 				for(let a=0; a<commands.length; a++) {
@@ -116,11 +119,11 @@ function startbot(params) {
 								send(msg, txt);
 							}
 						} catch(error) {
-							let embed = new Discord.RichEmbed()
+							/*let embed = new Discord.RichEmbed()
 								.setAuthor('⚠️ Error ('+error.name+')')
 								.setColor(0xFFA500)
 								.setDescription('```'+error.message+'```');
-							send(msg, embed);
+							send(msg, embed);*/
 						}
 						return false;
 					}

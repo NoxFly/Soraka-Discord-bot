@@ -1,19 +1,19 @@
 let firebase = require('firebase');
-let main = require('./../../../bot.js');
+let main = require('./../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-let champ = require('./../../../functions/champions.json');
+let champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
 
 // Basic - Games - Utility - Personal - Social - management
 
 // External functions
-let admin = require('./../../../functions/admin.js');
-let check2 = require('./../../../functions/checktwo.js');
-let getTop = require('./../../../functions/gettop.js');
-let mtsm = require('./../../../functions/mtsm.js');
-let dump = require('./../../../functions/dump.js');
-let profile = require('./../../../functions/profile.js');
+let admin = require('./../../functions/admin.js');
+let check2 = require('./../../functions/checktwo.js');
+let getTop = require('./../../functions/gettop.js');
+let mtsm = require('./../../functions/mtsm.js');
+let dump = require('./../../functions/dump.js');
+let profile = require('./../../functions/profile.js');
 
 // *** //
 
@@ -24,6 +24,14 @@ function send(msg, message) {
 let commands = [];
 
 let basic = [
+	{
+		name: 'stplog',
+		result: (msg) => {
+			console.log(main.commands);
+			return 'ok j\'ai log';
+		}
+	},
+
     {
 		name : 'help',
 		description : 'say the list of commands and their explanation. if you add a key command behind `a!help`, it will say you the explanation of this key command.',
@@ -36,12 +44,12 @@ let basic = [
 				let n = msg.content.split('help ')[1];
 				let text = '';
 				
-				for(let i=0; i<basic.length;i++) {
-						let reg2 = new RegExp(basic[i].name);
+				for(let i=0; i<commands.length;i++) {
+						let reg2 = new RegExp(commands[i].name);
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
-							text += basic[i].description+'\n\tWrite → '+basic[i].usage;
-							if(basic[i].group=='hidden'){} else {return text;}
+							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
+							if(commands[i].group=='hidden'){} else {return text;}
 						}
 					}
 				
@@ -60,8 +68,8 @@ let basic = [
 			
 			let cmd;
 			
-			for(i in basic) {
-				cmd = basic[i];
+			for(i in commands) {
+				cmd = commands[i];
 				
 				switch(cmd.group) {
 					case 'basic':
@@ -142,8 +150,8 @@ let basic = [
 		result: (msg) => {
 			let txt = '';
 			if(admin(msg.author.id)) {
-				for(i in basic) {
-					txt += '`'+basic[i].name+'`, ';
+				for(i in commands) {
+					txt += '`'+commands[i].name+'`, ';
 				}
 				return txt;
 			}
@@ -265,7 +273,13 @@ let basic = [
 		result: (msg) => {
             if(!(msg.content=="a!modules")) return 'not_find';
             let embed = new Discord.RichEmbed()
-                .addField('Modules', 'Basic (x commands) Game (x commands)\nUtility (x commands) Social (x commands)\nManagement (x commands) Personal (x commands)');
+                .setTitle('Modules')
+                .setDescription('Basic (x commands)', true)
+                .setDescription('Game (x commands)', true)
+                .setDescription('Utility (x commands)', true)
+                .setDescription('Social (x commands)', true)
+                .setDescription('Management (x commands)', true)
+                .setDescription('Personal (x commands)', true);
 
 			return embed;
 		}
@@ -365,7 +379,7 @@ let basic = [
 		name: 'remindme',
 		description: 'send you a message in PM on the cooldown you wrote',
 		usage: '`a!remindme {seconds}`',
-		group: 'basic',
+		group: 'personal',
 		result: (msg) => {
 			let time = msg.content.split('remindme ')[1];
 			if(/^\d+$/.test(time)) {
@@ -539,4 +553,5 @@ let basic = [
 ];
 
 commands = basic.concat(main.commands);
+//console.log('commands infile ('+commands.length+')');
 module.exports = basic;

@@ -25,11 +25,11 @@ let personal = [
     {
 		name : 'set_lang',
 		description : 'set your personnal language for the quotes.',
-		usage : '`a!set_lang EN/FR/IT/DE/ES/RU/JP/CH`',
+		usage : '`b!set_lang EN/FR/IT/DE/ES/RU/JP/CH`',
 		group: 'personal',
 		result : (msg) => {
 			let languages = ['EN','FR','IT','DE','ES','PT','RU','JP','CH'];
-			if(/^(set_lang)\s\w+$/.test(msg.content.split('a!')[1])) {
+			if(/^(set_lang)\s\w+$/.test(msg.content.split('b!')[1])) {
 				let lang = msg.content.split('set_lang ')[1].toUpperCase();
 
 				if(languages.indexOf(lang)<0){
@@ -51,7 +51,7 @@ let personal = [
     {
 		name : 'note',
 		description : 'save something you want to restore another moment. Maximum notes : 10.',
-		usage : '`a!note` `your note`',
+		usage : '`b!note` `your note`',
 		group: 'personal',
 		result : (msg) => {
 			let note = msg.content.split('note ')[1];
@@ -83,7 +83,7 @@ let personal = [
 	{
 		name : 'mynotes',
 		description : 'show your personnals note.',
-		usage : '`a!mynote`',
+		usage : '`b!mynote`',
 		group: 'personal',
 		result : (msg) => {
 			let notes = {};
@@ -113,7 +113,7 @@ let personal = [
 	{
 		name : 'clearnote',
 		description : 'clear your personnal notes.',
-		usage : '`a!clearnote {an integer} (optional)`',
+		usage : '`b!clearnote {an integer} (optional)`',
 		group: 'personal',
 		result : (msg) => {
 			let n = msg.content.split('clearnote ')[1];
@@ -192,7 +192,7 @@ let personal = [
     {
 		name : 'daily',
 		description : 'Obtain daily xp and monay ($200) each 12 hours.',
-		usage : '`a!daily`',
+		usage : '`b!daily`',
 		group: 'personal',
 		result : (msg) => {
 			let Now = Date.now();
@@ -234,7 +234,7 @@ let personal = [
 	{
 		name : 'money',
 		description : 'show your personal gems.',
-		usage : '`a!money`',
+		usage : '`b!money`',
 		group: 'personal',
 		result : (msg) => {
 			let money = 0;
@@ -252,18 +252,18 @@ let personal = [
 	{
 		name: 'profile',
 		description : 'show a profile',
-		usage: '`a!profile`',
+		usage: '`b!profile`',
 		group: 'personal',
 		result: (msg) => {
 			let iID;
 			let sUSER;
-			if(msg.content=='a!profile') {
+			if(msg.content=='b!profile') {
 				iID = msg.author.id;
 				sUSER = msg.author.username+'#'+msg.author.discriminator;
 				avatar = msg.author.avatarURL;
 				setTimeout(function() {profile(msg, iID, sUSER, avatar)},500);
 			} else {
-				iID = msg.content.replace(/a!profile <@!?(\d+)>/,'$1');
+				iID = msg.content.replace(/b!profile <@!?(\d+)>/,'$1');
 				DB.profile(iID).getData('user/name', function(data) {
 					data = data.val();
 					if(data===null) {
@@ -283,10 +283,10 @@ let personal = [
 	{
 		name: 'level',
 		description : 'Show level of a person',
-		usage : '`a!level {tag} (optional)`',
+		usage : '`b!level {tag} (optional)`',
 		group: 'personal',
 		result : (msg) => {
-			if(msg.content=='a!level') {
+			if(msg.content=='b!level') {
 				if(avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
 				DB.getData('data', function(data) {
 					data = data.val();
@@ -299,7 +299,7 @@ let personal = [
 					send(msg, embed);
 				});
 			} else {
-				let id = msg.content.replace(/a!level <@!?(\d+)>/,'$1');
+				let id = msg.content.replace(/b!level <@!?(\d+)>/,'$1');
 				let name, avatar;
 				DB.profile(id).getData('user/name', function(data) {
 					data = data.val();
@@ -332,7 +332,7 @@ let personal = [
     {
 		name: 'color',
 		description: 'Personalize your profile embed color',
-		usage: '`a!color #FFFFFF` or `a!color 0xFFFFFF`',
+		usage: '`b!color #FFFFFF` or `b!color 0xFFFFFF`',
 		group: 'personal',
 		result: (msg) => {
 			let color = msg.content.split('color ')[1];
@@ -355,7 +355,7 @@ let personal = [
     {
 		name: 'set_desc',
 		description: 'set your description',
-		usage: '`a!set_desc {your desc`',
+		usage: '`b!set_desc {your desc`',
 		group: 'personal',
 		result: (msg) => {
 			let desc = msg.content.split('set_desc ')[1];

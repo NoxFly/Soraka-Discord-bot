@@ -21,6 +21,7 @@ function send(msg, message) {
 	msg.channel.send(message);
 }
 
+
 let game = [
     {
 		name : 'loveme',
