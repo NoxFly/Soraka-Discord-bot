@@ -94,21 +94,22 @@ function startbot(params) {
 		}
 
 		setTimeout(function() {
-			console.log(code);
 			for(i in code) {
 				if(code[i]!='test') mod.push(code[i]);
 			}
 
-			console.log(mod);
 
-			mod.forEach(n => {
-				let m = require('./bots/'+params.name+'/modules/'+n+'.js');
+			mod.forEach(name => {
+				let m = require('./bots/'+params.name+'/modules/'+name+'.js');
+				m.forEach(command => {
+					command.group = name;
+				});
 				modules = modules.concat(m);
 			});
+			
 			let commands = require('./bots/'+params.name+'/basic.js');
 			exportObj.commands = modules;
 			commands = modules.concat(commands);
-			//console.log(commands);
 			let content = msg.content;
 			if(content.indexOf(params.tag) === 0) {
 				for(let a=0; a<commands.length; a++) {
@@ -124,11 +125,11 @@ function startbot(params) {
 								send(msg, txt);
 							}
 						} catch(error) {
-							/*let embed = new Discord.RichEmbed()
+							let embed = new Discord.RichEmbed()
 								.setAuthor('⚠️ Error ('+error.name+')')
 								.setColor(0xFFA500)
 								.setDescription('```'+error.message+'```');
-							send(msg, embed);*/
+							send(msg, embed);
 						}
 						return false;
 					}

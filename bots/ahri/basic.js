@@ -30,8 +30,8 @@ let basic = [
 		usage : '`a!help` `key (optional)`',
 		group: 'basic',
 		result : (msg) => {
-			return 'help ? IDK';
 			let reg = /^help (\w+)$/;
+			let mod_commands = basic.concat(main.commands);
 			
 			if(reg.test(msg.content.split('a!')[1])) {
 				let n = msg.content.split('help ')[1];
@@ -42,95 +42,33 @@ let basic = [
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
 							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(commands[i].group=='hidden'){} else {return text;}
+							if(commands[i].group!='hidden'){return text;}
 						}
 					}
 				
 				return 'I can\'t help you, the command does not exist 😓';
 				
 			} else if(/^(help)$/.test(msg.content.split('a!')[1])) {
-			
-			/* ** */                /* ** */
-			
-			let basics = '\n__**Basic :**__\n',
-				games = '\n__**Game :**__\n',
-				utility = '\n__**Utility :**__\n',
-				personal = '\n__**Personal :**__\n',
-				social = '\n__**Social :**__\n',
-				management = '\n__**management :**__\n';
-			
-			let cmd;
-			
-			for(i in commands) {
-				cmd = commands[i];
-				
-				switch(cmd.group) {
-					case 'basic':
-						basics += '• '
-							+'`'+cmd.name+'` : '
-							+cmd.description
-							+'\n\t'
-							+'→ '
-							+cmd.usage+'\n';
-						break;
-					case 'game':
-						games += '• '
-							+'`'+cmd.name+'` : '
-							+cmd.description
-							+'\n\t'
-							+'→ '
-							+cmd.usage+'\n';
-						break;
-					case 'utility':
-						utility += '• '
-							+'`'+cmd.name+'` : '
-							+cmd.description
-							+'\n\t'
-							+'→ '
-							+cmd.usage+'\n';
-						break;
-					case 'personal':
-						personal += '• '
-							+'`'+cmd.name+'` : '
-							+cmd.description
-							+'\n\t'
-							+'→ '
-							+cmd.usage+'\n';
-						break;
-					case 'social':
-						social += '• '
-							+'`'+cmd.name+'` : '
-							+cmd.description
-							+'\n\t'
-							+'→ '
-							+cmd.usage+'\n';
-						break;
-					case 'management':
-						management += '• '
-							+'`'+cmd.name+'` : '
-							+cmd.description
-							+'\n\t'
-							+'→ '
-							+cmd.usage+'\n';
-						break;
+				let txt = "";
+				let c = "";
+				for(let i=0; i<mod_commands.length; i++) {
+					let cmd = mod_commands[i];
+					if(cmd.group!='hidden' && cmd.group!=null) {
+						let m = cmd.group;
+						if(m===undefined) m = "basic";
+						m = "\n__**"+m.charAt(0).toUpperCase()+m.slice(1)+"**__\n";
+						if(c!=m) {
+							msg.author.send(txt);
+								txt = "";
+							txt += m;
+
+						}
+						c = m;
+						txt += "• `"+cmd.name+"` : "+cmd.description+"\n\t→"+cmd.usage+"\n";
+					}
 				}
-			}
-			
-			 txt = basics + '\n' + games + '\n' + utility + '\n'+personal + '\n' + social + '\n' + management;
 				
-			 setTimeout(function() {
-			 	msg.author.createDM().then(channel => {
-					channel.send(basics);
-					channel.send(games);
-					channel.send(utility);
-					channel.send(personal);
-					channel.send(social);
-					channel.send(management);
-				}); 
-			 },500);
-			 
-			return 'All commands sent in your DMs';
-			
+				return 'All commands sent in your DMs';
 			} else {
 				return 'not_find';
 			}
