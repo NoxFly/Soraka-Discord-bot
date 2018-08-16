@@ -30,6 +30,7 @@ let basic = [
 		usage : '`a!help` `key (optional)`',
 		group: 'basic',
 		result : (msg) => {
+			return 'help ? IDK';
 			let reg = /^help (\w+)$/;
 			
 			if(reg.test(msg.content.split('a!')[1])) {
@@ -275,7 +276,17 @@ let basic = [
 
 			return embed;
 		}
-    },
+	},
+	
+	{
+		name: 'config',
+		description: 'Some possible configurations, and adding or removing modules',
+		usage: '`a!config {config}`',
+		group: 'basic',
+		result: (msg) => {
+
+		}
+	},
     
     {
 		name: 'guilds',
