@@ -67,6 +67,11 @@ function startbot(params) {
 			return;
 		}
 
+		if(msg.channel.type==='dm') {
+			send(msg, 'For now, commands are only on server ^^');
+			return;
+		}
+
 		mod = [];
 		modules = [];
 
