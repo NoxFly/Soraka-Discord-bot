@@ -223,11 +223,11 @@ let basic = [
 		group: 'basic',
 		result: (msg) => {
 			let cmd = msg.content.split('config ')[1];
-			if(cmd===undefined) return basic['config'].description;
+			if(cmd===undefined) return 'Usage: `'+basic.filter((c)=>c.name=='config')[0].usage+'`';
 			
 			if(/^module/.test(cmd)) {
 				let arg = cmd.split('module')[1];
-				if(arg===undefined) return 'Command not complete, I can\'t do something';
+				if(arg=='') return 'Command not complete, I can\'t do anything';
 				if(arg=='.add') {
 					return 'You added';
 				} else if(arg=='.remove') {
