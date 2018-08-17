@@ -203,16 +203,25 @@ let basic = [
 		group: 'basic',
 		result: (msg) => {
             if(!(msg.content=="a!modules")) return 'not_find';
-            let embed = new Discord.RichEmbed()
-				.setTitle('Modules')
-				.setColor(0x43FF4E)
-				.addField(
-					'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`',
-					'Game - Personal - Social - Utility - Management'
-				)
-				.setDescription('I recommend you to install the modules game, personal and social');
+            let modules = '';
+			let end = ' - ';
+			fs.readdir('bots/blitzcrank/modules', function(err, items) {
+				for (var i=0; i<items.length; i++) {
+					if(i==items.length-1) end = '';
+					modules += items[i].replace('.js','')+end;
+					console.log(modules);
+				}
 
-			return embed;
+				let embed = new Discord.RichEmbed()
+					.setTitle('Modules')
+					.setColor(0x43FF4E)
+					.addField(
+						'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
+					)
+					.setDescription('I recommend you to install the modules game, personal and social');
+
+				send(msg, embed);
+			});
 		}
 	},
 	
