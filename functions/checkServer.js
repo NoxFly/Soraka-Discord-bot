@@ -3,13 +3,13 @@ const checkServer = function(id, name, owner) {
     const bot = main.bot;
     const Database = main.database;
     const Discord = require('discord.js');
-    
+
     let exist;
     Database.server(id).getData('id', function(data) {
         console.log('data:'+data.val());
         exist = data.val();
     });
-
+    
     setTimeout(function() {
         console.log('exist: '+exist);
         if(exist===null) {

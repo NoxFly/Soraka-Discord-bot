@@ -67,7 +67,7 @@ let basic = [
 						txt += "• `"+cmd.name+"` : "+cmd.description+"\n\t→"+cmd.usage+"\n";
 					}
 				}
-				
+				msg.author.send(txt);
 				return 'All commands sent in your DMs';
 			} else {
 				return 'not_find';
