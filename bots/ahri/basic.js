@@ -4,7 +4,7 @@ let bot = main.bot;
 let DB = main.database;
 let champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
-const fs = require('fs');
+let fs = require('fs');
 
 // Basic - Games - Utility - Personal - Social - management
 
@@ -206,7 +206,7 @@ let basic = [
             if(!(msg.content=="a!modules")) return 'not_find';
             let modules = '';
 			let end = ' - ';
-			fs.readdir('bots/blitzcrank/modules', function(err, items) {
+			fs.readdir('bots/ahri/modules', function(err, items) {
 				for (var i=0; i<items.length; i++) {
 					if(i==items.length-1) end = '';
 					modules += items[i].replace('.js','')+end;
