@@ -1,11 +1,11 @@
 let main = require('./../bot.js');
 let bot = main.bot;
-let DB = main.database;
+let Database = main.database;
 const Discord = require('discord.js');
 
 const checkServer = function(id, name, owner) {
     let exist;
-    DB.server(id).getData('id', function(data) {
+    Database.server(id).getData('id', function(data) {
         console.log('data:'+data.val());
         exist = data.val();
     });
@@ -25,7 +25,7 @@ const checkServer = function(id, name, owner) {
                 }
             }
 
-            DB.server(id).setServerData(Guild);
+            Database.server(id).setServerData(Guild);
         }
     },200);
 };

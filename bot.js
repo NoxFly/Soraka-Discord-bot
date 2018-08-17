@@ -1,15 +1,20 @@
-var firebase = require('firebase');
 const Discord = require('discord.js');
-let reactionCommands = require('./functions/reaction_command.js');
+const reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
-let check = require('./functions/check.js');
-let checkServer = require('./functions/checkServer.js');
-let dump = require('./functions/dump.js');
+const check = require('./functions/check.js');
+const checkServer = require('./functions/checkServer.js');
+const dump = require('./functions/dump.js');
 
 let exportObj = module.exports = {};
 
 let Database = new DB();
 exportObj.database = Database;
+
+let code = [];
+let mod = [];
+let timeExe = 0;
+let modules = [];
+let App = [];
 
 let aBotList = [
 	{
@@ -20,13 +25,6 @@ let aBotList = [
 	}
 ];
 
-let code = [];
-let mod = [];
-let timeExe = 0;
-let modules = [];
-let App = [];
-
-
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
 });
@@ -36,7 +34,7 @@ function startbot(params) {
 	exportObj.bot = bot;
 
 	bot.on('ready',() => {
-		console.log(params.name+' ready !');
+		console.log(params.name+' ready !\n');
 		let m;
 		let members;
 		let activity = 1;
@@ -51,7 +49,6 @@ function startbot(params) {
 			setTimeout(function() {
 				try {
 					members = Object.keys(m).length;
-					console.log(members+' | '+typeof m);
 					if(activity) bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
 					else bot.user.setActivity(params.tag+'help | '+members+' members');
 				} catch(error) {
@@ -63,7 +60,7 @@ function startbot(params) {
 	});
 
 	bot.on('message', (msg) => {
-		if(msg.author.id === params.id || msg.author.bot==true) {
+		if(msg.author.id===params.id || msg.author.bot==true) {
 			return;
 		}
 
@@ -77,24 +74,24 @@ function startbot(params) {
 		let gowner = msg.guild.ownerID;
 		checkServer(gid, gname, gowner);
 
-		mod = [];
-		modules = [];
-
 		let id = msg.author.id;
 		let name = msg.author.username+'#'+msg.author.discriminator;
 		let avatar = msg.author.avatarURL;
 		check(msg, id, name, avatar);
 
-		if(App[msg.guild.id]===undefined || App[msg.guild.id]['modules']===undefined) {
-			if(App[msg.guild.id]===undefined) App[msg.guild.id] = [];
+		mod = [];
+		modules = [];
 
-			Database.server(msg.guild.id).getData('modules', function(data) {
-				App[msg.guild.id]['modules'] = data.val();
+		if(App[gid]===undefined || App[gid]['modules']===undefined) {
+			if(App[gid]===undefined) App[gid] = [];
+
+			Database.server(gid).getData('modules', function(data) {
+				App[gid]['modules'] = data.val();
 			});
-			setTimeout(function() {code=App[msg.guild.id]['modules'];},Database.responseTime);
+			setTimeout(function() {code=App[gid]['modules'];},Database.responseTime);
 			timeExe = Database.responseTime*2;
 		} else {
-			code = App[msg.guild.id]['modules'];
+			code = App[gid]['modules'];
 			timeExe = 0;
 		}
 
@@ -102,7 +99,6 @@ function startbot(params) {
 			for(i in code) {
 				if(code[i]!='test') mod.push(code[i]);
 			}
-
 
 			mod.forEach(name => {
 				let m = require('./bots/'+params.name+'/modules/'+name+'.js');
@@ -115,8 +111,9 @@ function startbot(params) {
 			let commands = require('./bots/'+params.name+'/basic.js');
 			exportObj.commands = modules;
 			commands = modules.concat(commands);
+
 			let content = msg.content;
-			if(content.indexOf(params.tag) === 0) {
+			if(content.indexOf(params.tag)===0) {
 				for(let a=0; a<commands.length; a++) {
 					let command = commands[a];
 					if (find(content, command.name)) {
@@ -141,7 +138,7 @@ function startbot(params) {
 				}
 				
 				send(msg,'Sorry, the command you wrote does not exist. :x:');
-				return false;
+				return;
 			}
 		}, timeExe);
 	});
