@@ -26,6 +26,8 @@ const checkServer = function(id, name, owner) {
             }
 
             DB.server(id).setServerData(Guild);
+        } else {
+            DB.server(id).updateData('', name);
         }
     },200);
 };
