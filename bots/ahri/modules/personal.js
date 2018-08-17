@@ -191,7 +191,7 @@ let personal = [
     
     {
 		name : 'daily',
-		description : 'Obtain daily xp and monay ($200) each 12 hours.',
+		description : 'Obtain daily xp and monay (200 gems and 20xp) each 12 hours.',
 		usage : '`a!daily`',
 		group: 'personal',
 		result : (msg) => {
