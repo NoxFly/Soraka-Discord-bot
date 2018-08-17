@@ -72,9 +72,9 @@ function startbot(params) {
 			return;
 		}
 
-		let gid = guild.id;
-		let gname = guild.name;
-		let gowner = guild.ownerID;
+		let gid = msg.guild.id;
+		let gname = msg.guild.name;
+		let gowner = msg.guild.ownerID;
 		checkServer(gid, gname, gowner);
 
 		mod = [];
