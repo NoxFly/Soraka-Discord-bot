@@ -4,6 +4,7 @@ let bot = main.bot;
 let DB = main.database;
 let champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
+const fs = require('fs');
 
 // Basic - Games - Utility - Personal - Social - management
 
