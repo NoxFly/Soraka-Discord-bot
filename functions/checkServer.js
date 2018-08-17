@@ -1,9 +1,9 @@
-let main = require('./../bot.js');
-let bot = main.bot;
-let Database = main.database;
-const Discord = require('discord.js');
-
 const checkServer = function(id, name, owner) {
+    const main = require('./../bot.js');
+    const bot = main.bot;
+    const Database = main.database;
+    const Discord = require('discord.js');
+    
     let exist;
     Database.server(id).getData('id', function(data) {
         console.log('data:'+data.val());
