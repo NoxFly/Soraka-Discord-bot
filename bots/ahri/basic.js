@@ -222,7 +222,20 @@ let basic = [
 		usage: '`a!config {config}`',
 		group: 'basic',
 		result: (msg) => {
-
+			let cmd = msg.content.split('config ')[1];
+			if(cmd===undefined) return basic['config'].description;
+			
+			if(/^module/.test(cmd)) {
+				let arg = cmd.split('module')[1];
+				if(arg===undefined) return 'Command not complete, I can\'t do something';
+				if(arg=='.add') {
+					return 'You added';
+				} else if(arg=='.remove') {
+					return 'you removed';
+				}
+			} else {
+				return 'not_find';
+			}
 		}
 	},
     
