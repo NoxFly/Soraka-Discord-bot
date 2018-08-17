@@ -69,30 +69,7 @@ let utility = [
 				return 'Need a number, and only 0 or 1';
 			}
 		}
-    },
-    
-    {
-		name: 'ev',
-		description: 'show the result of javascript code',
-		usage: 'a!ev {js code}',
-		group: 'utility',
-		result: (msg) => {
-			let res = '';
-			let output = msg.content.split('ev ')[1];
-			if(/process\.exit\(0\)/.test(output)) return;
-			output = output.replace(/console\.log\((\w+)\)/gm,'send(msg,$1)');
-			try {
-				res = eval(output);
-			} catch(error) {
-				res = error;
-			}
-			output = output.replace(/;(\s+)?/gm,';\n');
-			let embed = new Discord.RichEmbed()
-				.addField('**:inbox_tray: Input:**','```js\n'+output+'```')
-				.addField('**:outbox_tray: Output:**','```js\n'+res+'```');
-			return embed;
-		}
-	},
+    }
 ];
 
 module.exports = utility;

@@ -228,14 +228,45 @@ let basic = [
 			if(/^module/.test(cmd)) {
 				let arg = cmd.split('module')[1];
 				if(arg=='') return 'Command not complete, I can\'t do anything';
-				if(arg=='.add') {
-					return 'You added';
-				} else if(arg=='.remove') {
-					return 'you removed';
+				if(!admin(msg.author.id) && msg.author.id!=msg.guild.owner) {
+					return 'You can\'t manage modules';
+				}
+
+				if(arg.startsWith('.add')) {
+					arg = arg.split('.add ')[1];
+					if(arg===undefined) return 'Specify a module please';
+
+				} else if(arg.startsWith('.remove')) {
+					arg = arg.split('.remove ')[1];
+					if(arg===undefined) return 'Specify a module please';
 				}
 			} else {
 				return 'not_find';
 			}
+		}
+	},
+
+	{
+		name: 'ev',
+		description: 'show the result of javascript code',
+		usage: 'a!ev {js code}',
+		group: 'hidden',
+		result: (msg) => {
+			if(!admin(msg.author.id)) return;
+			let res = '';
+			let output = msg.content.split('ev ')[1];
+			if(/process\.exit\(0\)/.test(output)) return;
+			output = output.replace(/console\.log\((\w+)\)/gm,'send(msg,$1)');
+			try {
+				res = eval(output);
+			} catch(error) {
+				res = error;
+			}
+			output = output.replace(/;(\s+)?/gm,';\n');
+			let embed = new Discord.RichEmbed()
+				.addField('**:inbox_tray: Input:**','```js\n'+output+'```')
+				.addField('**:outbox_tray: Output:**','```js\n'+res+'```');
+			return embed;
 		}
 	},
     
