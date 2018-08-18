@@ -241,7 +241,7 @@ let basic = [
 				if(arg=='') return 'Command not complete, I can\'t do anything';
 				if(!admin(msg.author.id) && msg.author.id!=msg.guild.owner) return 'You can\'t manage modules';
 				fs.readdir('bots/ahri/modules', function(err, items) {
-					let modules = '';
+					let modules = [];
 					for (var i=0; i<items.length; i++) {
 						modules.push(items[i].replace('.js',''));
 					}
