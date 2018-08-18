@@ -5,6 +5,7 @@ let DB = main.database;
 let champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
 let fs = require('fs');
+let App = main.app;
 
 // Basic - Games - Utility - Personal - Social - management
 
@@ -238,18 +239,52 @@ let basic = [
 			if(/^module/.test(cmd)) {
 				let arg = cmd.split('module')[1];
 				if(arg=='') return 'Command not complete, I can\'t do anything';
-				if(!admin(msg.author.id) && msg.author.id!=msg.guild.owner) {
-					return 'You can\'t manage modules';
-				}
+				if(!admin(msg.author.id) && msg.author.id!=msg.guild.owner) return 'You can\'t manage modules';
+				fs.readdir('bots/ahri/modules', function(err, items) {
+					let modules = '';
+					for (var i=0; i<items.length; i++) {
+						modules.push(items[i].replace('.js',''));
+					}
 
-				if(arg.startsWith('.add')) {
-					arg = arg.split('.add ')[1];
-					if(arg===undefined) return 'Specify a module please';
-
-				} else if(arg.startsWith('.remove')) {
-					arg = arg.split('.remove ')[1];
-					if(arg===undefined) return 'Specify a module please';
-				}
+					if(arg.startsWith('.add')) {
+						arg = arg.split('.add ')[1].toLowerCase();
+						let mod_sav = App[msg.guild.id].modules;
+						let download = [];
+						for(i in mod_sav) {
+							download.push(mod_sav[i]);
+						}
+						if(arg===undefined) return 'Specify a module please';
+						if(modules.indexOf(arg)===-1) {
+							send(msg,'This module does not exist\n`a!modules` to see availible modules');
+						} else if(download.indexOf(arg)!==-1) {
+							send(msg, 'You already have this module');
+						} else {
+							DB.server(msg.guild.id).addData('modules', arg, arg);
+							msg.channel.send('Installing... (0%)').then(message => {
+								for(i=0; i<120; i+=20) {
+									message.edit('Installing... ('+i+'%)');
+									if(i==100) message.edit('Successfully installed:**`'+arg+'`**');
+								}
+							});
+						}
+					} else if(arg.startsWith('.remove')) {
+						arg = arg.split('.remove ')[1].toLowerCase();
+						let mod_sav = App[msg.guild.id].modules;
+						let download = [];
+						for(i in mod_sav) {
+							download.push(mod_sav[i]);
+						}
+						if(arg===undefined) return 'Specify a module please';
+						if(modules.indexOf(arg)===-1) {
+							send(msg,'This module does not exist\n`a!modules` to see availible modules');
+						} else if(download.indexOf(arg)===-1) {
+							send(msg, 'You do not have this module');
+						} else {
+							DB.server(msg.guild.id).deleteData('modules/'+arg);
+							send(msg, 'You uninstalled This module : `'+arg+'`');
+						}
+					}
+				});
 			} else {
 				return 'not_find';
 			}
