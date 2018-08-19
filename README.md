@@ -16,8 +16,11 @@
 <br><br>
 <pre>version : 1.1</pre>
 • faster, new commands, and some bugs fixed.
+<br><br>
+<pre>version : 1.2</pre>
+• server owner and me can add or remove package of commands. When ahri come in a new server, only few commands are availible
 <br>
 <h1>Other</h1>
-<br>Next version will create package of commands, as modules, and each servers will be able to add or remove some package of commands.
+<br>Some new games commands will be coming out
 <br>
 <br>Create your own Discord Bot : https://discordapp.com/developers
