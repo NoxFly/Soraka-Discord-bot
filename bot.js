@@ -1,3 +1,4 @@
+var firebase = require('firebase');
 const Discord = require('discord.js');
 const reactionCommands = require('./functions/reaction_command.js');
 const DB = require('./DB.js');
