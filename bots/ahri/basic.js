@@ -88,7 +88,235 @@ let basic = [
 				return txt;
 			}
 		}
+	},
+	
+	{
+		name: 'roleID',
+		group: 'hidden',
+		result: (msg) => {
+			let Nroles = msg.guild.roles.map(role => role.name);
+			let Iroles = msg.guild.roles.map(role => role.id);
+			let txt = '```asciidoc\n';
+
+			for(i in Nroles) {
+				txt += Nroles[i] + (' '.repeat(30-Nroles[i].length)) + ':: ' + Iroles[i] + '\n'; 
+			}
+
+			txt += '```';
+			return txt;
+		}
+	},
+	
+	{
+		name: 'ev',
+		description: 'show the result of javascript code',
+		usage: 'a!ev {js code}',
+		group: 'hidden',
+		result: (msg) => {
+			if(!admin(msg.author.id)) return;
+			let res = '';
+			let output = msg.content.split('ev ')[1];
+			if(/process\.exit\(0\)/.test(output)) return;
+			output = output.replace(/console\.log\((\w+)\)/gm,'send(msg,$1)');
+			try {
+				res = eval(output);
+			} catch(error) {
+				res = error;
+			}
+			output = output.replace(/;(\s+)?/gm,';\n');
+			let embed = new Discord.RichEmbed()
+				.addField('**:inbox_tray: Input:**','```js\n'+output+'```')
+				.addField('**:outbox_tray: Output:**','```js\n'+res+'```');
+			return embed;
+		}
+	},
+    
+    {
+		name: 'guilds',
+		group: 'hidden',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				let guildList = bot.guilds.array();
+				let txt = "";
+				let aGuild = [];
+
+				try {
+					guildList.forEach(guild => 
+						aGuild.push(
+							{
+								name: guild.name,
+								id: guild.id,
+								owner: guild.owner
+							}
+						)
+					);
+				} catch (err) {
+					
+				}
+
+				let iPage = Math.round(msg.content.split('guilds ')[1]);
+				if(iPage<1 || iPage*10-10>aGuild.length || isNaN(iPage)) iPage = 1
+				let iEnd = iPage*10-1;
+				let iStart = iPage*10-10;
+				let iMaxPage = Math.ceil(aGuild.length/10);
+				for(i=iStart; i<iEnd; i++) {
+					if(i==aGuild.length) break;
+					txt += "-• Guild name: "+aGuild[i].name+"\n\t\tGuild ID: "+aGuild[i].id+"\n\t\tGuild owner: "+aGuild[i].owner+"\n"
+				}
+				return '```diff\n'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```';
+			}
+		}
     },
+    
+    {
+		name: 'serv',
+		group: 'hidden',
+		result: (msg) => {
+			if(!(msg.content=="a!serv")) return 'not_find';
+			try {
+				var a = msg.guild.id;
+				return 'You are on `'+msg.guild.name+'` server';
+			} catch(err) {
+				return 'You are on private message with me';
+			}
+		}
+    },
+    
+    {
+		name: 'ans',
+		group: 'hidden',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+]+/,'');
+				var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
+
+				bot.fetchUser(id).then(user => {
+					user.createDM().then(channel => {
+						let embed = new Discord.RichEmbed()
+							.setAuthor("ドリアン#8850 answered you :")
+							.setColor(0x007FFF)
+							.setThumbnail(msg.author.avatarURL)
+							.addField("message :",message);
+						channel.send(embed);
+					});
+				});
+
+				return 'Message envoyé à <@'+id+'>';
+			}
+		}
+	},
+	
+	{
+		name: 'add',
+		group: 'hidden',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				if(/a!add \d+ <@(\d+)>/.test(msg.content)) {
+					let id = msg.content.replace(/a!add \d+ <@(\d+)>/, '$1');
+					let add = msg.content.replace(/a!add (\d+) <@\d+>/, '$1');
+					let a = {};
+					let defined = false;
+					
+					DB.profile(id).getUser(function(data) {
+							data = data.val();
+
+							if(data==null) {
+								send(msg,'this user doesn\'t have an account');
+							} else {
+								a.id = data.id;
+								a.name = data.name;
+
+								DB.profile(id).getData('data', function(data2) {
+									data2 = data2.val();
+									a.money = parseInt(data2.money);
+									a.money += parseInt(add);
+									defined = true;
+								});
+							}	
+					});
+
+					setTimeout(function() {
+						if(defined) {
+							DB.profile(id).setData('data/money',a.money);
+							send(msg, add+' gem(s) :gem: added to `'+a.name+'`');
+						}
+					},DB.responseTime);
+				}
+			}
+		}
+	},
+
+	{
+		name: 'remove',
+		group: 'hidden',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				if(/a!rem \d+ <@(\d+)>/.test(msg.content)) {
+					let id = msg.content.replace(/a!remove \d+ <@(\d+)>/, '$1');
+					let rem = msg.content.replace(/a!remove (\d+) <@\d+>/, '$1');
+					let a = {};
+					let defined = false;
+					
+					DB.profile(id).getUser(function(data) {
+						data = data.val();
+
+						if(data==null) {
+							send(msg,'this user doesn\'t have an account');
+						} else {
+							a.id = data.id;
+							a.name = data.name;
+
+							DB.profile(id).getData('data', function(data2) {
+								data2 = data2.val();
+								a.money = parseInt(data2.money);
+								a.money -= parseInt(rem);
+								defined = true;
+							});
+						}	
+					});
+
+					setTimeout(function() {
+						if(defined) {
+							DB.profile(id).setData('data/money',a.money);
+							send(msg, rem+' gem(s) :gem: removed to `'+a.name+'`');
+						}
+					},DB.responseTime);
+				}
+			}
+		}
+	},
+	
+	{
+		name : 'reset',
+		description : 'reset you password',
+		usage : '`a!reset`',
+		group: 'hidden',
+		result : (msg) => {
+			let name = msg.author.username+'#'+msg.author.discriminator;
+
+			let reset;
+			let Now = Date.now();
+		   
+			DB.getData('param', function(data) {
+				reset = data.val()._reset;
+				resetDelay = data.val()._resetTime;
+			});
+  	 		
+  	 		setTimeout(function() {
+  	 			if(reset==1) {
+  	 				let pass = randPass();
+					   DB.updateData('param/_reset', 0).updateData('param/_resetTime', Now).updateData('param/password', pass);
+  	 				msg.author.createDM().then(channel => {
+						channel.send('• Username: '+name+'\n• Password: '+pass+'\nConnect you to dorian.thivolle.net/ahri to manage your account.').then(sentMessage => sentMessage.pin());
+					});
+						
+  	 			} else {
+  	 				send(msg, 'You need to reclick on `reset` button because the time is over.\nhttps://dorian.thivolle.net/ahri');
+  	 			}
+  	 			
+  	 		},DB.responseTime);
+		}
+	},
     
     {
 		name: 'server',
@@ -147,23 +375,6 @@ let basic = [
 				.addField('Link :','https://paypal.me/NoxFly')
 				.setFooter('Version 1.1', 'https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif');
 			return embed;
-		}
-    },
-    
-    {
-		name: 'roleID',
-		group: 'hidden',
-		result: (msg) => {
-			let Nroles = msg.guild.roles.map(role => role.name);
-			let Iroles = msg.guild.roles.map(role => role.id);
-			let txt = '```asciidoc\n';
-
-			for(i in Nroles) {
-				txt += Nroles[i] + (' '.repeat(30-Nroles[i].length)) + ':: ' + Iroles[i] + '\n'; 
-			}
-
-			txt += '```';
-			return txt;
 		}
     },
     
@@ -292,105 +503,6 @@ let basic = [
 			}
 		}
 	},
-
-	{
-		name: 'ev',
-		description: 'show the result of javascript code',
-		usage: 'a!ev {js code}',
-		group: 'hidden',
-		result: (msg) => {
-			if(!admin(msg.author.id)) return;
-			let res = '';
-			let output = msg.content.split('ev ')[1];
-			if(/process\.exit\(0\)/.test(output)) return;
-			output = output.replace(/console\.log\((\w+)\)/gm,'send(msg,$1)');
-			try {
-				res = eval(output);
-			} catch(error) {
-				res = error;
-			}
-			output = output.replace(/;(\s+)?/gm,';\n');
-			let embed = new Discord.RichEmbed()
-				.addField('**:inbox_tray: Input:**','```js\n'+output+'```')
-				.addField('**:outbox_tray: Output:**','```js\n'+res+'```');
-			return embed;
-		}
-	},
-    
-    {
-		name: 'guilds',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				let guildList = bot.guilds.array();
-				let txt = "";
-				let aGuild = [];
-
-				try {
-					guildList.forEach(guild => 
-						aGuild.push(
-							{
-								name: guild.name,
-								id: guild.id,
-								owner: guild.owner
-							}
-						)
-					);
-				} catch (err) {
-					
-				}
-
-				let iPage = Math.round(msg.content.split('guilds ')[1]);
-				if(iPage<1 || iPage*10-10>aGuild.length || isNaN(iPage)) iPage = 1
-				let iEnd = iPage*10-1;
-				let iStart = iPage*10-10;
-				let iMaxPage = Math.ceil(aGuild.length/10);
-				for(i=iStart; i<iEnd; i++) {
-					if(i==aGuild.length) break;
-					txt += "-• Guild name: "+aGuild[i].name+"\n\t\tGuild ID: "+aGuild[i].id+"\n\t\tGuild owner: "+aGuild[i].owner+"\n"
-				}
-				return '```diff\n'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```';
-			}
-		}
-    },
-    
-    {
-		name: 'serv',
-		group: 'hidden',
-		result: (msg) => {
-			if(!(msg.content=="a!serv")) return 'not_find';
-			try {
-				var a = msg.guild.id;
-				return 'You are on `'+msg.guild.name+'` server';
-			} catch(err) {
-				return 'You are on private message with me';
-			}
-		}
-    },
-    
-    {
-		name: 'ans',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+]+/,'');
-				var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
-
-				bot.fetchUser(id).then(user => {
-					user.createDM().then(channel => {
-						let embed = new Discord.RichEmbed()
-							.setAuthor("ドリアン#8850 answered you :")
-							.setColor(0x007FFF)
-							.setThumbnail(msg.author.avatarURL)
-							.addField("message :",message);
-						channel.send(embed);
-					});
-				});
-
-				return 'Message envoyé à <@'+id+'>';
-			}
-		}
-    },
     
     {
 		name: 'markdown',
@@ -426,86 +538,6 @@ let basic = [
 				return 'Ok, I\'ll remind you in '+time+' seconds';
 			} else {
 				return 'need a number ! (seconds)';
-			}
-		}
-    },
-    
-    {
-		name: 'add',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				if(/a!add \d+ <@(\d+)>/.test(msg.content)) {
-					let id = msg.content.replace(/a!add \d+ <@(\d+)>/, '$1');
-					let add = msg.content.replace(/a!add (\d+) <@\d+>/, '$1');
-					let a = {};
-					let defined = false;
-					
-					DB.profile(id).getUser(function(data) {
-							data = data.val();
-
-							if(data==null) {
-								send(msg,'this user doesn\'t have an account');
-							} else {
-								a.id = data.id;
-								a.name = data.name;
-
-								DB.profile(id).getData('data', function(data2) {
-									data2 = data2.val();
-									a.money = parseInt(data2.money);
-									a.money += parseInt(add);
-									defined = true;
-								});
-							}	
-					});
-
-					setTimeout(function() {
-						if(defined) {
-							DB.profile(id).setData('data/money',a.money);
-							send(msg, add+' gem(s) :gem: added to `'+a.name+'`');
-						}
-					},DB.responseTime);
-				}
-			}
-		}
-	},
-
-	{
-		name: 'remove',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				if(/a!rem \d+ <@(\d+)>/.test(msg.content)) {
-					let id = msg.content.replace(/a!remove \d+ <@(\d+)>/, '$1');
-					let rem = msg.content.replace(/a!remove (\d+) <@\d+>/, '$1');
-					let a = {};
-					let defined = false;
-					
-					DB.profile(id).getUser(function(data) {
-						data = data.val();
-
-						if(data==null) {
-							send(msg,'this user doesn\'t have an account');
-						} else {
-							a.id = data.id;
-							a.name = data.name;
-
-							DB.profile(id).getData('data', function(data2) {
-								data2 = data2.val();
-								a.money = parseInt(data2.money);
-								a.money -= parseInt(rem);
-								defined = true;
-							});
-						}	
-					});
-
-					setTimeout(function() {
-						if(defined) {
-							DB.profile(id).setData('data/money',a.money);
-							send(msg, rem+' gem(s) :gem: removed to `'+a.name+'`');
-						}
-					},DB.responseTime);
-				}
 			}
 		}
     },
@@ -549,39 +581,7 @@ let basic = [
 				send(msg, 'You need to wait **'+ans+'** to send a new message :hourglass:');
 			},DB.responseTime);
 		}
-    },
-    
-    {
-		name : 'reset',
-		description : 'reset you password',
-		usage : '`a!reset`',
-		group: 'hidden',
-		result : (msg) => {
-			let name = msg.author.username+'#'+msg.author.discriminator;
-
-			let reset;
-			let Now = Date.now();
-		   
-			DB.getData('param', function(data) {
-				reset = data.val()._reset;
-				resetDelay = data.val()._resetTime;
-			});
-  	 		
-  	 		setTimeout(function() {
-  	 			if(reset==1) {
-  	 				let pass = randPass();
-					   DB.updateData('param/_reset', 0).updateData('param/_resetTime', Now).updateData('param/password', pass);
-  	 				msg.author.createDM().then(channel => {
-						channel.send('• Username: '+name+'\n• Password: '+pass+'\nConnect you to dorian.thivolle.net/ahri to manage your account.').then(sentMessage => sentMessage.pin());
-					});
-						
-  	 			} else {
-  	 				send(msg, 'You need to reclick on `reset` button because the time is over.\nhttps://dorian.thivolle.net/ahri');
-  	 			}
-  	 			
-  	 		},DB.responseTime);
-		}
-	}
+    }
 ];
 
 commands = basic.concat(main.commands);
