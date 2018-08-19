@@ -74,7 +74,7 @@ const check = function(msg, id, name, avatar) {
                     zAvatar: avatar
                 });
             }
-        },200);
+        },400);
 };
 
 module.exports = check;

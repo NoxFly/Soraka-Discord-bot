@@ -30,7 +30,7 @@ class DB {
         let database = firebase.database();
         this.database = database;
         this.serverID = 0;
-        this.responseTime = 500;
+        this.responseTime = 600;
         this.ref = "";
         this.author = false;
     }
