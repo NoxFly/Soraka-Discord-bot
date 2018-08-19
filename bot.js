@@ -97,6 +97,7 @@ function startbot(params) {
 		}
 
 		setTimeout(function() {
+			exportObj.app = App;
 			for(i in code) {
 				if(code[i]!='test') mod.push(code[i]);
 			}
