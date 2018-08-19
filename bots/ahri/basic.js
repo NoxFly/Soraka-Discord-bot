@@ -373,7 +373,7 @@ let basic = [
 				.addField('Note','If my creator doesn\'t have internet, I will not be able to be connected.')
 				.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
 				.addField('Link :','https://paypal.me/NoxFly')
-				.setFooter('Version 1.1', 'https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif');
+				.setFooter('Version 1.2', 'https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif');
 			return embed;
 		}
     },
