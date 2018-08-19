@@ -247,13 +247,14 @@ let basic = [
 					}
 
 					if(arg.startsWith('.add')) {
-						arg = arg.split('.add ')[1].toLowerCase();
+						arg = arg.split('.add ')[1];
 						let mod_sav = App[msg.guild.id].modules;
 						let download = [];
 						for(i in mod_sav) {
 							download.push(mod_sav[i]);
 						}
 						if(arg===undefined) return 'Specify a module please';
+						arg = arg.toLowerCase();
 						if(modules.indexOf(arg)===-1) {
 							send(msg,'This module does not exist\n`a!modules` to see availible modules');
 						} else if(download.indexOf(arg)!==-1) {
@@ -268,13 +269,14 @@ let basic = [
 							});
 						}
 					} else if(arg.startsWith('.remove')) {
-						arg = arg.split('.remove ')[1].toLowerCase();
+						arg = arg.split('.remove ')[1];
 						let mod_sav = App[msg.guild.id].modules;
 						let download = [];
 						for(i in mod_sav) {
 							download.push(mod_sav[i]);
 						}
 						if(arg===undefined) return 'Specify a module please';
+						arg = arg.toLowerCase();
 						if(modules.indexOf(arg)===-1) {
 							send(msg,'This module does not exist\n`a!modules` to see availible modules');
 						} else if(download.indexOf(arg)===-1) {
