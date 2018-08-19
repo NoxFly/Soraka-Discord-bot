@@ -2,20 +2,19 @@ let firebase = require('firebase');
 let main = require('./../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-let champ = require('./../../functions/champions.json');
+const champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
-let fs = require('fs');
-let App = main.app;
+const fs = require('fs');
 
 // Basic - Games - Utility - Personal - Social - management
 
 // External functions
-let admin = require('./../../functions/admin.js');
-let check2 = require('./../../functions/checktwo.js');
-let getTop = require('./../../functions/gettop.js');
-let mtsm = require('./../../functions/mtsm.js');
-let dump = require('./../../functions/dump.js');
-let profile = require('./../../functions/profile.js');
+const admin = require('./../../functions/admin.js');
+const check2 = require('./../../functions/checktwo.js');
+const getTop = require('./../../functions/gettop.js');
+const mtsm = require('./../../functions/mtsm.js');
+const dump = require('./../../functions/dump.js');
+const profile = require('./../../functions/profile.js');
 
 // *** //
 
@@ -233,6 +232,7 @@ let basic = [
 		usage: '`a!config {config}`',
 		group: 'basic',
 		result: (msg) => {
+			let App = main.app;
 			let cmd = msg.content.split('config ')[1];
 			if(cmd===undefined) return 'Usage: `'+basic.filter((c)=>c.name=='config')[0].usage+'`';
 			

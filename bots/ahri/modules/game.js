@@ -1,19 +1,21 @@
 let firebase = require('firebase');
-let main = require('./../../../bot.js');
+let main = require('./../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-let champ = require('./../../../functions/champions.json');
+const champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
+const fs = require('fs');
+let App = main.app;
 
 // Basic - Games - Utility - Personal - Social - management
 
 // External functions
-let admin = require('./../../../functions/admin.js');
-let check2 = require('./../../../functions/checktwo.js');
-let getTop = require('./../../../functions/gettop.js');
-let mtsm = require('./../../../functions/mtsm.js');
-let dump = require('./../../../functions/dump.js');
-let profile = require('./../../../functions/profile.js');
+const admin = require('./../../functions/admin.js');
+const check2 = require('./../../functions/checktwo.js');
+const getTop = require('./../../functions/gettop.js');
+const mtsm = require('./../../functions/mtsm.js');
+const dump = require('./../../functions/dump.js');
+const profile = require('./../../functions/profile.js');
 
 // *** //
 
