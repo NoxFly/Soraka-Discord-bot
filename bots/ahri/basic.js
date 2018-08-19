@@ -450,7 +450,7 @@ let basic = [
 			if(/^module/.test(cmd)) {
 				let arg = cmd.split('module')[1];
 				if(arg=='') return 'Command not complete, I can\'t do anything';
-				if(!admin(msg.author.id) && msg.author.id!=msg.guild.owner) return 'You can\'t manage modules';
+				if(!admin(msg.author.id) || msg.author.id!=msg.guild.owner) return 'You can\'t manage modules';
 				fs.readdir('bots/ahri/modules', function(err, items) {
 					let modules = [];
 					for (var i=0; i<items.length; i++) {
