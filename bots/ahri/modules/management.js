@@ -210,6 +210,7 @@ let management = [
 	  	group: 'management',
 		result: (msg) => {
 			let id_guild = msg.guild.id;
+			let access = 0;
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			})
