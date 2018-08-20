@@ -324,7 +324,7 @@ let basic = [
 		usage: '`a!server`',
 		group: 'basic',
 		result : (msg) => {
-			if(!(msg.content=="a!server")) return 'not_find';
+			if(msg.content!="a!server") return 'not_find';
 			let Nroles = msg.guild.roles.map(role => role.name);
 			let NRoles = Nroles.toString().split(',');
 			let roles = '';
@@ -345,14 +345,13 @@ let basic = [
 			let embed = new Discord.RichEmbed()
 				.setTitle(Guild.name.toUpperCase()+' information')
 				.setThumbnail(Guild.iconURL)
-				.setColor(0xDA004E)
+				.setColor(0x43FF4E)
 				.addField("Owner", '• '+Guild.owner.user.tag+'\n• (ID: '+Guild.ownerID+')')
 				.addField("Roles", '• '+Guild.roles.size+'\n• '+roles)
 				.addField("Members", '• '+Guild.memberCount+'\n• Online : '+online)
 				.addField("Channels ", '• '+channels)
 				.addField("Region", '• '+Guild.region)
 				.addField("Create on ", '• '+Guild.createdAt);
-
 			return embed;
 		}
 	},
@@ -368,7 +367,7 @@ let basic = [
 			let embed = new Discord.RichEmbed()
 				.setTitle('Ahri\'s link')
 				.setThumbnail('https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif')
-				.setColor(0xDA004E)
+				.setColor(0x43FF4E)
 				.setDescription(link)
 				.addField('Note','If my creator doesn\'t have internet, I will not be able to be connected.')
 				.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
@@ -450,7 +449,7 @@ let basic = [
 			if(/^module/.test(cmd)) {
 				let arg = cmd.split('module')[1];
 				if(arg=='') return 'Command not complete, I can\'t do anything';
-				if(!admin(msg.author.id) || msg.author.id!=msg.guild.owner) return 'You can\'t manage modules';
+				if(!admin(msg.author.id) && msg.author.id!=msg.guild.owner) return 'You can\'t manage modules';
 				fs.readdir('bots/ahri/modules', function(err, items) {
 					let modules = [];
 					for (var i=0; i<items.length; i++) {
