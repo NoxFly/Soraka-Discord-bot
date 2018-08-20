@@ -211,6 +211,8 @@ let management = [
 		result: (msg) => {
 			let id_guild = msg.guild.id;
 			let access = 0;
+			let perms;
+			let id = msg.author.id;
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			})
@@ -219,7 +221,7 @@ let management = [
 				setTimeout(function() {
 					for(i in perms) {
 						let role = Object.entries(perms)[i];
-						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+						if(msg.guild.members.get(id).roles.has(role)) {
 							access = 1;
 							message.edit('You have the permission...');
 						}
