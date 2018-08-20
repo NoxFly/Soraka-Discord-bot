@@ -209,6 +209,7 @@ let management = [
 	  	usage: '`a!createRole {name} {+}` (if you want to add to you)',
 	  	group: 'management',
 		result: (msg) => {
+			let id_guild = msg.guild.id;
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			})
@@ -296,7 +297,7 @@ let management = [
 			let access = 0;
 			let delRole = msg.content.split('deleteRole ')[1];
 			if(delRole=='@everyone') return 'You cannot delete this role';
-
+			let id_guild = msg.guild.id;
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			});
@@ -351,7 +352,7 @@ let management = [
 			let id = msg.author.id;
 			let perms;
 			let role = msg.content.split('setPermTo ')[1];
-
+			let id_guild = msg.guild.id;
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			});
@@ -397,7 +398,7 @@ let management = [
 			let id = msg.author.id;
 			let perms;
 			let role = msg.content.split('remPermTo ')[1];
-			
+			let id_guild = msg.guild.id;
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			});
@@ -461,7 +462,7 @@ let management = [
 		group: 'management',
 		result: (msg) => {
 			let perms;
-
+			let id_guild = msg.guild.id;
 			DB.server(id_guild).getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
 			});
