@@ -248,7 +248,7 @@ let social = [
 	{
 		name:'top',
 		description: 'show the scoreboard of Ahri\'s users (sort by XP)',
-		usage: '`a!top` or `a!scoreboard`',
+		usage: '`a!top`',
 		group: 'social',
 		result: (msg) => {
 			getTop(msg);
@@ -256,7 +256,9 @@ let social = [
 	},
 	{
 		name:'scoreboard',
-		group: 'hidden',
+		description: 'show the scoreboard of Ahri\'s users (sort by XP)',
+		usage: '`a!scoreboard`',
+		group: 'social',
 		result: (msg) => {
 			getTop(msg);
 		}
