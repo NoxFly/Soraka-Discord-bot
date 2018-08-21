@@ -338,7 +338,6 @@ let basic = [
 			let Guild = msg.guild;
 			
 			let channels = Guild.channels.size;
-			channels -= 2;
 			
 			let online = parseInt(Guild.memberCount-Guild.members.filter(member => member.presence.status === 'offline').size);
 			
@@ -352,6 +351,7 @@ let basic = [
 				.addField("Channels ", '• '+channels)
 				.addField("Region", '• '+Guild.region)
 				.addField("Create on ", '• '+Guild.createdAt);
+
 			return embed;
 		}
 	},
