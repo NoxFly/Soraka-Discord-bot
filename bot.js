@@ -124,7 +124,7 @@ function startbot(params) {
 							Database.profile(msg.author.id);
 							let txt = command.result(msg);
 							if(txt=='not_find') {
-								return;
+								return false;
 							} else {
 								send(msg, txt);
 							}
@@ -140,7 +140,7 @@ function startbot(params) {
 				}
 				
 				send(msg,'Sorry, the command you wrote does not exist. :x:');
-				return;
+				return false;
 			}
 		}, timeExe);
 	});
