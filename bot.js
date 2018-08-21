@@ -152,9 +152,18 @@ function startbot(params) {
 		let owner = guild.ownerID;
 		checkServer(id, name, owner);
 
+		let defaultChannel = "";
+		guild.channels.forEach((channel) => {
+			if(channel.type == "text" && defaultChannel == "") {
+				if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+				defaultChannel = channel;
+				}
+			}
+		});
+
 		let modules = '';
 		let end = ' - ';
-		fs.readdir('bots/ahri/modules', function(err, items) {
+		fs.readdir('./bots/ahri/modules', function(err, items) {
 			for (var i=0; i<items.length; i++) {
 				if(i==items.length-1) end = '';
 				modules += items[i].replace('.js','')+end;
@@ -168,8 +177,9 @@ function startbot(params) {
 					'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
 				)
 				.setDescription('I recommend you to install the modules game, personal and social');
-
-			send(msg, embed);
+			
+			defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');
+			defaultChannel.send(embed);
 		});
 	});
 
