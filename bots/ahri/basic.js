@@ -521,23 +521,41 @@ let basic = [
     {
 		name: 'remindme',
 		description: 'send you a message in PM on the cooldown you wrote',
-		usage: '`a!remindme {seconds}`',
+		usage: '`a!remindme {reminder} {seconds}`',
 		group: 'basic',
 		result: (msg) => {
-			let time = msg.content.split('remindme ')[1];
-			if(/^\d+$/.test(time)) {
-				let Rtime = parseInt(time);
-				Rtime *= 1000;
-				setTimeout(function() {
-					msg.author.createDM().then(channel => {
-						channel.send('Hey ! Time to remind you !');
-					});
-				}, Rtime);
+			let remind;
+			DB.getData('delay/remind', function(data) {
+				remind = data.val();
+			});
+			
+			let message = msg.content.split('remindme ')[1];
+			let time = message.replace(/[a-zA-Z\,\.;\:\!\*\$\^¨&\?\/\\\sé\"\#\~\'\{\(\[\-\|è\`\_çà@\)\]°\+=\}£%§<>]+ (\d+)/,'$1');
+			message = '**Reminder :**\n`'+message.replace(/([a-zA-Z\,\.;\:\!\*\$\^¨&\?\/\\\sé\"\#\~\'\{\(\[\-\|è\`\_çà@\)\]°\+=\}£%§<>]+) \d+/,'$1')+'`\n';
 
-				return 'Ok, I\'ll remind you in '+time+' seconds';
-			} else {
-				return 'need a number ! (seconds)';
-			}
+			setTimeout(function() {
+				if(/^\d+$/.test(time)) {
+					if(remind==0) {
+						let Rtime = parseInt(time);
+						Rtime *= 1000;
+						setTimeout(function() {
+							msg.author.createDM().then(channel => {
+								channel.send(':alarm_clock: Hey ! Time to remind you !\n'+message);
+							});
+							remind = 0;
+							DB.updateData('delay/remind', remind);
+						}, Rtime);
+
+						remind = 1;
+						DB.updateData('delay/remind', remind);
+						send(msg, 'Ok, I\'ll remind you in '+time+' seconds');
+					} else {
+						send(msg, 'You can\'t have more than 1 reminder');
+					}
+				} else {
+					send(msg,'need a number ! (seconds)');
+				}
+			},DB.responseTime);
 		}
     },
     
