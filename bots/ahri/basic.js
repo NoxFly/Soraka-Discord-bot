@@ -142,14 +142,15 @@ let basic = [
 
 				try {
 					guildList.forEach(guild => {
-						if(/^tmp/.test(guild.name)) continue;
-						aGuild.push(
-							{
-								name: guild.name,
-								id: guild.id,
-								owner: guild.owner
-							}
-						)
+						if(!(/^tmp/.test(guild.name))) {
+							aGuild.push(
+								{
+									name: guild.name,
+									id: guild.id,
+									owner: guild.owner
+								}
+							);
+						}
 					});
 				} catch (err) {
 					
