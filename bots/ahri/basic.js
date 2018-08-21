@@ -141,7 +141,8 @@ let basic = [
 				let aGuild = [];
 
 				try {
-					guildList.forEach(guild => 
+					guildList.forEach(guild => {
+						if(/^tmp/.test(guild.name)) continue;
 						aGuild.push(
 							{
 								name: guild.name,
@@ -149,7 +150,7 @@ let basic = [
 								owner: guild.owner
 							}
 						)
-					);
+					});
 				} catch (err) {
 					
 				}
