@@ -308,7 +308,7 @@ let management = [
 			msg.channel.send('Checking if you have the permission...').then(message => { 
 				setTimeout(function() {
 					for(i in perms) {
-						let role = Object.entries(perms)[i][1];
+						let role = Object.entries(perms[i])[1];
 						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							let access = 1;
 							message.edit('You have the permission...');
