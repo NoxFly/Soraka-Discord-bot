@@ -27,7 +27,7 @@ const checkServer = function(id, name, owner) {
 
             Database.server(id).setServerData(Guild);
         }
-    },200);
+    },1000);
 };
 
 module.exports = checkServer;
