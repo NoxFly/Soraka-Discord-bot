@@ -5,6 +5,7 @@ const DB = require('./DB.js');
 const check = require('./functions/check.js');
 const checkServer = require('./functions/checkServer.js');
 const dump = require('./functions/dump.js');
+const fs = require('fs');
 
 let exportObj = module.exports = {};
 
@@ -150,6 +151,26 @@ function startbot(params) {
 		let name = guild.name;
 		let owner = guild.ownerID;
 		checkServer(id, name, owner);
+
+		let modules = '';
+		let end = ' - ';
+		fs.readdir('bots/ahri/modules', function(err, items) {
+			for (var i=0; i<items.length; i++) {
+				if(i==items.length-1) end = '';
+				modules += items[i].replace('.js','')+end;
+				console.log(modules);
+			}
+
+			let embed = new Discord.RichEmbed()
+				.setTitle('Modules')
+				.setColor(0x43FF4E)
+				.addField(
+					'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
+				)
+				.setDescription('I recommend you to install the modules game, personal and social');
+
+			send(msg, embed);
+		});
 	});
 
 	bot.on('messageReactionAdd', (reaction,user) => {
