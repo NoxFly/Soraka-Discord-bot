@@ -21,7 +21,7 @@ let aBotList = [
 	{
 		'name'	:	'ahri',
 		'tag'  	: 	'a!',
-		'id'	:	'463425089673887764',
+		'id'	:	'477918672732553216',
 		'token' :	process.env.TOKEN_AHRI
 	}
 ];
