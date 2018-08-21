@@ -276,7 +276,7 @@ let social = [
 			let avatar = msg.author.avatarURL;
 
 			if(post==undefined) return 'You must write a message !';
-			if(reg.test(post) && post.length>12) {
+			if(reg.test(post) && post.length>6) {
 				let Now = Date.now();
 				let date = new Date().toDateString();//+" | "+new Date().getHours+":"+new Date().getMinutes;
 				let embed = new Discord.RichEmbed()
