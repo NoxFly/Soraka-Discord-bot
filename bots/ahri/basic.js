@@ -169,7 +169,7 @@ let basic = [
     },
     
     {
-		name: 'serv',
+		name: 'servi',
 		group: 'hidden',
 		result: (msg) => {
 			if(!(msg.content=="a!serv")) return 'not_find';
