@@ -28,7 +28,8 @@ const check = function(msg, id, name, avatar) {
                         daily: 0,
                         post: 0,
                         rep: 0,
-                        ad: 0
+                        ad: 0,
+                        remind: 0
                     },
                     // les follows
                     followers: {
