@@ -85,7 +85,6 @@ let management = [
 		usage : '`a!role {role}`',
 		group: 'management',
 		result : (msg) => {
-			 
 			let Nroles = msg.guild.roles.map(role => role.name);			
 			let NRoles = Nroles.toString().split(',');
 			let txt = '';

@@ -195,6 +195,7 @@ let personal = [
 		usage : '`a!daily`',
 		group: 'personal',
 		result : (msg) => {
+			if(!(msg.content=="a!daily")) return 'not_find';
 			let Now = Date.now();
 			let oDaily = {};
 			let daily, money, xp, level, ans;
@@ -237,6 +238,7 @@ let personal = [
 		usage : '`a!money`',
 		group: 'personal',
 		result : (msg) => {
+			if(!(msg.content=="a!deleteChannel")) return 'not_find';
 			let money = 0;
 
 			DB.getData('data/money', function(data) {
@@ -263,7 +265,7 @@ let personal = [
 				avatar = msg.author.avatarURL;
 				setTimeout(function() {profile(msg, iID, sUSER, avatar)},500);
 			} else {
-				iID = msg.content.replace(/a!profile <@!?(\d+)>/,'$1');
+				iID = msg.content.replace(/a!profile\s+<@!?(\d+)>/,'$1');
 				DB.profile(iID).getData('user/name', function(data) {
 					data = data.val();
 					if(data===null) {
@@ -299,7 +301,7 @@ let personal = [
 					send(msg, embed);
 				});
 			} else {
-				let id = msg.content.replace(/a!level <@!?(\d+)>/,'$1');
+				let id = msg.content.replace(/a!level\s+<@!?(\d+)>/,'$1');
 				let name, avatar;
 				DB.profile(id).getData('user/name', function(data) {
 					data = data.val();

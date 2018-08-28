@@ -39,7 +39,7 @@ let social = [
 					return 'You can\'t follow you lol';
 				}
 				
-				let id_target = target.replace(/<@!?(\d+)>/,'$1');
+				let id_target = target.replace(/\s+<@!?(\d+)>/,'$1');
 
 				let name;
 				DB.profile(id_target).getData('user/name', function(data) {
@@ -96,7 +96,7 @@ let social = [
 			if(/<@!?\d+>/.test(target)) {
 				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri' || regID.test(target)) return 'User not valid';
 				
-				let id_target = target.replace(/<@!?(\d+)>/,'$1');
+				let id_target = target.replace(/\s+<@!?(\d+)>/,'$1');
 
 				let name;
 				DB.profile(id_target).getData('user/name', function(data) {
@@ -151,8 +151,8 @@ let social = [
 			if(/\d+ <@!?\d+>/.test(r)) {
 				let id = msg.author.id;
 
-				let id_target = r.replace(/\d+ <@!?(\d+)>/,'$1').replace(' ', '');
-				let give = parseInt(r.replace(/(\d+) <@!?\d+>/,'$1'));
+				let id_target = r.replace(/\d+\s+<@!?(\d+)>/,'$1').replace(' ', '');
+				let give = parseInt(r.replace(/(\d+)\s+<@!?\d+>/,'$1'));
 				if(give<1) return 'You must give more than 0 !';
 				let money, received;
 
@@ -207,7 +207,7 @@ let social = [
 				let target;
 				if(msg.content.startsWith("reputation")) target = msg.content.split('reputation')[1];
 				else target = msg.content.split('rep')[1];
-				let id_target = target.replace(/<@!?(\d+)>/,'$1').replace(' ',"");
+				let id_target = target.replace(/\s+<@!?(\d+)>/,'$1').replace(' ',"");
 				let Now = Date.now();
 				let repDelay;
 				let rep_target;
@@ -251,6 +251,7 @@ let social = [
 		usage: '`a!top`',
 		group: 'social',
 		result: (msg) => {
+			if(!(msg.content=="a!top")) return 'not_find';
 			getTop(msg);
 		}
 	},
@@ -260,6 +261,7 @@ let social = [
 		usage: '`a!scoreboard`',
 		group: 'social',
 		result: (msg) => {
+			if(!(msg.content=="a!scroreboard")) return 'not_find';
 			getTop(msg);
 		}
     },
