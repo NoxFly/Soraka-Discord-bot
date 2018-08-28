@@ -23,14 +23,14 @@ function send(msg, message) {
 
 let personal = [
     {
-		name : 'set_lang',
+		name : 'lang',
 		description : 'set your personnal language for the quotes.',
-		usage : '`a!set_lang EN/FR/IT/DE/ES/RU/JP/CH`',
+		usage : '`a!lang EN/FR/IT/DE/ES/RU/JP/CH`',
 		group: 'personal',
 		result : (msg) => {
 			let languages = ['EN','FR','IT','DE','ES','PT','RU','JP','CH'];
-			if(/^(set_lang)\s\w+$/.test(msg.content.split('a!')[1])) {
-				let lang = msg.content.split('set_lang ')[1].toUpperCase();
+			if(/^(lang)\s\w+$/.test(msg.content.split('a!')[1])) {
+				let lang = msg.content.split('lang ')[1].toUpperCase();
 
 				if(languages.indexOf(lang)<0){
 					let txt = '';
@@ -345,8 +345,11 @@ let personal = [
 				if(c.length==3) {
 					c = '0x'+c[0]+c[0]+c[1]+c[1]+c[2]+c[2];
 				}
-
-				send(msg, 'Color updated ('+c+')');
+				
+				let embed = new Discord.RichEmbed()
+					.setColor(c)
+					.setDescription('Color updated ('+c+')');
+				send(msg, embed);
 				DB.updateData('choices/color', c);
 			} else {
 				return 'color couldn\'t be found.';
@@ -355,12 +358,12 @@ let personal = [
     },
     
     {
-		name: 'set_desc',
+		name: 'desc',
 		description: 'set your description',
-		usage: '`a!set_desc {your desc`',
+		usage: '`a!desc {your description}`',
 		group: 'personal',
 		result: (msg) => {
-			let desc = msg.content.split('set_desc ')[1];
+			let desc = msg.content.split('desc ')[1];
 
 			if(desc===undefined) return 'You cannot have an empty description';
 			if(desc.length<100) {
