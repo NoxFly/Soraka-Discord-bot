@@ -66,6 +66,11 @@ function startbot(params) {
 			return;
 		}
 
+		if(msg.content=='<@'+params.id+'>' || msg.content=='<@'+params.id+'> .') {
+			send(msg, 'Hey :P');
+			return;
+		}
+
 		if(msg.channel.type==='dm') {
 			send(msg, 'For now, commands are only on server ^^');
 			return;
