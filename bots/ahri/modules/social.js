@@ -299,7 +299,7 @@ let social = [
 
 				setTimeout(function() {
 					let ans = mtsm(parseInt(Now-postDelay));
-					if(Now-postDelay >= 86400000) {
+					if(Now-postDelay >= 7200000) {
 						postDelay = Now;
 						let l = (Object.keys(followers).length)-1;
 						followers =  Object.entries(followers);
@@ -323,7 +323,7 @@ let social = [
 							send(msg, 'You don\'t have followers !');
 						}
 					} else {
-						send(msg, 'You need to wait **'+ans+'** to send another post :hourglass:');
+						send(msg, 'it\'s been **'+ans+'** since you posted\nYou need to wait **2 hours** to send another post :hourglass:');
 					}
 				},DB.responseTime);
 			} else {
