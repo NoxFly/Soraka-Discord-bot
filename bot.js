@@ -71,43 +71,56 @@ function startbot(params) {
 			return;
 		}
 
-		if(msg.channel.type==='dm') {
-			send(msg, 'For now, commands are only on server ^^');
-			return;
-		}
-
-		let gid = msg.guild.id;
-		let gname = msg.guild.name;
-		let gowner = msg.guild.ownerID;
-		checkServer(gid, gname, gowner);
-
 		let id = msg.author.id;
 		let name = msg.author.username+'#'+msg.author.discriminator;
 		let avatar = msg.author.avatarURL;
 		check(msg, id, name, avatar);
 
+		let commands;
+
 		mod = [];
 		modules = [];
 
-		if(App[gid]===undefined || App[gid]['modules']===undefined) {
-			if(App[gid]===undefined) App[gid] = [];
+		if(msg.channel.type!=='dm') {
+			let gid = msg.guild.id;
+			let gname = msg.guild.name;
+			let gowner = msg.guild.ownerID;
+			checkServer(gid, gname, gowner);
 
-			Database.server(gid).getData('modules', function(data) {
-				App[gid]['modules'] = data.val();
-			});
-			setTimeout(function() {code=App[gid]['modules'];},Database.responseTime);
-			timeExe = Database.responseTime*2;
-		} else {
-			code = App[gid]['modules'];
-			timeExe = 0;
-		}
-
-		setTimeout(function() {
-			exportObj.app = App;
-			for(i in code) {
-				if(code[i]!='test') mod.push(code[i]);
+			if(App[gid]===undefined || App[gid]['modules']===undefined) {
+				if(App[gid]===undefined) App[gid] = [];
+	
+				Database.server(gid).getData('modules', function(data) {
+					App[gid]['modules'] = data.val();
+				});
+				setTimeout(function() {code=App[gid]['modules'];},Database.responseTime);
+				timeExe = Database.responseTime*2;
+			} else {
+				code = App[gid]['modules'];
+				timeExe = 0;
 			}
-
+	
+			setTimeout(function() {
+				exportObj.app = App;
+				for(i in code) {
+					if(code[i]!='test') mod.push(code[i]);
+				}
+	
+				mod.forEach(name => {
+					let m = require('./bots/'+params.name+'/modules/'+name+'.js');
+					m.forEach(command => {
+						command.group = name;
+					});
+					modules = modules.concat(m);
+				});
+				
+				commands = require('./bots/'+params.name+'/basic.js');
+				exportObj.commands = modules;
+				commands = modules.concat(commands);
+			},timeExe);
+		} else {
+			commands = require('./bots/'+params.name+'/basic.js');
+			mod = ['game','personal','social','utility'];
 			mod.forEach(name => {
 				let m = require('./bots/'+params.name+'/modules/'+name+'.js');
 				m.forEach(command => {
@@ -115,11 +128,12 @@ function startbot(params) {
 				});
 				modules = modules.concat(m);
 			});
-			
-			let commands = require('./bots/'+params.name+'/basic.js');
-			exportObj.commands = modules;
-			commands = modules.concat(commands);
 
+			commands = modules.concat(commands);
+			timeExe = 0;
+		}
+
+		setTimeout(function() {
 			let content = msg.content;
 			if(content.indexOf(params.tag)===0) {
 				for(let a=0; a<commands.length; a++) {
@@ -148,7 +162,7 @@ function startbot(params) {
 				send(msg,'Sorry, the command you wrote does not exist. :x:');
 				return false;
 			}
-		}, timeExe);
+		}, timeExe+3);
 	});
 
 	bot.on('guildCreate', (guild) => {

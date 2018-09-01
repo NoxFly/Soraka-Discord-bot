@@ -312,6 +312,16 @@ let game = [
 					DB.updateData('data/money', money);
 				},DB.responseTime);
 		}
+	},
+
+	{
+		name: 'fight',
+		description: 'fight a random champion, and win xp and gems. You only lose gems',
+		usage: '`a!fight`',
+		group: 'game',
+		result: (msg) => {
+			return 'In development';
+		}
 	}
 ];
 
