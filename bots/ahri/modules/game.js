@@ -249,7 +249,7 @@ let game = [
 
 	{
 		name: 'rps',
-		description: 'Play Rock Paper Scissors with me :scissors:',
+		description: 'Play Rock Paper Scissors with me :scissors: lose or win 10 :gem:',
 		usage: '`a!rps {weapon}`',
 		group: 'game',
 		result: (msg) => {
