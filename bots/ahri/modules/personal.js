@@ -288,6 +288,9 @@ let personal = [
 		usage : '`a!level {tag} (optional)`',
 		group: 'personal',
 		result : (msg) => {
+			let avatar = msg.author.avatarURL;
+			let name = msg.author.username+'#'+msg.author.discriminator;
+			
 			if(msg.content=='a!level') {
 				if(avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
 				DB.getData('data', function(data) {
