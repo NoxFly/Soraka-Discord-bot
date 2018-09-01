@@ -246,6 +246,73 @@ let game = [
 			},DB.responseTime);
 		}
 	},
+
+	{
+		name: 'rps',
+		description: 'Play Rock Paper Scissors with me :scissors:',
+		usage: '`a!rps {weapon}`',
+		group: 'game',
+		result: (msg) => {
+			let weapon = msg.content.split('rps ')[1];
+			if(weapon===undefined) return 'Choose a weapon !';
+
+			let weapons = ["rock","paper","scissors"];
+
+			if(weapons.indexOf(weapon)==-1) return '**Rock**, **paper** or **scissors** !';
+
+			weapon = weapon.toLowerCase();
+			let iUser;
+
+			if(weapon=='rock') iUser = 0;
+			else if(weapon=='paper') iUser = 1;
+			else iUser = 2;
+
+			let icons = {
+				rock: ':mountain:',
+				paper: ':leaves:',
+				scissors: ':scissors:'
+			}
+
+			let iAhri = Math.round(Math.random()*2);
+			let ennemy = weapons[iAhri];
+			let result;
+
+			if(iUser<iAhri && ((iUser!=0 && iAhri!=2) || (iUser!=2 && iAhri!=0))) result = 'lose';
+			else {
+				if(iUser==0 && iAhri==2) result = 'won';
+				else if(iUser==2 && iAhri==0) result = 'lose';
+				else if(iUser==iAhri) result = 'draw';
+				else result = 'won';
+			}
+
+			let txt = 'You chose '+weapon+' '+icons[weapon]+'\nI chose '+ennemy;
+
+			if(result=='won') {
+				txt += '\nYou '+result+' 10 :gem:';
+			} else if(result=='lose') {
+				txt += '\nYou '+result+' 10 :gem:';
+			}
+
+			send(msg, txt);
+
+			let money;
+
+				DB.getData('data/money', function(data) {
+					money = data.val();
+					console.log(money);
+				});
+
+				setTimeout(function() {
+					if(result=='won') {
+						money += 10;
+					} else if(result=='lose') {
+						money -= 10;
+					}
+
+					DB.updateData('data/money', money);
+				},DB.responseTime);
+		}
+	}
 ];
 
 module.exports = game;
