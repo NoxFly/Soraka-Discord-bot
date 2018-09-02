@@ -61,6 +61,47 @@ const check = function(msg, id, name, avatar) {
                     choices: {
                         lang: 'EN',
                         color: '0x494C51'
+                    },
+                    // game
+                    game: {
+                        fighting: 0,
+                        champion: 0,
+                        wins: 0,
+                        defeat: 0,
+                        owned: 0,
+                        params: {
+                            name: "Aatrox",
+                            armor: "33",
+                            attack: "60",
+                            critics: "10",
+                            health: "580",
+                            magicResist: "32.1",
+                            power: "0",
+                            role: "Combattant",
+                            type: "AD",
+                            spells: {
+                                Q: {
+                                    name : "The Darkin Blade",
+                                    damages : 50,
+                                    delay : 1
+                                },
+                                W: {
+                                    name : "Infernal Chains",
+                                    damages : 0,
+                                    delay : 1
+                                },
+                                E: {
+                                    name : "Umbral Dash",
+                                    damages : 50,
+                                    delay : 1
+                                },
+                                R: {
+                                    name : "World Ender",
+                                    damages : 500,
+                                    delay : 6
+                                }
+                            }
+                        }
                     }
                 });
                 
