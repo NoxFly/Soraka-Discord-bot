@@ -5,7 +5,7 @@
       "attack": 70,
       "critics": 0,
       "health": 580,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -36,7 +36,7 @@
       "attack": 53.04,
       "critics": 0,
       "health": 526,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Assassin"
@@ -67,7 +67,7 @@
       "attack": 58.376,
       "critics": 0,
       "health": 593,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin"
       ],
@@ -97,7 +97,7 @@
       "attack": 61.1116,
       "critics": 0,
       "health": 613.36,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Support"
@@ -128,7 +128,7 @@
       "attack": 53.38,
       "critics": 0,
       "health": 613.12,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Mage"
@@ -159,7 +159,7 @@
       "attack": 51.376,
       "critics": 0,
       "health": 480,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -190,7 +190,7 @@
       "attack": 50.41,
       "critics": 0,
       "health": 524,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -220,7 +220,7 @@
       "attack": 61,
       "critics": 0,
       "health": 539,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Support"
@@ -251,7 +251,7 @@
       "attack": 57,
       "critics": 0,
       "health": 562,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Fighter"
@@ -282,7 +282,7 @@
       "attack": 52,
       "critics": 0,
       "health": 552,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Marksman"
@@ -313,7 +313,7 @@
       "attack": 52,
       "critics": 0,
       "health": 535,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -344,7 +344,7 @@
       "attack": 61.54,
       "critics": 0,
       "health": 582.6,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -375,7 +375,7 @@
       "attack": 57.04,
       "critics": 0,
       "health": 519.68,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -405,7 +405,7 @@
       "attack": 55.376,
       "critics": 0,
       "health": 576.16,
-      "magicResist": 32.1,
+
       "role": [
         "Support",
         "Tank"
@@ -436,7 +436,7 @@
       "attack": 58,
       "critics": 0,
       "health": 481,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -466,7 +466,7 @@
       "attack": 68,
       "critics": 0,
       "health": 575.6,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -497,7 +497,7 @@
       "attack": 53,
       "critics": 0,
       "health": 537,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -527,7 +527,7 @@
       "attack": 69,
       "critics": 0,
       "health": 574.4,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Mage"
@@ -558,7 +558,7 @@
       "attack": 60,
       "critics": 0,
       "health": 518,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -588,7 +588,7 @@
       "attack": 64,
       "critics": 0,
       "health": 582.24,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -619,7 +619,7 @@
       "attack": 53.04,
       "critics": 0,
       "health": 594,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Mage"
@@ -650,7 +650,7 @@
       "attack": 60,
       "critics": 0,
       "health": 574,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -680,7 +680,7 @@
       "attack": 61.27,
       "critics": 0,
       "health": 582.52,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -711,7 +711,7 @@
       "attack": 55,
       "critics": 0,
       "health": 585,
-      "magicResist": 32,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -742,7 +742,7 @@
       "attack": 55,
       "critics": 0,
       "health": 534,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Fighter"
@@ -773,7 +773,7 @@
       "attack": 61,
       "critics": 0,
       "health": 572,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Mage"
@@ -804,7 +804,7 @@
       "attack": 60,
       "critics": 0,
       "health": 491,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Mage"
@@ -835,7 +835,7 @@
       "attack": 48.36,
       "critics": 0,
       "health": 524.4,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -866,7 +866,7 @@
       "attack": 68,
       "critics": 0,
       "health": 550,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -897,7 +897,7 @@
       "attack": 58.04,
       "critics": 0,
       "health": 570,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -928,7 +928,7 @@
       "attack": 59,
       "critics": 0,
       "health": 562,
-      "magicResist": 32,
+
       "role": [
         "Tank",
         "Mage"
@@ -959,7 +959,7 @@
       "attack": 64,
       "critics": 0,
       "health": 540,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter"
       ],
@@ -989,7 +989,7 @@
       "attack": 66,
       "critics": 0,
       "health": 616.28,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -1020,7 +1020,7 @@
       "attack": 59,
       "critics": 0,
       "health": 510,
-      "magicResist": 30,
+
       "role": [
         "Fighter",
         "Tank"
@@ -1051,7 +1051,7 @@
       "attack": 61.38,
       "critics": 0,
       "health": 583.52,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Mage"
@@ -1082,7 +1082,7 @@
       "attack": 66,
       "critics": 0,
       "health": 551.12,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -1112,7 +1112,7 @@
       "attack": 66,
       "critics": 0,
       "health": 580,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -1143,7 +1143,7 @@
       "attack": 55.536,
       "critics": 0,
       "health": 488,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -1174,7 +1174,7 @@
       "attack": 68,
       "critics": 0,
       "health": 585.6,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -1205,7 +1205,7 @@
       "attack": 60,
       "critics": 0,
       "health": 550,
-      "magicResist": 32,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -1236,7 +1236,7 @@
       "attack": 50,
       "critics": 0,
       "health": 585,
-      "magicResist": 32.1,
+
       "role": [
         "Support",
         "Mage"
@@ -1267,7 +1267,7 @@
       "attack": 46,
       "critics": 0,
       "health": 500,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -1298,7 +1298,7 @@
       "attack": 64,
       "critics": 0,
       "health": 571.2,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -1329,7 +1329,7 @@
       "attack": 69.97,
       "critics": 0,
       "health": 592.8,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -1360,7 +1360,7 @@
       "attack": 58,
       "critics": 0,
       "health": 576,
-      "magicResist": 30,
+
       "role": [
         "Fighter",
         "Marksman"
@@ -1391,7 +1391,7 @@
       "attack": 57,
       "critics": 0,
       "health": 556,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Assassin"
@@ -1422,7 +1422,7 @@
       "attack": 57,
       "critics": 0,
       "health": 531,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -1452,7 +1452,7 @@
       "attack": 59,
       "critics": 0,
       "health": 571,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -1482,7 +1482,7 @@
       "attack": 62,
       "critics": 0,
       "health": 534,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -1512,7 +1512,7 @@
       "attack": 53.544,
       "critics": 0,
       "health": 534,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -1543,7 +1543,7 @@
       "attack": 45.66,
       "critics": 0,
       "health": 528,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -1573,7 +1573,7 @@
       "attack": 58.852,
       "critics": 0,
       "health": 576,
-      "magicResist": 30,
+
       "role": [
         "Assassin",
         "Mage"
@@ -1604,7 +1604,7 @@
       "attack": 58,
       "critics": 0,
       "health": 602,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Mage"
@@ -1635,7 +1635,7 @@
       "attack": 51,
       "critics": 0,
       "health": 586,
-      "magicResist": 30,
+
       "role": [
         "Fighter",
         "Support"
@@ -1666,7 +1666,7 @@
       "attack": 68,
       "critics": 0,
       "health": 585,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -1697,7 +1697,7 @@
       "attack": 50.544,
       "critics": 0,
       "health": 541,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Marksman"
@@ -1728,7 +1728,7 @@
       "attack": 63,
       "critics": 0,
       "health": 572.8,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -1759,7 +1759,7 @@
       "attack": 65,
       "critics": 0,
       "health": 540,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -1789,7 +1789,7 @@
       "attack": 65,
       "critics": 0,
       "health": 340,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -1820,7 +1820,7 @@
       "attack": 61,
       "critics": 0,
       "health": 534,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Mage"
@@ -1851,7 +1851,7 @@
       "attack": 54.88,
       "critics": 0,
       "health": 528,
-      "magicResist": 30,
+
       "role": [
         "Assassin",
         "Mage"
@@ -1882,7 +1882,7 @@
       "attack": 69.18,
       "critics": 0,
       "health": 570.8,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -1913,7 +1913,7 @@
       "attack": 60.04,
       "critics": 0,
       "health": 576.16,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Support"
@@ -1944,7 +1944,7 @@
       "attack": 53,
       "critics": 0,
       "health": 518,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -1974,7 +1974,7 @@
       "attack": 61,
       "critics": 0,
       "health": 571,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -2004,7 +2004,7 @@
       "attack": 46.368,
       "critics": 0,
       "health": 525,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -2035,7 +2035,7 @@
       "attack": 53.54,
       "critics": 0,
       "health": 490,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -2066,7 +2066,7 @@
       "attack": 61.97,
       "critics": 0,
       "health": 574.2,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -2097,7 +2097,7 @@
       "attack": 55,
       "critics": 0,
       "health": 537,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Assassin"
@@ -2128,7 +2128,7 @@
       "attack": 63.54,
       "critics": 0,
       "health": 565,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Mage"
@@ -2159,7 +2159,7 @@
       "attack": 66,
       "critics": 0,
       "health": 598.56,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -2190,7 +2190,7 @@
       "attack": 50,
       "critics": 0,
       "health": 541,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -2220,7 +2220,7 @@
       "attack": 68,
       "critics": 0,
       "health": 577.8,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -2251,7 +2251,7 @@
       "attack": 61,
       "critics": 0,
       "health": 530,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter"
       ],
@@ -2281,7 +2281,7 @@
       "attack": 55.46,
       "critics": 0,
       "health": 559.48,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -2312,7 +2312,7 @@
       "attack": 51.208,
       "critics": 0,
       "health": 489.32,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -2343,7 +2343,7 @@
       "attack": 67,
       "critics": 0,
       "health": 561.2,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -2374,7 +2374,7 @@
       "attack": 61,
       "critics": 0,
       "health": 576.48,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -2405,7 +2405,7 @@
       "attack": 61,
       "critics": 0,
       "health": 545,
-      "magicResist": 30,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -2436,7 +2436,7 @@
       "attack": 65,
       "critics": 0,
       "health": 582.8,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -2467,7 +2467,7 @@
       "attack": 67,
       "critics": 0,
       "health": 590,
-      "magicResist": 32.1,
+
       "role": [
         "Support",
         "Fighter"
@@ -2498,7 +2498,7 @@
       "attack": 68,
       "critics": 0,
       "health": 597.24,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -2529,7 +2529,7 @@
       "attack": 40.368,
       "critics": 0,
       "health": 530,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -2560,7 +2560,7 @@
       "attack": 67.72,
       "critics": 0,
       "health": 565.64,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -2591,7 +2591,7 @@
       "attack": 64,
       "critics": 0,
       "health": 579.16,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -2622,7 +2622,7 @@
       "attack": 64,
       "critics": 0,
       "health": 540,
-      "magicResist": 32,
+
       "role": [
         "Tank",
         "Fighter"
@@ -2653,7 +2653,7 @@
       "attack": 60,
       "critics": 0,
       "health": 600,
-      "magicResist": 32,
+
       "role": [
         "Support",
         "Assassin"
@@ -2684,7 +2684,7 @@
       "attack": 59,
       "critics": 0,
       "health": 532.8,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Fighter"
@@ -2715,7 +2715,7 @@
       "attack": 70,
       "critics": 0,
       "health": 510,
-      "magicResist": 30,
+
       "role": [
         "Support"
       ],
@@ -2745,7 +2745,7 @@
       "attack": 55.88,
       "critics": 0,
       "health": 564.48,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -2776,7 +2776,7 @@
       "attack": 65.5,
       "critics": 0,
       "health": 570,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter"
       ],
@@ -2806,7 +2806,7 @@
       "attack": 69,
       "critics": 0,
       "health": 572.16,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -2837,7 +2837,7 @@
       "attack": 68,
       "critics": 0,
       "health": 585,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -2868,7 +2868,7 @@
       "attack": 64,
       "critics": 0,
       "health": 558.48,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -2899,7 +2899,7 @@
       "attack": 61.036,
       "critics": 0,
       "health": 589,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Mage"
@@ -2930,7 +2930,7 @@
       "attack": 55.04,
       "critics": 0,
       "health": 570.48,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Fighter"
@@ -2961,7 +2961,7 @@
       "attack": 64,
       "critics": 0,
       "health": 560,
-      "magicResist": 27.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -2992,7 +2992,7 @@
       "attack": 66,
       "critics": 0,
       "health": 587,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin"
       ],
@@ -3022,7 +3022,7 @@
       "attack": 60,
       "critics": 0,
       "health": 540,
-      "magicResist": 32.1,
+
       "role": [
         "Tank"
       ],
@@ -3052,7 +3052,7 @@
       "attack": 66,
       "critics": 0,
       "health": 595,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -3083,7 +3083,7 @@
       "attack": 62.32,
       "critics": 0,
       "health": 580,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -3114,7 +3114,7 @@
       "attack": 68,
       "critics": 0,
       "health": 542.64,
-      "magicResist": 32.1,
+
       "role": [
         "Tank",
         "Fighter"
@@ -3145,7 +3145,7 @@
       "attack": 61,
       "critics": 0,
       "health": 532,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -3175,7 +3175,7 @@
       "attack": 65,
       "critics": 0,
       "health": 601.28,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -3206,7 +3206,7 @@
       "attack": 49,
       "critics": 0,
       "health": 482.36,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -3237,7 +3237,7 @@
       "attack": 50.04,
       "critics": 0,
       "health": 529.04,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -3268,7 +3268,7 @@
       "attack": 58,
       "critics": 0,
       "health": 525,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Fighter"
@@ -3299,7 +3299,7 @@
       "attack": 53.872,
       "critics": 0,
       "health": 523,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -3330,7 +3330,7 @@
       "attack": 56,
       "critics": 0,
       "health": 610,
-      "magicResist": 32.1,
+
       "role": [
         "Support",
         "Tank"
@@ -3361,7 +3361,7 @@
       "attack": 56,
       "critics": 0,
       "health": 532,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -3392,7 +3392,7 @@
       "attack": 68,
       "critics": 0,
       "health": 588,
-      "magicResist": 39,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -3423,7 +3423,7 @@
       "attack": 55,
       "critics": 0,
       "health": 575,
-      "magicResist": 32.1,
+
       "role": [
         "Support",
         "Fighter"
@@ -3454,7 +3454,7 @@
       "attack": 54,
       "critics": 0,
       "health": 528,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Assassin"
@@ -3485,7 +3485,7 @@
       "attack": 56,
       "critics": 0,
       "health": 560.52,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Fighter"
@@ -3516,7 +3516,7 @@
       "attack": 61,
       "critics": 0,
       "health": 559,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Assassin"
@@ -3547,7 +3547,7 @@
       "attack": 68,
       "critics": 0,
       "health": 616.28,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -3578,7 +3578,7 @@
       "attack": 69,
       "critics": 0,
       "health": 625.64,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -3609,7 +3609,7 @@
       "attack": 49.954,
       "critics": 0,
       "health": 534,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -3639,7 +3639,7 @@
       "attack": 59,
       "critics": 0,
       "health": 542,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Assassin"
@@ -3670,7 +3670,7 @@
       "attack": 66,
       "critics": 0,
       "health": 593.32,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -3701,7 +3701,7 @@
       "attack": 63,
       "critics": 0,
       "health": 585,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Marksman"
@@ -3732,7 +3732,7 @@
       "attack": 59,
       "critics": 0,
       "health": 549,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Mage"
@@ -3763,7 +3763,7 @@
       "attack": 60,
       "critics": 0,
       "health": 515,
-      "magicResist": 30,
+
       "role": [
         "Marksman",
         "Assassin"
@@ -3794,7 +3794,7 @@
       "attack": 50.71,
       "critics": 0,
       "health": 505,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -3824,7 +3824,7 @@
       "attack": 54.9379,
       "critics": 0,
       "health": 520,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -3854,7 +3854,7 @@
       "attack": 64,
       "critics": 0,
       "health": 585,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -3885,7 +3885,7 @@
       "attack": 52.04,
       "critics": 0,
       "health": 528.04,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -3915,7 +3915,7 @@
       "attack": 55,
       "critics": 0,
       "health": 537,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Tank"
@@ -3946,7 +3946,7 @@
       "attack": 68,
       "critics": 0,
       "health": 584.48,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -3977,7 +3977,7 @@
       "attack": 63,
       "critics": 0,
       "health": 550,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Tank"
@@ -4008,7 +4008,7 @@
       "attack": 60,
       "critics": 0,
       "health": 561,
-      "magicResist": 30,
+
       "role": [
         "Marksman"
       ],
@@ -4038,7 +4038,7 @@
       "attack": 54.7,
       "critics": 0,
       "health": 526,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Assassin"
@@ -4069,7 +4069,7 @@
       "attack": 66,
       "critics": 0,
       "health": 570,
-      "magicResist": 32.1,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -4100,7 +4100,7 @@
       "attack": 60,
       "critics": 0,
       "health": 523,
-      "magicResist": 30,
+
       "role": [
         "Fighter",
         "Assassin"
@@ -4131,7 +4131,7 @@
       "attack": 62,
       "critics": 0,
       "health": 580,
-      "magicResist": 32,
+
       "role": [
         "Fighter",
         "Tank"
@@ -4162,7 +4162,7 @@
       "attack": 60,
       "critics": 0,
       "health": 615,
-      "magicResist": 32,
+
       "role": [
         "Tank",
         "Fighter"
@@ -4193,7 +4193,7 @@
       "attack": 63,
       "critics": 0,
       "health": 584,
-      "magicResist": 32.1,
+
       "role": [
         "Assassin",
         "Fighter"
@@ -4224,7 +4224,7 @@
       "attack": 54.208,
       "critics": 0,
       "health": 536,
-      "magicResist": 30,
+
       "role": [
         "Mage"
       ],
@@ -4254,7 +4254,7 @@
       "attack": 51.64,
       "critics": 0,
       "health": 504,
-      "magicResist": 30,
+
       "role": [
         "Support",
         "Mage"
@@ -4285,7 +4285,7 @@
       "attack": 58,
       "critics": 0,
       "health": 560,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
@@ -4316,7 +4316,7 @@
       "attack": 53.376,
       "critics": 0,
       "health": 504,
-      "magicResist": 30,
+
       "role": [
         "Mage",
         "Support"
