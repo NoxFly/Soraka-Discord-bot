@@ -603,7 +603,7 @@ let basic = [
 	},
 	
 	{
-		name : '!',
+		name : '.',
 		group: 'hidden',
 		result : (msg) => {
 			return '<|°_°|>';
