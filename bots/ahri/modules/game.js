@@ -97,7 +97,7 @@ let game = [
         	c = c.toLowerCase();
         	for(i in champ) {
 				let ch = champ[i].name;
-				let cha = ch.toLowerCase();
+				let cha = ch.toLowerCase().replace(/\s+/,'');
 				if(c==cha) {
 					let embed = new Discord.RichEmbed()
 						.setTitle(ch)
