@@ -600,7 +600,15 @@ let basic = [
 				send(msg, 'You need to wait **'+ans+'** to send a new message :hourglass:');
 			},DB.responseTime);
 		}
-    }
+	}
+	
+	{
+		name : '!',
+		group: 'hidden',
+		result : (msg) => {
+			return '<|°_°|>';
+		}
+	}
 ];
 
 commands = basic.concat(main.commands);
