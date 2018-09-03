@@ -1,2116 +1,4344 @@
 [
     {
-        "name": "Aatrox",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50,
-                "delay" : 1
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0,
-                "delay" : 1
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50,
-                "delay": 1
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500,
-                "delay": 6
-            }
-        }
-    },
-    {
-        "name": "Ahri",
-        "armor": "33",
-        "attack": "15",
-        "critics": "2",
-        "health": "526",
-        "magicResist": "32.1",
-        "power": "53.04",
-        "role": "Mage",
-        "type": "AP",
-        "spells": {
-            "Q": {
-                "name" : "Orb of Deception",
-                "damages" : 80
-            },
-            "W": {
-                "name" : "Fox-Fire",
-                "damages" : 40
-            },
-            "E": {
-                "name" : "Charm",
-                "damages" : 60
-            },
-            "R": {
-                "name" : "Spirit Rush",
-                "damages" : 180
-            }
-        }
-    },
-    {
-        "name": "Akali",
-        "armor": "31.38",
-        "attack": "58.376",
-        "critics": "2",
-        "health": "593",
-        "magicResist": "32.1",
-        "power": "10",
-        "role": "Assassin",
-        "type": "AP",
-        "spells": {
-            "Q": {
-                "name" : "Mark of the Assassin",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Twilight Shroud",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Crescent Slash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "Shadow Dance",
-                "damages": 500
-            }
-        }
-    },
-    {
-        "name": "Alistar",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Amumu",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Anivia",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Annie",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Ashe",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Aurelion Sol",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Azir",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Bard",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Brand",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Braum",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Caitlyn",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Camille",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Cassiopeia",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Chogath",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Corki",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Darius",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Diana",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "DrMundo",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Draven",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Ekko",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Elise",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Evelynn",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Ezreal",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Fiddlestick",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Fiora",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Fizz",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Galio",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Gangplank",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Garen",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Gnar",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Gragas",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Graves",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Hecarim",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Heimerdinger",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Illaoi",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Irelia",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Ivern",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Janna",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "JarvanIV",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Jax",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Jayce",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Jhin",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Jinx",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kaisa",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kalista",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Karma",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Karthus",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kassadin",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Katarina",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kayle",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kayn",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kennen",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Khazix",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kindred",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Kled",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "KogMaw",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "LeBlanc",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "LeeSin",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Leona",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Lissandra",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Lucian",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Lulu",
-        "armor": "33",
-        "attack": "60",
-        "critics": "10",
-        "health": "580",
-        "magicResist": "32.1",
-        "power": "0",
-        "role": "Combattant",
-        "type": "AD",
-        "spells": {
-            "Q": {
-                "name" : "The Darkin Blade",
-                "damages" : 50
-            },
-            "W": {
-                "name" : "Infernal Chains",
-                "damages" : 0
-            },
-            "E": {
-                "name" : "Umbral Dash",
-                "damages" : 50
-            },
-            "R": {
-                "name" : "World Ender",
-                "damages" : 500
-            }
-        }
-    },
-    {
-        "name": "Lux"
-    },
-    {
-        "name": "Malphite"
-    },
-    {
-        "name": "Malzahar"
-    },
-    {
-        "name": "Maokai"
-    },
-    {
-        "name": "MasterYi"
-    },
-    {
-        "name": "MissFortune"
-    },
-    {
-        "name": "Mordekaiser"
-    },
-    {
-        "name": "Morgana"
-    },
-    {
-        "name": "Nami"
-    },
-    {
-        "name": "Nasus"
-    },
-    {
-        "name": "Nautilus"
-    },
-    {
-        "name": "Nidalee"
-    },
-    {
-        "name": "Nocturne"
-    },
-    {
-        "name": "Nunu"
-    },
-    {
-        "name": "Olaf"
-    },
-    {
-        "name": "Orianna"
-    },
-    {
-        "name": "Ornn"
-    },
-    {
-        "name": "Pantheon"
-    },
-    {
-        "name": "Poppy"
-    },
-    {
-        "name": "Pyke"
-    },
-    {
-        "name": "Quinn"
-    },
-    {
-        "name": "Rakan"
-    },
-    {
-        "name": "Rammus"
-    },
-    {
-        "name": "RekSai"
-    },
-    {
-        "name": "Renekton"
-    },
-    {
-        "name": "Rengar"
-    },
-    {
-        "name": "Riven"
-    },
-    {
-        "name": "Rumble"
-    },
-    {
-        "name": "Ryze"
-    },
-    {
-        "name": "Sejuani"
-    },
-    {
-        "name": "Shaco"
-    },
-    {
-        "name": "Shen"
-    },
-    {
-        "name": "Shyvana"
-    },
-    {
-        "name": "Singed"
-    },
-    {
-        "name": "Sion"
-    },
-    {
-        "name": "Sivir"
-    },
-    {
-        "name": "Skarner"
-    },
-    {
-        "name": "Sona"
-    },
-    {
-        "name": "Soraka"
-    },
-    {
-        "name": "Swain"
-    },
-    {
-        "name": "Syndra"
-    },
-    {
-        "name": "TahmKench"
-    },
-    {
-        "name": "Taliyah"
-    },
-    {
-        "name": "Talon"
-    },
-    {
-        "name": "Taric"
-    },
-    {
-        "name": "Teemo"
-    },
-    {
-        "name": "Thresh"
-    },
-    {
-        "name": "Tristana"
-    },
-    {
-        "name": "Trundle"
-    },
-    {
-        "name": "Tryndamere"
-    },
-    {
-        "name": "TwistedFate"
-    },
-    {
-        "name": "Twitch"
-    },
-    {
-        "name": "Udyr"
-    },
-    {
-        "name": "Urgot"
-    },
-    {
-        "name": "Varus"
-    },
-    {
-        "name": "Vayne"
-    },
-    {
-        "name": "Veigar"
-    },
-    {
-        "name": "Velkoz"
-    },
-    {
-        "name": "Vi"
-    },
-    {
-        "name": "Viktor"
-    },
-    {
-        "name": "Vladimir"
-    },
-    {
-        "name": "Volibear"
-    },
-    {
-        "name": "Warwick"
-    },
-    {
-        "name": "Wukong"
-    },
-    {
-        "name": "Xayah"
-    },
-    {
-        "name": "Xerath"
-    },
-    {
-        "name": "XinZhao"
-    },
-    {
-        "name": "Yasuo"
-    },
-    {
-        "name": "Yorick"
-    },
-    {
-        "name": "Zac"
-    },
-    {
-        "name": "Zed"
-    },
-    {
-        "name": "Ziggs"
-    },
-    {
-        "name": "Zilean"
-    },
-    {
-        "name": "Zoe"
-    },
-    {
-        "name": "Zyra"
+      "name": "Aatrox",
+      "armor": 33,
+      "attack": 70,
+      "critics": 0,
+      "health": 580,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ahri",
+      "armor": 20.88,
+      "attack": 53.04,
+      "critics": 0,
+      "health": 526,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Akali",
+      "armor": 31.38,
+      "attack": 58.376,
+      "critics": 0,
+      "health": 593,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Alistar",
+      "armor": 44,
+      "attack": 61.1116,
+      "critics": 0,
+      "health": 613.36,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Amumu",
+      "armor": 33,
+      "attack": 53.38,
+      "critics": 0,
+      "health": 613.12,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Anivia",
+      "armor": 21.22,
+      "attack": 51.376,
+      "critics": 0,
+      "health": 480,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Annie",
+      "armor": 19.22,
+      "attack": 50.41,
+      "critics": 0,
+      "health": 524,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ashe",
+      "armor": 26,
+      "attack": 61,
+      "critics": 0,
+      "health": 539,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Aurelion Sol",
+      "armor": 19,
+      "attack": 57,
+      "critics": 0,
+      "health": 562,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Azir",
+      "armor": 19.04,
+      "attack": 52,
+      "critics": 0,
+      "health": 552,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Bard",
+      "armor": 34,
+      "attack": 52,
+      "critics": 0,
+      "health": 535,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Blitzcrank",
+      "armor": 44,
+      "attack": 61.54,
+      "critics": 0,
+      "health": 582.6,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Brand",
+      "armor": 21.88,
+      "attack": 57.04,
+      "critics": 0,
+      "health": 519.68,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Braum",
+      "armor": 47,
+      "attack": 55.376,
+      "critics": 0,
+      "health": 576.16,
+      "magicResist": 32.1,
+      "role": [
+        "Support",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Caitlyn",
+      "armor": 28,
+      "attack": 58,
+      "critics": 0,
+      "health": 481,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Camille",
+      "armor": 35,
+      "attack": 68,
+      "critics": 0,
+      "health": 575.6,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Cassiopeia",
+      "armor": 25,
+      "attack": 53,
+      "critics": 0,
+      "health": 537,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Cho'Gath",
+      "armor": 38,
+      "attack": 69,
+      "critics": 0,
+      "health": 574.4,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Corki",
+      "armor": 28,
+      "attack": 60,
+      "critics": 0,
+      "health": 518,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Darius",
+      "armor": 39,
+      "attack": 64,
+      "critics": 0,
+      "health": 582.24,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Diana",
+      "armor": 31,
+      "attack": 53.04,
+      "critics": 0,
+      "health": 594,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Draven",
+      "armor": 29,
+      "attack": 60,
+      "critics": 0,
+      "health": 574,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Dr. Mundo",
+      "armor": 36,
+      "attack": 61.27,
+      "critics": 0,
+      "health": 582.52,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ekko",
+      "armor": 32,
+      "attack": 55,
+      "critics": 0,
+      "health": 585,
+      "magicResist": 32,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Elise",
+      "armor": 27,
+      "attack": 55,
+      "critics": 0,
+      "health": 534,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Evelynn",
+      "armor": 37,
+      "attack": 61,
+      "critics": 0,
+      "health": 572,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ezreal",
+      "armor": 25,
+      "attack": 60,
+      "critics": 0,
+      "health": 491,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Fiddlesticks",
+      "armor": 30,
+      "attack": 48.36,
+      "critics": 0,
+      "health": 524.4,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Fiora",
+      "armor": 33,
+      "attack": 68,
+      "critics": 0,
+      "health": 550,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Fizz",
+      "armor": 22.412,
+      "attack": 58.04,
+      "critics": 0,
+      "health": 570,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Galio",
+      "armor": 24,
+      "attack": 59,
+      "critics": 0,
+      "health": 562,
+      "magicResist": 32,
+      "role": [
+        "Tank",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Gangplank",
+      "armor": 35,
+      "attack": 64,
+      "critics": 0,
+      "health": 540,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Garen",
+      "armor": 36,
+      "attack": 66,
+      "critics": 0,
+      "health": 616.28,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Gnar",
+      "armor": 32,
+      "attack": 59,
+      "critics": 0,
+      "health": 510,
+      "magicResist": 30,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Gragas",
+      "armor": 35,
+      "attack": 61.38,
+      "critics": 0,
+      "health": 583.52,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Graves",
+      "armor": 33,
+      "attack": 66,
+      "critics": 0,
+      "health": 551.12,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Hecarim",
+      "armor": 36,
+      "attack": 66,
+      "critics": 0,
+      "health": 580,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Heimerdinger",
+      "armor": 19.04,
+      "attack": 55.536,
+      "critics": 0,
+      "health": 488,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Illaoi",
+      "armor": 35,
+      "attack": 68,
+      "critics": 0,
+      "health": 585.6,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Irelia",
+      "armor": 34,
+      "attack": 60,
+      "critics": 0,
+      "health": 550,
+      "magicResist": 32,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ivern",
+      "armor": 27,
+      "attack": 50,
+      "critics": 0,
+      "health": 585,
+      "magicResist": 32.1,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Janna",
+      "armor": 28,
+      "attack": 46,
+      "critics": 0,
+      "health": 500,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Jarvan IV",
+      "armor": 34,
+      "attack": 64,
+      "critics": 0,
+      "health": 571.2,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Jax",
+      "armor": 36,
+      "attack": 69.97,
+      "critics": 0,
+      "health": 592.8,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Jayce",
+      "armor": 27,
+      "attack": 58,
+      "critics": 0,
+      "health": 576,
+      "magicResist": 30,
+      "role": [
+        "Fighter",
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Jhin",
+      "armor": 24,
+      "attack": 57,
+      "critics": 0,
+      "health": 556,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Jinx",
+      "armor": 28,
+      "attack": 57,
+      "critics": 0,
+      "health": 531,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kai'Sa",
+      "armor": 28,
+      "attack": 59,
+      "critics": 0,
+      "health": 571,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kalista",
+      "armor": 23,
+      "attack": 62,
+      "critics": 0,
+      "health": 534,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Karma",
+      "armor": 20.384,
+      "attack": 53.544,
+      "critics": 0,
+      "health": 534,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Karthus",
+      "armor": 20.88,
+      "attack": 45.66,
+      "critics": 0,
+      "health": 528,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kassadin",
+      "armor": 23.376,
+      "attack": 58.852,
+      "critics": 0,
+      "health": 576,
+      "magicResist": 30,
+      "role": [
+        "Assassin",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Katarina",
+      "armor": 27.88,
+      "attack": 58,
+      "critics": 0,
+      "health": 602,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kayle",
+      "armor": 26.88,
+      "attack": 51,
+      "critics": 0,
+      "health": 586,
+      "magicResist": 30,
+      "role": [
+        "Fighter",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kayn",
+      "armor": 38,
+      "attack": 68,
+      "critics": 0,
+      "health": 585,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kennen",
+      "armor": 29,
+      "attack": 50.544,
+      "critics": 0,
+      "health": 541,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kha'Zix",
+      "armor": 36,
+      "attack": 63,
+      "critics": 0,
+      "health": 572.8,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kindred",
+      "armor": 29,
+      "attack": 65,
+      "critics": 0,
+      "health": 540,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kled",
+      "armor": 35,
+      "attack": 65,
+      "critics": 0,
+      "health": 340,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Kog'Maw",
+      "armor": 24,
+      "attack": 61,
+      "critics": 0,
+      "health": 534,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "LeBlanc",
+      "armor": 21.88,
+      "attack": 54.88,
+      "critics": 0,
+      "health": 528,
+      "magicResist": 30,
+      "role": [
+        "Assassin",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Lee Sin",
+      "armor": 33,
+      "attack": 69.18,
+      "critics": 0,
+      "health": 570.8,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Leona",
+      "armor": 47,
+      "attack": 60.04,
+      "critics": 0,
+      "health": 576.16,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Lissandra",
+      "armor": 20.216,
+      "attack": 53,
+      "critics": 0,
+      "health": 518,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Lucian",
+      "armor": 28,
+      "attack": 61,
+      "critics": 0,
+      "health": 571,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Lulu",
+      "armor": 28.22,
+      "attack": 46.368,
+      "critics": 0,
+      "health": 525,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Lux",
+      "armor": 18.72,
+      "attack": 53.54,
+      "critics": 0,
+      "health": 490,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Malphite",
+      "armor": 37,
+      "attack": 61.97,
+      "critics": 0,
+      "health": 574.2,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Malzahar",
+      "armor": 18,
+      "attack": 55,
+      "critics": 0,
+      "health": 537,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Maokai",
+      "armor": 39,
+      "attack": 63.54,
+      "critics": 0,
+      "health": 565,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Master Yi",
+      "armor": 33,
+      "attack": 66,
+      "critics": 0,
+      "health": 598.56,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Miss Fortune",
+      "armor": 28,
+      "attack": 50,
+      "critics": 0,
+      "health": 541,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Wukong",
+      "armor": 34,
+      "attack": 68,
+      "critics": 0,
+      "health": 577.8,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Mordekaiser",
+      "armor": 25,
+      "attack": 61,
+      "critics": 0,
+      "health": 530,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Morgana",
+      "armor": 25.384,
+      "attack": 55.46,
+      "critics": 0,
+      "health": 559.48,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Nami",
+      "armor": 29,
+      "attack": 51.208,
+      "critics": 0,
+      "health": 489.32,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Nasus",
+      "armor": 34,
+      "attack": 67,
+      "critics": 0,
+      "health": 561.2,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Nautilus",
+      "armor": 35.46,
+      "attack": 61,
+      "critics": 0,
+      "health": 576.48,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Nidalee",
+      "armor": 28,
+      "attack": 61,
+      "critics": 0,
+      "health": 545,
+      "magicResist": 30,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Nocturne",
+      "armor": 36,
+      "attack": 65,
+      "critics": 0,
+      "health": 582.8,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Nunu",
+      "armor": 28,
+      "attack": 67,
+      "critics": 0,
+      "health": 590,
+      "magicResist": 32.1,
+      "role": [
+        "Support",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Olaf",
+      "armor": 35,
+      "attack": 68,
+      "critics": 0,
+      "health": 597.24,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Orianna",
+      "armor": 17.04,
+      "attack": 40.368,
+      "critics": 0,
+      "health": 530,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ornn",
+      "armor": 33.04,
+      "attack": 67.72,
+      "critics": 0,
+      "health": 565.64,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Pantheon",
+      "armor": 37,
+      "attack": 64,
+      "critics": 0,
+      "health": 579.16,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Poppy",
+      "armor": 38,
+      "attack": 64,
+      "critics": 0,
+      "health": 540,
+      "magicResist": 32,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Pyke",
+      "armor": 42,
+      "attack": 60,
+      "critics": 0,
+      "health": 600,
+      "magicResist": 32,
+      "role": [
+        "Support",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Quinn",
+      "armor": 32,
+      "attack": 59,
+      "critics": 0,
+      "health": 532.8,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Rakan",
+      "armor": 36,
+      "attack": 70,
+      "critics": 0,
+      "health": 510,
+      "magicResist": 30,
+      "role": [
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Rammus",
+      "armor": 36,
+      "attack": 55.88,
+      "critics": 0,
+      "health": 564.48,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Rek'Sai",
+      "armor": 33,
+      "attack": 65.5,
+      "critics": 0,
+      "health": 570,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Renekton",
+      "armor": 35,
+      "attack": 69,
+      "critics": 0,
+      "health": 572.16,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Rengar",
+      "armor": 34,
+      "attack": 68,
+      "critics": 0,
+      "health": 585,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Riven",
+      "armor": 33,
+      "attack": 64,
+      "critics": 0,
+      "health": 558.48,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Rumble",
+      "armor": 30.88,
+      "attack": 61.036,
+      "critics": 0,
+      "health": 589,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ryze",
+      "armor": 21.552,
+      "attack": 55.04,
+      "critics": 0,
+      "health": 570.48,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Sejuani",
+      "armor": 31,
+      "attack": 64,
+      "critics": 0,
+      "health": 560,
+      "magicResist": 27.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Shaco",
+      "armor": 30,
+      "attack": 66,
+      "critics": 0,
+      "health": 587,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Shen",
+      "armor": 34,
+      "attack": 60,
+      "critics": 0,
+      "health": 540,
+      "magicResist": 32.1,
+      "role": [
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Shyvana",
+      "armor": 38,
+      "attack": 66,
+      "critics": 0,
+      "health": 595,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Singed",
+      "armor": 37,
+      "attack": 62.32,
+      "critics": 0,
+      "health": 580,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Sion",
+      "armor": 32,
+      "attack": 68,
+      "critics": 0,
+      "health": 542.64,
+      "magicResist": 32.1,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Sivir",
+      "armor": 26,
+      "attack": 61,
+      "critics": 0,
+      "health": 532,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Skarner",
+      "armor": 38,
+      "attack": 65,
+      "critics": 0,
+      "health": 601.28,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Sona",
+      "armor": 28,
+      "attack": 49,
+      "critics": 0,
+      "health": 482.36,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Soraka",
+      "armor": 32,
+      "attack": 50.04,
+      "critics": 0,
+      "health": 529.04,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Swain",
+      "armor": 22.72,
+      "attack": 58,
+      "critics": 0,
+      "health": 525,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Syndra",
+      "armor": 24.712,
+      "attack": 53.872,
+      "critics": 0,
+      "health": 523,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Tahm Kench",
+      "armor": 47,
+      "attack": 56,
+      "critics": 0,
+      "health": 610,
+      "magicResist": 32.1,
+      "role": [
+        "Support",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Taliyah",
+      "armor": 20,
+      "attack": 56,
+      "critics": 0,
+      "health": 532,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Talon",
+      "armor": 30,
+      "attack": 68,
+      "critics": 0,
+      "health": 588,
+      "magicResist": 39,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Taric",
+      "armor": 40,
+      "attack": 55,
+      "critics": 0,
+      "health": 575,
+      "magicResist": 32.1,
+      "role": [
+        "Support",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Teemo",
+      "armor": 24.3,
+      "attack": 54,
+      "critics": 0,
+      "health": 528,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Thresh",
+      "armor": 28,
+      "attack": 56,
+      "critics": 0,
+      "health": 560.52,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Tristana",
+      "armor": 26,
+      "attack": 61,
+      "critics": 0,
+      "health": 559,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Trundle",
+      "armor": 37,
+      "attack": 68,
+      "critics": 0,
+      "health": 616.28,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Tryndamere",
+      "armor": 33,
+      "attack": 69,
+      "critics": 0,
+      "health": 625.64,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Twisted Fate",
+      "armor": 20.542,
+      "attack": 49.954,
+      "critics": 0,
+      "health": 534,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Twitch",
+      "armor": 27,
+      "attack": 59,
+      "critics": 0,
+      "health": 542,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Udyr",
+      "armor": 34,
+      "attack": 66,
+      "critics": 0,
+      "health": 593.32,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Urgot",
+      "armor": 39,
+      "attack": 63,
+      "critics": 0,
+      "health": 585,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Varus",
+      "armor": 27,
+      "attack": 59,
+      "critics": 0,
+      "health": 549,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Vayne",
+      "armor": 23,
+      "attack": 60,
+      "critics": 0,
+      "health": 515,
+      "magicResist": 30,
+      "role": [
+        "Marksman",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Veigar",
+      "armor": 22.55,
+      "attack": 50.71,
+      "critics": 0,
+      "health": 505,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Vel'Koz",
+      "armor": 21.88,
+      "attack": 54.9379,
+      "critics": 0,
+      "health": 520,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Vi",
+      "armor": 30,
+      "attack": 64,
+      "critics": 0,
+      "health": 585,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Viktor",
+      "armor": 22.72,
+      "attack": 52.04,
+      "critics": 0,
+      "health": 528.04,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Vladimir",
+      "armor": 23,
+      "attack": 55,
+      "critics": 0,
+      "health": 537,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Volibear",
+      "armor": 35,
+      "attack": 68,
+      "critics": 0,
+      "health": 584.48,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Warwick",
+      "armor": 33,
+      "attack": 63,
+      "critics": 0,
+      "health": 550,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Xayah",
+      "armor": 28,
+      "attack": 60,
+      "critics": 0,
+      "health": 561,
+      "magicResist": 30,
+      "role": [
+        "Marksman"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Xerath",
+      "armor": 21.88,
+      "attack": 54.7,
+      "critics": 0,
+      "health": 526,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Xin Zhao",
+      "armor": 35,
+      "attack": 66,
+      "critics": 0,
+      "health": 570,
+      "magicResist": 32.1,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Yasuo",
+      "armor": 30,
+      "attack": 60,
+      "critics": 0,
+      "health": 523,
+      "magicResist": 30,
+      "role": [
+        "Fighter",
+        "Assassin"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Yorick",
+      "armor": 39,
+      "attack": 62,
+      "critics": 0,
+      "health": 580,
+      "magicResist": 32,
+      "role": [
+        "Fighter",
+        "Tank"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Zac",
+      "armor": 33,
+      "attack": 60,
+      "critics": 0,
+      "health": 615,
+      "magicResist": 32,
+      "role": [
+        "Tank",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Zed",
+      "armor": 32,
+      "attack": 63,
+      "critics": 0,
+      "health": 584,
+      "magicResist": 32.1,
+      "role": [
+        "Assassin",
+        "Fighter"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Ziggs",
+      "armor": 21.544,
+      "attack": 54.208,
+      "critics": 0,
+      "health": 536,
+      "magicResist": 30,
+      "role": [
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Zilean",
+      "armor": 24,
+      "attack": 51.64,
+      "critics": 0,
+      "health": 504,
+      "magicResist": 30,
+      "role": [
+        "Support",
+        "Mage"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Zoe",
+      "armor": 20.8,
+      "attack": 58,
+      "critics": 0,
+      "health": 560,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
+    },
+    {
+      "name": "Zyra",
+      "armor": 29,
+      "attack": 53.376,
+      "critics": 0,
+      "health": 504,
+      "magicResist": 30,
+      "role": [
+        "Mage",
+        "Support"
+      ],
+      "type": "AD",
+      "spells": {
+        "Q": {
+          "damages": 50,
+          "delay": 1
+        },
+        "W": {
+          "damages": 50,
+          "delay": 1
+        },
+        "E": {
+          "damages": 50,
+          "delay": 1
+        },
+        "R": {
+          "damages": 500,
+          "delay": 6
+        }
+      }
     }
-]
+  ]
