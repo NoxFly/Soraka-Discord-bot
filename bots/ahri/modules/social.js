@@ -39,7 +39,7 @@ let social = [
 					return 'You can\'t follow you lol';
 				}
 				
-				let id_target = target.replace(/\s+<@!?(\d+)>/,'$1');
+				let id_target = target.replace(/(\s+)?<@!?(\d+)>/,'$2');
 
 				let name;
 				DB.profile(id_target).getData('user/name', function(data) {
@@ -96,7 +96,7 @@ let social = [
 			if(/<@!?\d+>/.test(target)) {
 				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri' || regID.test(target)) return 'User not valid';
 				
-				let id_target = target.replace(/\s+<@!?(\d+)>/,'$1');
+				let id_target = target.replace(/(\s+)?<@!?(\d+)>/,'$2');
 
 				let name;
 				DB.profile(id_target).getData('user/name', function(data) {
