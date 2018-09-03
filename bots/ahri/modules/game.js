@@ -67,48 +67,64 @@ let game = [
 		group: 'game',
 		result: (msg) => {
 			if(msg.content=='a!champ') {
-            let r = Math.round(Math.random()*141);
-            let embed = new Discord.RichEmbed()
-                .setTitle(champ[r].name)
-                .setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+champ[r].name)
-                .setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[r].name+".png");
-           return embed;
-        } else if(/a!champ [a-zA-Z]+ skin \d+/.test(msg.content)) {
-        	let c = msg.content.split('champ ')[1];
-        	c = c.replace(/\d+/,'').replace(' skin ','').replace(/\s+/,'');
-			c = c.toLowerCase();
-			for(i in champ) {
-				let ch = champ[i].name;
-				let cha = ch.toLowerCase();
-				if(c==cha) {
-					let s = msg.content.split('champ ')[1];
-					s = s.replace(/[a-zA-Z ]+/,'');
+				let r = Math.round(Math.random()*champ.length);
+				let embed = new Discord.RichEmbed()
+					.setTitle(champ[r].name)
+					.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+champ[r].name)
+					.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[r].name+".png");
+				return embed;
+			} else if(/a!champ [a-zA-Z\.\s+]+ skin \d+/.test(msg.content)) {
+				let c = msg.content.split('champ ')[1];
+				c = c.replace(/\d+/,'').replace(' skin ','').replace(/(\s+|\.)+/,'');
+				c = c.toLowerCase();
+				for(i in champ) {
+					let ch = champ[i].name;
+					let cha = ch.toLowerCase();
+					cha = cha.replace(/(\s+|\.)+/,'');
+					if(c==cha) {
+						let name = '';
+						let index = ch.indexOf("'");
+						for(j=0; j<ch.length; j++) {
+							if(j==index || ch[j]==' ' || ch[j]=='.') {continue};
+							if(j==index+1 && index!==-1) name+=ch[j].toLowerCase();
+							else name+=ch[j];
+						}
+						let s = msg.content.split('champ ')[1];
+						s = s.replace(/[a-zA-Z\s+\.]+/,'');
+						let embed = new Discord.RichEmbed()
+							.setTitle(ch)
+							.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+name+"_"+s+".jpg");
+						return embed;
+					}
 					
-					let embed = new Discord.RichEmbed()
-						.setTitle(ch)
-						.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+ch+"_"+s+".jpg");
-					return embed;
 				}
-				
-			}
-        	return 'This champion does not exist :x:';
-        } else {
-        	let c = msg.content.split('champ ')[1].replace(/\s+/,'');
-        	c = c.toLowerCase();
-        	for(i in champ) {
-				let ch = champ[i].name;
-				let cha = ch.toLowerCase().replace(/\s+/,'');
-				if(c==cha) {
-					let embed = new Discord.RichEmbed()
-						.setTitle(ch)
-						.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+ch)
-						.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+ch+".png");
-					return embed;
+				return 'This champion does not exist :x:';
+			} else {
+				let c = msg.content.split('champ ')[1].replace(/(\s+|\.)+/,'');
+				c = c.toLowerCase();
+				for(i in champ) {
+					let ch = champ[i].name;
+					let cha = ch.toLowerCase();
+					cha = cha.replace(/(\s+|\.)+/,'');
+					if(c==cha) {
+						let name = '';
+						let index = ch.indexOf("'");
+						for(j=0; j<ch.length; j++) {
+							if(j==index || ch[j]==' ' || ch[j]=='.') {continue};
+							if(j==index+1 && index!==-1) name+=ch[j].toLowerCase();
+							else name+=ch[j];
+						}
+						
+						let embed = new Discord.RichEmbed()
+							.setTitle(ch)
+							.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+name)
+							.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+name+".png");
+						return embed;
+					}
 				}
-			}
 			return 'This champion does not exist :x:';
-        }
-      }
+        	}
+      	}
     },
     
     {
