@@ -163,7 +163,7 @@ let basic = [
 				let iMaxPage = Math.ceil(aGuild.length/10);
 				for(i=iStart; i<iEnd; i++) {
 					if(i==aGuild.length) break;
-					txt += "-• Guild name: "+aGuild[i].name+"\n\t\tGuild ID: "+aGuild[i].id+"\n\t\tGuild owner: "+aGuild[i].owner+"\n"
+					txt += "-• Guild name: "+aGuild[i].name+"\n\t\tGuild ID: "+aGuild[i].id+"\n\t\tGuild owner: "+aGuild[i].owner.user.username+'#'+aGuild[i].owner.user.discriminator+"\n"
 				}
 				return '```diff\n'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```';
 			}
