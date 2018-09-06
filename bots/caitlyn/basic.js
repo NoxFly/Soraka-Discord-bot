@@ -4,14 +4,14 @@ let command = [
         result: (msg) => {
             msg.channel.send({
 				files: [
-				  "./bots/caitlyn/kalyoz2.png"
+				  "./bots/caitlyn/kalyoz.png"
 				]
 			  })
         }
     },
 
     {
-        name: 'kayloz',
+        name: 'kalyoz',
         result: (msg) => {
             msg.channel.send({
 				files: [
