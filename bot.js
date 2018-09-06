@@ -24,6 +24,13 @@ let aBotList = [
 		'tag'  	: 	'a!',
 		'id'	:	'477918672732553216',
 		'token' :	process.env.TOKEN_AHRI
+	},
+
+	{
+		'name'	:	'caitlyn',
+		'tag'  	: 	'/',
+		'id'	:	'443430082459992065',
+		'token' :	process.env.TOKEN_CAITLYN
 	}
 ];
 
@@ -87,25 +94,47 @@ function startbot(params) {
 			let gowner = msg.guild.ownerID;
 			checkServer(gid, gname, gowner);
 
-			if(App[gid]===undefined || App[gid]['modules']===undefined) {
-				if(App[gid]===undefined) App[gid] = [];
-	
-				Database.server(gid).getData('modules', function(data) {
-					App[gid]['modules'] = data.val();
-				});
-				setTimeout(function() {code=App[gid]['modules'];},Database.responseTime);
-				timeExe = Database.responseTime*2;
-			} else {
-				code = App[gid]['modules'];
-				timeExe = 0;
-			}
-	
-			setTimeout(function() {
-				exportObj.app = App;
-				for(i in code) {
-					if(code[i]!='test') mod.push(code[i]);
+			if(params.name=='ahri') {
+
+				if(App[gid]===undefined || App[gid]['modules']===undefined) {
+					if(App[gid]===undefined) App[gid] = [];
+		
+					Database.server(gid).getData('modules', function(data) {
+						App[gid]['modules'] = data.val();
+					});
+					setTimeout(function() {code=App[gid]['modules'];},Database.responseTime);
+					timeExe = Database.responseTime*2;
+				} else {
+					code = App[gid]['modules'];
+					timeExe = 0;
 				}
-	
+		
+				setTimeout(function() {
+					exportObj.app = App;
+					for(i in code) {
+						if(code[i]!='test') mod.push(code[i]);
+					}
+		
+					mod.forEach(name => {
+						let m = require('./bots/'+params.name+'/modules/'+name+'.js');
+						m.forEach(command => {
+							command.group = name;
+						});
+						modules = modules.concat(m);
+					});
+					
+					commands = require('./bots/'+params.name+'/basic.js');
+					exportObj.commands = modules;
+					commands = modules.concat(commands);
+				},timeExe);
+			} else {
+				timeExe = 0;
+				commands = require('./bots/'+params.name+'/basic.js');
+			}
+		} else {
+			if(params.name=='ahri') {
+				commands = require('./bots/'+params.name+'/basic.js');
+				mod = ['game','personal','social','utility'];
 				mod.forEach(name => {
 					let m = require('./bots/'+params.name+'/modules/'+name+'.js');
 					m.forEach(command => {
@@ -113,24 +142,10 @@ function startbot(params) {
 					});
 					modules = modules.concat(m);
 				});
-				
-				commands = require('./bots/'+params.name+'/basic.js');
-				exportObj.commands = modules;
-				commands = modules.concat(commands);
-			},timeExe);
-		} else {
-			commands = require('./bots/'+params.name+'/basic.js');
-			mod = ['game','personal','social','utility'];
-			mod.forEach(name => {
-				let m = require('./bots/'+params.name+'/modules/'+name+'.js');
-				m.forEach(command => {
-					command.group = name;
-				});
-				modules = modules.concat(m);
-			});
 
-			commands = modules.concat(commands);
-			timeExe = 0;
+				commands = modules.concat(commands);
+				timeExe = 0;
+			}
 		}
 
 		setTimeout(function() {
@@ -175,7 +190,7 @@ function startbot(params) {
 		guild.channels.forEach((channel) => {
 			if(channel.type == "text" && defaultChannel == "") {
 				if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-				defaultChannel = channel;
+					defaultChannel = channel;
 				}
 			}
 		});
