@@ -95,7 +95,6 @@ function startbot(params) {
 			checkServer(gid, gname, gowner);
 
 			if(params.name=='ahri') {
-
 				if(App[gid]===undefined || App[gid]['modules']===undefined) {
 					if(App[gid]===undefined) App[gid] = [];
 		
@@ -195,29 +194,31 @@ function startbot(params) {
 			}
 		});
 
-		let modules = '';
-		let end = ' - ';
-		fs.readdir('./bots/ahri/modules', function(err, items) {
-			for (var i=0; i<items.length; i++) {
-				if(i==items.length-1) end = '';
-				modules += items[i].replace('.js','')+end;
-				console.log(modules);
-			}
+		if(params.name=='ahri') {
+			let modules = '';
+			let end = ' - ';
+			fs.readdir('./bots/ahri/modules', function(err, items) {
+				for (var i=0; i<items.length; i++) {
+					if(i==items.length-1) end = '';
+					modules += items[i].replace('.js','')+end;
+					console.log(modules);
+				}
 
-			let embed = new Discord.RichEmbed()
-				.setTitle('Modules')
-				.setColor(0x43FF4E)
-				.addField(
-					'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
-				)
-				.setDescription('I recommend you to install the modules game, personal and social');
-			
-			defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');
-			defaultChannel.send(embed);
-		});
+				let embed = new Discord.RichEmbed()
+					.setTitle('Modules')
+					.setColor(0x43FF4E)
+					.addField(
+						'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
+					)
+					.setDescription('I recommend you to install the modules game, personal and social');
+				
+				defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');
+				defaultChannel.send(embed);
+			});
+		}
 	});
 
-	bot.on('messageReactionAdd', (reaction,user) => {
+	bot.on('messageReactionAdd', (reaction, user) => {
 		if(reaction.message.author.id == '463425089673887764'){
 			send(reaction.message,'reaction');
 			react(reactionCommands, reaction, user, reaction.message.content);

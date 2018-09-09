@@ -306,12 +306,9 @@ let social = [
 
 						if(l>0) {
 								for(i in followers) {
-									let follower = followers[i][1];	
 									try {
 										let follower = followers[i][1];		
-										bot.users.get(follower).createDM().then(channel => {
-											channel.send(embed);
-										});
+										bot.users.get(follower).send(embed);
 									} catch(error) {
 										console.log('Could not send to '+follower);
 									}
