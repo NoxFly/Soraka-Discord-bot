@@ -310,7 +310,7 @@ let social = [
 										let follower = followers[i][1];		
 										bot.users.get(follower).send(embed);
 									} catch(error) {
-										console.log('Could not send to '+follower);
+										console.log('Could not send to one follower : '+i);
 									}
 								}
 								DB.updateData('delay/post', postDelay);
