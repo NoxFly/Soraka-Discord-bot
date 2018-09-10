@@ -55,7 +55,7 @@ const getTop = function(msg) {
 
 				let iPage = Math.round(msg.content.split(type)[1]);
 
-				if(iPage<1 || iPage*10-10>user.length || isNaN(iPage)) iPage = 1
+				if(iPage<1 || iPage*10-10>user.length || isNaN(iPage)) iPage = 1;
 				let iEnd = iPage*10-1;
 				let iStart = iPage*10-10;
 				let iMaxPage = Math.ceil((user.length)/10);

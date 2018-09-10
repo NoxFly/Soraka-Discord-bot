@@ -187,18 +187,40 @@ function startbot(params) {
 				timeExe = 0;
 				commands = require('./bots/'+params.name+'/basic.js');
 			} else {
-				commands = require('./bots/'+params.name+'/basic.js');
-				mod = ['game','personal','social','utility'];
-				mod.forEach(name => {
-					let m = require('./bots/'+params.name+'/modules/'+name+'.js');
-					m.forEach(command => {
-						command.group = name;
+				if(msg.content.indexOf(params.tag)===0) {
+					commands = require('./bots/'+params.name+'/basic.js');
+					mod = ['game','personal','social','utility'];
+					mod.forEach(name => {
+						let m = require('./bots/'+params.name+'/modules/'+name+'.js');
+						m.forEach(command => {
+							command.group = name;
+						});
+						modules = modules.concat(m);
 					});
-					modules = modules.concat(m);
-				});
-
-				commands = modules.concat(commands);
-				timeExe = 0;
+	
+					commands = modules.concat(commands);
+					timeExe = 0;
+				} else {
+					let fighting, champion;
+					if(App[id]===undefined) App[id] = [];
+					const fight = require('./functions/fight.js');
+					Database.profile(id).getData('game/fighting', function(data) {
+						fighting = data.val();
+					});
+	
+					Database.profile(id).getData('game/params', function(data) {
+						champion = data.val();
+					});
+	
+					setTimeout(function() {
+						if(fighting==1) {
+							if(App[id].champion===undefined) App[id].champion = champion;
+							exportObj.app = App;
+							fight(msg, id, name);
+							return;
+						}
+					},DB.responseTime);
+				}
 			}
 	
 			setTimeout(function() {

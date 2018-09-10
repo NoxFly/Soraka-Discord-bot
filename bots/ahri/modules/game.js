@@ -336,9 +336,172 @@ let game = [
 		usage: '`a!fight`',
 		group: 'game',
 		result: (msg) => {
-			return 'In development';
+			if(msg.content!=='a!fight') return 'not_find';
+			let owned = 0;
+			DB.getData('game/owned', function(data) {
+				owned = data.val();
+			});
+
+			setTimeout(function() {
+				if(owned===0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
+				else {
+					let champion;
+					DB.getData('game/champion', function(data) {
+						champion = data.val();
+					});
+
+					let fighting;
+					DB.getData('game/fighting', function(data) {
+						fighting = data.val();
+					});
+
+					setTimeout(function() {
+						if(fighting==0) {
+							send(msg, ':crossed_swords: fight mode activated\nThis fight is in MP with me');
+							send(msg, 'Champion selected: '+champion);
+							DB.updateData('game/fighting', 1);
+							msg.author.send('You don\'t need to write the tag while you are fighting (only for the fight)\n**Write anything to start**');
+						} else {
+							send(msg, 'You already are on fight mode');
+						}
+					},DB.responseTime);
+				}
+			},DB.responseTime);
 		}
-	}
+	},
+
+	{
+		name: 'stopfight',
+		description: 'stop fight',
+		usage: '`a!fight`',
+		group: 'game',
+		result: (msg) => {
+			if(msg.content!=='a!stopfight') return 'not_find';
+			let owned = 0;
+			DB.getData('game/owned', function(data) {
+				owned = data.val();
+			});
+
+			setTimeout(function() {
+				if(owned===0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
+				else {
+					let champion;
+					DB.getData('game/champion', function(data) {
+						champion = data.val();
+					});
+
+					let fighting;
+					DB.getData('game/fighting', function(data) {
+						fighting = data.val();
+					});
+
+					setTimeout(function() {
+						if(fighting==1) {
+							send(msg, ':crossed_swords: You stopped fight');
+							App[msg.author.id] = undefined;
+							DB.updateData('game/fighting', 0);
+						} else {
+							send(msg, 'You already don\'t are on fight mode');
+						}
+					},DB.responseTime);
+				}
+			},DB.responseTime);
+		}
+	},
+
+	{
+		name: 'choose',
+		description: 'Chose your first champion !',
+		usage: '`a!choose {champion}`',
+		group: 'game',
+		result: (msg) => {
+			let owned;
+			DB.getData('game/owned', function(data) {
+				owned = data.val();
+			});
+
+			setTimeout(function() {
+				if(owned==0) {
+					let choice = msg.content.split('choose ')[1];
+					let champions = ['ashe','garen','ryze'];
+
+					if(choice===undefined) send(msg, 'Choose between 3 champion :\n• **Ashe**\n• **Garen**\n• **Ryze**\n`a!champ {champion name}` to see image of a champion');
+					else {
+						choice = choice.toLowerCase();
+						console.log(choice);
+						console.log(champions.indexOf(choice));
+						if(champions.indexOf(choice)==-1) send(msg, 'You only can choose between **Ashe**, **Garen** and **Ryze**');
+						else {
+							let stats;
+							for(i in champ) {
+								let ch = champ[i].name;
+								ch = ch.toLowerCase();
+								if(choice==ch) {
+									stats = champ[i];
+								}
+							}
+
+							choice = choice[0].toUpperCase()+choice.substring(1);
+							send(msg, 'You chose '+choice);
+							DB.updateData('game/owned', 1);
+							DB.updateData('game/champion', choice);
+							DB.updateData('game/params', stats);
+							DB.updateData('param/BG', 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+choice+'_0.jpg');
+
+							DB.addPlug('game', 'championsList', {0:choice});
+						}
+					}
+				} else {
+					send(msg, 'You already choose your first champion :stuck_out_tongue:');
+				}
+			},DB.responseTime);
+		}
+	},
+
+	{
+        name: 'select',
+        result: (msg) => {
+			let game;
+			DB.profile(msg.author.id).getData('game', function(data) {
+				game = data.val();
+			});
+
+			let champion = msg.content.split('select ')[1];
+
+			setTimeout(function() {
+				if(game.owned==0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
+				else if(champion===undefined) send(msg, 'Choose a champ you have');
+				else if(game.fighting) send(msg, 'You are on fight');
+				else {
+					champion = champion.toLowerCase();
+					let possible = [];
+					let j;
+					for(i=0; i<game.championsList.length; i++) {
+						possible.push(game.championsList[i].toLowerCase());
+					}
+					if(possible.indexOf(champion)!==-1) {
+						let reg = new RegExp(champion);
+
+						for(i=0; i<champ.length; i++) {
+							if(reg.test(champ[i].name.toLowerCase())) j = i;
+						}
+
+						let embed = new Discord.RichEmbed()
+							.setAuthor('New selection :')
+							.setColor(0x1483CE)
+							.setThumbnail("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[j].name+".png")
+							.setDescription('You chose '+champ[j].name);
+						send(msg, embed);
+
+						DB.updateData('game/champion', champ[j].name);
+						DB.updateData('game/params', champ[j]);
+						DB.updateData('param/BG', 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+champ[j].name+'_0.jpg');
+					}
+					else send(msg, 'You don\'t have this champion');
+				}
+			}, DB.responseTime);
+        }
+	},
 ];
 
 module.exports = game;
