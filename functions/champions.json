@@ -5,7 +5,6 @@
       "attack": 70,
       "critics": 0,
       "health": 580,
-
       "role": [
         "Fighter",
         "Tank"
@@ -13,30 +12,29 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 125,
+          "delay": 3
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 25,
+          "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": -1,
+          "delay": 2
         },
         "R": {
-          "damages": 500,
+          "damages": 150,
           "delay": 6
         }
       }
     },
     {
       "name": "Ahri",
-      "armor": 20.88,
-      "attack": 53.04,
+      "armor": 21,
+      "attack": 53,
       "critics": 0,
       "health": 526,
-
       "role": [
         "Mage",
         "Assassin"
@@ -44,49 +42,48 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 65,
+          "delay": 3
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 65,
+          "delay": 3
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": 90,
+          "delay": 4
         },
         "R": {
-          "damages": 500,
+          "damages": 120,
           "delay": 6
         }
       }
     },
     {
       "name": "Akali",
-      "armor": 31.38,
-      "attack": 58.376,
+      "armor": 31,
+      "attack": 58,
       "critics": 0,
       "health": 593,
-
       "role": [
         "Assassin"
       ],
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 65,
+          "delay": 2
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": -1,
+          "delay": 4
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": 70,
+          "delay": 3
         },
         "R": {
-          "damages": 500,
+          "damages": 300,
           "delay": 6
         }
       }
@@ -94,10 +91,9 @@
     {
       "name": "Alistar",
       "armor": 44,
-      "attack": 61.1116,
+      "attack": 61,
       "critics": 0,
-      "health": 613.36,
-
+      "health": 613,
       "role": [
         "Tank",
         "Support"
@@ -105,30 +101,29 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 105,
+          "delay": 4
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 110,
+          "delay": 4
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
-          "damages": 500,
-          "delay": 6
+          "damages": -2,
+          "delay": 5
         }
       }
     },
     {
       "name": "Amumu",
       "armor": 33,
-      "attack": 53.38,
+      "attack": 53,
       "critics": 0,
-      "health": 613.12,
-
+      "health": 613,
       "role": [
         "Tank",
         "Mage"
@@ -136,30 +131,29 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 130,
+          "delay": 4
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 45,
+          "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": 100,
+          "delay": 3
         },
         "R": {
-          "damages": 500,
+          "damages": 250,
           "delay": 6
         }
       }
     },
     {
       "name": "Anivia",
-      "armor": 21.22,
-      "attack": 51.376,
+      "armor": 21,
+      "attack": 51,
       "critics": 0,
       "health": 480,
-
       "role": [
         "Mage",
         "Support"
@@ -167,49 +161,48 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 85,
+          "delay": 3
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": -1,
+          "delay": 3
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": 75,
+          "delay": 2
         },
         "R": {
-          "damages": 500,
+          "damages": 220,
           "delay": 6
         }
       }
     },
     {
       "name": "Annie",
-      "armor": 19.22,
-      "attack": 50.41,
+      "armor": 19,
+      "attack": 50,
       "critics": 0,
       "health": 524,
-
       "role": [
         "Mage"
       ],
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 80,
+          "delay": 3
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": -2,
+          "delay": 3
         },
         "R": {
-          "damages": 500,
+          "damages": 400,
           "delay": 6
         }
       }
@@ -228,20 +221,20 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 80,
+          "delay": 4
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 35,
+          "delay": 3
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": -4,
+          "delay": 6
         },
         "R": {
-          "damages": 500,
-          "delay": 6
+          "damages": 600,
+          "delay": 7
         }
       }
     },
@@ -251,7 +244,6 @@
       "attack": 57,
       "critics": 0,
       "health": 562,
-
       "role": [
         "Mage",
         "Fighter"
@@ -259,30 +251,29 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 110,
+          "delay": 4
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 45,
+          "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": -1,
+          "delay": 5
         },
         "R": {
-          "damages": 500,
+          "damages": 350,
           "delay": 6
         }
       }
     },
     {
       "name": "Azir",
-      "armor": 19.04,
+      "armor": 19,
       "attack": 52,
       "critics": 0,
       "health": 552,
-
       "role": [
         "Mage",
         "Marksman"
@@ -290,19 +281,19 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 80,
+          "delay": 3
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 60,
+          "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": -1,
+          "delay": 4
         },
         "R": {
-          "damages": 500,
+          "damages": 450,
           "delay": 6
         }
       }
@@ -322,15 +313,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -341,9 +332,9 @@
     {
       "name": "Blitzcrank",
       "armor": 44,
-      "attack": 61.54,
+      "attack": 61,
       "critics": 0,
-      "health": 582.6,
+      "health": 582,
 
       "role": [
         "Tank",
@@ -353,15 +344,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -371,10 +362,10 @@
     },
     {
       "name": "Brand",
-      "armor": 21.88,
-      "attack": 57.04,
+      "armor": 21,
+      "attack": 57,
       "critics": 0,
-      "health": 519.68,
+      "health": 519,
 
       "role": [
         "Mage"
@@ -383,15 +374,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -402,9 +393,9 @@
     {
       "name": "Braum",
       "armor": 47,
-      "attack": 55.376,
+      "attack": 55,
       "critics": 0,
-      "health": 576.16,
+      "health": 576,
 
       "role": [
         "Support",
@@ -414,15 +405,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -444,15 +435,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -465,7 +456,7 @@
       "armor": 35,
       "attack": 68,
       "critics": 0,
-      "health": 575.6,
+      "health": 575,
 
       "role": [
         "Fighter",
@@ -475,15 +466,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -505,15 +496,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -526,7 +517,7 @@
       "armor": 38,
       "attack": 69,
       "critics": 0,
-      "health": 574.4,
+      "health": 574,
 
       "role": [
         "Tank",
@@ -536,15 +527,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -566,15 +557,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -587,7 +578,7 @@
       "armor": 39,
       "attack": 64,
       "critics": 0,
-      "health": 582.24,
+      "health": 582,
 
       "role": [
         "Fighter",
@@ -597,15 +588,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -616,7 +607,7 @@
     {
       "name": "Diana",
       "armor": 31,
-      "attack": 53.04,
+      "attack": 53,
       "critics": 0,
       "health": 594,
 
@@ -628,15 +619,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -658,15 +649,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -677,9 +668,9 @@
     {
       "name": "Dr. Mundo",
       "armor": 36,
-      "attack": 61.27,
+      "attack": 61,
       "critics": 0,
-      "health": 582.52,
+      "health": 582,
 
       "role": [
         "Fighter",
@@ -689,15 +680,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -720,15 +711,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -751,15 +742,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -782,15 +773,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -813,15 +804,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -832,9 +823,9 @@
     {
       "name": "Fiddlesticks",
       "armor": 30,
-      "attack": 48.36,
+      "attack": 48,
       "critics": 0,
-      "health": 524.4,
+      "health": 524,
 
       "role": [
         "Mage",
@@ -844,15 +835,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -875,15 +866,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -893,8 +884,8 @@
     },
     {
       "name": "Fizz",
-      "armor": 22.412,
-      "attack": 58.04,
+      "armor": 22,
+      "attack": 58,
       "critics": 0,
       "health": 570,
 
@@ -906,15 +897,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -937,15 +928,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -967,15 +958,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -988,8 +979,7 @@
       "armor": 36,
       "attack": 66,
       "critics": 0,
-      "health": 616.28,
-
+      "health": 616,
       "role": [
         "Fighter",
         "Tank"
@@ -997,20 +987,20 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 60,
+          "delay": 2
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": -2,
+          "delay": 3
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": 72,
+          "delay": 3
         },
         "R": {
-          "damages": 500,
-          "delay": 6
+          "damages": 525,
+          "delay": 7
         }
       }
     },
@@ -1029,15 +1019,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1048,9 +1038,9 @@
     {
       "name": "Gragas",
       "armor": 35,
-      "attack": 61.38,
+      "attack": 61,
       "critics": 0,
-      "health": 583.52,
+      "health": 583,
 
       "role": [
         "Fighter",
@@ -1060,15 +1050,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1081,7 +1071,7 @@
       "armor": 33,
       "attack": 66,
       "critics": 0,
-      "health": 551.12,
+      "health": 551,
 
       "role": [
         "Marksman"
@@ -1090,15 +1080,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1121,15 +1111,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1139,8 +1129,8 @@
     },
     {
       "name": "Heimerdinger",
-      "armor": 19.04,
-      "attack": 55.536,
+      "armor": 19,
+      "attack": 55,
       "critics": 0,
       "health": 488,
 
@@ -1152,15 +1142,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1173,7 +1163,7 @@
       "armor": 35,
       "attack": 68,
       "critics": 0,
-      "health": 585.6,
+      "health": 585,
 
       "role": [
         "Fighter",
@@ -1183,15 +1173,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1214,15 +1204,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1245,15 +1235,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1276,15 +1266,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1297,7 +1287,7 @@
       "armor": 34,
       "attack": 64,
       "critics": 0,
-      "health": 571.2,
+      "health": 571,
 
       "role": [
         "Tank",
@@ -1307,15 +1297,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1326,9 +1316,9 @@
     {
       "name": "Jax",
       "armor": 36,
-      "attack": 69.97,
+      "attack": 69,
       "critics": 0,
-      "health": 592.8,
+      "health": 592,
 
       "role": [
         "Fighter",
@@ -1338,15 +1328,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1369,15 +1359,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1400,15 +1390,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1430,15 +1420,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1460,15 +1450,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1490,15 +1480,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1508,8 +1498,8 @@
     },
     {
       "name": "Karma",
-      "armor": 20.384,
-      "attack": 53.544,
+      "armor": 20,
+      "attack": 53,
       "critics": 0,
       "health": 534,
 
@@ -1521,15 +1511,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1539,8 +1529,8 @@
     },
     {
       "name": "Karthus",
-      "armor": 20.88,
-      "attack": 45.66,
+      "armor": 20,
+      "attack": 45,
       "critics": 0,
       "health": 528,
 
@@ -1551,15 +1541,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1569,8 +1559,8 @@
     },
     {
       "name": "Kassadin",
-      "armor": 23.376,
-      "attack": 58.852,
+      "armor": 23,
+      "attack": 59,
       "critics": 0,
       "health": 576,
 
@@ -1582,15 +1572,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1613,15 +1603,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1631,7 +1621,7 @@
     },
     {
       "name": "Kayle",
-      "armor": 26.88,
+      "armor": 27,
       "attack": 51,
       "critics": 0,
       "health": 586,
@@ -1644,15 +1634,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1675,15 +1665,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1694,7 +1684,7 @@
     {
       "name": "Kennen",
       "armor": 29,
-      "attack": 50.544,
+      "attack": 50,
       "critics": 0,
       "health": 541,
 
@@ -1706,15 +1696,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1727,7 +1717,7 @@
       "armor": 36,
       "attack": 63,
       "critics": 0,
-      "health": 572.8,
+      "health": 573,
 
       "role": [
         "Assassin",
@@ -1737,15 +1727,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1767,15 +1757,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1798,15 +1788,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1829,15 +1819,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1847,8 +1837,8 @@
     },
     {
       "name": "LeBlanc",
-      "armor": 21.88,
-      "attack": 54.88,
+      "armor": 22,
+      "attack": 55,
       "critics": 0,
       "health": 528,
 
@@ -1860,15 +1850,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1879,9 +1869,9 @@
     {
       "name": "Lee Sin",
       "armor": 33,
-      "attack": 69.18,
+      "attack": 69,
       "critics": 0,
-      "health": 570.8,
+      "health": 571,
 
       "role": [
         "Fighter",
@@ -1891,15 +1881,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1910,9 +1900,9 @@
     {
       "name": "Leona",
       "armor": 47,
-      "attack": 60.04,
+      "attack": 60,
       "critics": 0,
-      "health": 576.16,
+      "health": 576,
 
       "role": [
         "Tank",
@@ -1922,15 +1912,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1940,7 +1930,7 @@
     },
     {
       "name": "Lissandra",
-      "armor": 20.216,
+      "armor": 20,
       "attack": 53,
       "critics": 0,
       "health": 518,
@@ -1952,15 +1942,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -1982,15 +1972,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2000,8 +1990,8 @@
     },
     {
       "name": "Lulu",
-      "armor": 28.22,
-      "attack": 46.368,
+      "armor": 28,
+      "attack": 46,
       "critics": 0,
       "health": 525,
 
@@ -2013,15 +2003,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2031,8 +2021,8 @@
     },
     {
       "name": "Lux",
-      "armor": 18.72,
-      "attack": 53.54,
+      "armor": 19,
+      "attack": 53,
       "critics": 0,
       "health": 490,
 
@@ -2044,15 +2034,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2063,9 +2053,9 @@
     {
       "name": "Malphite",
       "armor": 37,
-      "attack": 61.97,
+      "attack": 62,
       "critics": 0,
-      "health": 574.2,
+      "health": 574,
 
       "role": [
         "Tank",
@@ -2075,15 +2065,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2106,15 +2096,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2125,7 +2115,7 @@
     {
       "name": "Maokai",
       "armor": 39,
-      "attack": 63.54,
+      "attack": 63,
       "critics": 0,
       "health": 565,
 
@@ -2137,15 +2127,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2158,7 +2148,7 @@
       "armor": 33,
       "attack": 66,
       "critics": 0,
-      "health": 598.56,
+      "health": 598,
 
       "role": [
         "Assassin",
@@ -2168,15 +2158,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2198,15 +2188,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2219,7 +2209,7 @@
       "armor": 34,
       "attack": 68,
       "critics": 0,
-      "health": 577.8,
+      "health": 578,
 
       "role": [
         "Fighter",
@@ -2229,15 +2219,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2259,15 +2249,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2277,10 +2267,10 @@
     },
     {
       "name": "Morgana",
-      "armor": 25.384,
-      "attack": 55.46,
+      "armor": 25,
+      "attack": 55,
       "critics": 0,
-      "health": 559.48,
+      "health": 559,
 
       "role": [
         "Mage",
@@ -2290,15 +2280,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2309,9 +2299,9 @@
     {
       "name": "Nami",
       "armor": 29,
-      "attack": 51.208,
+      "attack": 51,
       "critics": 0,
-      "health": 489.32,
+      "health": 489,
 
       "role": [
         "Support",
@@ -2321,15 +2311,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2342,7 +2332,7 @@
       "armor": 34,
       "attack": 67,
       "critics": 0,
-      "health": 561.2,
+      "health": 561,
 
       "role": [
         "Fighter",
@@ -2352,15 +2342,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2370,10 +2360,10 @@
     },
     {
       "name": "Nautilus",
-      "armor": 35.46,
+      "armor": 35,
       "attack": 61,
       "critics": 0,
-      "health": 576.48,
+      "health": 576,
 
       "role": [
         "Tank",
@@ -2383,15 +2373,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2414,15 +2404,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2435,7 +2425,7 @@
       "armor": 36,
       "attack": 65,
       "critics": 0,
-      "health": 582.8,
+      "health": 583,
 
       "role": [
         "Assassin",
@@ -2445,15 +2435,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2476,15 +2466,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2497,7 +2487,7 @@
       "armor": 35,
       "attack": 68,
       "critics": 0,
-      "health": 597.24,
+      "health": 597,
 
       "role": [
         "Fighter",
@@ -2507,15 +2497,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2525,8 +2515,8 @@
     },
     {
       "name": "Orianna",
-      "armor": 17.04,
-      "attack": 40.368,
+      "armor": 17,
+      "attack": 40,
       "critics": 0,
       "health": 530,
 
@@ -2538,15 +2528,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2556,10 +2546,10 @@
     },
     {
       "name": "Ornn",
-      "armor": 33.04,
-      "attack": 67.72,
+      "armor": 33,
+      "attack": 67,
       "critics": 0,
-      "health": 565.64,
+      "health": 565,
 
       "role": [
         "Tank",
@@ -2569,15 +2559,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2590,7 +2580,7 @@
       "armor": 37,
       "attack": 64,
       "critics": 0,
-      "health": 579.16,
+      "health": 579,
 
       "role": [
         "Fighter",
@@ -2600,15 +2590,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2631,15 +2621,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2662,15 +2652,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2683,7 +2673,7 @@
       "armor": 32,
       "attack": 59,
       "critics": 0,
-      "health": 532.8,
+      "health": 533,
 
       "role": [
         "Marksman",
@@ -2693,15 +2683,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2723,15 +2713,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2742,9 +2732,9 @@
     {
       "name": "Rammus",
       "armor": 36,
-      "attack": 55.88,
+      "attack": 56,
       "critics": 0,
-      "health": 564.48,
+      "health": 564,
 
       "role": [
         "Tank",
@@ -2754,15 +2744,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2773,7 +2763,7 @@
     {
       "name": "Rek'Sai",
       "armor": 33,
-      "attack": 65.5,
+      "attack": 65,
       "critics": 0,
       "health": 570,
 
@@ -2784,15 +2774,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2805,7 +2795,7 @@
       "armor": 35,
       "attack": 69,
       "critics": 0,
-      "health": 572.16,
+      "health": 572,
 
       "role": [
         "Fighter",
@@ -2815,15 +2805,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2846,15 +2836,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2867,7 +2857,7 @@
       "armor": 33,
       "attack": 64,
       "critics": 0,
-      "health": 558.48,
+      "health": 558,
 
       "role": [
         "Fighter",
@@ -2877,15 +2867,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2895,8 +2885,8 @@
     },
     {
       "name": "Rumble",
-      "armor": 30.88,
-      "attack": 61.036,
+      "armor": 30,
+      "attack": 61,
       "critics": 0,
       "health": 589,
 
@@ -2908,15 +2898,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -2926,11 +2916,10 @@
     },
     {
       "name": "Ryze",
-      "armor": 21.552,
-      "attack": 55.04,
+      "armor": 21,
+      "attack": 55,
       "critics": 0,
-      "health": 570.48,
-
+      "health": 570,
       "role": [
         "Mage",
         "Fighter"
@@ -2938,20 +2927,20 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 1
+          "damages": 85,
+          "delay": 2
         },
         "W": {
-          "damages": 50,
-          "delay": 1
+          "damages": 100,
+          "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 1
+          "damages": 90,
+          "delay": 2
         },
         "R": {
-          "damages": 500,
-          "delay": 6
+          "damages": -1,
+          "delay": 4
         }
       }
     },
@@ -2970,15 +2959,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3000,15 +2989,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3030,15 +3019,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3061,15 +3050,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3080,7 +3069,7 @@
     {
       "name": "Singed",
       "armor": 37,
-      "attack": 62.32,
+      "attack": 62,
       "critics": 0,
       "health": 580,
 
@@ -3092,15 +3081,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3113,7 +3102,7 @@
       "armor": 32,
       "attack": 68,
       "critics": 0,
-      "health": 542.64,
+      "health": 542,
 
       "role": [
         "Tank",
@@ -3123,15 +3112,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3153,15 +3142,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3174,7 +3163,7 @@
       "armor": 38,
       "attack": 65,
       "critics": 0,
-      "health": 601.28,
+      "health": 601,
 
       "role": [
         "Fighter",
@@ -3184,15 +3173,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3205,7 +3194,7 @@
       "armor": 28,
       "attack": 49,
       "critics": 0,
-      "health": 482.36,
+      "health": 482,
 
       "role": [
         "Support",
@@ -3215,15 +3204,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3234,9 +3223,9 @@
     {
       "name": "Soraka",
       "armor": 32,
-      "attack": 50.04,
+      "attack": 50,
       "critics": 0,
-      "health": 529.04,
+      "health": 529,
 
       "role": [
         "Support",
@@ -3246,15 +3235,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3264,7 +3253,7 @@
     },
     {
       "name": "Swain",
-      "armor": 22.72,
+      "armor": 23,
       "attack": 58,
       "critics": 0,
       "health": 525,
@@ -3277,15 +3266,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3295,8 +3284,8 @@
     },
     {
       "name": "Syndra",
-      "armor": 24.712,
-      "attack": 53.872,
+      "armor": 25,
+      "attack": 54,
       "critics": 0,
       "health": 523,
 
@@ -3308,15 +3297,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3339,15 +3328,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3370,15 +3359,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3401,15 +3390,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3432,15 +3421,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3450,7 +3439,7 @@
     },
     {
       "name": "Teemo",
-      "armor": 24.3,
+      "armor": 24,
       "attack": 54,
       "critics": 0,
       "health": 528,
@@ -3463,15 +3452,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3484,7 +3473,7 @@
       "armor": 28,
       "attack": 56,
       "critics": 0,
-      "health": 560.52,
+      "health": 560,
 
       "role": [
         "Support",
@@ -3494,15 +3483,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3525,15 +3514,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3546,7 +3535,7 @@
       "armor": 37,
       "attack": 68,
       "critics": 0,
-      "health": 616.28,
+      "health": 616,
 
       "role": [
         "Fighter",
@@ -3556,15 +3545,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3577,7 +3566,7 @@
       "armor": 33,
       "attack": 69,
       "critics": 0,
-      "health": 625.64,
+      "health": 625,
 
       "role": [
         "Fighter",
@@ -3587,15 +3576,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3605,8 +3594,8 @@
     },
     {
       "name": "Twisted Fate",
-      "armor": 20.542,
-      "attack": 49.954,
+      "armor": 20,
+      "attack": 50,
       "critics": 0,
       "health": 534,
 
@@ -3617,15 +3606,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3648,15 +3637,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3669,7 +3658,7 @@
       "armor": 34,
       "attack": 66,
       "critics": 0,
-      "health": 593.32,
+      "health": 593,
 
       "role": [
         "Fighter",
@@ -3679,15 +3668,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3710,15 +3699,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3741,15 +3730,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3772,15 +3761,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3790,8 +3779,8 @@
     },
     {
       "name": "Veigar",
-      "armor": 22.55,
-      "attack": 50.71,
+      "armor": 22,
+      "attack": 51,
       "critics": 0,
       "health": 505,
 
@@ -3802,15 +3791,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3820,8 +3809,8 @@
     },
     {
       "name": "Vel'Koz",
-      "armor": 21.88,
-      "attack": 54.9379,
+      "armor": 22,
+      "attack": 55,
       "critics": 0,
       "health": 520,
 
@@ -3832,15 +3821,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3863,15 +3852,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3881,10 +3870,10 @@
     },
     {
       "name": "Viktor",
-      "armor": 22.72,
-      "attack": 52.04,
+      "armor": 23,
+      "attack": 52,
       "critics": 0,
-      "health": 528.04,
+      "health": 528,
 
       "role": [
         "Mage"
@@ -3893,15 +3882,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3924,15 +3913,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3945,7 +3934,7 @@
       "armor": 35,
       "attack": 68,
       "critics": 0,
-      "health": 584.48,
+      "health": 584,
 
       "role": [
         "Fighter",
@@ -3955,15 +3944,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -3986,15 +3975,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4016,15 +4005,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4034,8 +4023,8 @@
     },
     {
       "name": "Xerath",
-      "armor": 21.88,
-      "attack": 54.7,
+      "armor": 22,
+      "attack": 55,
       "critics": 0,
       "health": 526,
 
@@ -4047,15 +4036,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4078,15 +4067,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4109,15 +4098,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4140,15 +4129,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4171,15 +4160,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4202,15 +4191,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4220,8 +4209,8 @@
     },
     {
       "name": "Ziggs",
-      "armor": 21.544,
-      "attack": 54.208,
+      "armor": 21,
+      "attack": 54,
       "critics": 0,
       "health": 536,
 
@@ -4232,15 +4221,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4251,7 +4240,7 @@
     {
       "name": "Zilean",
       "armor": 24,
-      "attack": 51.64,
+      "attack": 51,
       "critics": 0,
       "health": 504,
 
@@ -4263,15 +4252,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4281,7 +4270,7 @@
     },
     {
       "name": "Zoe",
-      "armor": 20.8,
+      "armor": 21,
       "attack": 58,
       "critics": 0,
       "health": 560,
@@ -4294,15 +4283,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
@@ -4313,7 +4302,7 @@
     {
       "name": "Zyra",
       "armor": 29,
-      "attack": 53.376,
+      "attack": 53,
       "critics": 0,
       "health": 504,
 
@@ -4325,15 +4314,15 @@
       "spells": {
         "Q": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "W": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "E": {
           "damages": 50,
-          "delay": 1
+          "delay": 2
         },
         "R": {
           "damages": 500,
