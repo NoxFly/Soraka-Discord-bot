@@ -120,7 +120,7 @@ function fight(msg, idUser, name) {
             .addField('Spell 2: `W`', '\t• Damages: '+table[1]+'\n\t• Cooldown: '+champion.spells.W.delay+' round(s)', true)
             .addField('Spell 3: `E`', '\t• Damages: '+table[2]+'\n\t• Cooldown: '+champion.spells.E.delay+' round(s)', true)
             .addField('Spell 4: `R`', '\t• Damages: '+table[3]+'\n\t• Cooldown: '+champion.spells.R.delay+' round(s)', true)
-            .addField('Auto attack: `AA`', '\t• Damages: '+champion.attak+'\n\t• Cooldown: 0 round(s)');
+            .addField('Auto attack: `AA`', '\t• Damages: '+champion.attack+'\n\t• Cooldown: 0 round(s)');
 
         send(msg, embed);
     }
@@ -222,6 +222,17 @@ function ennemyAttack(msg) {
             send(msg, 'The ennemy do '+spells[spell][0]+' `-'+dmg+' hp`');
             champion.health = Math.round(champion.health-dmg);
             App[id].champion.health = champion.health;
+        } else {
+            switch(spells[spell][2]) {
+                case -1:
+                    break;
+                case -2:
+                    break;
+                case -3:
+                    ennemy.health += 60;
+                    App[id].adv.health = ennemy.health;
+                    break;
+            }
         }
         
         App[id].round = 'true';
@@ -248,7 +259,19 @@ function attackSpell(msg, attack) {
             send(msg, 'You attacked the ennemy with your '+attack+' ! `-'+dmg+' hp`');
             ennemy.health -= dmg;
             App[id].adv.health = ennemy.health;
+        } else {
+            switch(champion.spells[attack].damages) {
+                case -1:
+                    break;
+                case -2:
+                    break;
+                case -3:
+                    champion.health += 60;
+                    App[id].champion.health = champion.health;
+                    break;
+            }
         }
+
         App[id].round = 'wait';
         played = true;
     }
