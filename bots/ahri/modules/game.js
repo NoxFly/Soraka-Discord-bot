@@ -377,6 +377,7 @@ let game = [
 		group: 'game',
 		result: (msg) => {
 			if(msg.content!=='a!stopfight') return 'not_find';
+			if(!admin(msg.author.id)) return;
 			let owned = 0;
 			DB.getData('game/owned', function(data) {
 				owned = data.val();

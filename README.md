@@ -19,8 +19,11 @@
 <br><br>
 <pre>version : 1.2</pre>
 • server owner and me can add or remove package of commands. When ahri come in a new server, only few commands are availible
+<br><br>
+<pre>version : 1.3</pre>
+• League of Legend game in private message with Ahri. Fight look like Pokemon in DS. You gain xp, gems, and each champion you beat belong to you.
 <br>
 <h1>Other</h1>
-<br>Some new games commands will be coming out
+<br>a shop to equip your champion will be created
 <br>
 <br>Create your own Discord Bot : https://discordapp.com/developers
