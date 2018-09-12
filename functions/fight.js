@@ -131,7 +131,7 @@ function fight(msg, idUser, name) {
         txt += '• `the name of your champ`: Get your current champion\'s data: health, attack, armor and critics\n';
         txt += '• `spellinfo`: Show you the cooldown per round and the damages of your spells\n';
         txt += '• `attack : {attack name}`: Attack your ennemy, or apply one of your spell. attack name: Q,W,E,R,AA\n';
-        txt += '```Don\'t forget that you can change your champion thanks b!change {name of the champion} (outside of a fight)```'
+        txt += '```Don\'t forget that you can change your champion thanks a!change {name of the champion} (outside of a fight)```'
         txt += '\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬';
         send(msg, txt);
     }
