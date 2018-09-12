@@ -285,7 +285,7 @@ function check(msg, player) {
             
             let embed = new Discord.RichEmbed()
                 .setThumbnail('http://www.legendsbr.com/wp-content/uploads/2014/10/victory.png')
-                .setDescription('You won 50 gems :gem:, 100 XP and you have rallied a new champion: '+ennemy.name+'.\n\nDo `b!select '+ennemy.name+'` to play with this champion')
+                .setDescription('You won 50 gems :gem:, 100 XP and you have rallied a new champion: '+ennemy.name+'.\n\nDo `a!select '+ennemy.name+'` to play with this champion')
                 .setColor(0x1483CE);
             send(msg, embed);
             DB.profile(id).updateData('game/fighting', 0);
