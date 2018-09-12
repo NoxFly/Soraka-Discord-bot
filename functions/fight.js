@@ -93,15 +93,34 @@ function fight(msg, idUser, name) {
     }
 
     if(/spellinfo/i.test(msg.content)) {
+        let table = [champion.spells.Q.damages,champion.spells.W.damages,champion.spells.E.damages,champion.spells.R.damages];
+        for(i in table) {
+            let txt = '';
+            if(table[i]<0) {
+                switch(table[i]) {
+                    case -1:
+                        txt = 'Dodge'
+                        break;
+                    case -2:
+                        txt = 'resistance'
+                        break;
+                    case -3:
+                        txt = 'heal'
+                        break;
+                }
+                table[i] = txt;
+            }
+        }
+
         let embed = new Discord.RichEmbed()
             .setAuthor(champion.name)
             .setColor(0x1483CE)
             .setThumbnail("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champion.name+".png")
-            .addField('Spell 1: `Q`', '\t• Damages: '+champion.spells.Q.damages+'\n\t• Cooldown: '+champion.spells.Q.delay+' round(s)', true)
-            .addField('Spell 2: `W`', '\t• Damages: '+champion.spells.W.damages+'\n\t• Cooldown: '+champion.spells.W.delay+' round(s)', true)
-            .addField('Spell 3: `E`', '\t• Damages: '+champion.spells.E.damages+'\n\t• Cooldown: '+champion.spells.E.delay+' round(s)', true)
-            .addField('Spell 4: `R`', '\t• Damages: '+champion.spells.R.damages+'\n\t• Cooldown: '+champion.spells.R.delay+' round(s)', true)
-            .addField('Auto attack: `AA`', '\t• Damages: '+champion.attack+'\n\t• Cooldown: 0 round(s)');
+            .addField('Spell 1: `Q`', '\t• Damages: '+table[0]+'\n\t• Cooldown: '+champion.spells.Q.delay+' round(s)', true)
+            .addField('Spell 2: `W`', '\t• Damages: '+table[1]+'\n\t• Cooldown: '+champion.spells.W.delay+' round(s)', true)
+            .addField('Spell 3: `E`', '\t• Damages: '+table[2]+'\n\t• Cooldown: '+champion.spells.E.delay+' round(s)', true)
+            .addField('Spell 4: `R`', '\t• Damages: '+table[3]+'\n\t• Cooldown: '+champion.spells.R.delay+' round(s)', true)
+            .addField('Auto attack: `AA`', '\t• Damages: '+champion.attak+'\n\t• Cooldown: 0 round(s)');
 
         send(msg, embed);
     }
@@ -198,11 +217,14 @@ function ennemyAttack(msg) {
             choiceDelay = spells[spell][1];
         } while(choiceDelay>0);
 
-        let dmg = Math.round(spells[spell][2]-(champion.armor*spells[spell][2])/100);
-        send(msg, 'The ennemy do '+spells[spell][0]+' `-'+dmg+' hp`');
+        if(spells[spell][2]>0) {
+            let dmg = Math.round(spells[spell][2]-(champion.armor*spells[spell][2])/100);
+            send(msg, 'The ennemy do '+spells[spell][0]+' `-'+dmg+' hp`');
+            champion.health = Math.round(champion.health-dmg);
+            App[id].champion.health = champion.health;
+        }
+        
         App[id].round = 'true';
-        champion.health = Math.round(champion.health-dmg);
-        App[id].champion.health = champion.health;
         
         if(/^this/.test(spells[spell][0])) {
             ennemy.spells[spells[spell][3]].Currentdelay = ennemy.spells[spells[spell][3]].delay;
@@ -220,15 +242,15 @@ function attackSpell(msg, attack) {
         played = false;
     } else {
         champion.spells[attack].Currentdelay = champion.spells[attack].delay;
-        let dmg = Math.round(champion.spells[attack].damages-(ennemy.armor*champion.spells[attack].damages)/100);
-        send(msg, 'You attacked the ennemy with your '+attack+' ! `-'+dmg+' hp`');
-        ennemy.health -= dmg;
-        App[id].adv.health = ennemy.health;
+        
+        if(champion.spells[attack].damages>0) {
+            let dmg = Math.round(champion.spells[attack].damages-(ennemy.armor*champion.spells[attack].damages)/100);
+            send(msg, 'You attacked the ennemy with your '+attack+' ! `-'+dmg+' hp`');
+            ennemy.health -= dmg;
+            App[id].adv.health = ennemy.health;
+        }
         App[id].round = 'wait';
         played = true;
-        console.log('----');
-        console.log(App[id].champion.spells);
-        console.log('----');
     }
 }
 
