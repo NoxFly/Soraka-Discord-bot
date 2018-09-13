@@ -304,7 +304,6 @@
       "attack": 52,
       "critics": 0,
       "health": 535,
-
       "role": [
         "Support",
         "Mage"
@@ -312,20 +311,20 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 2
+          "damages": 125,
+          "delay": 3
         },
         "W": {
-          "damages": 50,
-          "delay": 2
+          "damages": -3,
+          "delay": 4
         },
         "E": {
-          "damages": 50,
-          "delay": 2
+          "damages": -1,
+          "delay": 4
         },
         "R": {
-          "damages": 500,
-          "delay": 6
+          "damages": -3,
+          "delay": 4
         }
       }
     },
@@ -335,7 +334,6 @@
       "attack": 61,
       "critics": 0,
       "health": 582,
-
       "role": [
         "Tank",
         "Fighter"
@@ -343,20 +341,20 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 2
+          "damages": 135,
+          "delay": 4
         },
         "W": {
-          "damages": 50,
+          "damages": -1,
           "delay": 2
         },
         "E": {
-          "damages": 50,
-          "delay": 2
+          "damages": 61,
+          "delay": 3
         },
         "R": {
           "damages": 500,
-          "delay": 6
+          "delay": 5
         }
       }
     },
@@ -366,26 +364,25 @@
       "attack": 57,
       "critics": 0,
       "health": 519,
-
       "role": [
         "Mage"
       ],
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
-          "delay": 2
+          "damages": 110,
+          "delay": 3
         },
         "W": {
-          "damages": 50,
-          "delay": 2
+          "damages": 120,
+          "delay": 3
         },
         "E": {
-          "damages": 50,
-          "delay": 2
+          "damages": 90,
+          "delay": 3
         },
         "R": {
-          "damages": 500,
+          "damages": 300,
           "delay": 6
         }
       }
@@ -396,7 +393,6 @@
       "attack": 55,
       "critics": 0,
       "health": 576,
-
       "role": [
         "Support",
         "Tank"
@@ -404,20 +400,20 @@
       "type": "AD",
       "spells": {
         "Q": {
-          "damages": 50,
+          "damages": 105,
           "delay": 2
         },
         "W": {
-          "damages": 50,
-          "delay": 2
+          "damages": -2,
+          "delay": 3
         },
         "E": {
-          "damages": 50,
-          "delay": 2
+          "damages": -2,
+          "delay": 3
         },
         "R": {
-          "damages": 500,
-          "delay": 6
+          "damages": 350,
+          "delay": 4
         }
       }
     },
