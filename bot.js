@@ -24,14 +24,14 @@ let aBotList = [
 		'tag'  	: 	'a!',
 		'id'	:	'477918672732553216',
 		'token' :	process.env.TOKEN_AHRI
-	},
+	}/*,
 
 	{
 		'name'	:	'caitlyn',
 		'tag'  	: 	'/',
 		'id'	:	'443430082459992065',
 		'token' :	process.env.TOKEN_CAITLYN
-	}
+	}*/
 ];
 
 aBotList.forEach(function(val, index, array) {
