@@ -218,7 +218,9 @@ function ennemyAttack(msg) {
         } while(choiceDelay>0);
 
         if(spells[spell][2]>0) {
-            let dmg = Math.round(spells[spell][2]-(champion.armor*spells[spell][2])/100);
+            let type = champion.armor;
+            if(ennemy.type=="AP" && spells[spell][0]!='an auto attack') type = champion.magic;
+            let dmg = Math.round(spells[spell][2]-(type*spells[spell][2])/100);
             send(msg, 'The ennemy do '+spells[spell][0]+' `-'+dmg+' hp`');
             champion.health = Math.round(champion.health-dmg);
             App[id].champion.health = champion.health;
@@ -255,7 +257,9 @@ function attackSpell(msg, attack) {
         champion.spells[attack].Currentdelay = champion.spells[attack].delay;
         
         if(champion.spells[attack].damages>0) {
-            let dmg = Math.round(champion.spells[attack].damages-(ennemy.armor*champion.spells[attack].damages)/100);
+            let type = ennemy.armor;
+            if(champion.type=="AP") type = ennemy.magic;
+            let dmg = Math.round(champion.spells[attack].damages-(type*champion.spells[attack].damages)/100);
             send(msg, 'You attacked the ennemy with your '+attack+' ! `-'+dmg+' hp`');
             ennemy.health -= dmg;
             App[id].adv.health = ennemy.health;
