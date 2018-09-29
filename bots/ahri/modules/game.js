@@ -449,7 +449,7 @@ let game = [
 							DB.updateData('game/params', stats);
 							DB.updateData('param/BG', 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+choice+'_0.jpg');
 
-							DB.addPlug('game', 'championsList', {0:choice});
+							DB.updateData('game/championList', {0:choice});
 						}
 					}
 				} else {
