@@ -65,7 +65,7 @@ const getTop = function(msg) {
 					if(i==user.length) break;
 					let n = user[i].name+"";
 					let l = user[i].level+"";
-					txt += n+' ('+l+')'+(' '.repeat(15-n.length))+'::'+(' '.repeat(15))+user[i].xp+'\n';
+					txt += n+' ('+l+')'+(' '.repeat(Math.abs(25-n.length)))+'::'+(' '.repeat(15))+user[i].xp+'\n';
 				}
 
 				switch(j) {
