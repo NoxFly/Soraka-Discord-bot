@@ -43,11 +43,11 @@ let basic = [
 						if(reg2.test(n)) {
 							text = "  • `"+n+"` : ";
 							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(commands[i].group!='hidden'){return text;}
+							if(commands[i].group!='hidden'){send(msg, text);}
 						}
 					}
 				
-				return 'I can\'t help you, the command does not exist 😓';
+				send(msg, 'I can\'t help you, the command does not exist 😓');
 				
 			} else if(/^(help)$/.test(msg.content.split('a!')[1])) {
 				let txt = "";
@@ -69,9 +69,9 @@ let basic = [
 					}
 				}
 				msg.author.send(txt);
-				return 'All commands sent in your DMs';
+				send(msg, 'All commands sent in your DMs');
 			} else {
-				return 'not_find';
+				send(msg, 'not_find');
 			}
 		}
     },
@@ -85,7 +85,7 @@ let basic = [
 				for(i in commands) {
 					txt += '`'+commands[i].name+'`, ';
 				}
-				return txt;
+				send(msg, txt);
 			}
 		}
 	},
@@ -103,7 +103,7 @@ let basic = [
 			}
 
 			txt += '```';
-			return txt;
+			send(msg, txt);
 		}
 	},
 	
@@ -127,7 +127,7 @@ let basic = [
 			let embed = new Discord.RichEmbed()
 				.addField('**:inbox_tray: Input:**','```js\n'+output+'```')
 				.addField('**:outbox_tray: Output:**','```js\n'+res+'```');
-			return embed;
+			send(msg, embed);
 		}
 	},
     
@@ -165,7 +165,7 @@ let basic = [
 					if(i==aGuild.length) break;
 					txt += "-• Guild name: "+aGuild[i].name+"\n\t\tGuild ID: "+aGuild[i].id+"\n\t\tGuild owner: "+aGuild[i].owner.user.username+'#'+aGuild[i].owner.user.discriminator+"\n"
 				}
-				return '```diff\n'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```';
+				send(msg, '```diff\n'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```');
 			}
 		}
     },
@@ -174,12 +174,12 @@ let basic = [
 		name: 'servi',
 		group: 'hidden',
 		result: (msg) => {
-			if(!(msg.content=="a!serv")) return 'not_find';
+			if(!(msg.content=="a!serv")) send(msg, 'not_find');
 			try {
 				var a = msg.guild.id;
-				return 'You are on `'+msg.guild.name+'` server';
+				send(msg, 'You are on `'+msg.guild.name+'` server');
 			} catch(err) {
-				return 'You are on private message with me';
+				send(msg, 'You are on private message with me');
 			}
 		}
     },
@@ -203,7 +203,7 @@ let basic = [
 					});
 				});
 
-				return 'Message envoyé à <@'+id+'>';
+				send(msg, 'Message envoyé à <@'+id+'>');
 			}
 		}
 	},
@@ -326,7 +326,7 @@ let basic = [
 		usage: '`a!server`',
 		group: 'basic',
 		result : (msg) => {
-			if(msg.content!="a!server") return 'not_find';
+			if(msg.content!="a!server") send(msg, 'not_find');
 			let Nroles = msg.guild.roles.map(role => role.name);
 			let NRoles = Nroles.toString().split(',');
 			let roles = '';
@@ -354,7 +354,7 @@ let basic = [
 				.addField("Region", '• '+Guild.region)
 				.addField("Create on ", '• '+Guild.createdAt);
 
-			return embed;
+			send(msg, embed);
 		}
 	},
 
@@ -364,7 +364,7 @@ let basic = [
 		usage : '`a!invite`',
 		group: 'basic',
 		result : (msg) => {
-			if(!(msg.content=="a!invite")) return 'not_find';
+			if(!(msg.content=="a!invite")) send(msg, 'not_find');
 			let link = 'https://discordapp.com/oauth2/authorize?client_id=477918672732553216&scope=bot&permissions=535948401';
 			let embed = new Discord.RichEmbed()
 				.setTitle('Ahri\'s link')
@@ -375,7 +375,7 @@ let basic = [
 				.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online h24. \n$12 = 1 years hosting.')
 				.addField('Link :','https://paypal.me/NoxFly')
 				.setFooter('Version 1.3', 'https://media.giphy.com/media/4To81xP5Yw3noDC4rE/giphy.gif');
-			return embed;
+				send(msg, embed);
 		}
     },
     
@@ -385,7 +385,7 @@ let basic = [
 		usage : '`a!donate`',
 		group: 'basic',
 		result : (msg) => {
-			if(!(msg.content=="a!donate")) return 'not_find';
+			if(!(msg.content=="a!donate")) send(msg, 'not_find');
 			let r = msg.content.substring(8);
 			if(r=='') {
 				let embed = new Discord.RichEmbed()
@@ -393,7 +393,7 @@ let basic = [
 					.setColor(0x007FFF)
 					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online 24/7. \n$12 = 1 year')
 					.addField('Link :','https://paypal.me/NoxFly');
-				return embed;
+				send(msg, embed);
 			}
 		}
     },
@@ -404,7 +404,7 @@ let basic = [
 		usage: '`a!ping`',
 		group: 'basic',
 		result: (msg) => {
-			if(!(msg.content=="a!ping")) return 'not_find';
+			if(!(msg.content=="a!ping")) send(msg, 'not_find');
 			send(msg,":ping_pong: pong !\n*"+Math.round(bot.ping)+" ms*");
 		}
     },
@@ -415,7 +415,7 @@ let basic = [
 		usage: '`a!modules`',
 		group: 'basic',
 		result: (msg) => {
-            if(!(msg.content=="a!modules")) return 'not_find';
+            if(!(msg.content=="a!modules")) send(msg, 'not_find');
             let modules = '';
 			let end = ' - ';
 			fs.readdir('bots/ahri/modules', function(err, items) {
@@ -446,12 +446,12 @@ let basic = [
 		result: (msg) => {
 			let App = main.app;
 			let cmd = msg.content.split('config ')[1];
-			if(cmd===undefined) return 'Usage: `'+basic.filter((c)=>c.name=='config')[0].usage+'`';
+			if(cmd===undefined) send(msg, 'Usage: `'+basic.filter((c)=>c.name=='config')[0].usage+'`');
 			
 			if(/^module/.test(cmd)) {
 				let arg = cmd.split('module')[1];
-				if(arg=='') return 'Command not complete, I can\'t do anything';
-				if(!admin(msg.author.id) && msg.author.id!==msg.guild.ownerID) return 'You can\'t manage modules';
+				if(arg=='') send(msg, 'Command not complete, I can\'t do anything');
+				if(!admin(msg.author.id) && msg.author.id!==msg.guild.ownerID) send(msg, 'You can\'t manage modules');
 				fs.readdir('bots/ahri/modules', function(err, items) {
 					let modules = [];
 					for (var i=0; i<items.length; i++) {
@@ -465,7 +465,7 @@ let basic = [
 						for(i in mod_sav) {
 							download.push(mod_sav[i]);
 						}
-						if(arg===undefined) return 'Specify a module please';
+						if(arg===undefined) send(msg, 'Specify a module please');
 						arg = arg.toLowerCase();
 						if(modules.indexOf(arg)===-1) {
 							send(msg,'This module does not exist\n`a!modules` to see availible modules');
@@ -487,7 +487,7 @@ let basic = [
 						for(i in mod_sav) {
 							download.push(mod_sav[i]);
 						}
-						if(arg===undefined) return 'Specify a module please';
+						if(arg===undefined) send(msg, 'Specify a module please');
 						arg = arg.toLowerCase();
 						if(modules.indexOf(arg)===-1) {
 							send(msg,'This module does not exist\n`a!modules` to see availible modules');
@@ -500,7 +500,7 @@ let basic = [
 					}
 				});
 			} else {
-				return 'not_find';
+				send(msg, 'not_find');
 			}
 		}
 	},
@@ -511,7 +511,7 @@ let basic = [
 		usage: '`a!markdown`',
 		group: 'basic',
 		result: (msg) => {
-			if(!(msg.content=="a!markdown")) return 'not_find';
+			if(!(msg.content=="a!markdown")) send(msg, 'not_find');
 			send(msg,
 				'```*italics*'+(' '.repeat(20))+'_italics_\n**bold**'+(' '.repeat(20))+'__underline__\n~~Strikethrough~~```'
 				+'```asciidoc\n= Markdown =\nasciidoc, autohotkey, bash, coffeescript, cpp (C++), cs (C#), css, diff, fix, glsl, ini, json, md (markdown), ml, prolog, py, tex, xl, xml```'
@@ -571,7 +571,7 @@ let basic = [
 			let authorMSG = msg.content.split('return ')[1];
 
 
-			if(authorMSG===undefined) return 'Lol, my creator will not read an empty message, don\'t you ? :grimacing::joy:';
+			if(authorMSG===undefined) send(msg, 'Lol, my creator will not read an empty message, don\'t you ? :grimacing::joy:');
 
 			let mpAuth, ans;
 			let Now = Date.now();
@@ -606,11 +606,10 @@ let basic = [
 		name : '.',
 		group: 'hidden',
 		result : (msg) => {
-			return '<|°_°|>';
+			send(msg, '<|°_°|>');
 		}
 	}
 ];
 
 commands = basic.concat(main.commands);
-//console.log('commands infile ('+commands.length+')');
 module.exports = basic;

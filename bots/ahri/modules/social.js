@@ -34,9 +34,9 @@ let social = [
 			let id = msg.author.id;
 			
 			if(/<@!?\d+>/.test(target)) {
-				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri') return 'Thanks but you can\'t follow me :heart:';
+				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri') send(msg, 'Thanks but you can\'t follow me :heart:');
 				if(regID.test(target)) {
-					return 'You can\'t follow you lol';
+					send(msg, 'You can\'t follow you lol');
 				}
 				
 				let id_target = target.replace(/(\s+)?<@!?(\d+)>/,'$2');
@@ -78,7 +78,7 @@ let social = [
 					}
 				},DB.responseTime);
 			} else {
-				return 'Need a real tag of someone !';
+				send(msg, 'Need a real tag of someone !');
 			}
 		}
 	},
@@ -94,7 +94,7 @@ let social = [
 			let id = msg.author.id;
 			
 			if(/<@!?\d+>/.test(target)) {
-				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri' || regID.test(target)) return 'User not valid';
+				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri' || regID.test(target)) send(msg, 'User not valid');
 				
 				let id_target = target.replace(/(\s+)?<@!?(\d+)>/,'$2');
 
@@ -136,7 +136,7 @@ let social = [
 					}
 				},DB.responseTime);
 			} else {
-				return 'Need a real tag of someone !';
+				send(msg, 'Need a real tag of someone !');
 			}
 		}
 	},
@@ -153,7 +153,7 @@ let social = [
 
 				let id_target = r.replace(/\d+\s+<@!?(\d+)>/,'$1').replace(' ', '');
 				let give = parseInt(r.replace(/(\d+)\s+<@!?\d+>/,'$1'));
-				if(give<1) return 'You must give more than 0 !';
+				if(give<1) send(msg, 'You must give more than 0 !');
 				let money, received;
 
 				if(id_target!=msg.author.id) {
@@ -185,10 +185,10 @@ let social = [
 						}
 					},DB.responseTime);
 				} else {
-					return 'You can\'t give gems to yourself';
+					send(msg, 'You can\'t give gems to yourself');
 				}
 			} else {
-				return 'You must write how much gems you want to give and for who\nExample: `a!give 10 @user#0000`';
+				send(msg, 'You must write how much gems you want to give and for who\nExample: `a!give 10 @user#0000`');
 			}
 		}
 	},
@@ -251,7 +251,7 @@ let social = [
 		usage: '`a!top`',
 		group: 'social',
 		result: (msg) => {
-			if(!(msg.content=="a!top")) return 'not_find';
+			if(!(msg.content=="a!top")) send(msg, 'There is no need for argument');
 			getTop(msg);
 		}
 	},
@@ -261,7 +261,7 @@ let social = [
 		usage: '`a!scoreboard`',
 		group: 'social',
 		result: (msg) => {
-			if(!(msg.content=="a!scroreboard")) return 'not_find';
+			if(!(msg.content=="a!scroreboard")) send(msg, 'There is no need for argument');
 			getTop(msg);
 		}
     },
@@ -277,7 +277,7 @@ let social = [
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let avatar = msg.author.avatarURL;
 
-			if(post==undefined) return 'You must write a message !';
+			if(post==undefined) send(msg, 'You must write a message !');
 			if(reg.test(post) && post.length>6) {
 				let Now = Date.now();
 				let date = new Date().toDateString();//+" | "+new Date().getHours+":"+new Date().getMinutes;
@@ -324,7 +324,7 @@ let social = [
 					}
 				},DB.responseTime);
 			} else {
-				return 'Post length is too short';
+				send(msg, 'Post length is too short');
 			}
 		}
 	},

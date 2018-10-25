@@ -28,7 +28,7 @@ let management = [
 		usage: '`a!id`',
 		group: 'management',
 		result: (msg) => {
-			if(!(msg.content=="a!id")) return 'not_find';
+			if(!(msg.content=="a!id")) send(msg, "There is no need for argument");
 			if(admin(msg.author.id)) {
 				msg.delete();
 				msg.channel.send(':id: server id: '+msg.guild.id).then((msg) => {
@@ -46,7 +46,7 @@ let management = [
 		usage: '`a!deleteChannel`',
 		group: 'management',
 		result: (msg) => {
-			if(!(msg.content=="a!deleteChannel")) return 'not_find';
+			if(!(msg.content=="a!deleteChannel")) send(msg, "There is no need for argument");
 			if(msg.author.id==msg.guild.ownerID || admin(msg.channel.id)) {
 				let a = 3;
 				msg.channel.send('This channel will be delete in '+a).then((msg) => {
@@ -70,7 +70,7 @@ let management = [
 		usage: '`a!clearChannel`',
 		group: 'management',
 		result: (msg) => {
-			if(!(msg.content=="a!clearChannel")) return 'not_find';
+			if(!(msg.content=="a!clearChannel")) send(msg, "There is no need for argument");
 			if(msg.author.id==msg.guild.ownerID || admin(msg.author.id)) {
 				msg.channel.fetchMessages().then(function(list) {
 					msg.channel.bulkDelete(list);
@@ -101,14 +101,12 @@ let management = [
 					.setColor(0x007FFF)
 					.addField('Total roles : '+tt,txt);
 				 
-				return embed;
-				
+				send(msg, embed);
 			} else {
 				let add = msg.content.split('role ')[1];
 				let roles = msg.guild.roles.map(role => role.name);
 				let rolesID = msg.guild.roles.map(role => role.id);
 				roleID = rolesID.toString().split(',');
-			
 				let role;
 
 				try {
@@ -127,7 +125,7 @@ let management = [
 							}
 						}
 
-						if(a==0) return 'The role doesn\'t exist';
+						if(a==0) send(msg, 'The role doesn\'t exist');
 
 						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							msg.guild.members.get(msg.author.id).removeRole(role);
@@ -162,7 +160,7 @@ let management = [
 						.setTitle('List of roles in '+msg.guild.name+' server')
 						.setColor(0x007FFF)
 						.addField('Total roles : '+tt,txt);
-					return embed;
+						send(msg, embed);
 				}
 			}
 		}
@@ -179,7 +177,7 @@ let management = [
 				let id = msg.guild.roles.find('name',role);
 				
 				if(id==null) {
-					return "The role probably does not exist";
+					send(msg, "The role probably does not exist");
 				} else {
 					let perm = msg.guild.roles.find('name',role).permissions;
 					let x = 100;
@@ -196,7 +194,7 @@ let management = [
 
 					let p = "";
 					p = check2(arr,p);
-					return "Permissions of the role "+role+" : ```"+p+"```";
+					send(msg, "Permissions of the role "+role+" : ```"+p+"```");
 				}
 			}
 		}
@@ -298,7 +296,7 @@ let management = [
 			let perms;
 			let access = 0;
 			let delRole = msg.content.split('deleteRole ')[1];
-			if(delRole=='@everyone') return 'You cannot delete this role';
+			if(delRole=='@everyone') send(msg, 'You cannot delete this role');
 			let id_guild = msg.guild.id;
 			DB.getServerPerms(id_guild+'/permsRole', function(data) {
 				perms = data.val();
@@ -359,8 +357,8 @@ let management = [
 				perms = data.val();
 			});
 
-			if(id!=msg.guild.ownerID && !admin(id)) return 'You don\' have the permission';
-			if(role===undefined) return 'Please target a role';
+			if(id!=msg.guild.ownerID && !admin(id)) send(msg, 'You don\' have the permission');
+			if(role===undefined) send(msg, 'Please target a role');
 
 			setTimeout(function() {
 				let roles = msg.guild.roles.map(role => role.name);
@@ -405,8 +403,8 @@ let management = [
 				perms = data.val();
 			});
 
-			if(id!=msg.guild.ownerID && !admin(id)) return 'You don\' have the permission';
-			if(role===undefined) return 'Please target a role';
+			if(id!=msg.guild.ownerID && !admin(id)) send(msg, 'You don\' have the permission');
+			if(role===undefined) send(msg, 'Please target a role');
 
 			setTimeout(function() {
 				let roles = msg.guild.roles.map(role => role.name);

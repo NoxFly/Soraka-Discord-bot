@@ -28,12 +28,12 @@ let utility = [
 		usage : '`a!date`',
 		group: 'utility',
 		result : (msg) => {
-			if(!(msg.content=="a!date")) return 'not_find';
+			if(!(msg.content=="a!date")) send(msg, 'There is no need for argument');
 			let D = new Date();
 			let H = D.getHours();
 			let M = D.getMinutes();
 			let S = D.getSeconds();
-			return ':clock2: from you it\'s : '+H+':'+M+':'+S;
+			send(msg, ':clock2: from you it\'s : '+H+':'+M+':'+S);
 		}
 	},
 
@@ -47,9 +47,9 @@ let utility = [
 			let reg = /\d+/;
 			if(reg.test(n)) {
 				let r = Number(n).toString(2);
-				return n+' = `'+r+'` in binary';
+				send(msg, n+' = `'+r+'` in binary');
 			} else {
-				return 'Need a number';
+				send(msg, 'Need a number');
 			}
 		}
 	},
@@ -64,9 +64,9 @@ let utility = [
 			let reg = /[0-1]+/;
 			if(reg.test(n)) {
 				let r = parseInt(n,2);
-				return '`'+n+'` = '+r+' in decimal';
+				send(msg, '`'+n+'` = '+r+' in decimal');
 			} else {
-				return 'Need a number, and only 0 or 1';
+				send(msg, 'Need a number, and only 0 or 1');
 			}
 		}
     }

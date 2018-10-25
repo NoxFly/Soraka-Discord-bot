@@ -29,9 +29,9 @@ let game = [
 		usage : '`a!loveme`',
 		group: 'game',
 		result : (msg) => {
-			if(!(msg.content=="a!loveme")) return 'not_find';
+			if(!(msg.content=="a!loveme")) send(msg, 'Juste write `a!loveme ...`');
 			let love = ['yes :heart:','no :broken_heart:'];
-			return 'My answer is '+love[Math.round(Math.random())];
+			send(msg, 'My answer is '+love[Math.round(Math.random())]);
 		}
 	},
 
@@ -45,17 +45,17 @@ let game = [
 				let n = msg.content.split('dice ')[1];
 				
 				if(n<1 || n>6 || n != Math.round(n)) {
-					return 'The number must be an integer between 1 and 6';
+					send(msg, 'The number must be an integer between 1 and 6');
 				}
 				if(!(/\d+/.test(n))) {
-					return 'Must be a number !';
+					send(msg, 'Must be a number !');
 				}
 				
 				let r = Math.round(Math.random()*5+1);
 				let res = (r==n)?'**You win**':'**You lose**';
-				return ':game_die: Your number: '+n+'\nDice result : '+r+'\n'+res;
+				send(msg, ':game_die: Your number: '+n+'\nDice result : '+r+'\n'+res);
 			} else {
-				return 'You must choose a number';
+				send(msg, 'You must choose a number');
 			}
 		}
     },
@@ -72,7 +72,7 @@ let game = [
 					.setTitle(champ[r].name)
 					.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+champ[r].name)
 					.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[r].name+".png");
-				return embed;
+					send(msg, embed);
 			} else if(/a!champ [a-zA-Z\.\s+]+ skin \d+/.test(msg.content)) {
 				let c = msg.content.split('champ ')[1];
 				c = c.replace(/\d+/,'').replace(' skin ','').replace(/(\s+|\.)+/,'');
@@ -94,11 +94,11 @@ let game = [
 						let embed = new Discord.RichEmbed()
 							.setTitle(ch)
 							.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+name+"_"+s+".jpg");
-						return embed;
+						send(msg, embed);
 					}
 					
 				}
-				return 'This champion does not exist :x:';
+				send(msg, 'This champion does not exist :x:');
 			} else {
 				let c = msg.content.split('champ ')[1].replace(/(\s+|\.)+/,'');
 				c = c.toLowerCase();
@@ -119,10 +119,10 @@ let game = [
 							.setTitle(ch)
 							.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+name)
 							.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+name+".png");
-						return embed;
+						send(msg, embed);
 					}
 				}
-			return 'This champion does not exist :x:';
+			send(msg, 'This champion does not exist :x:');
         	}
       	}
     },
@@ -137,7 +137,7 @@ let game = [
 			let reg = /(heads|tails)\s[0-9]+$/;
 			
 			if(!reg.test(n)) {
-				return 'You need to chose `heads` or `tails` and an integer';
+				send(msg, 'You need to chose `heads` or `tails` and an integer');
 			}
 			
 			let money = 0;
@@ -270,11 +270,11 @@ let game = [
 		group: 'game',
 		result: (msg) => {
 			let weapon = msg.content.split('rps ')[1];
-			if(weapon===undefined) return 'Choose a weapon !';
+			if(weapon===undefined) send(msg, 'Choose a weapon !');
 
 			let weapons = ["rock","paper","scissors"];
 
-			if(weapons.indexOf(weapon)==-1) return '**Rock**, **paper** or **scissors** !';
+			if(weapons.indexOf(weapon)==-1) send(msg, '**Rock**, **paper** or **scissors** !');
 
 			weapon = weapon.toLowerCase();
 			let iUser;
@@ -336,7 +336,7 @@ let game = [
 		usage: '`a!fight`',
 		group: 'game',
 		result: (msg) => {
-			if(msg.content!=='a!fight') return 'not_find';
+			if(msg.content!=='a!fight') send(msg, "Dont't need any argument");
 			let owned = 0;
 			DB.getData('game/owned', function(data) {
 				owned = data.val();
@@ -376,7 +376,7 @@ let game = [
 		usage: '`a!fight`',
 		group: 'game',
 		result: (msg) => {
-			if(msg.content!=='a!stopfight') return 'not_find';
+			if(msg.content!=='a!stopfight') send(msg, "Dont't need any argument");
 			if(!admin(msg.author.id)) return;
 			let owned = 0;
 			DB.getData('game/owned', function(data) {

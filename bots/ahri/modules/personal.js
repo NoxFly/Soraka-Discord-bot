@@ -42,8 +42,6 @@ let personal = [
 					send(msg, 'Your language has been saved ('+lang+') :tongue:');
 					DB.setData('choices/lang', lang);
 				}
-			} else {
-				return 'not_find';
 			}
 		}
     },
@@ -56,7 +54,7 @@ let personal = [
 		result : (msg) => {
 			let note = msg.content.split('note ')[1];
 			let reg = /\S+/;
-			if(!(reg.test(note)) || note===undefined) return 'A note cannot be empty';
+			if(!(reg.test(note)) || note===undefined) send(msg, 'A note cannot be empty');
 
 			
 			let i, c;
@@ -165,7 +163,7 @@ let personal = [
 					},DB.responseTime);
 
 				} else {
-					return 'Your integer must be between 1 and 10';
+					send(msg, 'Your integer must be between 1 and 10');
 				}
 			} else {
 				DB.getData('notes', function(data) {
@@ -195,7 +193,7 @@ let personal = [
 		usage : '`a!daily`',
 		group: 'personal',
 		result : (msg) => {
-			if(!(msg.content=="a!daily")) return 'not_find';
+			if(!(msg.content=="a!daily")) send(msg, "There is no need for argument");
 			let Now = Date.now();
 			let oDaily = {};
 			let daily, money, xp, level, ans;
@@ -238,7 +236,7 @@ let personal = [
 		usage : '`a!money`',
 		group: 'personal',
 		result : (msg) => {
-			if(!(msg.content=="a!deleteChannel")) return 'not_find';
+			if(!(msg.content=="a!deleteChannel")) send(msg, "There is no need for argument");
 			let money = 0;
 
 			DB.getData('data/money', function(data) {
@@ -341,7 +339,7 @@ let personal = [
 		group: 'personal',
 		result: (msg) => {
 			let color = msg.content.split('color ')[1];
-			if(color===undefined) return 'Not possible to set a color :cry:';
+			if(color===undefined) send(msg, 'Not possible to set a color :cry:');
 			
 			if(/(#|0x)?([a-f0-9A-F]{3}){1,2}/.test(color)) {
 				let c = color.replace('#','').replace('0x','');
@@ -355,7 +353,7 @@ let personal = [
 				send(msg, embed);
 				DB.updateData('choices/color', c);
 			} else {
-				return 'color couldn\'t be found.';
+				send(msg, 'color couldn\'t be found.');
 			}
 		}
     },
@@ -368,12 +366,12 @@ let personal = [
 		result: (msg) => {
 			let desc = msg.content.split('desc ')[1];
 
-			if(desc===undefined) return 'You cannot have an empty description';
+			if(desc===undefined) send(msg, 'You cannot have an empty description');
 			if(desc.length<100) {
 				DB.updateData('param/desc', desc);
-				return 'Description saved';
+				send(msg, 'Description saved');
 			} else {
-				return 'Your description is too long sorry :cry:';
+				send(msg, 'Your description is too long sorry :cry:');
 			}
 		}
 	},
