@@ -1,20 +1,11 @@
-let firebase = require('firebase');
 let main = require('./../../bot.js');
 let bot = main.bot;
-let DB = main.database;
-const champ = require('./../../functions/champions.json');
 const Discord = require('discord.js');
-const fs = require('fs');
-
-// Basic - Games - Utility - Personal - Social - management
 
 // External functions
 const admin = require('./../../functions/admin.js');
-const check2 = require('./../../functions/checktwo.js');
-const getTop = require('./../../functions/gettop.js');
-const mtsm = require('./../../functions/mtsm.js');
 const dump = require('./../../functions/dump.js');
-const profile = require('./../../functions/profile.js');
+const perms = require('./../../functions/perms.js');
 
 // *** //
 
@@ -22,69 +13,19 @@ function send(msg, message) {
 	msg.channel.send(message);
 }
 
-let commands = [];
-
 let basic = [
     {
-		name : 'help',
-		description : 'say the list of commands and their explanation. if you add a key command behind `a!help`, it will say you the explanation of this key command.',
-		usage : '`a!help` `key (optional)`',
-		group: 'basic',
-		result : (msg) => {
-			let reg = /^help (\w+)$/;
-			let mod_commands = basic.concat(main.commands);
-			
-			if(reg.test(msg.content.split('a!')[1])) {
-				let n = msg.content.split('help ')[1];
-				let text = '';
-				
-				for(let i=0; i<commands.length;i++) {
-						let reg2 = new RegExp(commands[i].name);
-						if(reg2.test(n)) {
-							text = "  • `"+n+"` : ";
-							text += commands[i].description+'\n\tWrite → '+commands[i].usage;
-							if(commands[i].group!='hidden'){send(msg, text);}
-						}
-					}
-				
-				send(msg, 'I can\'t help you, the command does not exist 😓');
-				
-			} else if(/^(help)$/.test(msg.content.split('a!')[1])) {
-				let txt = "";
-				let c = "";
-				for(let i=0; i<mod_commands.length; i++) {
-					let cmd = mod_commands[i];
-					if(cmd.group!='hidden' && cmd.group!=null) {
-						let m = cmd.group;
-						if(m===undefined) m = "basic";
-						m = "\n__**"+m.charAt(0).toUpperCase()+m.slice(1)+"**__\n";
-						if(c!=m) {
-							msg.author.send(txt);
-								txt = "";
-							txt += m;
-
-						}
-						c = m;
-						txt += "• `"+cmd.name+"` : "+cmd.description+"\n\t→"+cmd.usage+"\n";
-					}
-				}
-				msg.author.send(txt);
-				send(msg, 'All commands sent in your DMs');
-			} else {
-				send(msg, 'not_find');
-			}
-		}
-    },
-    
-    {
-		name: 'helplight',
+		name: 'help',
 		group: 'hidden',
 		result: (msg) => {
-			let txt = '';
+			let txt = '```';
 			if(admin(msg.author.id)) {
-				for(i in commands) {
-					txt += '`'+commands[i].name+'`, ';
+				for(i in basic) {
+					txt += ''+basic[i].name+'';
+					if((i+1)%3 == 0) txt+= "\n";
+					else txt += " ".repeat(20 - basic[i].name.length);
 				}
+				txt += "```";
 				send(msg, txt);
 			}
 		}
@@ -128,195 +69,6 @@ let basic = [
 				.addField('**:inbox_tray: Input:**','```js\n'+output+'```')
 				.addField('**:outbox_tray: Output:**','```js\n'+res+'```');
 			send(msg, embed);
-		}
-	},
-    
-    {
-		name: 'guilds',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				let guildList = bot.guilds.array();
-				let txt = "";
-				let aGuild = [];
-
-				try {
-					guildList.forEach(guild => {
-						if(!(/^tmp/.test(guild.name))) {
-							aGuild.push(
-								{
-									name: guild.name,
-									id: guild.id,
-									owner: guild.owner
-								}
-							);
-						}
-					});
-				} catch (err) {
-					
-				}
-
-				let iPage = Math.round(msg.content.split('guilds ')[1]);
-				if(iPage<1 || iPage*10-10>aGuild.length || isNaN(iPage)) iPage = 1
-				let iEnd = iPage*10-1;
-				let iStart = iPage*10-10;
-				let iMaxPage = Math.ceil(aGuild.length/10);
-				for(i=iStart; i<iEnd; i++) {
-					if(i==aGuild.length) break;
-					txt += "-• Guild name: "+aGuild[i].name+"\n\t\tGuild ID: "+aGuild[i].id+"\n\t\tGuild owner: "+aGuild[i].owner.user.username+'#'+aGuild[i].owner.user.discriminator+"\n"
-				}
-				send(msg, '```diff\n'+txt+'\nPage '+iPage+'/'+iMaxPage+' | '+aGuild.length+' guilds```');
-			}
-		}
-    },
-    
-    {
-		name: 'servi',
-		group: 'hidden',
-		result: (msg) => {
-			if(!(msg.content=="a!serv")) send(msg, 'not_find');
-			try {
-				var a = msg.guild.id;
-				send(msg, 'You are on `'+msg.guild.name+'` server');
-			} catch(err) {
-				send(msg, 'You are on private message with me');
-			}
-		}
-    },
-    
-    {
-		name: 'ans',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+]+/,'');
-				var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
-
-				bot.fetchUser(id).then(user => {
-					user.createDM().then(channel => {
-						let embed = new Discord.RichEmbed()
-							.setAuthor("ドリアン#8850 answered you :")
-							.setColor(0x007FFF)
-							.setThumbnail(msg.author.avatarURL)
-							.addField("message :",message);
-						channel.send(embed);
-					});
-				});
-
-				send(msg, 'Message envoyé à <@'+id+'>');
-			}
-		}
-	},
-	
-	{
-		name: 'add',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				if(/a!add \d+ <@(\d+)>/.test(msg.content)) {
-					let id = msg.content.replace(/a!add \d+ <@(\d+)>/, '$1');
-					let add = msg.content.replace(/a!add (\d+) <@\d+>/, '$1');
-					let a = {};
-					let defined = false;
-					
-					DB.profile(id).getUser(function(data) {
-							data = data.val();
-
-							if(data==null) {
-								send(msg,'this user doesn\'t have an account');
-							} else {
-								a.id = data.id;
-								a.name = data.name;
-
-								DB.profile(id).getData('data', function(data2) {
-									data2 = data2.val();
-									a.money = parseInt(data2.money);
-									a.money += parseInt(add);
-									defined = true;
-								});
-							}	
-					});
-
-					setTimeout(function() {
-						if(defined) {
-							DB.profile(id).setData('data/money',a.money);
-							send(msg, add+' gem(s) :gem: added to `'+a.name+'`');
-						}
-					},DB.responseTime);
-				}
-			}
-		}
-	},
-
-	{
-		name: 'remove',
-		group: 'hidden',
-		result: (msg) => {
-			if(admin(msg.author.id)) {
-				if(/a!rem \d+ <@(\d+)>/.test(msg.content)) {
-					let id = msg.content.replace(/a!remove \d+ <@(\d+)>/, '$1');
-					let rem = msg.content.replace(/a!remove (\d+) <@\d+>/, '$1');
-					let a = {};
-					let defined = false;
-					
-					DB.profile(id).getUser(function(data) {
-						data = data.val();
-
-						if(data==null) {
-							send(msg,'this user doesn\'t have an account');
-						} else {
-							a.id = data.id;
-							a.name = data.name;
-
-							DB.profile(id).getData('data', function(data2) {
-								data2 = data2.val();
-								a.money = parseInt(data2.money);
-								a.money -= parseInt(rem);
-								defined = true;
-							});
-						}	
-					});
-
-					setTimeout(function() {
-						if(defined) {
-							DB.profile(id).setData('data/money',a.money);
-							send(msg, rem+' gem(s) :gem: removed to `'+a.name+'`');
-						}
-					},DB.responseTime);
-				}
-			}
-		}
-	},
-	
-	{
-		name : 'reset',
-		description : 'reset you password',
-		usage : '`a!reset`',
-		group: 'hidden',
-		result : (msg) => {
-			let name = msg.author.username+'#'+msg.author.discriminator;
-
-			let reset;
-			let Now = Date.now();
-		   
-			DB.getData('param', function(data) {
-				reset = data.val()._reset;
-				resetDelay = data.val()._resetTime;
-			});
-  	 		
-  	 		setTimeout(function() {
-  	 			if(reset==1) {
-  	 				let pass = randPass();
-					   DB.updateData('param/_reset', 0).updateData('param/_resetTime', Now).updateData('param/password', pass);
-  	 				msg.author.createDM().then(channel => {
-						channel.send('• Username: '+name+'\n• Password: '+pass+'\nConnect you to dorian.thivolle.net/ahri to manage your account.').then(sentMessage => sentMessage.pin());
-					});
-						
-  	 			} else {
-  	 				send(msg, 'You need to reclick on `reset` button because the time is over.\nhttps://dorian.thivolle.net/ahri');
-  	 			}
-  	 			
-  	 		},DB.responseTime);
 		}
 	},
     
@@ -380,25 +132,6 @@ let basic = [
     },
     
     {
-		name : 'donate',
-		description : 'show you the link of my Paypal. The goal is to be host in a VPS to be online 24/7. Even $1 is enought',
-		usage : '`a!donate`',
-		group: 'basic',
-		result : (msg) => {
-			if(!(msg.content=="a!donate")) send(msg, 'not_find');
-			let r = msg.content.substring(8);
-			if(r=='') {
-				let embed = new Discord.RichEmbed()
-					.setTitle('My paypal :')
-					.setColor(0x007FFF)
-					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online 24/7. \n$12 = 1 year')
-					.addField('Link :','https://paypal.me/NoxFly');
-				send(msg, embed);
-			}
-		}
-    },
-    
-    {
 		name: 'ping',
 		description: 'Show the ms you have between when you send message and my reaction',
 		usage: '`a!ping`',
@@ -408,102 +141,6 @@ let basic = [
 			send(msg,":ping_pong: pong !\n*"+Math.round(bot.ping)+" ms*");
 		}
     },
-    
-    {
-		name: 'modules',
-		description: 'Show possible extensions of Ahri. These extensions add more commands and unlock more possibilities.',
-		usage: '`a!modules`',
-		group: 'basic',
-		result: (msg) => {
-            if(!(msg.content=="a!modules")) send(msg, 'not_find');
-            let modules = '';
-			let end = ' - ';
-			fs.readdir('bots/ahri/modules', function(err, items) {
-				for (var i=0; i<items.length; i++) {
-					if(i==items.length-1) end = '';
-					modules += items[i].replace('.js','')+end;
-					console.log(modules);
-				}
-
-				let embed = new Discord.RichEmbed()
-					.setTitle('Modules')
-					.setColor(0x43FF4E)
-					.addField(
-						'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
-					)
-					.setDescription('I recommend you to install the modules game, personal and social');
-
-				send(msg, embed);
-			});
-		}
-	},
-	
-	{
-		name: 'config',
-		description: 'Some possible configurations, and adding or removing modules',
-		usage: '`a!config {config}`',
-		group: 'basic',
-		result: (msg) => {
-			let App = main.app;
-			let cmd = msg.content.split('config ')[1];
-			if(cmd===undefined) send(msg, 'Usage: `'+basic.filter((c)=>c.name=='config')[0].usage+'`');
-			
-			if(/^module/.test(cmd)) {
-				let arg = cmd.split('module')[1];
-				if(arg=='') send(msg, 'Command not complete, I can\'t do anything');
-				if(!admin(msg.author.id) && msg.author.id!==msg.guild.ownerID) send(msg, 'You can\'t manage modules');
-				fs.readdir('bots/ahri/modules', function(err, items) {
-					let modules = [];
-					for (var i=0; i<items.length; i++) {
-						modules.push(items[i].replace('.js',''));
-					}
-
-					if(arg.startsWith('.add')) {
-						arg = arg.split('.add ')[1];
-						let mod_sav = App[msg.guild.id].modules;
-						let download = [];
-						for(i in mod_sav) {
-							download.push(mod_sav[i]);
-						}
-						if(arg===undefined) send(msg, 'Specify a module please');
-						arg = arg.toLowerCase();
-						if(modules.indexOf(arg)===-1) {
-							send(msg,'This module does not exist\n`a!modules` to see availible modules');
-						} else if(download.indexOf(arg)!==-1) {
-							send(msg, 'You already have this module');
-						} else {
-							DB.server(msg.guild.id).addData('modules', arg, arg);
-							msg.channel.send('Installing... (0%)').then(message => {
-								for(i=0; i<120; i+=20) {
-									message.edit('Installing... ('+i+'%)');
-									if(i==100) message.edit('Successfully installed:**`'+arg+'`**');
-								}
-							});
-						}
-					} else if(arg.startsWith('.remove')) {
-						arg = arg.split('.remove ')[1];
-						let mod_sav = App[msg.guild.id].modules;
-						let download = [];
-						for(i in mod_sav) {
-							download.push(mod_sav[i]);
-						}
-						if(arg===undefined) send(msg, 'Specify a module please');
-						arg = arg.toLowerCase();
-						if(modules.indexOf(arg)===-1) {
-							send(msg,'This module does not exist\n`a!modules` to see availible modules');
-						} else if(download.indexOf(arg)===-1) {
-							send(msg, 'You do not have this module');
-						} else {
-							DB.server(msg.guild.id).deleteData('modules/'+arg);
-							send(msg, 'You uninstalled This module : `'+arg+'`');
-						}
-					}
-				});
-			} else {
-				send(msg, 'not_find');
-			}
-		}
-	},
     
     {
 		name: 'markdown',
@@ -521,47 +158,6 @@ let basic = [
     },
     
     {
-		name: 'remindme',
-		description: 'send you a message in PM on the cooldown you wrote',
-		usage: '`a!remindme {reminder} {seconds}`',
-		group: 'basic',
-		result: (msg) => {
-			let remind;
-			DB.getData('delay/remind', function(data) {
-				remind = data.val();
-			});
-			
-			let message = msg.content.split('remindme ')[1];
-			let time = message.replace(/[a-zA-Z\,\.;\:\!\*\$\^¨&\?\/\\\sé\"\#\~\'\{\(\[\-\|è\`\_çà@\)\]°\+=\}£%§<>]+ (\d+)/,'$1');
-			message = '**Reminder :**\n`'+message.replace(/([a-zA-Z\,\.;\:\!\*\$\^¨&\?\/\\\sé\"\#\~\'\{\(\[\-\|è\`\_çà@\)\]°\+=\}£%§<>]+) \d+/,'$1')+'`\n';
-
-			setTimeout(function() {
-				if(/^\d+$/.test(time)) {
-					if(remind==0) {
-						let Rtime = parseInt(time);
-						Rtime *= 1000;
-						setTimeout(function() {
-							msg.author.createDM().then(channel => {
-								channel.send(':alarm_clock: Hey ! Time to remind you !\n'+message);
-							});
-							remind = 0;
-							DB.updateData('delay/remind', remind);
-						}, Rtime);
-
-						remind = 1;
-						DB.updateData('delay/remind', remind);
-						send(msg, 'Ok, I\'ll remind you in '+time+' seconds');
-					} else {
-						send(msg, 'You can\'t have more than 1 reminder');
-					}
-				} else {
-					send(msg,'need a number ! (seconds)');
-				}
-			},DB.responseTime);
-		}
-    },
-    
-    {
 		name : 'return',
 		description : 'send a message to Ahri\'s creator.',
 		usage : '`a!return` `your message`',
@@ -573,32 +169,21 @@ let basic = [
 
 			if(authorMSG===undefined) send(msg, 'Lol, my creator will not read an empty message, don\'t you ? :grimacing::joy:');
 
-			let mpAuth, ans;
-			let Now = Date.now();
-			DB.getData('delay/mpAuth', function(data) {
-				mpAuth = data.val();
-			});
+			try {
+				let embed = new Discord.RichEmbed()
+					.setTitle('You received a message from')
+					.addField(name, msg.author.id)
+					.setColor(0x007FFF)
+					.setThumbnail(msg.author.avatarURL)
+					.addField("message :", authorMSG);
 
-			setTimeout(function() {
-				ans = mtsm(85400000-parseInt(Now-mpAuth));
-				if(Now-mpAuth >=85400000) {
-					mpAuth = Now;
-					send(msg, ':incoming_envelope: :calling: message sent');
-
-					DB.updateData('delay/mpAuth', mpAuth);
-					let embed = new Discord.RichEmbed()
-						.setTitle('You received a message from')
-						.addField(name, msg.author.id)
-						.setColor(0x007FFF)
-						.setThumbnail(msg.author.avatarURL)
-						.addField("message :", authorMSG);
-		
-					bot.users.get('316639200462241792').createDM().then(channel => {
-						channel.send(embed);
-					});
-				}
-				send(msg, 'You need to wait **'+ans+'** to send a new message :hourglass:');
-			},DB.responseTime);
+				bot.users.get('316639200462241792').createDM().then(channel => {
+					channel.send(embed);
+				});
+				send(msg, ':incoming_envelope: :calling: message sent');
+			} catch(error) {
+				send(msg, "An error occured. Please retry");
+			}
 		}
 	},
 	
@@ -608,7 +193,243 @@ let basic = [
 		result : (msg) => {
 			send(msg, '<|°_°|>');
 		}
-	}
+	},
+
+	{
+		name: 'id',
+		description : 'display id of the server.',
+		usage: '`a!id`',
+		group: 'management',
+		result: (msg) => {
+			if(!(msg.content=="a!id")) send(msg, "There is no need for argument");
+			if(admin(msg.author.id)) {
+				msg.delete();
+				msg.channel.send(':id: server id: '+msg.guild.id).then((msg) => {
+					setTimeout(function() {
+						msg.delete();
+					},5000);
+				});
+			}
+		}
+	},
+
+	{
+		name: 'deleteChannel',
+		description : 'delete the current channel.',
+		usage: '`a!deleteChannel`',
+		group: 'management',
+		result: (msg) => {
+			if(!(msg.content=="a!deleteChannel")) send(msg, "There is no need for argument");
+			if(msg.author.id==msg.guild.ownerID || admin(msg.channel.id)) {
+				let a = 3;
+				msg.channel.send('This channel will be delete in '+a).then((msg) => {
+					let i = setInterval(function() {
+						if(a>0) {
+							a--;
+							msg.edit('This channel will be delete in '+a);
+						} else {
+							clearInterval(i);
+							msg.channel.delete();
+						}
+					},1000);
+				});
+			}
+		}
+	},
+
+	{
+		name: 'clearChannel',
+		description : 'Clear recent discussion of the current channel',
+		usage: '`a!clearChannel`',
+		group: 'management',
+		result: (msg) => {
+			if(!(msg.content=="a!clearChannel")) send(msg, "There is no need for argument");
+			if(msg.author.id==msg.guild.ownerID || admin(msg.author.id)) {
+				msg.channel.fetchMessages().then(function(list) {
+					msg.channel.bulkDelete(list);
+				}, function(err) {send(msg,'Error')});
+			}
+        }
+	},
+	
+	{
+		name : 'role',
+		description : 'Add or remove to you a role of a server.',
+		usage : '`a!role {role}`',
+		group: 'management',
+		result : (msg) => {
+			let Nroles = msg.guild.roles.map(role => role.name);			
+			let NRoles = Nroles.toString().split(',');
+			let txt = '';
+			
+			if(/roles(list)?/.test(msg.content)) {
+				for(i in NRoles) {
+					if(i==0) continue;
+					txt += NRoles[i]+/*' ('+IRoles[i]+')*/'\n';
+				}
+				
+				let tt = (NRoles.length)-1;
+				let embed = new Discord.RichEmbed()
+					.setTitle('List of roles in '+msg.guild.name+' server')
+					.setColor(0x007FFF)
+					.addField('Total roles : '+tt,txt);
+				 
+				send(msg, embed);
+			} else {
+				let add = msg.content.split('role ')[1];
+				let roles = msg.guild.roles.map(role => role.name);
+				let rolesID = msg.guild.roles.map(role => role.id);
+				roleID = rolesID.toString().split(',');
+				let role;
+
+				try {
+					if(!(/,/.test(add))) {
+						let a = 0;
+						let aRole;
+						
+						let regRole = add.toLowerCase();
+						regRole = new RegExp(regRole);
+						for(i=1; i<roles.length; i++) {
+							let r = roles[i].toLowerCase();
+							if(regRole.test(r)) {
+								aRole = roles[i];
+								role = msg.guild.roles.find('name',roles[i]).id;
+								a++;
+							}
+						}
+
+						if(a==0) send(msg, 'The role doesn\'t exist');
+
+						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+							msg.guild.members.get(msg.author.id).removeRole(role);
+							setTimeout(function() {
+								if(!msg.guild.members.get(msg.author.id).roles.has(role)) {
+									send(msg,aRole+' role removed');
+								} else {
+									send(msg,'this role cannot be removed :thinking:');
+								}
+							},1000);
+						} else {
+							msg.guild.members.get(msg.author.id).addRole(role);
+							setTimeout(function() {
+								if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+									send(msg,aRole+' role added');
+								} else {
+									send(msg,'this role cannot be added');
+								}
+							},1000);
+						}
+					}
+
+				} catch(error) {
+					for(i in NRoles) {
+						if(i==0) continue;
+						txt += NRoles[i]+'\n';
+					}
+			
+					let tt = (NRoles.length)-1;
+					let embed = new Discord.RichEmbed()
+						.setTitle('List of roles in '+msg.guild.name+' server')
+						.setColor(0x007FFF)
+						.addField('Total roles : '+tt,txt);
+					send(msg, embed);
+				}
+			}
+		}
+    },
+    
+    {
+		name: 'perm',
+		description: 'Show permission of a role',
+		usage: '`a!perm role_name`',
+		group: 'management',
+		result: (msg) => {
+			if(admin(msg.author.id)) {
+				let role = msg.content.split('perm ')[1];
+				let id = msg.guild.roles.find('name',role);
+				
+				if(id==null) {
+					send(msg, "The role probably does not exist");
+				} else {
+					let perm = msg.guild.roles.find('name',role).permissions;
+					let x = 100;
+					let a = perm;
+					let arr = [];
+					while(a>0){
+						var b = a - Math.pow(2,x);
+						if(parseInt(b) == (b) && b>=0){
+							a -= Math.pow(2,x);
+							arr.push(Math.pow(2,x));
+						}
+						x--;
+					}
+
+					let p = "";
+					p = perms(arr,p);
+					send(msg, "Permissions of the role "+role+" : ```"+p+"```");
+				}
+			}
+		}
+	},
+	
+	{
+		name : 'dice',
+		description : 'roll a 6-sides dice.',
+		usage : '`a!dice` `a number from 1 to 6`',
+		group: 'game',
+		result : (msg) => {
+			if(/^(dice \d+)$/.test(msg.content.split('a!')[1])) {
+				let n = msg.content.split('dice ')[1];
+				
+				if(n<1 || n>6 || n != Math.round(n)) {
+					send(msg, 'The number must be an integer between 1 and 6');
+				}
+				if(!(/\d+/.test(n))) {
+					send(msg, 'Must be a number !');
+				}
+				
+				let r = Math.round(Math.random()*5+1);
+				let res = (r==n)?'**You win**':'**You lose**';
+				send(msg, ':game_die: Your number: '+n+'\nDice result : '+r+'\n'+res);
+			} else {
+				send(msg, 'You must choose a number');
+			}
+		}
+	},
+	
+	{
+		name : 'binary',
+		description : 'Translate decimal to binary.',
+		usage : '`a!binary` `an integer`',
+		group: 'utility',
+		result : (msg) => {
+			let n = msg.content.split('binary')[1];
+			let reg = /\d+/;
+			if(reg.test(n)) {
+				let r = Number(n).toString(2);
+				send(msg, n+' = `'+r+'` in binary');
+			} else {
+				send(msg, 'Need a number');
+			}
+		}
+	},
+	
+	{
+		name : 'decimal',
+		description : 'Translate binary to decimal.',
+		usage : '`a!decimal` `an integer`',
+		group: 'utility',
+		result : (msg) => {
+			let n = msg.content.split('decimal')[1];
+			let reg = /[0-1]+/;
+			if(reg.test(n)) {
+				let r = parseInt(n,2);
+				send(msg, '`'+n+'` = '+r+' in decimal');
+			} else {
+				send(msg, 'Need a number, and only 0 or 1');
+			}
+		}
+    }
 ];
 
 commands = basic.concat(main.commands);
