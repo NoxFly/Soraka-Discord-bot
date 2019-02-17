@@ -8,11 +8,12 @@
   "author": "NoxFly",
   "license": "ISC",
   "dependencies": {
-    "canvasjs": "^1.8.1",
     "discord.js": "^11.3.2",
     "firebase": "^5.3.1",
     "fs": "0.0.1-security"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "protobufjs": ">=5.0.3"
+  },
   "description": ""
 }
