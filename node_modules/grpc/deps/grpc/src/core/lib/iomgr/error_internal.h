@@ -19,6 +19,8 @@
 #ifndef GRPC_CORE_LIB_IOMGR_ERROR_INTERNAL_H
 #define GRPC_CORE_LIB_IOMGR_ERROR_INTERNAL_H
 
+#include <grpc/support/port_platform.h>
+
 #include <inttypes.h>
 #include <stdbool.h>  // TODO, do we need this?
 
@@ -55,7 +57,5 @@ struct grpc_error {
   uint8_t arena_capacity;
   intptr_t arena[0];
 };
-
-bool grpc_error_is_special(struct grpc_error* err);
 
 #endif /* GRPC_CORE_LIB_IOMGR_ERROR_INTERNAL_H */

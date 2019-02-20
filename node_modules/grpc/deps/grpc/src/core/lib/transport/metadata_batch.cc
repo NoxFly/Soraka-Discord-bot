@@ -16,6 +16,8 @@
  *
  */
 
+#include <grpc/support/port_platform.h>
+
 #include "src/core/lib/transport/metadata_batch.h"
 
 #include <stdbool.h>
@@ -103,7 +105,7 @@ static grpc_error* maybe_link_callout(grpc_metadata_batch* batch,
     return GRPC_ERROR_NONE;
   }
   if (batch->idx.array[idx] == nullptr) {
-    if (grpc_static_callout_is_default[idx]) ++batch->list.default_count;
+    ++batch->list.default_count;
     batch->idx.array[idx] = storage;
     return GRPC_ERROR_NONE;
   }
@@ -119,7 +121,7 @@ static void maybe_unlink_callout(grpc_metadata_batch* batch,
   if (idx == GRPC_BATCH_CALLOUTS_COUNT) {
     return;
   }
-  if (grpc_static_callout_is_default[idx]) --batch->list.default_count;
+  --batch->list.default_count;
   GPR_ASSERT(batch->idx.array[idx] != nullptr);
   batch->idx.array[idx] = nullptr;
 }
@@ -137,6 +139,7 @@ static void link_head(grpc_mdelem_list* list, grpc_linked_mdelem* storage) {
   GPR_ASSERT(!GRPC_MDISNULL(storage->md));
   storage->prev = nullptr;
   storage->next = list->head;
+  storage->reserved = nullptr;
   if (list->head != nullptr) {
     list->head->prev = storage;
   } else {
@@ -300,4 +303,28 @@ grpc_error* grpc_metadata_batch_filter(grpc_metadata_batch* batch,
     l = next;
   }
   return error;
+}
+
+void grpc_metadata_batch_copy(grpc_metadata_batch* src,
+                              grpc_metadata_batch* dst,
+                              grpc_linked_mdelem* storage) {
+  grpc_metadata_batch_init(dst);
+  dst->deadline = src->deadline;
+  size_t i = 0;
+  for (grpc_linked_mdelem* elem = src->list.head; elem != nullptr;
+       elem = elem->next) {
+    grpc_error* error = grpc_metadata_batch_add_tail(dst, &storage[i++],
+                                                     GRPC_MDELEM_REF(elem->md));
+    // The only way that grpc_metadata_batch_add_tail() can fail is if
+    // there's a duplicate entry for a callout.  However, that can't be
+    // the case here, because we would not have been allowed to create
+    // a source batch that had that kind of conflict.
+    GPR_ASSERT(error == GRPC_ERROR_NONE);
+  }
+}
+
+void grpc_metadata_batch_move(grpc_metadata_batch* src,
+                              grpc_metadata_batch* dst) {
+  *dst = *src;
+  grpc_metadata_batch_init(src);
 }

@@ -19,10 +19,10 @@
 #ifndef GRPC_CORE_LIB_SLICE_SLICE_INTERNAL_H
 #define GRPC_CORE_LIB_SLICE_SLICE_INTERNAL_H
 
+#include <grpc/support/port_platform.h>
+
 #include <grpc/slice.h>
 #include <grpc/slice_buffer.h>
-
-#include "src/core/lib/iomgr/exec_ctx.h"
 
 grpc_slice grpc_slice_ref_internal(grpc_slice slice);
 void grpc_slice_unref_internal(grpc_slice slice);
@@ -45,5 +45,10 @@ grpc_slice grpc_slice_maybe_static_intern(grpc_slice slice,
                                           bool* returned_slice_is_different);
 uint32_t grpc_static_slice_hash(grpc_slice s);
 int grpc_static_slice_eq(grpc_slice a, grpc_slice b);
+
+// Returns the memory used by this slice, not counting the slice structure
+// itself. This means that inlined and slices from static strings will return
+// 0. All other slices will return the size of the allocated chars.
+size_t grpc_slice_memory_usage(grpc_slice s);
 
 #endif /* GRPC_CORE_LIB_SLICE_SLICE_INTERNAL_H */

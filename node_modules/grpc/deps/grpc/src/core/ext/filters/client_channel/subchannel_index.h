@@ -19,6 +19,8 @@
 #ifndef GRPC_CORE_EXT_FILTERS_CLIENT_CHANNEL_SUBCHANNEL_INDEX_H
 #define GRPC_CORE_EXT_FILTERS_CLIENT_CHANNEL_SUBCHANNEL_INDEX_H
 
+#include <grpc/support/port_platform.h>
+
 #include "src/core/ext/filters/client_channel/subchannel.h"
 
 /** \file Provides an index of active subchannels so that they can be
@@ -63,12 +65,9 @@ void grpc_subchannel_index_ref(void);
 void grpc_subchannel_index_unref(void);
 
 /** \em TEST ONLY.
- * If \a force_creation is true, all key comparisons will be false, resulting in
+ * If \a force_creation is true, all keys are regarded different, resulting in
  * new subchannels always being created. Otherwise, the keys will be compared as
  * usual.
- *
- * This function is *not* threadsafe on purpose: it should *only* be used in
- * test code.
  *
  * Tests using this function \em MUST run tests with and without \a
  * force_creation set. */
