@@ -9,7 +9,7 @@ let App = main.app;
 
 // External functions
 const admin = require('./../../../functions/admin.js');
-const check2 = require('./../../../functions/checktwo.js');
+const checkPerms = require('./../../../functions/checkPerms.js');
 const getTop = require('./../../../functions/gettop.js');
 const mtsm = require('./../../../functions/mtsm.js');
 const dump = require('./../../../functions/dump.js');
@@ -22,15 +22,15 @@ function send(msg, message) {
 }
 
 let personal = [
-    {
+  {
 		name : 'lang',
 		description : 'set your personnal language for the quotes.',
 		usage : '`a!lang EN/FR/IT/DE/ES/RU/JP/CH`',
 		group: 'personal',
-		result : (msg) => {
+		result : (msg, args) => {
 			let languages = ['EN','FR','IT','DE','ES','PT','RU','JP','CH'];
-			if(/^(lang)\s\w+$/.test(msg.content.split('a!')[1])) {
-				let lang = msg.content.split('lang ')[1].toUpperCase();
+			if(args.length==1) {
+				let lang = args[0].toUpperCase();
 
 				if(languages.indexOf(lang)<0){
 					let txt = '';
@@ -44,17 +44,16 @@ let personal = [
 				}
 			}
 		}
-    },
+  },
     
-    {
+  {
 		name : 'note',
 		description : 'save something you want to restore another moment. Maximum notes : 10.',
 		usage : '`a!note` `your note`',
 		group: 'personal',
-		result : (msg) => {
-			let note = msg.content.split('note ')[1];
-			let reg = /\S+/;
-			if(!(reg.test(note)) || note===undefined) send(msg, 'A note cannot be empty');
+		result : (msg, args) => {
+			let note = args.join(" ");
+			if(args.length==0) send(msg, 'A note cannot be empty');
 
 			
 			let i, c;
@@ -84,6 +83,7 @@ let personal = [
 		usage : '`a!mynote`',
 		group: 'personal',
 		result : (msg) => {
+			if(msg.content!="a!mynotes") return;
 			let notes = {};
 
 			DB.getData('notes', function(data) {
@@ -113,8 +113,8 @@ let personal = [
 		description : 'clear your personnal notes.',
 		usage : '`a!clearnote {an integer} (optional)`',
 		group: 'personal',
-		result : (msg) => {
-			let n = msg.content.split('clearnote ')[1];
+		result : (msg, args) => {
+			let n = args[0];
 			let notes = {};
 			let l;
 			let clear = false;
@@ -150,7 +150,6 @@ let personal = [
 							let c = -1;
 							for(i in notes) {
 								c++;
-								//console.log('C: '+c+' | entry: '+entry+' | =? '+(c==entry));
 								if(i==entry) {
 									c--;
 									continue;
@@ -185,15 +184,15 @@ let personal = [
 				},DB.responseTime);
 			}
 		}
-    },
+  },
     
-    {
+  {
 		name : 'daily',
 		description : 'Obtain daily xp and money (200 gems and 20xp) each 12 hours.',
 		usage : '`a!daily`',
 		group: 'personal',
 		result : (msg) => {
-			if(!(msg.content=="a!daily")) send(msg, "There is no need for argument");
+			if(!(msg.content=="a!daily")) return;
 			let Now = Date.now();
 			let oDaily = {};
 			let daily, money, xp, level, ans;
@@ -236,7 +235,7 @@ let personal = [
 		usage : '`a!money`',
 		group: 'personal',
 		result : (msg) => {
-			if(!(msg.content=="a!deleteChannel")) send(msg, "There is no need for argument");
+			if(!(msg.content=="a!money")) return;
 			let money = 0;
 
 			DB.getData('data/money', function(data) {
@@ -254,7 +253,7 @@ let personal = [
 		description : 'show a profile',
 		usage: '`a!profile`',
 		group: 'personal',
-		result: (msg) => {
+		result: (msg, args) => {
 			let iID;
 			let sUSER;
 			if(msg.content=='a!profile') {
@@ -262,8 +261,8 @@ let personal = [
 				sUSER = msg.author.username+'#'+msg.author.discriminator;
 				avatar = msg.author.avatarURL;
 				setTimeout(function() {profile(msg, iID, sUSER, avatar)},500);
-			} else {
-				iID = msg.content.replace(/a!profile\s+<@!?(\d+)>/,'$1');
+			} else if(args.length==1) {
+				iID = args[0].replace(/<@!?(\d+)>/,'$1');
 				DB.profile(iID).getData('user/name', function(data) {
 					data = data.val();
 					if(data===null) {
@@ -285,7 +284,7 @@ let personal = [
 		description : 'Show level of a person',
 		usage : '`a!level {tag} (optional)`',
 		group: 'personal',
-		result : (msg) => {
+		result : (msg, args) => {
 			let avatar = msg.author.avatarURL;
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			
@@ -297,12 +296,11 @@ let personal = [
 						.setColor(0x333333)
 						.setAuthor(name, avatar)
 						.addField('Level', data.level, true)
-						.addField('Exp.', data.xp, true)
-						//.setImage('canvas');
+						.addField('Exp.', data.xp, true);
 					send(msg, embed);
 				});
-			} else {
-				let id = msg.content.replace(/a!level\s+<@!?(\d+)>/,'$1');
+			} else if(args.length==1) {
+				let id = args[0].replace(/<@!?(\d+)>/,'$1');
 				let name, avatar;
 				DB.profile(id).getData('user/name', function(data) {
 					data = data.val();
@@ -332,19 +330,21 @@ let personal = [
 		}
 	},
 
-    {
+  {
 		name: 'color',
 		description: 'Personalize your profile embed color',
 		usage: '`a!color #FFFFFF` or `a!color 0xFFFFFF`',
 		group: 'personal',
-		result: (msg) => {
-			let color = msg.content.split('color ')[1];
-			if(color===undefined) send(msg, 'Not possible to set a color :cry:');
+		result: (msg, args) => {
+			if(args.length==0) send(msg, 'Not possible to set a color :cry:');
+			let color = args[0];
 			
 			if(/(#|0x)?([a-f0-9A-F]{3}){1,2}/.test(color)) {
-				let c = color.replace('#','').replace('0x','');
+				let c = color.replace(/#|0x/,'');
 				if(c.length==3) {
 					c = '0x'+c[0]+c[0]+c[1]+c[1]+c[2]+c[2];
+				} else {
+					c = '0x'+c;
 				}
 				
 				let embed = new Discord.RichEmbed()
@@ -356,25 +356,25 @@ let personal = [
 				send(msg, 'color couldn\'t be found.');
 			}
 		}
-    },
+  },
     
-    {
+  {
 		name: 'desc',
 		description: 'set your description',
 		usage: '`a!desc {your description}`',
 		group: 'personal',
-		result: (msg) => {
-			let desc = msg.content.split('desc ')[1];
+		result: (msg, args) => {
+			if(args.length==0) return;
+			let desc = args.join(" ");
 
-			if(desc===undefined) send(msg, 'You cannot have an empty description');
-			if(desc.length<100) {
+			if(desc.length<26) {
 				DB.updateData('param/desc', desc);
 				send(msg, 'Description saved');
 			} else {
-				send(msg, 'Your description is too long sorry :cry:');
+				send(msg, 'Your description is too long sorry :cry: (26 char max)');
 			}
 		}
-	},
+	}
 ];
 
 module.exports = personal;

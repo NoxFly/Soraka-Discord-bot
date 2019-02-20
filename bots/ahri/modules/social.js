@@ -8,12 +8,8 @@ const fs = require('fs');
 let App = main.app;
 
 // External functions
-const admin = require('./../../../functions/admin.js');
-const check2 = require('./../../../functions/checktwo.js');
 const getTop = require('./../../../functions/gettop.js');
 const mtsm = require('./../../../functions/mtsm.js');
-const dump = require('./../../../functions/dump.js');
-const profile = require('./../../../functions/profile.js');
 
 // *** //
 
@@ -27,8 +23,9 @@ let social = [
 		description : 'follow someone',
 		usage : '`a!follow {user tag}`',
 		group: 'social',
-		result : (msg) => {
-			let target = msg.content.split('follow ')[1];
+		result : (msg, args) => {
+			if(args.length!=1) return;
+			let target = args[0];
 			let regID = new RegExp('<@!?'+msg.author.id+'>');
 			
 			let id = msg.author.id;
@@ -36,7 +33,7 @@ let social = [
 			if(/<@!?\d+>/.test(target)) {
 				if(/<@!?433365347463069716>/.test(target) || target == '@Ahri') send(msg, 'Thanks but you can\'t follow me :heart:');
 				if(regID.test(target)) {
-					send(msg, 'You can\'t follow you lol');
+					send(msg, 'You can\'t follow yourself lol');
 				}
 				
 				let id_target = target.replace(/(\s+)?<@!?(\d+)>/,'$2');
@@ -88,8 +85,9 @@ let social = [
 		description : 'unfollow someone',
 		usage : '`a!unfollow {user tag}`',
 		group: 'social',
-		result : (msg) => {
-			let target = msg.content.split('unfollow ')[1];
+		result : (msg, args) => {
+			if(args.length!=1) return;
+			let target = args[0];
 			let regID = new RegExp('<@!?'+msg.author.id+'>');
 			let id = msg.author.id;
 			
@@ -128,7 +126,7 @@ let social = [
 
 							if(following) {
 								DB.profile(id_target).deleteData('followers/'+l);
-								send(msg, 'You stopped follow this person :no_entry_sign:');
+								send(msg, 'You stopped follwing this person :no_entry_sign:');
 							} else {
 								send(msg, 'You never followed this person :thinking:');
 							}
@@ -146,15 +144,19 @@ let social = [
 		description : 'give gems to a specific user',
 		usage : '`a!give {integer} {user}`',
 		group: 'social',
-		result : (msg) => {
-			let r = msg.content.split('give ')[1];
+		result : (msg, args) => {
+			if(args.length!=2) return;
+			let r = args.join(" ");
 			if(/\d+ <@!?\d+>/.test(r)) {
-				let id = msg.author.id;
-
-				let id_target = r.replace(/\d+\s+<@!?(\d+)>/,'$1').replace(' ', '');
-				let give = parseInt(r.replace(/(\d+)\s+<@!?\d+>/,'$1'));
-				if(give<1) send(msg, 'You must give more than 0 !');
-				let money, received;
+				let id_target = args[1].replace(/<@!?(\d+)>/,"$1"),
+					give = args[0],
+					id = msg.author.id,
+					money,
+					received;
+				if(give<1) {
+					send(msg, 'You must give more than 0 !');
+					return;
+				}
 
 				if(id_target!=msg.author.id) {
 					DB.profile(id).getData('data/money', function(data) {
@@ -162,11 +164,12 @@ let social = [
 					});
 
 					DB.profile(id_target).getData('data/money', function(data) {
-						received = parseInt(data.val());
+						received = data.val();
+						console.log(data.val())
 					});
 
 					setTimeout(function() {
-						if(received!==null) {
+						if(/^\d+$/.test(received)) {
 							if(money>0) {
 								if(give>money) {
 									send(msg, 'You can\'t give more than you have');
@@ -198,16 +201,15 @@ let social = [
 		description : 'give reputation point to a specific user',
 		usage : '`a!rep {user}`',
 		group: 'social',
-		result : (msg) => {
+		result : (msg, args) => {
+			if(args.length!=1) return;
 			let message = msg.content;
-			let reg = /rep(utation)? <@!?\d+>/;
+			let reg = /<@!?\d+>/;
 			let id = msg.author.id;
 
-			if(reg.test(message)) {
+			if(reg.test(args[0])) {
 				let target;
-				if(msg.content.startsWith("reputation")) target = msg.content.split('reputation')[1];
-				else target = msg.content.split('rep')[1];
-				let id_target = target.replace(/\s+<@!?(\d+)>/,'$1').replace(' ',"");
+				let id_target = args[0].replace(/<@!?(\d+)>/,'$1');
 				let Now = Date.now();
 				let repDelay;
 				let rep_target;
@@ -236,11 +238,11 @@ let social = [
 
 							send(msg, 'You gave **1** reputation point to <@'+id_target+'> :diamond_shape_with_a_dot_inside: ');
 						}
-						send(msg, 'You need to wait **'+ans+'** to give a new reputation point :hourglass:');
+						send(msg, 'it\'s been **'+ans+'** since you give a reputation point\nYou need to wait **24 hours** to give another point :hourglass:');
 					}
 				},DB.responseTime);
 			} else {
-				send(msg, 'You must to tag a real person');
+				send(msg, 'You must to mention a user');
 			}
 		},
 	},
@@ -250,9 +252,8 @@ let social = [
 		description: 'show the scoreboard of Ahri\'s users (sort by XP)',
 		usage: '`a!top`',
 		group: 'social',
-		result: (msg) => {
-			if(!(msg.content=="a!top")) send(msg, 'There is no need for argument');
-			getTop(msg);
+		result: (msg, args) => {
+			getTop(msg, args);
 		}
 	},
 	{
@@ -260,9 +261,8 @@ let social = [
 		description: 'show the scoreboard of Ahri\'s users (sort by XP)',
 		usage: '`a!scoreboard`',
 		group: 'social',
-		result: (msg) => {
-			if(!(msg.content=="a!scroreboard")) send(msg, 'There is no need for argument');
-			getTop(msg);
+		result: (msg, args) => {
+			getTop(msg, args);
 		}
     },
     
@@ -271,16 +271,16 @@ let social = [
 		description : 'write a post which all your follower will receive in DM from me',
 		usage : '`a!post {message}`',
 		group: 'social',
-		result : (msg) => {
+		result : (msg, args) => {
+			if(args.length==0) send(msg, 'You must write a message !');
 			let reg = /\S/;
-			let post = msg.content.split('post ')[1];
+			let post = args.join(" ");
 			let name = msg.author.username+'#'+msg.author.discriminator;
 			let avatar = msg.author.avatarURL;
 
-			if(post==undefined) send(msg, 'You must write a message !');
 			if(reg.test(post) && post.length>6) {
 				let Now = Date.now();
-				let date = new Date().toDateString();//+" | "+new Date().getHours+":"+new Date().getMinutes;
+				let date = new Date().toDateString();
 				let embed = new Discord.RichEmbed()
 					.setTitle('from '+name)
 					.setThumbnail(avatar)
@@ -305,17 +305,17 @@ let social = [
 						followers =  Object.entries(followers);
 
 						if(l>0) {
-								for(i in followers) {
-									try {
-										let follower = followers[i][1];		
-										bot.users.get(follower).send(embed);
-									} catch(error) {
-										console.log('Could not send to one follower : '+i);
-									}
+							for(i in followers) {
+								try {
+									let follower = followers[i][1];		
+									bot.users.get(follower).send(embed);
+								} catch(error) {
+									console.log('Could not send to one follower : '+i);
 								}
-								DB.updateData('delay/post', postDelay);
-								send(msg, 'Your post has been send');
-								send(msg, 'You need to wait **'+ans+'** to send another post :hourglass:');
+							}
+							DB.updateData('delay/post', postDelay);
+							send(msg, 'Your post has been send');
+							send(msg, 'You need to wait **'+ans+'** to send another post :hourglass:');
 						} else {
 							send(msg, 'You don\'t have followers !');
 						}

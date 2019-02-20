@@ -1,287 +1,277 @@
-// CONSTANTS
-const firebase = require('firebase');
-const Discord = require('discord.js');
-const reactionCommands = require('./functions/reaction_command.js');
-const DB = require('./DB.js');
-const check = require('./functions/check.js');
-const checkServer = require('./functions/checkServer.js');
-const dump = require('./functions/dump.js');
-const fs = require('fs');
+// CONSTANTS REQUIRE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const firebase = require('firebase');																	// FIREBASE														//
+const Discord = require('discord.js');																// DISCORD														//
+const reactionCommands = require('./functions/reaction_command.js');	// REACTION <!>												//
+const DB = require('./DB.js');																				// DATABASE														//
+const check = require('./functions/check.js');												// CHECK USER EXISTS ON DB						//
+const checkServer = require('./functions/checkServer.js');						// CHECK SERVER REGISTER ON DB				//
+const dump = require('./functions/dump.js');													// DISPLAY ERROR MSG									//
+const admin = require('./functions/admin.js');													// WATCH IF ADMIN										//
+const fs = require('fs');																							// WATCH FOLDERS											//
+//																																																					//
+// EXPORT BTW FILES																																													//
+let exportObj = module.exports = {};																	// MODULES TO EXPORT BTW FILES				//
+//																																																					//
+let Database = new DB();																							// NEW DATABASE												//
+exportObj.database = Database;																				// ------ EXPORT DB										//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// EXPORT BTW FILES
-let exportObj = module.exports = {};
-
-let Database = new DB();
-exportObj.database = Database;
-
-// SOME VAR
-let code = [];
-let mod = [];
-let timeExe = 0;
-let modules = [];
-let App = [];
+////////////////////////////
+// SOME VAR LOCAL TO FILE	//
+let mod = [];							//
+let modules = [];					//
+let name_commands = [];		//
+let App = [];							//
+let G_mod = [];						//
+let timeExe = 0;					//
+////////////////////////////
 
 // BOTS INFOS
-let aBotList = [
-	{
-		'name'	:	'ahri',
-		'tag'  	: 	'a!',
-		'id'	:	'477918672732553216',
-		'token' :	process.env.TOKEN_AHRI
-	}
-];
+//////////////////////////////////////////////////////////////////////////////////
+let aBotList = [																																//
+	{																																							//
+		'name'	:	'ahri',																														//
+		'tag'  	: 	'a!',																														//
+		'id'	:	'477918672732553216',																								//
+		'token' :	"NDc3OTE4NjcyNzMyNTUzMjE2.D011PA.KrcAn6K_9wlkh99GYbdEt9vRR5Q"			//
+	}																																							//
+];																																							//
+//////////////////////////////////////////////////////////////////////////////////
 
+// instance for each bot in aBotList
 aBotList.forEach(function(val, index, array) {
 	startbot(val);
 });
 
 function startbot(params) {
+	// on export le bot
 	const bot = new Discord.Client();
 	exportObj.bot = bot;
 
-	/** ******************************************************************* **/
-	/** ******************************************************************* **/
-	// QUAND LE BOT EST LANCE
+	////////////////////////////////////////////////////////////////////////////////
+	// QUAND LE BOT EST LANCE																											//
+	// on affiche un message dans les log pour montrer qu'il marche								//
+	// et on montre sur discord a!help | n servers																//
+	bot.on('ready', () => {																												//
+		console.log(params.name+' ready !\n');																			//
+		bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');			//
+	});																																						//
+	////////////////////////////////////////////////////////////////////////////////
 
-	bot.on('ready',() => {
-		console.log(params.name+' ready !\n');
-		let m;
-		let members;
-		let activity = 1;
-		bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
+	////////////////////////////////////////////////////////////////////////////////
+	// QUAND QQUN ENVOIE UN MSG																										//
+	bot.on('message', (msg) => {																									//
+		requestMessage(msg, params);																								//
+	});																																						//
+	////////////////////////////////////////////////////////////////////////////////
 
-		setInterval(function() {
-			activity = 1-activity;
-			Database.source().getData('profile', function(data) {
-				m = data.val();
-			});
+	////////////////////////////////////////////////////////////////////////////////
+	// QUAND LE BOT ARRIVE SUR UN SERVER																					//
+	bot.on('guildCreate', (guild) => {																						//
+		guildJoined(guild);																													//
+	});																																						//
+	////////////////////////////////////////////////////////////////////////////////
 
-			setTimeout(function() {
-				try {
-					members = Object.keys(m).length;
-					if(activity) bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
-					else bot.user.setActivity(params.tag+'help | '+members+' members');
-				} catch(error) {
-					console.log(error);
-					bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');
-				}
-			},Database.responseTime);
-		}, 600000);
-	});
-
-	/** ******************************************************************* **/
-	/** ******************************************************************* **/
-	// QUAND QQUN ENVOIE UN MSG
-
-	bot.on('message', (msg) => {
-		if(msg.author.id===params.id || msg.author.bot==true) {
-			return;
-		}
-
-		if(msg.content=='<@'+params.id+'>' || msg.content=='<@'+params.id+'> .') {
-			send(msg, 'Hey :P');
-			return;
-		}
-
-		let id = msg.author.id;
-		let name = msg.author.username+'#'+msg.author.discriminator;
-		let avatar = msg.author.avatarURL;
-		check(msg, id, name, avatar);
-
-		let commands;
-
-		mod = [];
-		modules = [];
-
-		// IF IN SERVER
-		if(msg.channel.type!=='dm') {
-			let gid = msg.guild.id;
-			let gname = msg.guild.name;
-			let gowner = msg.guild.ownerID;
-			checkServer(gid, gname, gowner);
-
-			if(App[gid]===undefined || App[gid]['modules']===undefined) {
-				if(App[gid]===undefined) App[gid] = [];
-	
-				Database.server(gid).getData('modules', function(data) {
-					App[gid]['modules'] = data.val();
-				});
-				setTimeout(function() {code=App[gid]['modules'];},Database.responseTime);
-				timeExe = Database.responseTime*2;
-			} else {
-				code = App[gid]['modules'];
-				timeExe = 0;
-			}
-	
-			setTimeout(function() {
-				exportObj.app = App;
-				for(i in code) {
-					if(code[i]!='test') mod.push(code[i]);
-				}
-	
-				mod.forEach(name => {
-					let m = require('./bots/'+params.name+'/modules/'+name+'.js');
-					m.forEach(command => {
-						command.group = name;
-					});
-					modules = modules.concat(m);
-				});
-				
-				commands = require('./bots/'+params.name+'/basic.js');
-				exportObj.commands = modules;
-				commands = modules.concat(commands);
-			},timeExe);
-			timeExe = 0;
-			//commands = require('./bots/'+params.name+'/basic.js');
-		} else {
-			// IF PRIVATE MESSAGE
-			if(msg.content.indexOf(params.tag)===0) {
-				commands = require('./bots/'+params.name+'/basic.js');
-				mod = ['game','personal','social','utility'];
-				mod.forEach(name => {
-					let m = require('./bots/'+params.name+'/modules/'+name+'.js');
-					m.forEach(command => {
-						command.group = name;
-					});
-					modules = modules.concat(m);
-				});
-
-				commands = modules.concat(commands);
-				timeExe = 0;
-			} else {
-				let fighting, champion;
-				if(App[id]===undefined) App[id] = [];
-				const fight = require('./functions/fight.js');
-				Database.profile(id).getData('game/fighting', function(data) {
-					fighting = data.val();
-				});
-
-				Database.profile(id).getData('game/params', function(data) {
-					champion = data.val();
-				});
-
-				setTimeout(function() {
-					if(fighting==1) {
-						if(App[id].champion===undefined) App[id].champion = champion;
-						exportObj.app = App;
-						fight(msg, id, name);
-						return;
-					}
-				},DB.responseTime);
-			}
-		}
-
-		setTimeout(function() {
-			let content = msg.content;
-			get_command(msg, content);
-		}, timeExe+3);
-	});
-
-
-	/** ******************************************************************* **/
-	/** ******************************************************************* **/
-	// QUAND LE BOT ARRIVE SUR UN SERVER
-
-	bot.on('guildCreate', (guild) => {
-		let id = guild.id;
-		let name = guild.name;
-		let owner = guild.ownerID;
-		checkServer(id, name, owner);
-
-		let defaultChannel = "";
-		guild.channels.forEach((channel) => {
-			if(channel.type == "text" && defaultChannel == "") {
-				if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-					defaultChannel = channel;
-				}
-			}
-		});
-
-		let modules = '';
-		let end = ' - ';
-		fs.readdir('./bots/ahri/modules', function(err, items) {
-			for (var i=0; i<items.length; i++) {
-				if(i==items.length-1) end = '';
-				modules += items[i].replace('.js','')+end;
-				console.log(modules);
-			}
-
-			let embed = new Discord.RichEmbed()
-				.setTitle('Modules')
-				.setColor(0x43FF4E)
-				.addField(
-					'You can install or uninstall group of commands on the server writing\n`a!config modules.add {name}`', modules
-				)
-				.setDescription('I recommend you to install the modules game, personal and social');
-			
-			defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');
-			defaultChannel.send(embed);
-		});
-	});
-
-	/** ******************************************************************* **/
-	/** ******************************************************************* **/
-	// Quand qqun rajoute une reaction
-
-	bot.on('messageReactionAdd', (reaction, user) => {
-		if(reaction.message.author.id == '463425089673887764'){
-			send(reaction.message,'reaction');
-			react(reactionCommands, reaction, user, reaction.message.content);
-		}
-	});
-
+	// connecte le bot à Discord
 	bot.login(params.token);
 }
 
 
-/** ******************************************************************* **/
-/** ******************************************************************* **/
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
-	
 
+// envoie un msg.channel.send()
 function send(msg, message){
-	if(message!=null) {
-		msg.channel.send(message);
-	}
+	if(message!=null) msg.channel.send(message);
 }
 
-function find(content, txt, discussion = false){
-	if(discussion==false){
-	  return content.indexOf(txt)==params.tag.length;
+function removeBlanks(args) {
+	let secondArr = [];
+	for(i in args) {
+		if(args[i].length>0) secondArr.push(args[i]);
+	}
+	return secondArr;
+}
+
+// vérifie que la commande existe : true --> execute | false --> error message
+function get_command(msg, command, aCommands = []) {
+	let idx = name_commands.indexOf(command.split(" ")[0]);
+	if(idx>-1) {																																		// si on retrouve la commande parmis celles disponibles
+		command = name_commands[idx];
+		let args = [];
+		args = msg.content.split(command)[1].split(" ");															// on recupere les arguments
+		args = removeBlanks(args);
+		
+		console.log(msg.author.username+" send ["+command+"] with args: ", args);
+		if(aCommands[idx].group=="hidden" && !admin(msg.author.id)) return;						// si c'est une commande cachée et pas admin
+		Database.profile(msg.author.id);
+		try {aCommands[idx].result(msg, args)}																				// on essaie d'executer la commande
+		catch (error) {																																// s'il y a une erreur on envoie un log
+			console.log(error);
+			let embed = new Discord.RichEmbed()
+				.setAuthor('⚠️ Error ('+error.name+')')
+				.setColor(0xFFA500)
+				.setDescription('```'+error.message+'```');
+			send(msg, embed);
+		}
 	} else {
-	  return content.indexOf(txt)==0;
+		send(msg, "Command does not exist");																	// si la commande n'existe pas
 	}
 }
 
-function react(cmds, reaction, user, content) {
-	for(let a = 0;a<cmds.length;a++) {
-		let command = cmds[a];
-		if(find(content, command.from, true) && reaction.emoji.name===command.emoji) {
-			let txt = command.result(reaction, user);
-			if(txt!=null){
-			  send(reaction.message, txt);
+// lorsque qu'un message est envoyé sur un channel
+function requestMessage(msg, params) {
+	// si c'est un bot
+	if(msg.author.bot==true) return;
+
+	// si on écrit @ahri
+	if(msg.content=='<@'+params.id+'>') {
+		send(msg, 'Hey :P');
+		return;
+	}
+
+	let id = msg.author.id;																									// id Discord du user
+	let name = msg.author.username+'#'+msg.author.discriminator;						// nom Discord + tag du user
+	let avatar = msg.author.avatarURL;																			// avatar Discord du user
+	check(msg, id, name, avatar);																						// regarde s'il est enregistré dans la DB
+
+	let commands = require('./bots/'+params.name+'/basic.js'),							// on rajoute les commandes de bases
+	mod = [],																																// modules disponibles
+	modules = [];
+
+	for(i in commands) {
+		name_commands.push(commands[i].name);
+	}
+
+	// si on ecrit sur un server
+	if(msg.channel.type!=='dm') {
+		let G_id = msg.guild.id;																							// id Discord du server
+		let G_name = msg.guild.name;																					// nom Discord du server
+		let G_owner = msg.guild.ownerID;																			// owner Discord du server
+		checkServer(G_id, G_name, G_owner);																		// verifie s'il est enregistré dans la DB
+
+		if(App[G_id]===undefined || App[G_id]['modules']===undefined) {				// si server pas enregistré localement
+			if(App[G_id]===undefined) App[G_id] = [];														// on rajoute localement le server
+			let tmp = [];
+			
+			Database.server(G_id).getData('modules', function(data) {						// on rajoute localement les modules
+				tmp = data.val();
+			});
+
+			setTimeout(function() {
+				App[G_id]['modules'] = tmp;
+				G_mod = App[G_id]['modules'];
+			}, Database.responseTime);
+
+			timeExe = Database.responseTime+1;
+		} else {
+			G_mod = App[G_id]['modules'];																				// si deja enregistre localement
+			timeExe = 0;
+		}
+
+		setTimeout(function() {
+			exportObj.app = App;																								// App disponible dans d'autres fichiers
+			for(i in G_mod) {																										// pour chaque module
+				if(G_mod[i]!='test') mod.push(G_mod[i]);													// si ce n'est pas le test qui sert à combler
 			}
+
+			mod.forEach(name => {																								// pour chaque module
+				let m = require('./bots/'+params.name+'/modules/'+name+'.js');		// on rajoute le fichier du module
+				m.forEach(command => {																						// pour chaque commande du module
+					command.group = name;																						// on rajoute la disponibilité de la commande
+					name_commands.push(command.name);
+				});
+				modules = modules.concat(m);																			// on rajoute le module dans les modules disponibles
+			});
+			
+			exportObj.commands = modules;																				// pourquoi AVANT le concat de modules ???
+			commands = commands.concat(modules);																// on rajoute les commandes de base avec les autres
+			timeExe++;
+		}, timeExe);
+	} else {
+		// si on ecrit en prive au bot
+		if(msg.content.indexOf(params.tag)===0) {															// si le message commence par le tag
+			mod = ['game','personal','social','utility'];												// on dit qu'on a tous les modules (sauf management de server)
+			mod.forEach(name => {																								// on rajoute chaque modules...
+				let m = require('./bots/'+params.name+'/modules/'+name+'.js');
+				m.forEach(command => {
+					command.group = name;
+				});
+				modules = modules.concat(m);
+			});
+
+			commands = commands.concat(modules);
+			timeExe = 0;
+		} else {
+			// si pas de tag
+			let fighting, champion;
+			if(App[id]===undefined) App[id] = [];																// on stock localement les données du user
+			const fight = require('./functions/fight.js');											// commandes du fight champion LoL
+			Database.profile(id).getData('game/fighting', function(data) {			// regarde si user en fight
+				fighting = data.val();
+			});
+
+			Database.profile(id).getData('game/params', function(data) {				// on recupere les donnees du jeu du user
+				champion = data.val();
+			});
+
+			setTimeout(function() {
+				if(fighting==1) {																									// s'il est en fight, on peut lui dire qu'il est en jeu
+					if(App[id].champion===undefined) App[id].champion = champion;		// s'il n'a pas de champion par defaut
+					exportObj.app = App;																						// on export pour d'autres fichiers
+					fight(msg, id, name);																						// on lance le combat / la reponse
+					return;																													// ne continue pas le programme car pas besoin
+				}
+			}, DB.responseTime);
 		}
 	}
+
+	setTimeout(function() {
+		if(msg.content.indexOf(params.tag) === 0) {														// on regarde s'il y a le tag
+			let command = msg.content.split(params.tag)[1];											// on enleve le tag
+			get_command(msg, command, commands);																// on regarde si la commande existe : execute
+		}
+	}, timeExe+3);
 }
 
-function get_command(msg, content) {
-	if(msg.content.indexOf(tag) === 0) {
-        let command = msg.content.split(tag)[1];
-        if(aCommands.indexOf(command)>-1) {
-            let args = command.split(aCommands[command])[1];
-            command = commands[aCommands.indexOf(command)];
-            try {command.result(msg, args)}
-            catch (error) {
-				console.log(error);
-				let embed = new Discord.RichEmbed()
-					.setAuthor('⚠️ Error ('+error.name+')')
-					.setColor(0xFFA500)
-					.setDescription('```'+error.message+'```');
-				msg.channel.send(embed);
-			}
-        } else {
-            msg.channel.send("Command does not exist");
-        }
-    }
-}
+// si le bot rejoint un server
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function guildJoined(guild) {																																									//
+	let id = guild.id;																											// id																//
+		let name = guild.name;																								// nom															//
+		let owner = guild.ownerID;																						// owner														//
+		checkServer(id, name, owner);																					// ajoute a la DB										//
+																																																							//
+		let defaultChannel = "";																							// defini le channel par defaut			//
+		guild.channels.forEach((channel) => {																																			//
+			if(channel.type == "text" && defaultChannel == "") {																										//
+				if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {																						//
+					defaultChannel = channel;																																						//
+				}																																																			//
+			}																																																				//
+		});																																																				//
+																																																							//
+		// message a afficher des que Ahri arrive : comment utiliser les modules																	//
+		let modules = '';																																													//
+		let end = ' - ';																																													//
+		fs.readdir('./bots/ahri/modules', function(err, items) {																									//
+			for (var i=0; i<items.length; i++) {																																		//
+				if(i==items.length-1) end = '';																																				//
+				modules += items[i].replace('.js','')+end;																														//
+			}																																																				//
+																																																							//
+			let embed = new Discord.RichEmbed()																																			//
+				.setTitle('Modules')																																									//
+				.setColor(0x43FF4E)																																										//
+				.addField(																																														//
+					'You can install or uninstall group of commands on the server writing\n'														//
+					+'`a!config modules.add {name}`', modules																														//
+				)																																																			//
+				.setDescription('I recommend you to install the modules game, personal and social');									//
+																																																							//
+			defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');																		//
+			defaultChannel.send(embed);																																							//
+		});																																																				//
+}																																																							//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

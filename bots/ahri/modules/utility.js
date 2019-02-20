@@ -1,21 +1,4 @@
-let firebase = require('firebase');
-let main = require('./../../../bot.js');
-let bot = main.bot;
-let DB = main.database;
-const champ = require('./../../../functions/champions.json');
 const Discord = require('discord.js');
-const fs = require('fs');
-let App = main.app;
-
-// External functions
-const admin = require('./../../../functions/admin.js');
-const check2 = require('./../../../functions/checktwo.js');
-const getTop = require('./../../../functions/gettop.js');
-const mtsm = require('./../../../functions/mtsm.js');
-const dump = require('./../../../functions/dump.js');
-const profile = require('./../../../functions/profile.js');
-
-// *** //
 
 function send(msg, message) {
 	msg.channel.send(message);

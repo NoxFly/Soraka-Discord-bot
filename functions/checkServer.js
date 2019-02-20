@@ -6,12 +6,10 @@ const checkServer = function(id, name, owner) {
 
     let exist;
     Database.server(id).getData('id', function(data) {
-        console.log('data:'+data.val());
         exist = data.val();
     });
     
     setTimeout(function() {
-        console.log('exist: '+exist);
         if(exist===null) {
             let Guild = {
                 id: id,

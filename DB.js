@@ -1,8 +1,10 @@
-let firebase = require("firebase");
-let main = require('./bot.js');
-let bot = main.bot;
-const Discord = require('discord.js');
-let dump = require('./functions/dump.js');
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let firebase = require("firebase");                                         // FIREBASE                             //
+const Discord = require('discord.js');                                      // DISCORD                              //
+let main = require('./bot.js');                                             // main: object export                  //
+let bot = main.bot;                                                         // bot object                           //
+let dump = require('./functions/dump.js');                                  // dump                                 //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function send(msg, message) {
 	msg.channel.send(message);

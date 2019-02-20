@@ -4,16 +4,10 @@ let bot = main.bot;
 let DB = main.database;
 const champ = require('./../../../functions/champions.json');
 const Discord = require('discord.js');
-const fs = require('fs');
 let App = main.app;
 
 // External functions
 const admin = require('./../../../functions/admin.js');
-const check2 = require('./../../../functions/checktwo.js');
-const getTop = require('./../../../functions/gettop.js');
-const mtsm = require('./../../../functions/mtsm.js');
-const dump = require('./../../../functions/dump.js');
-const profile = require('./../../../functions/profile.js');
 
 // *** //
 
@@ -65,7 +59,7 @@ let game = [
 		description: 'Show image of a League of Legends champion',
 		usage: '`a!champ {name} {skin digit}`',
 		group: 'game',
-		result: (msg) => {
+		result: (msg, args) => {
 			if(msg.content=='a!champ') {
 				let r = Math.round(Math.random()*champ.length);
 				let embed = new Discord.RichEmbed()
@@ -73,53 +67,57 @@ let game = [
 					.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+champ[r].name)
 					.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[r].name+".png");
 					send(msg, embed);
-			} else if(/a!champ [a-zA-Z\.\s+]+ skin \d+/.test(msg.content)) {
-				let c = msg.content.split('champ ')[1];
-				c = c.replace(/\d+/,'').replace(' skin ','').replace(/(\s+|\.)+/,'');
-				c = c.toLowerCase();
+			} else if(args.length==3 || args.length==4 && args[2]=="skin") {
+				let champion, skin, __champion__, __champ__;
+				if(args.length==3) {
+					champion = args[0].toLowerCase().replace(/'/,"");
+					skin = args[2];
+				} else {
+					champion = (args[0]+args[1]).toLowerCase().replace(/'/,"");
+					skin = args[3];
+				}
+				
 				for(i in champ) {
-					let ch = champ[i].name;
-					let cha = ch.toLowerCase();
-					cha = cha.replace(/(\s+|\.)+/,'');
-					if(c==cha) {
+					__champion__ = champ[i].name;
+					__champ__ = __champion__.toLowerCase().replace(/(\s+|\.|\')+/,'');
+					if(champion==__champ__) {
 						let name = '';
-						let index = ch.indexOf("'");
-						for(j=0; j<ch.length; j++) {
-							if(j==index || ch[j]==' ' || ch[j]=='.') {continue};
-							if(j==index+1 && index!==-1) name+=ch[j].toLowerCase();
-							else name+=ch[j];
+						let index = __champion__.indexOf("'");
+						for(j=0; j<__champion__.length; j++) {
+							if(j==index || __champion__[j]==' ' || __champion__[j]=='.') {continue};
+							if(j==index+1 && index!==-1) name+=__champion__[j].toLowerCase();
+							else name+=__champion__[j];
 						}
-						let s = msg.content.split('champ ')[1];
-						s = s.replace(/[a-zA-Z\s+\.]+/,'');
 						let embed = new Discord.RichEmbed()
-							.setTitle(ch)
-							.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+name+"_"+s+".jpg");
+							.setTitle(__champion__)
+							.setImage("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+name+"_"+skin+".jpg");
 						send(msg, embed);
+						return;
 					}
-					
 				}
 				send(msg, 'This champion does not exist :x:');
-			} else {
-				let c = msg.content.split('champ ')[1].replace(/(\s+|\.)+/,'');
-				c = c.toLowerCase();
+			} else if(args.length==1 || args.length==2) {
+				let champion = args.length==1? args[0] : args[0]+args[1];
+				champion = champion.toLowerCase().replace(/'|\s+|\./, "");
+				let __champion__, __champ__;
 				for(i in champ) {
-					let ch = champ[i].name;
-					let cha = ch.toLowerCase();
-					cha = cha.replace(/(\s+|\.)+/,'');
-					if(c==cha) {
+					let __champion__ = champ[i].name;
+					let __champ__ = __champion__.toLowerCase().replace(/(\s+|\.|')+/,'');
+					if(champion==__champ__) {
 						let name = '';
-						let index = ch.indexOf("'");
-						for(j=0; j<ch.length; j++) {
-							if(j==index || ch[j]==' ' || ch[j]=='.') {continue};
-							if(j==index+1 && index!==-1) name+=ch[j].toLowerCase();
-							else name+=ch[j];
+						let index = __champion__.indexOf("'");
+						for(j=0; j<__champion__.length; j++) {
+							if(j==index || __champion__[j]==' ' || __champion__[j]=='.') {continue};
+							if(j==index+1 && index!==-1) name+=__champion__[j].toLowerCase();
+							else name+=__champion__[j];
 						}
 						
 						let embed = new Discord.RichEmbed()
-							.setTitle(ch)
+							.setTitle(__champion__)
 							.setDescription("https://euw.leagueoflegends.com/en/game-info/champions/"+name)
 							.setImage("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+name+".png");
 						send(msg, embed);
+						return;
 					}
 				}
 			send(msg, 'This champion does not exist :x:');
@@ -132,16 +130,16 @@ let game = [
 		description : 'heads or tails ?\n \tYou win double your bet or you lose your bet',
 		usage : '`a!toss` `head / tails` `an integer`,\n\tfor example : a!toss tails 50',
 		group: 'game',
-		result : (msg) => {
-			let n = msg.content.split('toss ')[1];
-			let reg = /(heads|tails)\s[0-9]+$/;
-			
-			if(!reg.test(n)) {
+		result : (msg, args) => {
+			if(args.length!=2 || !/heads|tails/.test(args[0]) || !/^[0-9]+$/.test(args[1])) {
 				send(msg, 'You need to chose `heads` or `tails` and an integer');
+				return;
 			}
 			
-			let money = 0;
-			let somme = n.match(/\d+/);
+			let money = 0,
+				n = args[0],
+				somme = args[1],
+				p,r,s;
 
 			DB.getData('data', function(data) {
 				data = data.val();
@@ -152,31 +150,22 @@ let game = [
 				if(money>0 && somme>money) {
 					send(msg, 'You can\'t bet greater than gem you have. :scales:');
 				} else {
-
 					if(money==0) {
 						send(msg, 'Sorry, you can play this game only if you have gems.\n To obtain gems, write a!daily each 12 hours !');
 					} else {
-						n = n.match(/^(heads|tails)/)[1];
-						let r = (Math.round(Math.random()))?
-						'heads':'tails';
-						let p;
+						r = (Math.round(Math.random()))? 'heads':'tails';
+						(n==r)? p = 'win ' : p = 'lose ';
 					
-						(n==r)?
-						p = 'win ':p = 'lose ';
-					
-						let s = '';
 						if(p=='win ') {
 							somme *= 2;
 							s = ' :gem:';
-						} else if(p=='lose ') {
+						} else {
 							somme = -somme;
 							s = '';
 						}
 
 						money += somme;
-						if(money < 0) {
-							money = 0;
-						}
+						if(money < 0) money = 0;
 					
 						DB.setData('data/money', money);
 					
@@ -234,8 +223,7 @@ let game = [
 		usage : '`a!quote`',
 		group: 'game',
 		result : (msg) => {
-			let lang = 'EN';
-			let quotes = [];
+			let lang, quotes = [];
 
 			DB.getData('choices', function(data) {
 				data = data.val();
@@ -243,6 +231,7 @@ let game = [
 			});
 		
 			setTimeout(function(){
+				if(lang===null) lang = 'EN';
 			 	let l2 = Math.round(Math.random()*4)+1;
 			 	
 			 	let refq = firebase.database().ref('quotes/'+lang+'/'+l2);
@@ -429,8 +418,6 @@ let game = [
 					if(choice===undefined) send(msg, 'Choose between 3 champion :\n• **Ashe**\n• **Garen**\n• **Ryze**\n`a!champ {champion name}` to see image of a champion');
 					else {
 						choice = choice.toLowerCase();
-						console.log(choice);
-						console.log(champions.indexOf(choice));
 						if(champions.indexOf(choice)==-1) send(msg, 'You only can choose between **Ashe**, **Garen** and **Ryze**');
 						else {
 							let stats;

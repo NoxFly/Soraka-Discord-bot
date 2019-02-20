@@ -1,4 +1,4 @@
-const check2 = function(arr) {
+const checkPerms = function(arr) {
     let e = "";
     var c = {
         8 : "admin",
@@ -42,4 +42,4 @@ const check2 = function(arr) {
 	return e;
 };
 
-module.exports = check2;
+module.exports = checkPerms;
