@@ -120,7 +120,6 @@ function get_command(msg, command, aCommands = []) {
 			send(msg, "Command does not exist");											// si la commande n'existe pas
 		}
 	} catch(error) {
-		send(msg, "something went wrong");
 		console.log(error);
 	}
 }
