@@ -96,27 +96,32 @@ function removeBlanks(args) {
 
 // vérifie que la commande existe : true --> execute | false --> error message
 function get_command(msg, command, aCommands = []) {
-	let idx = name_commands.indexOf(command.split(" ")[0]);
-	if(idx>-1) {																		// si on retrouve la commande parmis celles disponibles
-		command = name_commands[idx];
-		let args = [];
-		args = msg.content.split(command)[1].split(" ");								// on recupere les arguments
-		args = removeBlanks(args);
-		
-		console.log(msg.author.username+" send ["+command+"] with args: ", args);
-		if(aCommands[idx].group=="hidden" && !admin(msg.author.id)) return;				// si c'est une commande cachée et pas admin
-		Database.profile(msg.author.id);
-		try {aCommands[idx].result(msg, args)}											// on essaie d'executer la commande
-		catch (error) {																	// s'il y a une erreur on envoie un log
-			console.log(error);
-			let embed = new Discord.RichEmbed()
-				.setAuthor('⚠️ Error ('+error.name+')')
-				.setColor(0xFFA500)
-				.setDescription('```'+error.message+'```');
-			send(msg, embed);
+	try {
+		let idx = name_commands.indexOf(command.split(" ")[0]);
+		if(idx>-1) {																		// si on retrouve la commande parmis celles disponibles
+			command = name_commands[idx];
+			let args = [];
+			args = msg.content.split(command)[1].split(" ");								// on recupere les arguments
+			args = removeBlanks(args);
+			
+			console.log(msg.author.username+" send ["+command+"] with args: ", args);
+			if(aCommands[idx].group=="hidden" && !admin(msg.author.id)) return;				// si c'est une commande cachée et pas admin
+			Database.profile(msg.author.id);
+			try {aCommands[idx].result(msg, args)}											// on essaie d'executer la commande
+			catch (error) {																	// s'il y a une erreur on envoie un log
+				console.log(error);
+				let embed = new Discord.RichEmbed()
+					.setAuthor('⚠️ Error ('+error.name+')')
+					.setColor(0xFFA500)
+					.setDescription('```'+error.message+'```');
+				send(msg, embed);
+			}
+		} else {
+			send(msg, "Command does not exist");											// si la commande n'existe pas
 		}
-	} else {
-		send(msg, "Command does not exist");											// si la commande n'existe pas
+	} catch(error) {
+		send(msg, "something went wrong");
+		console.log(error);
 	}
 }
 

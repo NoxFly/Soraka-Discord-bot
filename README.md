@@ -23,7 +23,10 @@
 <pre>version : 1.3</pre>
 • League of Legend game in private message with Ahri. Fight look like Pokemon in DS. You gain xp, gems, and each champion you beat belong to you.
 <br>
+<pre>version : 1.4</pre>
+• Some argument tools were created, to minimize regex usage | not stable version --> Heroku tests
+<br>
 <h1>Other</h1>
-<br>a shop to equip your champion will be created
+<br>a shop to equip your champion and some champion level's algo will be created
 <br>
 <br>Create your own Discord Bot : https://discordapp.com/developers

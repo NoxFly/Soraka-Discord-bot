@@ -256,7 +256,7 @@ let game = [
 		name: 'rps',
 		description: 'Play Rock Paper Scissors with me :scissors: lose or win 10 :gem:',
 		usage: '`a!rps {weapon}`',
-		group: 'game',
+		group: 'hidden',
 		result: (msg) => {
 			let weapon = msg.content.split('rps ')[1];
 			if(weapon===undefined) send(msg, 'Choose a weapon !');
@@ -447,7 +447,10 @@ let game = [
 	},
 
 	{
-        name: 'select',
+		name: 'select',
+		description: 'select your ingame champion',
+		group: 'game',
+		usage: 'a!select {champion}',
         result: (msg) => {
 			let game;
 			DB.profile(msg.author.id).getData('game', function(data) {

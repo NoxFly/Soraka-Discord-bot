@@ -5,7 +5,7 @@ function send(msg, message) {
 }
 
 let utility = [
-    {
+  {
 		name : 'date',
 		description : 'say the current date',
 		usage : '`a!date`',

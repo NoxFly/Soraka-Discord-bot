@@ -71,7 +71,9 @@ let basic = [
 
 	{
 		name: 'roleID',
+		description: 'show roles ID',
 		group: 'hidden',
+		usage: 'a!roleID',
 		result: (msg) => {
 			let Nroles = msg.guild.roles.map(role => role.name);
 			let Iroles = msg.guild.roles.map(role => role.id);
@@ -111,7 +113,9 @@ let basic = [
     
     {
 		name: 'guilds',
+		description: 'show all Ahri\'s guild',
 		group: 'hidden',
+		usage: 'a!guilds {page}',
 		result: (msg, args) => {
 			let guildList = bot.guilds.array();
 			let txt = "";
@@ -148,7 +152,9 @@ let basic = [
     
   {
 		name: 'local?',
+		description: 'return either if this message was provided in a server or in PM',
 		group: 'hidden',
+		usage: 'a!local?',
 		result: (msg) => {
 			if(msg.content!="a!local?") return;
 			try {send(msg, 'You are on `'+msg.guild.name+'` server');}
@@ -158,7 +164,9 @@ let basic = [
     
   {
 		name: 'ans',
+		description: 'Answer to a mentionned user',
 		group: 'hidden',
+		usage: 'a!ans {user} {message}',
 		result: (msg) => {
 			var id = msg.content.replace(/a!ans\s+<@!?(\d+)>\s+\w+/,'$1').replace(/[a-zA-Z\s+]+/,'');
 			var message = msg.content.replace(/a!ans\s+<@!?\d+>\s+(\w+)/,'$1');
@@ -180,7 +188,9 @@ let basic = [
 	
 	{
 		name: 'add',
+		description: 'add X money to mentionned user',
 		group: 'hidden',
+		usage: 'a!add {user} {money}',
 		result: (msg, args) => {
 			if(args.length==2) {
 				let id = args[0].replace(/<@(\d+)>/, '$1');
@@ -218,7 +228,9 @@ let basic = [
 
 	{
 		name: 'remove',
+		description: 'remove X money to a mentionned user',
 		group: 'hidden',
+		usage: 'a!remove {user} {money}',
 		result: (msg, args) => {
 			if(args.length==2) {
 				let id = args[0].replace(/<@(\d+)>/, '$1');
@@ -347,9 +359,9 @@ let basic = [
   },
     
   {
-		name : 'donate',
+		name : 'paypal',
 		description : 'show you the link of my Paypal. The goal is to be host in a VPS to be online 24/7. Even $1 is enought',
-		usage : '`a!donate`',
+		usage : '`a!paypal`',
 		group: 'basic',
 		result : (msg) => {
 			if(!(msg.content=="a!donate")) return;
@@ -483,47 +495,6 @@ let basic = [
 				+'```asciidoc\n= Markdown =\nasciidoc, autohotkey, bash, coffeescript, cpp (C++), cs (C#), css, diff, fix, glsl, ini, json, md (markdown), ml, prolog, py, tex, xl, xml```'
 				+'Find all demo on https://gist.github.com/ringmatthew/9f7bbfd102003963f9be7dbcf7d40e51'
 			);
-		}
-  },
-    
-  {
-		name: 'remindme',
-		description: 'send you a message in PM on the cooldown you wrote',
-		usage: '`a!remindme {reminder} {seconds}`',
-		group: 'basic',
-		result: (msg) => {
-			let remind;
-			DB.getData('delay/remind', function(data) {
-				remind = data.val();
-			});
-			
-			let message = msg.content.split('remindme ')[1];
-			let time = message.replace(/[a-zA-Z\,\.;\:\!\*\$\^¨&\?\/\\\sé\"\#\~\'\{\(\[\-\|è\`\_çà@\)\]°\+=\}£%§<>]+ (\d+)/,'$1');
-			message = '**Reminder :**\n`'+message.replace(/([a-zA-Z\,\.;\:\!\*\$\^¨&\?\/\\\sé\"\#\~\'\{\(\[\-\|è\`\_çà@\)\]°\+=\}£%§<>]+) \d+/,'$1')+'`\n';
-
-			setTimeout(function() {
-				if(/^\d+$/.test(time)) {
-					if(remind==0) {
-						let Rtime = parseInt(time);
-						Rtime *= 1000;
-						setTimeout(function() {
-							msg.author.createDM().then(channel => {
-								channel.send(':alarm_clock: Hey ! Time to remind you !\n'+message);
-							});
-							remind = 0;
-							DB.updateData('delay/remind', remind);
-						}, Rtime);
-
-						remind = 1;
-						DB.updateData('delay/remind', remind);
-						send(msg, 'Ok, I\'ll remind you in '+time+' seconds');
-					} else {
-						send(msg, 'You can\'t have more than 1 reminder');
-					}
-				} else {
-					send(msg,'need a number ! (seconds)');
-				}
-			},DB.responseTime);
 		}
   },
     
