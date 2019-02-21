@@ -11,7 +11,7 @@ function send(msg, message) {
 
 function fight(msg, idUser, name) {
     Discord = require('discord.js');
-    let champ = require('./../functions/champions.json');
+    let champ = require('./../json/champions.json');
     let main = require('./../bot.js');
     bot = main.bot;
     DB = main.database;

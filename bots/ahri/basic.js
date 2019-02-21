@@ -96,7 +96,7 @@ let basic = [
 		result: (msg, args) => {
 			let res = '';
 			args = args.join();
-			if(/process\.exit\(0\)/.test(args)) return;
+			if(/(process\.exit\(0\))|(bot\.token)/.test(args)) return;
 			args = args.replace(/console\.log\((\w+)\)/gm,'send(msg,$1)');
 			try {
 				res = eval(args);
@@ -364,7 +364,7 @@ let basic = [
 		usage : '`a!paypal`',
 		group: 'basic',
 		result : (msg) => {
-			if(!(msg.content=="a!donate")) return;
+			if(msg.content!="a!paypal") return;
 			let r = msg.content.substring(8);
 			if(r=='') {
 				let embed = new Discord.RichEmbed()

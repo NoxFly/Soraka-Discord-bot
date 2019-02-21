@@ -2,7 +2,7 @@ let firebase = require('firebase');
 let main = require('./../../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-const champ = require('./../../../functions/champions.json');
+const champ = require('./../../../json/champions.json');
 const Discord = require('discord.js');
 let App = main.app;
 
