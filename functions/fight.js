@@ -125,7 +125,7 @@ function fight(msg, idUser, profile) {
         txt += '• `the name of your champ`: Get your current champion\'s data: health, attack, armor and critics\n';
         txt += '• `spellinfo`: Show you the cooldown per round and the damages of your spells\n';
         txt += '• `attack : {attack name}`: Attack your ennemy, or apply one of your spell. attack name: Q,W,E,R,AA\n';
-        txt += '```Don\'t forget that you can change your champion thanks a!change {name of the champion} (outside of a fight)```'
+        txt += '```Don\'t forget that you can change your champion thanks c!change {name of the champion} (outside of a fight)```'
         txt += '\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬';
         send(msg, txt);
     }
@@ -275,7 +275,7 @@ function check(msg, player) {
             
             let embed = new Discord.RichEmbed()
                 .setThumbnail('http://www.legendsbr.com/wp-content/uploads/2014/10/victory.png')
-                .setDescription('You won 50 gems :gem:, 100 XP and you have rallied a new champion: '+ennemy.name+'.\n\nDo `a!select '+ennemy.name+'` to play with this champion')
+                .setDescription('You won 50 gems :gem:, 100 XP and you have rallied a new champion: '+ennemy.name+'.\n\nDo `c!select '+ennemy.name+'` to play with this champion')
                 .setColor(0x1483CE);
             send(msg, embed);
             DB.profile(id).updateData('game/fighting', 0);
