@@ -364,7 +364,11 @@ let basic = [
 		usage: 'a!paypal',
 		group: 'basic',
 		result : (msg) => {
+<<<<<<< HEAD
 			if(!(msg.content=="a!paypal")) return;
+=======
+			if(msg.content!="a!paypal") return;
+>>>>>>> 16d4df475fb9ea99c4968e916de26a4c7b583fd8
 			let r = msg.content.substring(8);
 			if(r=='') {
 				let embed = new Discord.RichEmbed()

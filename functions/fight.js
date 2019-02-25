@@ -6,7 +6,10 @@ function send(msg, message) {
 function fight(msg, idUser, profile) {
     Discord = require('discord.js');
     let champ = require('./../json/champions.json');
+<<<<<<< HEAD
     let items = require('./../json/items.json');
+=======
+>>>>>>> 16d4df475fb9ea99c4968e916de26a4c7b583fd8
     let main = require('./../bot.js');
     bot = main.bot;
     DB = main.database;

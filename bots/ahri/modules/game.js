@@ -3,7 +3,10 @@ let main = require('./../../../bot.js');
 let bot = main.bot;
 let DB = main.database;
 const champ = require('./../../../json/champions.json');
+<<<<<<< HEAD
 const items = require('./../../../json/items.json');
+=======
+>>>>>>> 16d4df475fb9ea99c4968e916de26a4c7b583fd8
 const Discord = require('discord.js');
 let App = main.app;
 

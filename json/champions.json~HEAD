@@ -13,19 +13,19 @@
     "spells": {
       "Q": {
         "damages": 125,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": 25,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": -1,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 150,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -44,19 +44,19 @@
     "spells": {
       "Q": {
         "damages": 65,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": 65,
-        "delay": 3
+        "cooldown": 3
       },
       "E": {
         "damages": 90,
-        "delay": 4
+        "cooldown": 4
       },
       "R": {
         "damages": 120,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -74,19 +74,19 @@
     "spells": {
       "Q": {
         "damages": 65,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": -1,
-        "delay": 4
+        "cooldown": 4
       },
       "E": {
         "damages": 70,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 300,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -105,19 +105,19 @@
     "spells": {
       "Q": {
         "damages": 105,
-        "delay": 4
+        "cooldown": 4
       },
       "W": {
         "damages": 110,
-        "delay": 4
+        "cooldown": 4
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": -2,
-        "delay": 5
+        "cooldown": 5
       }
     },
     "magic": 32
@@ -136,19 +136,19 @@
     "spells": {
       "Q": {
         "damages": 130,
-        "delay": 4
+        "cooldown": 4
       },
       "W": {
         "damages": 45,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 100,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 250,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -167,19 +167,19 @@
     "spells": {
       "Q": {
         "damages": 85,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": -1,
-        "delay": 3
+        "cooldown": 3
       },
       "E": {
         "damages": 75,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 220,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -197,19 +197,19 @@
     "spells": {
       "Q": {
         "damages": 80,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": -2,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 400,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -228,19 +228,19 @@
     "spells": {
       "Q": {
         "damages": 80,
-        "delay": 4
+        "cooldown": 4
       },
       "W": {
         "damages": 35,
-        "delay": 3
+        "cooldown": 3
       },
       "E": {
         "damages": -4,
-        "delay": 6
+        "cooldown": 6
       },
       "R": {
         "damages": 600,
-        "delay": 7
+        "cooldown": 7
       }
     },
     "magic": 30
@@ -259,19 +259,19 @@
     "spells": {
       "Q": {
         "damages": 110,
-        "delay": 4
+        "cooldown": 4
       },
       "W": {
         "damages": 45,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": -1,
-        "delay": 5
+        "cooldown": 5
       },
       "R": {
         "damages": 350,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -290,19 +290,19 @@
     "spells": {
       "Q": {
         "damages": 80,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": 60,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": -1,
-        "delay": 4
+        "cooldown": 4
       },
       "R": {
         "damages": 450,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -321,19 +321,19 @@
     "spells": {
       "Q": {
         "damages": 125,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": -3,
-        "delay": 4
+        "cooldown": 4
       },
       "E": {
         "damages": -1,
-        "delay": 4
+        "cooldown": 4
       },
       "R": {
         "damages": -3,
-        "delay": 4
+        "cooldown": 4
       }
     },
     "magic": 30
@@ -352,19 +352,19 @@
     "spells": {
       "Q": {
         "damages": 135,
-        "delay": 4
+        "cooldown": 4
       },
       "W": {
         "damages": -1,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 61,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 500,
-        "delay": 5
+        "cooldown": 5
       }
     },
     "magic": 32
@@ -382,19 +382,19 @@
     "spells": {
       "Q": {
         "damages": 110,
-        "delay": 3
+        "cooldown": 3
       },
       "W": {
         "damages": 120,
-        "delay": 3
+        "cooldown": 3
       },
       "E": {
         "damages": 90,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 300,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -413,19 +413,19 @@
     "spells": {
       "Q": {
         "damages": 105,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": -2,
-        "delay": 3
+        "cooldown": 3
       },
       "E": {
         "damages": -2,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 350,
-        "delay": 4
+        "cooldown": 4
       }
     },
     "magic": 32
@@ -443,19 +443,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -474,19 +474,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -504,19 +504,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -535,19 +535,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -565,19 +565,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -596,19 +596,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -627,19 +627,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -657,19 +657,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -688,19 +688,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -719,19 +719,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -750,19 +750,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -781,19 +781,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -812,19 +812,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -843,19 +843,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -874,19 +874,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -905,19 +905,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -936,19 +936,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -966,19 +966,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -997,19 +997,19 @@
     "spells": {
       "Q": {
         "damages": 60,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": -2,
-        "delay": 3
+        "cooldown": 3
       },
       "E": {
         "damages": 72,
-        "delay": 3
+        "cooldown": 3
       },
       "R": {
         "damages": 525,
-        "delay": 7
+        "cooldown": 7
       }
     },
     "magic": 32
@@ -1028,19 +1028,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1059,19 +1059,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1089,19 +1089,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1120,19 +1120,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1151,19 +1151,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1182,19 +1182,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1213,19 +1213,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1244,19 +1244,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1275,19 +1275,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1306,19 +1306,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1337,19 +1337,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1368,19 +1368,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1399,19 +1399,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1429,19 +1429,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1459,19 +1459,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1489,19 +1489,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1520,19 +1520,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1550,19 +1550,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1581,19 +1581,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1612,19 +1612,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1643,19 +1643,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1674,19 +1674,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1705,19 +1705,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1736,19 +1736,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1766,19 +1766,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1797,19 +1797,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1828,19 +1828,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1859,19 +1859,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1890,19 +1890,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1921,19 +1921,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -1951,19 +1951,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -1981,19 +1981,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2012,19 +2012,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2043,19 +2043,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2074,19 +2074,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2105,19 +2105,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2136,19 +2136,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2167,19 +2167,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2197,19 +2197,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2228,19 +2228,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2258,19 +2258,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2289,19 +2289,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2320,19 +2320,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2351,19 +2351,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2382,19 +2382,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2413,19 +2413,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2444,19 +2444,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2475,19 +2475,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2506,19 +2506,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2537,19 +2537,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2568,19 +2568,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2599,19 +2599,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2630,19 +2630,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2661,19 +2661,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2692,19 +2692,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2722,19 +2722,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -2753,19 +2753,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2783,19 +2783,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2814,19 +2814,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2845,19 +2845,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2876,19 +2876,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2907,19 +2907,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -2938,19 +2938,19 @@
     "spells": {
       "Q": {
         "damages": 85,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 100,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 90,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": -1,
-        "delay": 4
+        "cooldown": 4
       }
     },
     "magic": 30
@@ -2969,19 +2969,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 27
@@ -2999,19 +2999,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3029,19 +3029,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3060,19 +3060,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3091,19 +3091,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3122,19 +3122,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3152,19 +3152,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3183,19 +3183,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3214,19 +3214,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3245,19 +3245,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3276,19 +3276,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3307,19 +3307,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3338,19 +3338,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3369,19 +3369,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3400,19 +3400,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 39
@@ -3431,19 +3431,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3462,19 +3462,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3493,19 +3493,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3524,19 +3524,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3555,19 +3555,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3586,19 +3586,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3616,19 +3616,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3647,19 +3647,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3678,19 +3678,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3709,19 +3709,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3740,19 +3740,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3771,19 +3771,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3801,19 +3801,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3831,19 +3831,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3862,19 +3862,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3892,19 +3892,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3923,19 +3923,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -3954,19 +3954,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -3985,19 +3985,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -4015,19 +4015,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -4046,19 +4046,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -4077,19 +4077,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -4108,19 +4108,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -4139,19 +4139,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -4170,19 +4170,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -4201,19 +4201,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 32
@@ -4231,19 +4231,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -4262,19 +4262,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -4293,19 +4293,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
@@ -4324,19 +4324,19 @@
     "spells": {
       "Q": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "W": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "E": {
         "damages": 50,
-        "delay": 2
+        "cooldown": 2
       },
       "R": {
         "damages": 500,
-        "delay": 6
+        "cooldown": 6
       }
     },
     "magic": 30
