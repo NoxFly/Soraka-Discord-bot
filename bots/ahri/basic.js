@@ -363,21 +363,14 @@ let basic = [
 		description : 'show you the link of my Paypal. The goal is to be host in a VPS to be online 24/7. Even $1 is enought',
 		usage: 'a!paypal',
 		group: 'basic',
-		result : (msg) => {
-<<<<<<< HEAD
-			if(!(msg.content=="a!paypal")) return;
-=======
+		result : (msg, args) => {
 			if(msg.content!="a!paypal") return;
->>>>>>> 16d4df475fb9ea99c4968e916de26a4c7b583fd8
-			let r = msg.content.substring(8);
-			if(r=='') {
-				let embed = new Discord.RichEmbed()
-					.setTitle('My paypal :')
-					.setColor(0x007FFF)
-					.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online 24/7. \n$12 = 1 year')
-					.addField('Link :','https://paypal.me/NoxFly');
-				send(msg, embed);
-			}
+			let embed = new Discord.RichEmbed()
+				.setTitle('My paypal :')
+				.setColor(0x007FFF)
+				.addField('Why donate to Paypal ?','My goal is to be host on a VPS to be online 24/7. \n$12 = 1 year')
+				.addField('Link :','https://paypal.me/NoxFly');
+			send(msg, embed);
 		}
   },
     
