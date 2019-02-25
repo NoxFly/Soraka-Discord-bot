@@ -25,15 +25,16 @@ let name_commands = [];		//
 let App = [];				//
 let G_mod = [];				//
 let timeExe = 0;			//
+let profile = [];			//
 //////////////////////////////
 
 // BOTS INFOS
 //////////////////////////////////////////////////////////////////////////////////
 let aBotList = [																//
 	{																			//
-		'name'	:	'ahri',														//
+		'name'	:	'caitlyn',													//
 		'tag'  	: 	'a!',														//
-		'id'	:	'477918672732553216',										//
+		'id'	:	'443430082459992065',										//
 		'token' :	process.env.TOKEN											//
 	}																			//
 ];																				//
@@ -95,7 +96,7 @@ function removeBlanks(args) {
 }
 
 // vérifie que la commande existe : true --> execute | false --> error message
-function get_command(msg, command, aCommands = []) {
+function get_command(msg, command, aCommands = [], profile) {
 	try {
 		let idx = name_commands.indexOf(command.split(" ")[0]);
 		if(idx>-1) {																		// si on retrouve la commande parmis celles disponibles
@@ -107,7 +108,7 @@ function get_command(msg, command, aCommands = []) {
 			console.log(msg.author.username+" send ["+command+"] with args: ", args);
 			if(aCommands[idx].group=="hidden" && !admin(msg.author.id)) return;				// si c'est une commande cachée et pas admin
 			Database.profile(msg.author.id);
-			try {aCommands[idx].result(msg, args)}											// on essaie d'executer la commande
+			try {aCommands[idx].result(msg, args, profile)}											// on essaie d'executer la commande
 			catch (error) {																	// s'il y a une erreur on envoie un log
 				console.log(error);
 				let embed = new Discord.RichEmbed()
@@ -175,6 +176,10 @@ function requestMessage(msg, params) {
 		}
 
 		setTimeout(function() {
+			Database.profile(id).getData("", function(data) {
+				profile = data.val();
+			});
+
 			exportObj.app = App;														// App disponible dans d'autres fichiers
 			for(i in G_mod) {															// pour chaque module
 				if(G_mod[i]!='test') mod.push(G_mod[i]);								// si ce n'est pas le test qui sert à combler
@@ -216,15 +221,16 @@ function requestMessage(msg, params) {
 				fighting = data.val();
 			});
 
-			Database.profile(id).getData('game/params', function(data) {				// on recupere les donnees du jeu du user
-				champion = data.val();
+			Database.profile(id).getData('', function(data) {							// on recupere les donnees du jeu du user
+				profile = data.val();
 			});
 
 			setTimeout(function() {
-				if(fighting==1) {														// s'il est en fight, on peut lui dire qu'il est en jeu
+				if(fighting==1) {
+					champion = profile.game.params;										// s'il est en fight, on peut lui dire qu'il est en jeu
 					if(App[id].champion===undefined) App[id].champion = champion;		// s'il n'a pas de champion par defaut
 					exportObj.app = App;												// on export pour d'autres fichiers
-					fight(msg, id, name);												// on lance le combat / la reponse
+					fight(msg, id, profile);										// on lance le combat / la reponse
 					return;																// ne continue pas le programme car pas besoin
 				}
 			}, DB.responseTime);
@@ -234,7 +240,7 @@ function requestMessage(msg, params) {
 	setTimeout(function() {
 		if(msg.content.indexOf(params.tag) === 0) {										// on regarde s'il y a le tag
 			let command = msg.content.split(params.tag)[1];								// on enleve le tag
-			get_command(msg, command, commands);										// on regarde si la commande existe : execute
+			get_command(msg, command, commands, profile);										// on regarde si la commande existe : execute
 		}
 	}, timeExe+3);
 }

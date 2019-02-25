@@ -35,7 +35,7 @@ let basic = [
 					let cmdName = mod_commands[i].name;
 					if(args[0]==cmdName && mod_commands[i].group!="hidden" || args[0]==cmdName && admin(msg.author.id)) {
 						text = "  • `"+cmdName+"` : "
-								+mod_commands[i].description+'\n\tWrite → '+mod_commands[i].usage;
+								+mod_commands[i].description+'\n\tWrite → `'+mod_commands[i].usage+"`";
 							send(msg, text);
 							return;
 					}
@@ -51,14 +51,14 @@ let basic = [
 						let m = cmd.group;
 						if(m===undefined) m = "basic";
 						m = "\n__**"+m.charAt(0).toUpperCase()+m.slice(1)+"**__\n";
-						if(c!=m) {
+						if(a!=m) {
 							msg.author.send(txt);
 								txt = "";
 							txt += m;
 
 						}
 						c = m;
-						txt += "• `"+cmd.name+"` : "+cmd.description+"\n\t→"+cmd.usage+"\n";
+						txt += "• `"+cmd.name+"` : "+cmd.description+"\n\t→`"+cmd.usage+"`\n";
 					}
 				}
 				msg.author.send(txt);
@@ -96,7 +96,7 @@ let basic = [
 		result: (msg, args) => {
 			let res = '';
 			args = args.join();
-			if(/process\.exit\(0\)/.test(args)) return;
+			if(/(process\.exit\(0\))|(bot\.token)/.test(args)) return;
 			args = args.replace(/console\.log\((\w+)\)/gm,'send(msg,$1)');
 			try {
 				res = eval(args);
@@ -269,7 +269,7 @@ let basic = [
 	{
 		name : 'reset',
 		description : 'reset your password',
-		usage : '`a!reset`',
+		usage: 'a!reset',
 		group: 'hidden',
 		result : (msg) => {
 			if(msg.content!="a!reset") return;
@@ -302,7 +302,7 @@ let basic = [
   {
 		name: 'server',
 		description : 'display the informations of the server.',
-		usage: '`a!server`',
+		usage: 'a!server',
 		group: 'basic',
 		result : (msg) => {
 			if(msg.content!="a!server") return;
@@ -340,7 +340,7 @@ let basic = [
 	{
 		name : 'invite',
 		description : 'display the invite link of the super bot Ahri.',
-		usage : '`a!invite`',
+		usage: 'a!invite',
 		group: 'basic',
 		result : (msg) => {
 			if(!(msg.content=="a!invite")) return;
@@ -361,10 +361,10 @@ let basic = [
   {
 		name : 'paypal',
 		description : 'show you the link of my Paypal. The goal is to be host in a VPS to be online 24/7. Even $1 is enought',
-		usage : '`a!paypal`',
+		usage: 'a!paypal',
 		group: 'basic',
 		result : (msg) => {
-			if(!(msg.content=="a!donate")) return;
+			if(!(msg.content=="a!paypal")) return;
 			let r = msg.content.substring(8);
 			if(r=='') {
 				let embed = new Discord.RichEmbed()
@@ -380,7 +380,7 @@ let basic = [
   {
 		name: 'ping',
 		description: 'Show the ms you have between when you send message and my reaction',
-		usage: '`a!ping`',
+		usage: 'a!ping',
 		group: 'basic',
 		result: (msg) => {
 			if(!(msg.content=="a!ping")) return;
@@ -391,7 +391,7 @@ let basic = [
   {
 		name: 'modules',
 		description: 'Show possible extensions of Ahri. These extensions add more commands and unlock more possibilities.',
-		usage: '`a!modules`',
+		usage: 'a!modules',
 		group: 'basic',
 		result: (msg) => {
       if(!(msg.content=="a!modules")) return;
@@ -486,7 +486,7 @@ let basic = [
   {
 		name: 'markdown',
 		description: 'Show you all markdown possibilities',
-		usage: '`a!markdown`',
+		usage: 'a!markdown',
 		group: 'basic',
 		result: (msg) => {
 			if(!(msg.content=="a!markdown")) return;

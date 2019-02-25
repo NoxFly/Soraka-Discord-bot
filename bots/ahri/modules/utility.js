@@ -8,7 +8,7 @@ let utility = [
   {
 		name : 'date',
 		description : 'say the current date',
-		usage : '`a!date`',
+		usage: 'a!date',
 		group: 'utility',
 		result : (msg) => {
 			if(!(msg.content=="a!date")) send(msg, 'There is no need for argument');

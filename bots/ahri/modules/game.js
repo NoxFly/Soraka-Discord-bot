@@ -2,7 +2,8 @@ let firebase = require('firebase');
 let main = require('./../../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-const champ = require('./../../../functions/champions.json');
+const champ = require('./../../../json/champions.json');
+const items = require('./../../../json/items.json');
 const Discord = require('discord.js');
 let App = main.app;
 
@@ -18,11 +19,11 @@ function send(msg, message) {
 
 let game = [
     {
-		name : 'loveme',
-		description : 'say yes or no.',
-		usage : '`a!loveme`',
+		name: 'loveme',
+		description: 'say yes or no.',
+		usage: 'a!loveme',
 		group: 'game',
-		result : (msg) => {
+		result: (msg) => {
 			if(!(msg.content=="a!loveme")) send(msg, 'Juste write `a!loveme ...`');
 			let love = ['yes :heart:','no :broken_heart:'];
 			send(msg, 'My answer is '+love[Math.round(Math.random())]);
@@ -30,11 +31,11 @@ let game = [
 	},
 
 	{
-		name : 'dice',
-		description : 'roll a 6-sides dice.',
-		usage : '`a!dice` `a number from 1 to 6`',
+		name: 'dice',
+		description: 'roll a 6-sides dice.',
+		usage: 'a!dice` `a number from 1 to 6',
 		group: 'game',
-		result : (msg) => {
+		result: (msg) => {
 			if(/^(dice \d+)$/.test(msg.content.split('a!')[1])) {
 				let n = msg.content.split('dice ')[1];
 				
@@ -57,7 +58,7 @@ let game = [
     {
 		name: 'champ',
 		description: 'Show image of a League of Legends champion',
-		usage: '`a!champ {name} {skin digit}`',
+		usage: 'a!champ {name} {skin digit}',
 		group: 'game',
 		result: (msg, args) => {
 			if(msg.content=='a!champ') {
@@ -126,11 +127,11 @@ let game = [
     },
     
     {
-		name : 'toss',
-		description : 'heads or tails ?\n \tYou win double your bet or you lose your bet',
-		usage : '`a!toss` `head / tails` `an integer`,\n\tfor example : a!toss tails 50',
+		name: 'toss',
+		description: 'heads or tails ?\n \tYou win double your bet or you lose your bet',
+		usage: 'a!toss {head/tails} {integer}',
 		group: 'game',
-		result : (msg, args) => {
+		result: (msg, args) => {
 			if(args.length!=2 || !/heads|tails/.test(args[0]) || !/^[0-9]+$/.test(args[1])) {
 				send(msg, 'You need to chose `heads` or `tails` and an integer');
 				return;
@@ -190,11 +191,11 @@ let game = [
 	},
 
 	{
-		name : 'joke',
-		description : 'let me tell you a joke...',
-		usage : '`a!joke`',
+		name: 'joke',
+		description: 'let me tell you a joke...',
+		usage: 'a!joke',
 		group: 'game',
-		result : (msg) => {
+		result: (msg) => {
 			let refj = firebase.database().ref('jokes');
 			 
 			let jokes = [];
@@ -218,11 +219,11 @@ let game = [
 	},
 
 	{
-		name : 'quote',
-		description : 'let me tell you a quotation...',
-		usage : '`a!quote`',
+		name: 'quote',
+		description: 'let me tell you a quotation...',
+		usage: 'a!quote',
 		group: 'game',
-		result : (msg) => {
+		result: (msg) => {
 			let lang, quotes = [];
 
 			DB.getData('choices', function(data) {
@@ -255,7 +256,7 @@ let game = [
 	{
 		name: 'rps',
 		description: 'Play Rock Paper Scissors with me :scissors: lose or win 10 :gem:',
-		usage: '`a!rps {weapon}`',
+		usage: 'a!rps {weapon}',
 		group: 'hidden',
 		result: (msg) => {
 			let weapon = msg.content.split('rps ')[1];
@@ -322,40 +323,23 @@ let game = [
 	{
 		name: 'fight',
 		description: 'fight a random champion, and win xp and gems. You only lose gems',
-		usage: '`a!fight`',
+		usage: 'a!fight',
 		group: 'game',
-		result: (msg) => {
+		result: (msg, args, profile) => {
 			if(msg.content!=='a!fight') send(msg, "Dont't need any argument");
-			let owned = 0;
-			DB.getData('game/owned', function(data) {
-				owned = data.val();
-			});
-
-			setTimeout(function() {
-				if(owned===0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
-				else {
-					let champion;
-					DB.getData('game/champion', function(data) {
-						champion = data.val();
-					});
-
-					let fighting;
-					DB.getData('game/fighting', function(data) {
-						fighting = data.val();
-					});
-
-					setTimeout(function() {
-						if(fighting==0) {
-							send(msg, ':crossed_swords: fight mode activated\nThis fight is in MP with me');
-							send(msg, 'Champion selected: '+champion);
-							DB.updateData('game/fighting', 1);
-							msg.author.send('You don\'t need to write the tag while you are fighting (only for the fight)\n**Write anything to start**');
-						} else {
-							send(msg, 'You already are on fight mode');
-						}
-					},DB.responseTime);
+			if(profile.game.owned==0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
+			else {
+				let champion = profile.game.champion;
+				let fighting = profile.game.fighting;
+				if(fighting==0) {
+					send(msg, ':crossed_swords: fight mode activated\nThis fight is in MP with me');
+					send(msg, 'Champion selected: '+champion);
+					DB.updateData('game/fighting', 1);
+					msg.author.send('You don\'t need to write the tag while you are fighting (only for the fight)\n**Write anything to start**');
+				} else {
+					send(msg, 'You already are on fight mode');
 				}
-			},DB.responseTime);
+			}
 		}
 	},
 
@@ -364,85 +348,63 @@ let game = [
 		description: 'stop fight',
 		usage: '`a!fight`',
 		group: 'game',
-		result: (msg) => {
+		result: (msg, args, profile) => {
 			if(msg.content!=='a!stopfight') send(msg, "Dont't need any argument");
 			if(!admin(msg.author.id)) return;
-			let owned = 0;
-			DB.getData('game/owned', function(data) {
-				owned = data.val();
-			});
 
-			setTimeout(function() {
-				if(owned===0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
-				else {
-					let champion;
-					DB.getData('game/champion', function(data) {
-						champion = data.val();
-					});
+			if(profile.game.owned===0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
+			else {
+				let fighting = profile.game.fighting;
 
-					let fighting;
-					DB.getData('game/fighting', function(data) {
-						fighting = data.val();
-					});
-
-					setTimeout(function() {
-						if(fighting==1) {
-							send(msg, ':crossed_swords: You stopped fight');
-							App[msg.author.id] = undefined;
-							DB.updateData('game/fighting', 0);
-						} else {
-							send(msg, 'You already don\'t are on fight mode');
-						}
-					},DB.responseTime);
+				if(fighting==1) {
+					send(msg, ':crossed_swords: You stopped fight');
+					App[msg.author.id] = undefined;
+					DB.updateData('game/fighting', 0);
+				} else {
+					send(msg, 'You already don\'t are on fight mode');
 				}
-			},DB.responseTime);
+			}
 		}
 	},
 
 	{
 		name: 'choose',
 		description: 'Chose your first champion !',
-		usage: '`a!choose {champion}`',
+		usage: 'a!choose {champion}',
 		group: 'game',
-		result: (msg) => {
-			let owned;
-			DB.getData('game/owned', function(data) {
-				owned = data.val();
-			});
+		result: (msg, args, profile) => {
+			if(profile.game.owned==0) {
+				let champions = ['ashe','garen','ryze'];
 
-			setTimeout(function() {
-				if(owned==0) {
-					let choice = msg.content.split('choose ')[1];
-					let champions = ['ashe','garen','ryze'];
-
-					if(choice===undefined) send(msg, 'Choose between 3 champion :\n• **Ashe**\n• **Garen**\n• **Ryze**\n`a!champ {champion name}` to see image of a champion');
+				if(args.length!=1) send(msg, 'Choose between 3 champion :\n• **Ashe**\n• **Garen**\n• **Ryze**\n`a!champ {champion name}` to see image of a champion');
+				else {
+					let choice = args[0].toLowerCase();
+					if(champions.indexOf(choice)==-1) send(msg, 'You only can choose between **Ashe**, **Garen** and **Ryze**');
 					else {
-						choice = choice.toLowerCase();
-						if(champions.indexOf(choice)==-1) send(msg, 'You only can choose between **Ashe**, **Garen** and **Ryze**');
-						else {
-							let stats;
-							for(i in champ) {
-								let ch = champ[i].name;
-								ch = ch.toLowerCase();
-								if(choice==ch) {
-									stats = champ[i];
-								}
+						let stats;
+						for(i in champ) {
+							let ch = champ[i].name;
+							ch = ch.toLowerCase();
+							if(choice==ch) {
+								stats = champ[i];
 							}
-
-							choice = choice[0].toUpperCase()+choice.substring(1);
-							send(msg, 'You chose '+choice);
-							DB.updateData('game/owned', 1);
-							DB.updateData('game/champion', choice);
-							DB.updateData('game/params', stats);
-							DB.updateData('param/BG', 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+choice+'_0.jpg');
-
-							DB.updateData('game/championList', {0:choice});
 						}
+						
+						stats.cooldown = 0;
+
+						choice = choice[0].toUpperCase()+choice.substring(1);
+						send(msg, 'You chose '+choice);
+						profile.game.owned = 1;
+						profile.game.champion = choice;
+						profile.game.params = stats;
+						profile.game.championList = {0: choice};
+						profile.param.BG = 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+choice+'_0.jpg';
+						DB.updateData('', profile);
 					}
-				} else {
-					send(msg, 'You already choose your first champion :stuck_out_tongue:');
 				}
-			},DB.responseTime);
+			} else {
+				send(msg, 'You already choose your first champion :stuck_out_tongue:');
+			}
 		}
 	},
 
@@ -451,48 +413,174 @@ let game = [
 		description: 'select your ingame champion',
 		group: 'game',
 		usage: 'a!select {champion}',
-        result: (msg) => {
-			let game;
-			DB.profile(msg.author.id).getData('game', function(data) {
-				game = data.val();
-			});
+    	result: (msg, args, profile) => {
+			if(!args[0]) {
+				send(msg, 'Choose a champion');
+				return;
+			}
 
-			let champion = msg.content.split('select ')[1];
-
-			setTimeout(function() {
-				if(game.owned==0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
-				else if(champion===undefined) send(msg, 'Choose a champ you have');
-				else if(game.fighting) send(msg, 'You are on fight');
-				else {
-					champion = champion.toLowerCase();
-					let possible = [];
-					let j;
-					for(i=0; i<game.championsList.length; i++) {
-						possible.push(game.championsList[i].toLowerCase());
-					}
-					if(possible.indexOf(champion)!==-1) {
-						let reg = new RegExp(champion);
-
-						for(i=0; i<champ.length; i++) {
-							if(reg.test(champ[i].name.toLowerCase())) j = i;
-						}
-
-						let embed = new Discord.RichEmbed()
-							.setAuthor('New selection :')
-							.setColor(0x1483CE)
-							.setThumbnail("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[j].name+".png")
-							.setDescription('You chose '+champ[j].name);
-						send(msg, embed);
-
-						DB.updateData('game/champion', champ[j].name);
-						DB.updateData('game/params', champ[j]);
-						DB.updateData('param/BG', 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+champ[j].name+'_0.jpg');
-					}
-					else send(msg, 'You don\'t have this champion');
+			if(profile.game.owned==0) send(msg, 'You didn\'t choose your first champion !\nDo `a!choose`');
+			else if(profile.game.fighting) send(msg, 'You are on fight');
+			else {
+				champion = args.join(" ").toLowerCase();
+				let possible = [];
+				let j = 0;
+				for(i=0; i<profile.game.championList.length; i++) {
+					possible.push(profile.game.championList[i].toLowerCase());
 				}
-			}, DB.responseTime);
+				
+				if(possible.indexOf(champion)!==-1) {
+					for(i=0; i<champ.length; i++) {
+						if(champ[i].name.toLowerCase()==champion) j = i;
+					}
+					
+					let embed = new Discord.RichEmbed()
+						.setAuthor('New selection :')
+						.setColor(0x1483CE)
+						.setThumbnail("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[j].name.replace(" ","")+".png")
+						.setDescription('You chose '+champ[j].name);
+					send(msg, embed);
+
+					profile.game.champion = champ[j].name;
+					profile.game.params = champ[j];
+					profile.game.params.cooldown = 0;
+					profile.param.BG = 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+champ[j].name.replace(" ","")+'_0.jpg';
+
+					DB.updateData('', profile);
+				} else send(msg, 'You don\'t have this champion');
+			}
         }
 	},
+
+	{
+		name: 'shop',
+		description: 'use shop to buy items to grow up your champion\'s skill',
+		group: 'game',
+		usage: 'a!shop [info](optionnal) {item}',
+		result: (msg, args, profile) => {
+			if(profile.game.owned==0) {
+				send(msg, "You must write `a!choose` to initiate your profile's game");
+			} else if(args.length>0 && args[0]!="info") {
+				if(profile.game.items.length==7) {
+					send(msg, "You already have 6 items. Sell one to save place");
+					return;
+				}
+				// achete un item
+				args[1] = args.join(" ").toLowerCase().replace(/(\s+)|(info)|'/g, "");
+				let reg = new RegExp(args[1]);
+				let txtTip = "Item not found. Maybe one of this :\n```\n";
+				for(i in items) {
+					let itemName = items[i].name.toLowerCase().replace(/\s+|'/, "");
+					if(itemName!=args[1] && reg.test(itemName)) {
+						txtTip += items[i].name+"\n";
+						item = true;
+					} else if(itemName==args[1]) {
+						let money = profile.data.money;
+						if(money>=items[i].price) {
+							for(j in profile.game.items) {
+								if(profile.game.items[j]==items[i].name) {
+									send(msg, "You already have this item");
+									return;
+								}
+							}
+							let embed = new Discord.RichEmbed()
+								.setTitle("You bought **"+items[i].name+"**")
+								.setColor(0xf9b234)
+								.setDescription(items[i].plaintext)
+								.setThumbnail(items[i].icon)
+								.addField("Sold:", "-"+items[i].price+" :gem:");
+							send(msg, embed);
+							profile.data.money -= items[i].price;
+							profile.game.items[Object.keys(profile.game.items).length] = items[i].name;
+							DB.updateData("", profile);
+						}
+						else send(msg, "You don't have enought money");
+						return;
+					}
+				}
+				txtTip += "```";
+				send(msg, txtTip);
+			} else if(args.length>=2 && args[0]=="info") {
+				// infos sur un item
+				args[1] = args.join(" ").toLowerCase().replace(/(\s+)|(info)|'/g, "");
+				let reg = new RegExp(args[1]);
+				let item = null;
+				for(i in items) {
+					let itemName = items[i].name.toLowerCase().replace(/\s+|'/, "");
+					if(itemName==args[1] || reg.test(itemName)) {
+						let embed = new Discord.RichEmbed()
+							.setTitle(items[i].name)
+							.setColor(0xf9b234)
+							.setDescription(items[i].plaintext)
+							.setThumbnail(items[i].icon)
+							.addField("Price", items[i].price+" :gem:");
+						send(msg, embed);
+						item = true;
+					}
+				}
+				
+				if(!item) send(msg, "item not found");
+			} else if(args.length==0) {
+				// affiche un tableau de tous les items (juste le nom)
+				let itemNames = "```\n";
+				for(i in items) itemNames += items[i].name+(" ".repeat(25-items[i].name.length))+((i%3==0 && i!=0)?"\n":"");
+				itemNames += "\n\nTotal items: "+(++i)+"```";
+				send(msg, itemNames);
+			}
+		}
+	},
+
+	{
+		name: "sell",
+		description: "sell item(s) you equiped to fight",
+		usage: "a!sell item",
+		group: "game",
+		result: (msg, args, profile) => {
+			if(profile.game.owned==0) {
+				send(msg, "You must write `a!choose` to initiate your profile's game");
+			} else if(args.length==0) {
+				send(msg, "You must write which item you want to sell");
+			} else {
+				let itemList = [];
+				for(i in profile.game.items) {
+					itemList.push(profile.game.items[i].toLowerCase());
+				}
+				let itemToSell = args.join(" ").toLowerCase();
+				let idx =itemList.indexOf(itemToSell);
+				if(idx===-1) {
+					send(msg, "item not found");
+				} else {
+					send(msg, "item sold");
+					profile.game.items.splice(idx, 1);
+					DB.updateData("game/items", profile.game.items);
+				}
+			}
+		}
+	},
+
+	{
+		name: "items",
+		description: "Show items you equiped to fight",
+		usage: "a!items",
+		group: "game",
+		result: (msg, args, profile) => {
+			if(profile.game.owned==0) {
+				send(msg, "You must write `a!choose` to initiate your profile's game");
+				return;
+			} else if(args.length==0) {
+				let itemList = "";
+				for(i in profile.game.items) {
+					itemList += "- "+profile.game.items[i]+"\n";
+				}
+
+				let embed = new Discord.RichEmbed()
+					.setTitle("Your items:")
+					.setColor(0xf9b234)
+					.setDescription(itemList);
+				send(msg, embed);
+			}
+		}
+	}
 ];
 
 module.exports = game;

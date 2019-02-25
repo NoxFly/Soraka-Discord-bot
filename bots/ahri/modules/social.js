@@ -2,7 +2,6 @@ let firebase = require('firebase');
 let main = require('./../../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-const champ = require('./../../../functions/champions.json');
 const Discord = require('discord.js');
 const fs = require('fs');
 let App = main.app;
@@ -250,7 +249,7 @@ let social = [
 	{
 		name:'top',
 		description: 'show the scoreboard of Ahri\'s users (sort by XP)',
-		usage: '`a!top`',
+		usage: 'a!top',
 		group: 'social',
 		result: (msg, args) => {
 			getTop(msg, args);
@@ -259,7 +258,7 @@ let social = [
 	{
 		name:'scoreboard',
 		description: 'show the scoreboard of Ahri\'s users (sort by XP)',
-		usage: '`a!scoreboard`',
+		usage: 'a!scoreboard',
 		group: 'social',
 		result: (msg, args) => {
 			getTop(msg, args);

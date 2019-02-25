@@ -2,7 +2,6 @@ let firebase = require('firebase');
 let main = require('./../../../bot.js');
 let bot = main.bot;
 let DB = main.database;
-const champ = require('./../../../functions/champions.json');
 const Discord = require('discord.js');
 const fs = require('fs');
 let App = main.app;
@@ -80,7 +79,7 @@ let personal = [
 	{
 		name : 'mynotes',
 		description : 'show your personnals note.',
-		usage : '`a!mynote`',
+		usage: 'a!mynote',
 		group: 'personal',
 		result : (msg) => {
 			if(msg.content!="a!mynotes") return;
@@ -189,7 +188,7 @@ let personal = [
   {
 		name : 'daily',
 		description : 'Obtain daily xp and money (200 gems and 20xp) each 12 hours.',
-		usage : '`a!daily`',
+		usage: 'a!daily',
 		group: 'personal',
 		result : (msg) => {
 			if(!(msg.content=="a!daily")) return;
@@ -232,7 +231,7 @@ let personal = [
 	{
 		name : 'money',
 		description : 'show your personal gems.',
-		usage : '`a!money`',
+		usage: 'a!money',
 		group: 'personal',
 		result : (msg) => {
 			if(!(msg.content=="a!money")) return;
@@ -251,7 +250,7 @@ let personal = [
 	{
 		name: 'profile',
 		description : 'show a profile',
-		usage: '`a!profile`',
+		usage: 'a!profile',
 		group: 'personal',
 		result: (msg, args) => {
 			let iID;

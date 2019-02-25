@@ -20,7 +20,7 @@ let management = [
     {
 		name: 'id',
 		description : 'display id of the server.',
-		usage: '`a!id`',
+		usage: 'a!id',
 		group: 'management',
 		result: (msg) => {
 			if(!(msg.content=="a!id")) send(msg, "There is no need for argument");
@@ -38,7 +38,7 @@ let management = [
 	{
 		name: 'deleteChannel',
 		description : 'delete the current channel.',
-		usage: '`a!deleteChannel`',
+		usage: 'a!deleteChannel',
 		group: 'management',
 		result: (msg) => {
 			if(msg.content!="a!deleteChannel") return;
@@ -62,7 +62,7 @@ let management = [
 	{
 		name: 'clearChannel',
 		description : 'Clear recent discussion of the current channel',
-		usage: '`a!clearChannel`',
+		usage: 'a!clearChannel',
 		group: 'management',
 		result: (msg) => {
 			if(!(msg.content=="a!clearChannel")) send(msg, "There is no need for argument");

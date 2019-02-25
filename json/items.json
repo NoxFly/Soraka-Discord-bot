@@ -1,0 +1,541 @@
+[
+    {
+        "name": "Abyssal Mask",
+        "plaintext": "Enemy take more magic damage",
+        "stats": {
+            "health": 350,
+            "magic": 55,
+            "cooldown": 10
+        },
+        "id": "3001",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3001.png",
+        "price": 3000
+    },
+    {
+        "name": "Archangel's Staff",
+        "plaintext": "Increases Ability Power based on maximum Mana",
+        "stats": {
+            "AP": 50,
+            "cooldown": 10
+        },
+        "id": "3003",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3003.png",
+        "price":  3200
+    },
+    {
+        "name": "Manamune",
+        "plaintext": "Increases Attack Damage based on maximum Mana",
+        "stats": {
+            "attack": 25
+        },
+        "id": "3004",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3004.png",
+        "price": 2400
+    },
+    {
+        "name": "Frozen Mallet",
+        "plaintext": "Basic attacks slow enemies",
+        "stats": {
+            "attack": 30,
+            "health": 700
+        },
+        "id": "3022",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3022.png",
+        "price": 3100
+    },
+    {
+        "name": "Iceborn Gauntlet",
+        "plaintext": "Basic attacks create a slow field after spell cast",
+        "stats": {
+            "armor": 65,
+            "cooldown": 20
+        },
+        "id": "3025",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3025.png",
+        "price": 2700
+    },
+    {
+        "name": "Rod of Ages",
+        "plaintext": "Greatly increases Health, Mana, and Ability Power",
+        "stats": {
+            "health": 300,
+            "AP": 60
+        },
+        "id": "3027",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3027.png",
+        "price": 2700
+    },
+    {
+        "name": "Hextech GLP-800",
+        "plaintext": "Activate to fire icy bolts to slow enemies",
+        "stats": {
+            "cooldown": 10,
+            "AP": 80
+        },
+        "id": "3030",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3030.png",
+        "price": 2800
+    },
+    {
+        "name": "Infinity Edge",
+        "plaintext": "Massively enhances critical strikes",
+        "stats": {
+            "attack": 80,
+            "critics": 25
+        },
+        "id": "3031",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3031.png",
+        "price": 3400
+    },
+    {
+        "name": "Mortal Reminder",
+        "plaintext": "Overcomes enemies with high Health recovery and Armor",
+        "stats": {
+            "attack": 45
+        },
+        "id": "3033",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3033.png",
+        "price": 2800
+    },
+    {
+        "name": "Lord Dominik's Regards",
+        "plaintext": "Overcomes enemies with high health and armor",
+        "stats": {
+            "attack": 45
+        },
+        "id": "3036",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3036.png",
+        "price": 2800
+    },
+    {
+        "name": "Phantom Dancer",
+        "plaintext": "Move faster near enemies and reduce incoming damage",
+        "stats": {
+            "critics": 25
+        },
+        "id": "3046",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3046.png",
+        "price": 2600
+    },
+    {
+        "name": "Sterak's Gage",
+        "plaintext": "Shields against large bursts of damage",
+        "stats": {
+            "health": 450,
+            "attack": 50
+        },
+        "id": "3053",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3053.png",
+        "price": 3200
+    }, {
+        "name": "Spirit Visage",
+        "plaintext": "Increases Health and healing effects",
+        "stats": {
+            "health": 450,
+            "magic": 55,
+            "cooldown": 10
+        },
+        "id": "3065",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3065.png",
+        "price": 2800
+    },
+    {
+        "name": "Sunfire Cape",
+        "plaintext": "Constantly deals damage to nearby enemies",
+        "stats": {
+            "health": 425,
+            "armor": 60
+        },
+        "id": "3068",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3068.png",
+        "price": 2750
+    },
+    {
+        "name": "The Black Cleaver",
+        "plaintext": "Dealing physical damage to enemy champions reduces their Armor",
+        "stats": {
+            "attack": 40,
+            "health": 400,
+            "cooldown": 20
+        },
+        "id": "3071",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3071.png",
+        "price": 3000
+    },
+    {
+        "name": "The Bloodthirster",
+        "plaintext": "Grants Attack Damage, Life Steal and Life Steal now overheals",
+        "stats": {
+            "attack": 80
+        },
+        "id": "3072",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3072.png",
+        "price": 3500
+    },
+    {
+        "name": "Ravenous Hydra",
+        "plaintext": "Melee attacks hit nearby enemies, dealing damage and restoring Health",
+        "stats": {
+            "attack": 80
+        },
+        "id": "3074",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3074.png",
+        "price": 3500
+    },
+    {
+        "name": "Thornmail",
+        "plaintext": "Returns damage taken from basic attacks as magic damage",
+        "stats": {
+            "armor": 80,
+            "attack": 25,
+            "health": 250
+        },
+        "id": "3075",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3075.png",
+        "price": 2900
+    },
+    {
+        "name": "Trinity Force",
+        "plaintext": "Tons of Damage",
+        "stats": {
+            "attack": 25,
+            "health": 250,
+            "cooldown": 20
+        },
+        "id": "3078",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3078.png",
+        "price": 3733
+    },
+    {
+        "name": "Warmog's Armor",
+        "plaintext": "Grants massive Health and Health Regen",
+        "stats": {
+            "health": 800,
+            "cooldown": 10
+        },
+        "id": "3083",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3083.png",
+        "price": 2850
+    },
+    {
+        "name": "Runaan's Hurricane",
+        "plaintext": "Ranged attacks fire two bolts at nearby enemies",
+        "stats": {
+            "critics": 25
+        },
+        "id": "3085",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3085.png",
+        "price": 2600
+    },
+    {
+        "name": "Statikk Shiv",
+        "plaintext": "Movement builds charges that release chain lightning on basic attack",
+        "stats": {
+            "critics": 25
+        },
+        "id": "3087",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3087.png",
+        "price": 2600
+    },
+    {
+        "name": "Rabadon's Deathcap",
+        "plaintext": "Massively increases Ability Power",
+        "stats": {
+            "AP": 120
+        },
+        "id": "3089",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3089.png",
+        "price": 3600
+    },
+    {
+        "name": "Wit's End",
+        "plaintext": "Deals bonus magic damage on basic attacks",
+        "stats": {
+            "magic": 40,
+            "AP": 45
+        },
+        "id": "3091",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3091.png",
+        "price": 2400
+    },
+    {
+        "name": "Rapid Firecannon",
+        "plaintext": "Movement builds charges that release a sieging fire attack on release",
+        "stats": {
+            "critics": 25
+        },
+        "id": "3094",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3094.png",
+        "price": 2600
+    },
+    {
+        "name": "Lich Bane",
+        "plaintext": "Grants a bonus to next attack after spell cast",
+        "stats": {
+            "AP": 80,
+            "cooldown": 10
+        },
+        "id": "3100",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3100.png",
+        "price": 3200
+    },
+    {
+        "name": "Banshee's Veil",
+        "plaintext": "Periodically blocks enemy abilities",
+        "stats": {
+            "cooldown": 10,
+            "magic": 60,
+            "AP": 75
+        },
+        "id": "3102",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3102.png",
+        "price": 3000
+    },
+    {
+        "name": "Knight's Vow",
+        "plaintext": "Partner with an ally to protect each other",
+        "stats": {
+            "health": 250,
+            "armor": 40,
+            "cooldown": 10
+        },
+        "id": "3109",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3109.png",
+        "price": 2200
+    },
+    {
+        "name": "Frozen Heart",
+        "plaintext": "Massively increases Armor and slows enemy basic attacks",
+        "stats": {
+            "armor": 100,
+            "cooldown": 20
+        },
+        "id": "3110",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3110.png",
+        "price": 2700
+    },
+    {
+        "name": "Nashor's Tooth",
+        "plaintext": "Increases Attack Speed, Ability Power, and Cooldown Reduction",
+        "stats": {
+            "AP": 80,
+            "cooldown": 20,
+            "AD": 15
+        },
+        "id": "3115",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3115.png",
+        "price": 3000
+    },
+    {
+        "name": "Rylai's Crystal Scepter",
+        "plaintext": "Abilities slow enemies",
+        "stats": {
+            "health": 300,
+            "AP": 90
+        },
+        "id": "3116",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3116.png",
+        "price": 2600
+    },
+    {
+        "name": "Guinsoo's Rageblade",
+        "plaintext": "Increases Ability Power and Attack Damage",
+        "stats": {
+            "attack": 25,
+            "AP": 25,
+            "AD": 15
+        },
+        "id": "3124",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3124.png",
+        "price": 3100
+    },
+    {
+        "name": "Void Staff",
+        "plaintext": "Increases magic damage",
+        "stats": {
+            "AP": 70
+        },
+        "id": "3135",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3135.png",
+        "price": 2650
+    },
+    {
+        "name": "Mercurial Scimitar",
+        "plaintext": "Activate to remove all crowd control debuffs and grant massive Movement Speed",
+        "stats": {
+            "attack": 50,
+            "magic": 35
+        },
+        "id": "3139",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3139.png",
+        "price": 3400
+    },
+    {
+        "name": "Youmuu's Ghostblade",
+        "plaintext": "Activate to greatly increase Movement Speed",
+        "stats": {
+            "attack": 55,
+            "cooldown": 10
+        },
+        "id": "3142",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3142.png",
+        "price": 2900
+    },
+    {
+        "name": "Randuin's Omen",
+        "plaintext": "Greatly increases defenses, activate to slow nearby enemies",
+        "stats": {
+            "health": 400,
+            "armor": 60
+        },
+        "id": "3143",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3143.png",
+        "price": 2900
+    },
+    {
+        "name": "Hextech Gunblade",
+        "plaintext": "Increases Attack Damage and Ability Power, activate to slow a target",
+        "stats": {
+            "attack": 40,
+            "AP": 80
+        },
+        "id": "3146",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3146.png",
+        "price": 3400
+    },
+    {
+        "name": "Duskblade of Draktharr",
+        "plaintext": "Deals additional true damage on-hit and provides true sight periodically",
+        "stats": {
+            "attack": 55,
+            "cooldown": 10
+        },
+        "id": "3147",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3147.png",
+        "price": 2900
+    },
+    {
+        "name": "Liandry's Torment",
+        "plaintext": "Spell damage burns enemies for a portion of their Health",
+        "stats": {
+            "health": 300,
+            "AP": 75
+        },
+        "id": "3151",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3151.png",
+        "price": 3100
+    },
+    {
+        "name": "Hextech Protobelt-01",
+        "plaintext": "Activate to dash forward and unleash a fiery explosion",
+        "stats": {
+            "health": 300,
+            "AP": 60,
+            "cooldown": 10
+        },
+        "id": "3152",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3152.png",
+        "price": 2500
+    },
+    {
+        "name": "Blade of the Ruined King",
+        "plaintext": "Deals damage based on target's Health, can steal Movement Speed",
+        "stats": {
+            "attack": 40
+        },
+        "id": "3153",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3153.png",
+        "price": 3200
+    },
+    {
+        "name": "Maw of Malmortius",
+        "plaintext": "Grants bonus Attack Damage when Health is low",
+        "stats": {
+            "attack": 50,
+            "magic": 50,
+            "cooldown": 10
+        },
+        "id": "3156",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3156.png",
+        "price": 3250
+    },
+    {
+        "name": "Morellonomicon",
+        "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
+        "stats": {
+            "AP": 70,
+            "health": 300
+        },
+        "id": "3165",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3165.png",
+        "price": 3000
+    },
+    {
+        "name": "Athene's Unholy Grail",
+        "plaintext": "Deal damage to empower your heals and shields",
+        "stats": {
+            "magic": 30,
+            "AP": 30,
+            "cooldown": 10
+        },
+        "id": "3174",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3174.png",
+        "price": 2100
+    },
+    {
+        "name": "Luden's Echo",
+        "plaintext": "Movement and casting builds charges that release chain lightning on next spell hit",
+        "stats": {
+            "AP": 100,
+            "cooldown": 20
+        },
+        "id": "3285",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3285.png",
+        "price": 3200
+    },
+    {
+        "name": "Essence Reaver",
+        "plaintext": "Critical Strike provides Cooldown Reduction and Mana",
+        "stats": {
+            "attack": 65,
+            "critics": 25,
+            "cooldown": 20
+        },
+        "id": "3508",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3508.png",
+        "price": 3200
+    },
+    {
+        "name": "Titanic Hydra",
+        "plaintext": "Deals area of effect damage based on owner's health",
+        "stats": {
+            "attack": 40,
+            "health": 450
+        },
+        "id": "3748",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3748.png",
+        "price": 3500
+    },
+    {
+        "name": "Death's Dance",
+        "plaintext": "Trades incoming damage now for incoming damage later",
+        "stats": {
+            "attack": 80,
+            "cooldown": 10
+        },
+        "id": "3812",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3812.png",
+        "price": 3500
+    },
+    {
+        "name": "Edge of Night",
+        "plaintext": "Blocks an incoming enemy spell.",
+        "stats": {
+            "attack": 55,
+            "health": 250
+        },
+        "id": "3814",
+        "icon": "http://ddragon.leagueoflegends.com/cdn/8.9.1/img/item/3814.png",
+        "price": 3000
+    }
+]
