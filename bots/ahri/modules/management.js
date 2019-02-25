@@ -43,9 +43,9 @@ let management = [
 		result: (msg) => {
 			if(msg.content!="a!deleteChannel") return;
 			if(msg.author.id==msg.guild.ownerID || admin(msg.channel.id)) {
-				let a = 3;
+				let a = 3, i;
 				msg.channel.send('This channel will be delete in '+a).then((msg) => {
-					let i = setInterval(function() {
+					i = setInterval(function() {
 						if(a>0) {
 							a--;
 							msg.edit('This channel will be delete in '+a);
@@ -65,11 +65,11 @@ let management = [
 		usage: 'a!clearChannel',
 		group: 'management',
 		result: (msg) => {
-			if(!(msg.content=="a!clearChannel")) send(msg, "There is no need for argument");
+			if(msg.content!="a!clearChannel") send(msg, "There is no need for argument");
 			if(msg.author.id==msg.guild.ownerID || admin(msg.author.id)) {
 				msg.channel.fetchMessages().then(function(list) {
 					msg.channel.bulkDelete(list);
-				}, function(err) {send(msg,'Error')});
+				}, function(error) {send(msg,'Error')});
 			}
     }
   },
@@ -77,42 +77,41 @@ let management = [
   {
 		name : 'role',
 		description : 'Add or remove to you a role of a server.',
-		usage : '`a!role {role}`',
+		usage : 'a!role {role}',
 		group: 'management',
-		result : (msg) => {
-			let Nroles = msg.guild.roles.map(role => role.name);			
-			let NRoles = Nroles.toString().split(',');
-			let txt = '';
+		result : (msg, args) => {
+			let Nroles = (msg.guild.roles.map(role => role.name)).toString().split(","),
+				txt = '',
+				tt = 0,
+				embed; add, roles, rolesID, roleID, role, a, r, aRole, regRole;
 			
-			if(/roles(list)?/.test(msg.content)) {
-				for(i in NRoles) {
-					if(i==0) continue;
-					txt += NRoles[i]+/*' ('+IRoles[i]+')*/'\n';
+			tt = Nroles.length-1;
+			
+			if(msg.content=="role" || msg.content=="roles") {
+				for(i in Nroles) {
+					if(i>0) txt += Nroles[i]+'\n';
 				}
 				
-				let tt = (NRoles.length)-1;
-				let embed = new Discord.RichEmbed()
+				tt = (Nroles.length)-1;
+				embed = new Discord.RichEmbed()
 					.setTitle('List of roles in '+msg.guild.name+' server')
 					.setColor(0x007FFF)
 					.addField('Total roles : '+tt,txt);
 				 
 				send(msg, embed);
-			} else {
-				let add = msg.content.split('role ')[1];
-				let roles = msg.guild.roles.map(role => role.name);
-				let rolesID = msg.guild.roles.map(role => role.id);
-				roleID = rolesID.toString().split(',');
-				let role;
+			} else if(args.length>0) {
+				add = args.join(" ");
+				roles = msg.guild.roles.map(role => role.name);
+				role;
 
 				try {
 					if(!(/,/.test(add))) {
-						let a = 0;
-						let aRole;
-						
-						let regRole = add.toLowerCase();
-						regRole = new RegExp(regRole);
+						a = 0;
+						aRole;
+						regRole = new RegExp(add.toLowerCase());
+
 						for(i=1; i<roles.length; i++) {
-							let r = roles[i].toLowerCase();
+							r = roles[i].toLowerCase();
 							if(regRole.test(r)) {
 								aRole = roles[i];
 								role = msg.guild.roles.find('name',roles[i]).id;
@@ -120,9 +119,9 @@ let management = [
 							}
 						}
 
-						if(a==0) send(msg, 'The role doesn\'t exist');
-
-						if(msg.guild.members.get(msg.author.id).roles.has(role)) {
+						if(a==0) {
+							send(msg, 'The role doesn\'t exist');
+						} else if(msg.guild.members.get(msg.author.id).roles.has(role)) {
 							msg.guild.members.get(msg.author.id).removeRole(role);
 							setTimeout(function() {
 								if(!msg.guild.members.get(msg.author.id).roles.has(role)) {
@@ -130,7 +129,7 @@ let management = [
 								} else {
 									send(msg,'this role cannot be removed :thinking:');
 								}
-							},1000);
+							}, 1000);
 						} else {
 							msg.guild.members.get(msg.author.id).addRole(role);
 							setTimeout(function() {
@@ -144,13 +143,12 @@ let management = [
 					}
 
 				} catch(error) {
-					 
-					for(i in NRoles) {
+					for(i in Nroles) {
 						if(i==0) continue;
-						txt += NRoles[i]+'\n';
+						txt += Nroles[i]+'\n';
 					}
-			
-					let tt = (NRoles.length)-1;
+					
+					let tt = (Nroles.length)-1;
 					let embed = new Discord.RichEmbed()
 						.setTitle('List of roles in '+msg.guild.name+' server')
 						.setColor(0x007FFF)
@@ -164,20 +162,20 @@ let management = [
   {
 		name: 'perm',
 		description: 'Show permission of a role',
-		usage: '`a!perm role_name`',
+		usage: 'a!perm role_name',
 		group: 'management',
 		result: (msg) => {
 			if(admin(msg.author.id)) {
 				let role = msg.content.split('perm ')[1];
-				let id = msg.guild.roles.find('name',role);
+				let id = msg.guild.roles.find('name', role);
 				
-				if(id==null) {
-					send(msg, "The role probably does not exist");
-				} else {
-					let perm = msg.guild.roles.find('name',role).permissions;
-					let x = 100;
+				if(id==null) send(msg, "The role probably does not exist");
+				else {
+					let perm = msg.guild.roles.find('name',role).permissions,
+						x = 100,
+						arr = [],
+						p = "";
 					let a = perm;
-					let arr = [];
 					while(a>0){
 						var b = a - Math.pow(2,x);
 						if(parseInt(b) == (b) && b>=0){
@@ -187,7 +185,6 @@ let management = [
 						x--;
 					}
 
-					let p = "";
 					p = checkPerms(arr,p);
 					send(msg, "Permissions of the role "+role+" : ```"+p+"```");
 				}

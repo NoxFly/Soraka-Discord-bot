@@ -33,7 +33,7 @@ let game = [
 	{
 		name: 'dice',
 		description: 'roll a 6-sides dice.',
-		usage: 'a!dice` `a number from 1 to 6',
+		usage: 'a!dice a number from 1 to 6',
 		group: 'game',
 		result: (msg) => {
 			if(/^(dice \d+)$/.test(msg.content.split('a!')[1])) {
@@ -131,62 +131,55 @@ let game = [
 		description: 'heads or tails ?\n \tYou win double your bet or you lose your bet',
 		usage: 'a!toss {head/tails} {integer}',
 		group: 'game',
-		result: (msg, args) => {
+		result: (msg, args, profile) => {
 			if(args.length!=2 || !/heads|tails/.test(args[0]) || !/^[0-9]+$/.test(args[1])) {
 				send(msg, 'You need to chose `heads` or `tails` and an integer');
 				return;
 			}
 			
-			let money = 0,
+			let money = profile.data.money,
 				n = args[0],
 				somme = args[1],
 				p,r,s;
 
-			DB.getData('data', function(data) {
-				data = data.val();
-				money = data.money;
-			});
-
-			setTimeout(function(){
-				if(money>0 && somme>money) {
-					send(msg, 'You can\'t bet greater than gem you have. :scales:');
+			if(money>0 && somme>money) {
+				send(msg, 'You can\'t bet greater than gem you have. :scales:');
+			} else {
+				if(money==0) {
+					send(msg, 'Sorry, you can play this game only if you have gems.\n To obtain gems, write a!daily each 12 hours !');
 				} else {
-					if(money==0) {
-						send(msg, 'Sorry, you can play this game only if you have gems.\n To obtain gems, write a!daily each 12 hours !');
+					r = (Math.round(Math.random()))? 'heads':'tails';
+					(n==r)? p = 'win ' : p = 'lose ';
+				
+					if(p=='win ') {
+						somme *= 2;
+						s = ' :gem:';
 					} else {
-						r = (Math.round(Math.random()))? 'heads':'tails';
-						(n==r)? p = 'win ' : p = 'lose ';
-					
-						if(p=='win ') {
-							somme *= 2;
-							s = ' :gem:';
-						} else {
-							somme = -somme;
-							s = '';
-						}
-
-						money += somme;
-						if(money < 0) money = 0;
-					
-						DB.setData('data/money', money);
-					
-						msg.channel.send('The piece turn on itself').then(message => {
-							setTimeout(function() {
-								message.edit('The piece turn on itself.');
-							}, 500);
-							setTimeout(function() {
-								message.edit('The piece turn on itself..');
-							}, 1000);
-							setTimeout(function() {
-								message.edit('The piece turn on itself...');
-							}, 1500);
-							setTimeout(function() {
-								message.edit('the piece turns on itself...\n'+r+' ! You '+p+Math.abs(somme)+s+'\nYour gems : ' + money);
-							},2000);
-						});
+						somme = -somme;
+						s = '';
 					}
+
+					money += somme;
+					if(money < 0) money = 0;
+				
+					DB.setData('data/money', money);
+				
+					msg.channel.send('The piece turn on itself').then(message => {
+						setTimeout(function() {
+							message.edit('The piece turn on itself.');
+						}, 500);
+						setTimeout(function() {
+							message.edit('The piece turn on itself..');
+						}, 1000);
+						setTimeout(function() {
+							message.edit('The piece turn on itself...');
+						}, 1500);
+						setTimeout(function() {
+							message.edit('the piece turns on itself...\n'+r+' ! You '+p+Math.abs(somme)+s+'\nYour gems : ' + money);
+						},2000);
+					});
 				}
-			},DB.responseTime);
+			}
 		}
 	},
 
@@ -346,7 +339,7 @@ let game = [
 	{
 		name: 'stopfight',
 		description: 'stop fight',
-		usage: '`a!fight`',
+		usage: 'a!fight',
 		group: 'game',
 		result: (msg, args, profile) => {
 			if(msg.content!=='a!stopfight') send(msg, "Dont't need any argument");
@@ -570,7 +563,7 @@ let game = [
 			} else if(args.length==0) {
 				let itemList = "";
 				for(i in profile.game.items) {
-					itemList += "- "+profile.game.items[i]+"\n";
+					if(i>0) itemList += "- "+profile.game.items[i]+"\n";
 				}
 
 				let embed = new Discord.RichEmbed()

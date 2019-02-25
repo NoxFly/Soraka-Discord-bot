@@ -23,7 +23,7 @@ let basic = [
 	{
 		name : 'help',
 		description : 'say the list of commands and their explanation. if you add a key command behind `a!help`, it will say you the explanation of this key command.',
-		usage : '`a!help` `key (optional)`',
+		usage : 'a!help {command}(optional)',
 		group: 'basic',
 		result : (msg, args) => {
 			let mod_commands = basic.concat(main.commands);
@@ -416,7 +416,7 @@ let basic = [
 	{
 		name: 'config',
 		description: 'Some possible configurations, and adding or removing modules',
-		usage: '`a!config {config}`',
+		usage: 'a!config {config}',
 		group: 'basic',
 		result: (msg) => {
 			let App = main.app;
@@ -498,40 +498,37 @@ let basic = [
   {
 		name : 'return',
 		description : 'send a message to Ahri\'s creator.',
-		usage : '`a!return` `your message`',
+		usage : 'a!return your message',
 		group: 'basic',
-		result : (msg) => {
+		result : (msg, args, profile) => {
+			if(args.length==0) {
+				send(msg, 'Lol, my creator will not read an empty message, don\'t you ? :grimacing::joy:');
+				return;
+			}
 			let name = msg.author.username+'#'+msg.author.discriminator;
-			let authorMSG = msg.content.split('return ')[1];
+			let authorMSG = args.join(" ");
 
-			if(authorMSG===undefined) send(msg, 'Lol, my creator will not read an empty message, don\'t you ? :grimacing::joy:');
 
-			let mpAuth, ans;
-			let Now = Date.now();
-			DB.getData('delay/mpAuth', function(data) {
-				mpAuth = data.val();
-			});
+			let mpAuth = profile.data.mpAuth, ans = 0;
 
-			setTimeout(function() {
-				ans = mtsm(85400000-parseInt(Now-mpAuth));
-				if(Now-mpAuth >=85400000) {
-					mpAuth = Now;
-					send(msg, ':incoming_envelope: :calling: message sent');
+			ans = mtsm(85400000-parseInt(Now-mpAuth));
+			if(Now-mpAuth >=85400000) {
+				mpAuth = Now;
+				send(msg, ':incoming_envelope: :calling: message sent');
 
-					DB.updateData('delay/mpAuth', mpAuth);
-					let embed = new Discord.RichEmbed()
-						.setTitle('You received a message from')
-						.addField(name, msg.author.id)
-						.setColor(0x007FFF)
-						.setThumbnail(msg.author.avatarURL)
-						.addField("message :", authorMSG);
-		
-					bot.users.get('316639200462241792').createDM().then(channel => {
-						channel.send(embed);
-					});
-				}
-				send(msg, 'You need to wait **'+ans+'** to send a new message :hourglass:');
-			},DB.responseTime);
+				DB.updateData('delay/mpAuth', mpAuth);
+				let embed = new Discord.RichEmbed()
+					.setTitle('You received a message from')
+					.addField(name, msg.author.id)
+					.setColor(0x007FFF)
+					.setThumbnail(msg.author.avatarURL)
+					.addField("message :", authorMSG);
+	
+				bot.users.get('316639200462241792').createDM().then(channel => {
+					channel.send(embed);
+				});
+			}
+			send(msg, 'You need to wait **'+ans+'** to send a new message :hourglass:');
 		}
 	}
 ];

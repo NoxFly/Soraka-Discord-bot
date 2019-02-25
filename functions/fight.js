@@ -53,7 +53,7 @@ function fight(msg, idUser, profile) {
     }
     ennemy = App[id].adv;
     champion = App[id].champion;
-    if(commande=='ennemy') {
+    if(commande==ennemy.name.toLowerCase()) {
         let TMPname = ennemy.name.replace(/(\s+|\.)+/,'');
         let Ename = '';
         let index = TMPname.indexOf("'");
@@ -86,7 +86,7 @@ function fight(msg, idUser, profile) {
         send(msg, embed);
     }
 
-    if(commande=="spellinfo") {
+    if(commande=="spells") {
         let table = [champion.spells.Q.damages,champion.spells.W.damages,champion.spells.E.damages,champion.spells.R.damages];
         for(i in table) {
             let txt = '';
@@ -121,11 +121,11 @@ function fight(msg, idUser, profile) {
 
     if(commande=='commands') {
         let txt = '▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n**Commands**\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n';
-        txt += '• `ennemy`: Get your current ennemy\'s data: health, attack, armor and critics\n';
-        txt += '• `the name of your champ`: Get your current champion\'s data: health, attack, armor and critics\n';
-        txt += '• `spellinfo`: Show you the cooldown per round and the damages of your spells\n';
-        txt += '• `attack : {attack name}`: Attack your ennemy, or apply one of your spell. attack name: Q,W,E,R,AA\n';
-        txt += '```Don\'t forget that you can change your champion thanks c!change {name of the champion} (outside of a fight)```'
+        txt += '• `ennemy name`: Get your current ennemy\'s data: health, attack, armor and critics\n';
+        txt += '• `your champion name`: Get your current champion\'s data: health, attack, armor and critics\n';
+        txt += '• `spells`: Show you the cooldown per round and the damages of your spells\n';
+        txt += '• `attack {attack name}`: Attack your ennemy, or apply one of your spell. attack name: Q,W,E,R,AA\n';
+        txt += '```Don\'t forget that you can change your champion thanks a!change {name of the champion} (outside of a fight)```'
         txt += '\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬';
         send(msg, txt);
     }
@@ -139,7 +139,7 @@ function fight(msg, idUser, profile) {
 
     /** */
 
-    if(/attack/.test(commande)) {
+    if(commande.startsWith("attack")) {
         if(App[id].round=='wait') {
             send(msg, 'It\'s not your round !');
         } else if(App[id].round=='true'){
@@ -177,10 +177,12 @@ function fight(msg, idUser, profile) {
 }
 
 function autoAttack(msg) {
-    let dmg = champion.attack + (Math.random()*100>champion.params.critics)? 0 : champion.attack;
+    let critic = (Math.random()*100>champion.critics)? 0 : champion.attack;
+    let dmg = champion.attack + critic;
     let armor = ennemy.armor;
     dmg = Math.round(dmg*(100/(100+armor)));
     send(msg, 'you auto attacked '+ennemy.name+' ! `-'+dmg+' HP`');
+    if(critic>0) send(msg, "**`Critical strike !`**")
     played = true;
     return dmg;
 }
@@ -204,7 +206,9 @@ function ennemyAttack(msg) {
         if(spells[spell][2]>0) {
             let typeArmor = champion.armor;
             if(ennemy.type=="AP" && spells[spell][0]!='an auto attack') typeArmor = champion.magic;
-            let dmg = Math.round(spells[spell][2]*(100/(100+typeArmor)));
+            let dmg = 0;
+            if(spells[spell][0]=="an auto attack") dmg = spells[spell][2] + ((Math.random()*100>ennemy.critics)? 0 : spells[spell][2]);
+            dmg = Math.round(spells[spell][2]*(100/(100+typeArmor)));
             send(msg, 'The ennemy do '+spells[spell][0]+' `-'+dmg+' hp`');
             champion.health = Math.round(champion.health-dmg);
             App[id].champion.health = champion.health;
@@ -275,7 +279,7 @@ function check(msg, player) {
             
             let embed = new Discord.RichEmbed()
                 .setThumbnail('http://www.legendsbr.com/wp-content/uploads/2014/10/victory.png')
-                .setDescription('You won 50 gems :gem:, 100 XP and you have rallied a new champion: '+ennemy.name+'.\n\nDo `c!select '+ennemy.name+'` to play with this champion')
+                .setDescription('You won 50 gems :gem:, 100 XP and you have rallied a new champion: '+ennemy.name+'.\n\nDo `a!select '+ennemy.name+'` to play with this champion')
                 .setColor(0x1483CE);
             send(msg, embed);
             DB.profile(id).updateData('game/fighting', 0);
