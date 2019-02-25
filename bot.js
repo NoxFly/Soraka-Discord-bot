@@ -199,20 +199,8 @@ function requestMessage(msg, params) {
 			timeExe++;
 		}, timeExe);
 	} else {
-		// si on ecrit en prive au bot
-		if(msg.content.indexOf(params.tag)===0) {										// si le message commence par le tag
-			mod = ['game','personal','social','utility'];								// on dit qu'on a tous les modules (sauf management de server)
-			mod.forEach(name => {														// on rajoute chaque modules...
-				let m = require('./bots/'+params.name+'/modules/'+name+'.js');
-				m.forEach(command => {
-					command.group = name;
-				});
-				modules = modules.concat(m);
-			});
-
-			commands = commands.concat(modules);
-			timeExe = 0;
-		} else {
+		// si on ecrit en prive au bot pour fight
+		if(msg.content.indexOf(params.tag!==0)) {										// si le message commence par le tag
 			// si pas de tag
 			let fighting, champion;
 			if(App[id]===undefined) App[id] = [];										// on stock localement les données du user
@@ -234,6 +222,9 @@ function requestMessage(msg, params) {
 					return;																// ne continue pas le programme car pas besoin
 				}
 			}, DB.responseTime);
+		} else {
+			send(msg, "I can talk to you only on server. If you want to MP me, it's for the game");
+			return;
 		}
 	}
 
