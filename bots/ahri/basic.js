@@ -51,11 +51,10 @@ let basic = [
 						let m = cmd.group;
 						if(m===undefined) m = "basic";
 						m = "\n__**"+m.charAt(0).toUpperCase()+m.slice(1)+"**__\n";
-						if(a!=m) {
+						if(c!=m) {
 							msg.author.send(txt);
-								txt = "";
+							txt = "";
 							txt += m;
-
 						}
 						c = m;
 						txt += "• `"+cmd.name+"` : "+cmd.description+"\n\t→`"+cmd.usage+"`\n";
