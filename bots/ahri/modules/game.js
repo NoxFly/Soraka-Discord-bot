@@ -433,7 +433,7 @@ let game = [
 						.setThumbnail("https://ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/"+champ[j].name.replace(" ","")+".png")
 						.setDescription('You chose '+champ[j].name);
 					send(msg, embed);
-
+					console.log(champ[j])
 					profile.game.champion = champ[j].name;
 					profile.game.params = champ[j];
 					profile.game.params.cooldown = 0;
