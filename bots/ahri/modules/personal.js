@@ -52,7 +52,7 @@ let personal = [
 		description : 'save something you want to restore another moment. Maximum notes : 10.',
 		usage : 'a!note your note',
 		group: 'personal',
-		result : (msg, args) => {
+		result : (msg, args, profile) => {
 			let note = args.join(" "), i, c, notes;
 			if(args.length==0) send(msg, 'A note cannot be empty');
 
