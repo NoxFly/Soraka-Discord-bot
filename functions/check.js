@@ -68,7 +68,8 @@ const check = function(msg, id, name, avatar) {
                         champion: 0,
                         wins: 0,
                         defeat: 0,
-                        owned: 0
+                        owned: 0,
+                        items: {0:"test"}
                     }
                 });
                 
