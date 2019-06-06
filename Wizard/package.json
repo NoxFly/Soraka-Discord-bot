@@ -1,0 +1,16 @@
+{
+  "name": "wizard",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "author": "NoxFly",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "firebase": "^5.3.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}

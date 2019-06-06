@@ -1,0 +1,34 @@
+[
+    {
+        "name": "q1",
+        "question": "You hope :\n\t• (1) Be rich\n\t• (2) Be famous and travel\n\t• (3) Be surrounded by friends\n\t• (4) Know all there is to know",
+        "answer": {
+            "r1": "Slytherin",
+            "r2": "Gryffindor",
+            "r3": "Hufflepuff",
+            "r4": "Ravenclaw"
+        }
+    },
+
+    {
+        "name": "q2",
+        "question": "Which job prefer you between those below ?\n • (1) Top athlete\n • (2) Teacher\n • (3)Doctor\n • (4) Politician",
+        "answer": {
+            "r1": "Hufflepuff",
+            "r2": "Gryffindor",
+            "r3": "Ravenclaw",
+            "r4": "Slytherin"
+        }
+    },
+
+    {
+        "name": "q3",
+        "question": "What are you ?\n • (1) Loyal\n • (2) Determined\n • (3) Patient\n • (4) Curious",
+        "answer": {
+            "r1": "Gryffindor",
+            "r2": "Slytherin",
+            "r3": "Hufflepuff",
+            "r4": "Ravenclaw"
+        }
+    }
+]
