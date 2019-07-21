@@ -1,4 +1,4 @@
-<h1>Discord bots - copyright NoxFly 2018 - 2019</h1>
+<h1>Ahri - copyright NoxFly 2018 - 2019</h1>
 <br>tag: <code>a!</code>
 <br>see all commands: <code>a!help</code> <code>a!help {command}</code> to have help about specific command (e.g.: <code>a!help ping</code>)
 <br>Bot link : https://discordapp.com/oauth2/authorize?client_id=477918672732553216&scope=bot&permissions=535948401
