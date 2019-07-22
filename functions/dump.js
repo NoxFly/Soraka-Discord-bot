@@ -6,8 +6,6 @@ function send(msg, message) {
 }
 
 var dump = function dump(msg,obj) {
-    //console.log(obj);
-    //console.log('\n----------------------------------------------\n');
     out = "```js\n";
     type = typeof obj;
     out += JSON.stringify(obj,null,'\t');
@@ -17,7 +15,6 @@ var dump = function dump(msg,obj) {
 
 function display(msg, out) {
     send(msg,'**```CONSOLE.LOG```**'+out);
-    //console.log(out+'\n----------------------------------------------\n');
 }
 
 module.exports = dump;

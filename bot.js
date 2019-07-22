@@ -8,7 +8,7 @@ const check = require('./functions/check.js');							// CHECK USER EXISTS ON DB	
 const checkServer = require('./functions/checkServer.js');				// CHECK SERVER REGISTER ON DB		//
 const dump = require('./functions/dump.js');							// DISPLAY ERROR MSG				//
 const admin = require('./functions/admin.js');							// WATCH IF ADMIN					//
-const fs = require('fs');												// WATCH FOLDERS					//
+//const fs = require('fs');												// WATCH FOLDERS					//
 //																											//
 // EXPORT BTW FILES																							//
 let exportObj = module.exports = {};									// MODULES TO EXPORT BTW FILES		//
@@ -25,7 +25,7 @@ let name_commands = [];		//
 let App = [];				//
 let G_mod = [];				//
 let timeExe = 0;			//
-let profile = [];			//
+let commands = [];			//
 //////////////////////////////
 
 // BOTS INFOS
@@ -50,26 +50,38 @@ function startbot(params) {
 	const bot = new Discord.Client();
 	exportObj.bot = bot;
 
-	//////////////////////////////////////////////////////////////////////////////////
-	// QUAND LE BOT EST LANCE														//
-	// on affiche un message dans les log pour montrer qu'il marche					//
-	// et on montre sur discord a!help | n servers									//
-	bot.on('ready', () => {															//
-		console.log(params.name+' ready !\n');										//
-		bot.user.setActivity(params.tag+'help | '+bot.guilds.size+' servers');		//
-	});																				//
-	//////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////
+	// QUAND LE BOT EST LANCE														  //
+	// on affiche un message dans les log pour montrer qu'il marche					  //
+	// et on montre sur discord a!help | n servers									  //
+	bot.on('ready', () => {															  //
+		console.log(params.name+' ready !\n');										  //
+		bot.user.setActivity('with '+bot.guilds.size+' servers | '+params.tag+'help');//
+																					  //
+		// import commands															  //
+		commands = require('./bots/'+params.name+'/basic.js');					  	  //
+		let mods = [															  	  //
+			require('./bots/'+params.name+'/modules/game.js'),					  	  //
+			require('./bots/'+params.name+'/modules/management.js'),			  	  //
+			require('./bots/'+params.name+'/modules/personal.js'),				  	  //
+			require('./bots/'+params.name+'/modules/social.js'),				  	  //
+			require('./bots/'+params.name+'/modules/utility.js')				  	  //
+		];																		  	  //
+		commands = commands.concat(mods[0], mods[1], mods[2], mods[3], mods[4]);	  //
+		exportObj.commands = commands;												  //
+	});																				  //
+	////////////////////////////////////////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////////////////////////////////////
 	// QUAND QQUN ENVOIE UN MSG														//
-	bot.on('message', (msg) => {													//
+	bot.on('message', msg => {														//
 		requestMessage(msg, params);												//
 	});																				//
 	//////////////////////////////////////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////////////////////////////////////
 	// QUAND LE BOT ARRIVE SUR UN SERVER											//
-	bot.on('guildCreate', (guild) => {												//
+	bot.on('guildCreate', guild => {												//
 		guildJoined(guild);															//
 	});																				//
 	//////////////////////////////////////////////////////////////////////////////////
@@ -105,10 +117,12 @@ function get_command(msg, command, aCommands = [], profile) {
 			args = msg.content.split(command)[1].split(" ");								// on recupere les arguments
 			args = removeBlanks(args);
 			
-			console.log(msg.author.username+" send ["+command+"] with args: ", args);
-			if(aCommands[idx].group=="hidden" && !admin(msg.author.id)) return;				// si c'est une commande cachée et pas admin
+			console.log(msg.author.username+" sends ["+command+"] with args: ", args);
+			if(aCommands[idx].group == "hidden" && !admin(msg.author.id)) return;			// si c'est une commande cachée et pas admin
 			Database.profile(msg.author.id);
-			try {aCommands[idx].result(msg, args, profile)}											// on essaie d'executer la commande
+			try {
+				aCommands[idx].result(msg, args, profile);									// on essaie d'executer la commande
+			}
 			catch (error) {																	// s'il y a une erreur on envoie un log
 				console.log(error);
 				let embed = new Discord.RichEmbed()
@@ -128,10 +142,10 @@ function get_command(msg, command, aCommands = [], profile) {
 // lorsque qu'un message est envoyé sur un channel
 function requestMessage(msg, params) {
 	// si c'est un bot
-	if(msg.author.bot==true) return;
+	if(msg.author.bot) return;
 
 	// si on écrit @ahri
-	if(msg.content=='<@'+params.id+'>') {
+	if(msg.content == '<@'+params.id+'>') {
 		send(msg, 'Hey :P');
 		return;
 	}
@@ -139,23 +153,26 @@ function requestMessage(msg, params) {
 	let id = msg.author.id;																// id Discord du user
 	let name = msg.author.username+'#'+msg.author.discriminator;						// nom Discord + tag du user
 	let avatar = msg.author.avatarURL;													// avatar Discord du user
+	let profile = [];
 	check(msg, id, name, avatar);														// regarde s'il est enregistré dans la DB
-
-	let commands = require('./bots/'+params.name+'/basic.js'),							// on rajoute les commandes de bases
-	mod = [],																			// modules disponibles
-	modules = [];
-
+	
 	for(i in commands) {
 		name_commands.push(commands[i].name);
 	}
+	
+	Database.profile(id).getData('', function(data) {
+		profile = data.val();
+	});
+	
 
 	// si on ecrit sur un server
-	if(msg.channel.type!=='dm') {
+	if(msg.channel.type !== 'dm') {
 		let G_id = msg.guild.id;														// id Discord du server
 		let G_name = msg.guild.name;													// nom Discord du server
 		let G_owner = msg.guild.ownerID;												// owner Discord du server
 		checkServer(G_id, G_name, G_owner);												// verifie s'il est enregistré dans la DB
 
+		/*
 		if(App[G_id]===undefined || App[G_id]['modules']===undefined) {					// si server pas enregistré localement
 			if(App[G_id]===undefined) App[G_id] = [];									// on rajoute localement le server
 			let tmp = [];
@@ -198,81 +215,72 @@ function requestMessage(msg, params) {
 			commands = commands.concat(modules);										// on rajoute les commandes de base avec les autres
 			timeExe++;
 		}, timeExe);
+		*/
+
+		setTimeout(function() {
+			if(msg.content.indexOf(params.tag) === 0) {										// on regarde s'il y a le tag
+				let command = msg.content.split(params.tag)[1];								// on enleve le tag
+				get_command(msg, command, commands, profile);								// on regarde si la commande existe : execute
+			}
+		}, 1500);
 	} else {
 		// si on ecrit en prive au bot pour fight
-		if(msg.content.indexOf(params.tag!==0)) {										// si le message commence par le tag
+		if(msg.content.indexOf(params.tag) !== 0) {										// si le message commence par le tag
 			// si pas de tag
-			let fighting, champion;
-			if(App[id]===undefined) App[id] = [];										// on stock localement les données du user
+			let champion;
+			if(App[id] === undefined) App[id] = [];										// on stock localement les données du user
 			const fight = require('./functions/fight.js');								// commandes du fight champion LoL
-			Database.profile(id).getData('game/fighting', function(data) {				// regarde si user en fight
-				fighting = data.val();
-			});
 
-			Database.profile(id).getData('', function(data) {							// on recupere les donnees du jeu du user
-				profile = data.val();
-			});
-
-			setTimeout(function() {
-				if(fighting==1) {
-					champion = profile.game.params;										// s'il est en fight, on peut lui dire qu'il est en jeu
-					if(App[id].champion===undefined) App[id].champion = champion;		// s'il n'a pas de champion par defaut
-					exportObj.app = App;												// on export pour d'autres fichiers
-					fight(msg, id, profile);										// on lance le combat / la reponse
-					return;																// ne continue pas le programme car pas besoin
-				}
-			}, DB.responseTime);
+			if(profile.game.fighting == 1) {
+				champion = profile.game.params;										// s'il est en fight, on peut lui dire qu'il est en jeu
+				if(App[id].champion === undefined) App[id].champion = champion;		// s'il n'a pas de champion par defaut
+				exportObj.app = App;												// on export pour d'autres fichiers
+				fight(msg, id, profile);											// on lance le combat / la reponse
+			}
 		} else {
 			send(msg, "I can talk to you only on server. If you want to MP me, it's for the game");
-			return;
 		}
 	}
-
-	setTimeout(function() {
-		if(msg.content.indexOf(params.tag) === 0) {										// on regarde s'il y a le tag
-			let command = msg.content.split(params.tag)[1];								// on enleve le tag
-			get_command(msg, command, commands, profile);										// on regarde si la commande existe : execute
-		}
-	}, timeExe+3);
 }
 
 // si le bot rejoint un server
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function guildJoined(guild) {																							//
-	let id = guild.id;																	// id							//
-		let name = guild.name;															// nom							//
-		let owner = guild.ownerID;														// owner						//
-		checkServer(id, name, owner);													// ajoute a la DB				//
-																														//
-		let defaultChannel = "";														// defini le channel par defaut	//
-		guild.channels.forEach((channel) => {																			//
-			if(channel.type == "text" && defaultChannel == "") {														//
-				if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {												//
-					defaultChannel = channel;																			//
-				}																										//
-			}																											//
-		});																												//
-																														//
-		// message a afficher des que Ahri arrive : comment utiliser les modules										//
-		let modules = '';																								//
-		let end = ' - ';																								//
-		fs.readdir('./bots/ahri/modules', function(err, items) {														//
-			for (var i=0; i<items.length; i++) {																		//
-				if(i==items.length-1) end = '';																			//
-				modules += items[i].replace('.js','')+end;																//
-			}																											//
-																														//
-			let embed = new Discord.RichEmbed()																			//
-				.setTitle('Modules')																					//
-				.setColor(0x43FF4E)																						//
-				.addField(																								//
-					'You can install or uninstall group of commands on the server writing\n'							//
-					+'`a!config modules.add {name}`', modules															//
-				)																										//
-				.setDescription('I recommend you to install the modules game, personal and social');					//
-																														//
-			defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');										//
-			defaultChannel.send(embed);																					//
-		});																												//
-}																														//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function guildJoined(guild) {																						//
+	let id = guild.id;																// id							//
+	let name = guild.name;															// nom							//
+	let owner = guild.ownerID;														// owner						//
+	checkServer(id, name, owner);													// ajoute a la DB				//
+																													//
+	let defaultChannel = "";														// defini le channel par defaut	//
+	guild.channels.forEach((channel) => {																			//
+		if(channel.type == "text" && defaultChannel == "") {														//
+			if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {												//
+				defaultChannel = channel;																			//
+			}																										//
+		}																											//
+	});																												//
+	defaultChannel.send('Let\'s have some real fun');																//
+	/*																												//
+	// message a afficher des que Ahri arrive : comment utiliser les modules										//
+	let modules = '';																								//
+	let end = ' - ';																								//
+	fs.readdir('./bots/ahri/modules', function(err, items) {														//
+		for (var i=0; i<items.length; i++) {																		//
+			if(i==items.length-1) end = '';																			//
+			modules += items[i].replace('.js','')+end;																//
+		}																											//
+																													//
+		let embed = new Discord.RichEmbed()																			//
+			.setTitle('Modules')																					//
+			.setColor(0x43FF4E)																						//
+			.addField(																								//
+				'You can install or uninstall group of commands on the server writing\n'							//
+				+'`a!config modules.add {name}`', modules															//
+			)																										//
+			.setDescription('I recommend you to install the modules game, personal and social');					//
+																													//
+		defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');										//
+		defaultChannel.send(embed);																					//
+	});*/																											//
+}																													//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

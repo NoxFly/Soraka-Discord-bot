@@ -19,62 +19,66 @@ function log(msg, log) {
 
 /** **/
 
-const profile = function(msg, id, name, avatar) {
-        if(avatar=="no" || avatar===null) avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
-        try {
-            let choices = {},
-                data = {},
-                followers = {},
-                desc;
+const profile = function(msg, arg2) {
+    console.log(typeof arg2)
+    let profile = [], timeExe = 0;
+    if(typeof arg2 == 'object') {
+        profile = arg2;
+    } else {
+        DB.profile(arg2).getData('choices', function(d) {
+            profile.choices = d.val();
+        });
 
-            DB.profile(id).getData('choices', function(d) {
-                choices = d.val();
-            });
+        DB.profile(arg2).getData('data', function(d) {
+            profile.data = d.val();
+        });
 
-            DB.profile(id).getData('data', function(d) {
-                data = d.val();
-            });
+        DB.profile(arg2).getData('followers', function(d) {
+            d = d.val();
+            profile.followers = (Object.keys(d).length);
+        });
 
-            DB.profile(id).getData('followers', function(d) {
-                d = d.val();
-                followers = (Object.keys(d).length)-1;
-            });
+        DB.profile(arg2).getData('param', function(d) {
+            profile.param = d.val();
+        });
 
-            DB.profile(id).getData('param/desc', function(d) {
-                desc = d.val();
-            });
-            
-            setTimeout(function() {
-                while(Math.pow(data.level,2.3)*10<data.xp) {
-                    data.level++;
-                }
+        timeExe = DB.responseTime;
+    }
 
-                DB.profile(id).updateData('data/level', data.level);
+    try {        
+        setTimeout(function() {
+            profile.data.level = 1;
+            if(profile.param.Avatar=="") profile.param.Avatar = 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349';
+            while(Math.pow(profile.data.level,2.3)*10<profile.data.xp) {
+                profile.data.level++;
+            }
 
-                let lowN = Math.round(Math.pow(data.level-1,2.3)*10),
-                    upN = Math.round(Math.pow(data.level,2.3)*10),
-                    mXP = upN-lowN,
-                    aXP = data.xp-lowN,
-                    perc = Math.round((aXP*100)/mXP);
-                let embed;
+            DB.profile(msg.author.id).updateData('data/level', profile.data.level);
 
-                embed = new Discord.RichEmbed()
-                    .setTitle('🔸️ User info')
-                    .setColor(choices.color)
-                    .setThumbnail(avatar)
-                    .addField(name, id)
-                    .addField("Level :", data.level, true)
-                    .addField("Money :", data.money, true)
-                    .addField("XP :", data.xp+'/'+upN+' ('+perc+'% to reach next level)')
-                    .addField("Followers :", followers, true)
-                    .addField("Reputation: ", data.rep, true)
-                    .setFooter(desc, 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349');
+            let lowN = Math.round(Math.pow(profile.data.level-1,2.3)*10),
+                upN = Math.round(Math.pow(profile.data.level,2.3)*10),
+                mXP = upN-lowN,
+                aXP = profile.data.xp-lowN,
+                perc = Math.round((aXP*100)/mXP);
+            let embed;
 
-                send(msg, embed);
-            },DB.responseTime);
-        } catch(error) {
-            send(msg, 'Sorry, an error occurred, I was unable to view the profile');
-        }
+            embed = new Discord.RichEmbed()
+                .setTitle('🔸️ User info')
+                .setColor(profile.choices.color)
+                .setThumbnail(profile.param.Avatar)
+                .addField(profile.param.username, msg.author.id)
+                .addField("Level :", profile.data.level, true)
+                .addField("Money :", profile.data.money, true)
+                .addField("XP :", profile.data.xp+'/'+upN+' ('+perc+'% to reach next level)')
+                .addField("Followers :", (Object.keys(profile.followers).length), true)
+                .addField("Reputation: ", profile.data.rep, true)
+                .setFooter(profile.param.desc, 'https://vignette.wikia.nocookie.net/vsbattles/images/5/56/Discord-Logo.png/revision/latest?cb=20180506140349');
+
+            send(msg, embed);
+        }, timeExe);
+    } catch(error) {
+        send(msg, 'Sorry, an error occurred, I was unable to view the profile');
+    }
 };
 
 module.exports = profile;

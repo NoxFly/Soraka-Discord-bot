@@ -7,15 +7,15 @@ let dump = require('./functions/dump.js');                                  // d
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function send(msg, message) {
-	msg.channel.send(message);
+    msg.channel.send(message);
 }
 
 function log(msg, log) {
-	let embed = new Discord.RichEmbed()
-		.setAuthor('Log')
-		.setColor(0xE82C0C)
-		.setDescription(log);
-	send(msg, embed);
+    let embed = new Discord.RichEmbed()
+        .setAuthor('Log')
+        .setColor(0xE82C0C)
+        .setDescription(log);
+    send(msg, embed);
 }
 
 class DB {
@@ -40,12 +40,12 @@ class DB {
     /* user */
 
     profile(id) {
-        this.ref = '/profile/'+id;
+        this.ref = 'profile/' + id;
         return this;
     }
 
     getUser(callback) {
-        let ref = this.database.ref(this.ref+'/user/');
+        let ref = this.database.ref(this.ref + '/user/');
         ref.on('value', function(data) {
             callback(data);
         });
@@ -59,7 +59,7 @@ class DB {
     /* get the data */
 
     getData(way, callback) {
-        let ref = this.database.ref(this.ref+'/'+way+'/');
+        let ref = this.database.ref(this.ref + '/' + way);
         ref.on('value', function(data) {
             callback(data);
         });
@@ -69,35 +69,35 @@ class DB {
     /* set a new data */
 
     setData(way, obj) {
-        this.database.ref(this.ref+'/'+way).set(obj);
+        this.database.ref(this.ref + '/' + way).set(obj);
     }
 
     /* add a new data on a plug */
 
     addData(way, name, obj) {
-        this.database.ref(this.ref+'/'+way).child(name).set(obj);
+        this.database.ref(this.ref + '/' + way).child(name).set(obj);
     }
 
     /* delete data */
 
     deleteData(way) {
-        this.database.ref(this.ref+'/'+way).remove();
+        this.database.ref(this.ref + '/' + way).remove();
     }
 
     /* notes */
 
     newNote(c, content) {
-        this.database.ref(this.ref+'/notes/'+c).set(content);
+        this.database.ref(this.ref + '/notes/' + c).set(content);
     }
 
     clearNotes(note) {
-        this.database.ref(this.ref+'/notes').set(note);
+        this.database.ref(this.ref + '/notes').set(note);
     }
 
     /* update data */
 
     updateData(way, data) {
-        this.database.ref(this.ref+'/'+way+'/').set(data);
+        this.database.ref(this.ref + '/' + way + '/').set(data);
     }
 
     /* get top of user */
@@ -113,20 +113,20 @@ class DB {
     /* add plug everywhere */
 
     addPlug(name, obj) {
-        this.database.ref(this.ref+'/').child(name).set(obj);
+        this.database.ref(this.ref + '/').child(name).set(obj);
     }
 
     /* get server */
 
     server(id) {
-        this.ref = 'servers/' +id;
+        this.ref = 'servers/' + id;
         return this;
-    } 
+    }
 
     /* change server settings */
 
     getServerPerms(server, callback) {
-        let ref = firebase.database().ref('servers/'+server);
+        let ref = firebase.database().ref('servers/' + server);
         ref.on('value', function(data) {
             callback(data);
         });
@@ -134,15 +134,15 @@ class DB {
     }
 
     setServerData(obj) {
-        this.database.ref(this.ref+'/').set(obj);
+        this.database.ref(this.ref + '/').set(obj);
     }
 
     addPerms(id, way, name, obj) {
-        firebase.database().ref('servers/'+id+'/'+way).child(name).set(obj);
+        firebase.database().ref('servers/' + id + '/' + way).child(name).set(obj);
     }
 
     setPerms(id, perms) {
-        firebase.database().ref('servers/'+id+'/permsRole').set(perms);
+        firebase.database().ref('servers/' + id + '/permsRole').set(perms);
     }
 
     source(way) {
