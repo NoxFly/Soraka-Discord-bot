@@ -1,23 +1,23 @@
 {
-  "name": "bot",
+  "name": "ahri",
   "version": "1.4.0",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bot.js"
   },
   "engines": {
     "node": "8.11.3",
-    "npm": "5.6.0"
+    "npm": "6.11.1"
   },
   "author": "NoxFly",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.2",
-    "firebase": "^5.3.1",
+    "discord.js": "^11.5.1",
+    "firebase": "^7.5.2",
     "fs": "0.0.1-security"
   },
   "devDependencies": {
     "protobufjs": ">=5.0.3"
   },
-  "description": ""
+  "description": "A Discord bot in nodejs"
 }

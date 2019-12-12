@@ -1,44 +1,38 @@
 // CONSTANTS REQUIRE
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const firebase = require('firebase');									// FIREBASE							//
-const Discord = require('discord.js');									// DISCORD							//
-const reactionCommands = require('./functions/reaction_command.js');	// REACTION <!>						//
-const DB = require('./DB.js');											// DATABASE							//
-const check = require('./functions/check.js');							// CHECK USER EXISTS ON DB			//
-const checkServer = require('./functions/checkServer.js');				// CHECK SERVER REGISTER ON DB		//
-const dump = require('./functions/dump.js');							// DISPLAY ERROR MSG				//
-const admin = require('./functions/admin.js');							// WATCH IF ADMIN					//
-//const fs = require('fs');												// WATCH FOLDERS					//
-//																											//
-// EXPORT BTW FILES																							//
-let exportObj = module.exports = {};									// MODULES TO EXPORT BTW FILES		//
-//																											//
-let Database = new DB();												// NEW DATABASE						//
-exportObj.database = Database;											// ------ EXPORT DB					//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const firebase = require('firebase');									// FIREBASE
+const Discord = require('discord.js');									// DISCORD
+const reactionCommands = require('./functions/reaction_command.js');	// REACTION <!>
+const DB = require('./DB.js');											// DATABASE
+const check = require('./functions/check.js');							// CHECK USER EXISTS ON DB
+const checkServer = require('./functions/checkServer.js');				// CHECK SERVER REGISTER ON DB
+const dump = require('./functions/dump.js');							// DISPLAY ERROR MSG
+const admin = require('./functions/admin.js');							// WATCH IF ADMIN
+//const fs = require('fs');												// WATCH FOLDERS
 
-//////////////////////////////
-// SOME VAR LOCAL TO FILE	//
-let mod = [];				//
-let modules = [];			//
-let name_commands = [];		//
-let App = [];				//
-let G_mod = [];				//
-let timeExe = 0;			//
-let commands = [];			//
-//////////////////////////////
+// EXPORT BTW FILES
+let exportObj = module.exports = {};									// MODULES TO EXPORT BTW FILES
+
+let Database = new DB();												// NEW DATABASE
+exportObj.database = Database;											// ------ EXPORT DB
+
+// SOME VAR LOCAL TO FILE
+let mod = [];
+let modules = [];
+let name_commands = [];
+let App = [];
+let G_mod = [];
+let timeExe = 0;
+let commands = [];
 
 // BOTS INFOS
-//////////////////////////////////////////////////////////////////////////////////
-let aBotList = [																//
-	{																			//
-		'name'	:	'ahri',														//
-		'tag'  	: 	'a!',														//
-		'id'	:	'477918672732553216',										//
-		'token' :	process.env.TOKEN											//
-	}																			//
-];																				//
-//////////////////////////////////////////////////////////////////////////////////
+let aBotList = [
+	{
+		'name'	:	'ahri',
+		'tag'  	: 	'a!',
+		'id'	:	'477918672732553216',
+		'token' :	process.env.TOKEN
+	}
+];
 
 // instance for each bot in aBotList
 aBotList.forEach(function(val, index, array) {
@@ -50,48 +44,41 @@ function startbot(params) {
 	const bot = new Discord.Client();
 	exportObj.bot = bot;
 
-	////////////////////////////////////////////////////////////////////////////////////
-	// QUAND LE BOT EST LANCE														  //
-	// on affiche un message dans les log pour montrer qu'il marche					  //
-	// et on montre sur discord a!help | n servers									  //
-	bot.on('ready', () => {															  //
-		console.log(params.name+' ready !\n');										  //
-		bot.user.setActivity('with '+bot.guilds.size+' servers | '+params.tag+'help');//
-																					  //
-		// import commands															  //
-		commands = require('./bots/'+params.name+'/basic.js');					  	  //
-		let mods = [															  	  //
-			require('./bots/'+params.name+'/modules/game.js'),					  	  //
-			require('./bots/'+params.name+'/modules/management.js'),			  	  //
-			require('./bots/'+params.name+'/modules/personal.js'),				  	  //
-			require('./bots/'+params.name+'/modules/social.js'),				  	  //
-			require('./bots/'+params.name+'/modules/utility.js')				  	  //
-		];																		  	  //
-		commands = commands.concat(mods[0], mods[1], mods[2], mods[3], mods[4]);	  //
-		exportObj.commands = commands;												  //
-	});																				  //
-	////////////////////////////////////////////////////////////////////////////////////
+	// QUAND LE BOT EST LANCE
+	// on affiche un message dans les log pour montrer qu'il marche
+	// et on montre sur discord a!help | n servers
+	bot.on('ready', () => {
+		console.log(params.name+' ready !\n');
+		bot.user.setActivity('with '+bot.guilds.size+' servers | '+params.tag+'help');
 
-	//////////////////////////////////////////////////////////////////////////////////
-	// QUAND QQUN ENVOIE UN MSG														//
-	bot.on('message', msg => {														//
-		requestMessage(msg, params);												//
-	});																				//
-	//////////////////////////////////////////////////////////////////////////////////
+		// import commands
+		commands = require('./bots/'+params.name+'/basic.js');
+		let mods = [
+			require('./bots/'+params.name+'/modules/game.js'),
+			require('./bots/'+params.name+'/modules/management.js'),
+			require('./bots/'+params.name+'/modules/personal.js'),
+			require('./bots/'+params.name+'/modules/social.js'),
+			require('./bots/'+params.name+'/modules/utility.js')
+		];
+		commands = commands.concat(mods[0], mods[1], mods[2], mods[3], mods[4]);
+		exportObj.commands = commands;
+	});
 
-	//////////////////////////////////////////////////////////////////////////////////
-	// QUAND LE BOT ARRIVE SUR UN SERVER											//
-	bot.on('guildCreate', guild => {												//
-		guildJoined(guild);															//
-	});																				//
-	//////////////////////////////////////////////////////////////////////////////////
+	// QUAND QQUN ENVOIE UN MSG
+	bot.on('message', msg => {
+		requestMessage(msg, params);
+	});
+
+	// QUAND LE BOT ARRIVE SUR UN SERVER
+	bot.on('guildCreate', guild => {
+		guildJoined(guild);
+	});
 
 	// connecte le bot à Discord
 	bot.login(params.token);
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
 // envoie un msg.channel.send()
@@ -244,43 +231,41 @@ function requestMessage(msg, params) {
 }
 
 // si le bot rejoint un server
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function guildJoined(guild) {																						//
-	let id = guild.id;																// id							//
-	let name = guild.name;															// nom							//
-	let owner = guild.ownerID;														// owner						//
-	checkServer(id, name, owner);													// ajoute a la DB				//
-																													//
-	let defaultChannel = "";														// defini le channel par defaut	//
-	guild.channels.forEach((channel) => {																			//
-		if(channel.type == "text" && defaultChannel == "") {														//
-			if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {												//
-				defaultChannel = channel;																			//
-			}																										//
-		}																											//
-	});																												//
-	defaultChannel.send('Let\'s have some real fun');																//
-	/*																												//
-	// message a afficher des que Ahri arrive : comment utiliser les modules										//
-	let modules = '';																								//
-	let end = ' - ';																								//
-	fs.readdir('./bots/ahri/modules', function(err, items) {														//
-		for (var i=0; i<items.length; i++) {																		//
-			if(i==items.length-1) end = '';																			//
-			modules += items[i].replace('.js','')+end;																//
-		}																											//
-																													//
-		let embed = new Discord.RichEmbed()																			//
-			.setTitle('Modules')																					//
-			.setColor(0x43FF4E)																						//
-			.addField(																								//
-				'You can install or uninstall group of commands on the server writing\n'							//
-				+'`a!config modules.add {name}`', modules															//
-			)																										//
-			.setDescription('I recommend you to install the modules game, personal and social');					//
-																													//
-		defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');										//
-		defaultChannel.send(embed);																					//
-	});*/																											//
-}																													//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function guildJoined(guild) {
+	let id = guild.id;																// id
+	let name = guild.name;															// nom
+	let owner = guild.ownerID;														// owner
+	checkServer(id, name, owner);													// ajoute a la DB
+
+	let defaultChannel = "";														// defini le channel par defaut
+	guild.channels.forEach((channel) => {
+		if(channel.type == "text" && defaultChannel == "") {
+			if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+				defaultChannel = channel;
+			}
+		}
+	});
+	defaultChannel.send('Let\'s have some real fun');
+	/*
+	// message a afficher des que Ahri arrive : comment utiliser les modules
+	let modules = '';
+	let end = ' - ';
+	fs.readdir('./bots/ahri/modules', function(err, items) {
+		for (var i=0; i<items.length; i++) {
+			if(i==items.length-1) end = '';
+			modules += items[i].replace('.js','')+end;
+		}
+
+		let embed = new Discord.RichEmbed()
+			.setTitle('Modules')
+			.setColor(0x43FF4E)
+			.addField(
+				'You can install or uninstall group of commands on the server writing\n'
+				+'`a!config modules.add {name}`', modules
+			)
+			.setDescription('I recommend you to install the modules game, personal and social');
+
+		defaultChannel.send('Hey, I\'m Ahri !\nI advise you to read this :');
+		defaultChannel.send(embed);
+	});*/
+}
