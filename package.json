@@ -1,23 +1,27 @@
 {
-  "name": "ahri",
-  "version": "1.4.0",
-  "main": "bot.js",
+  "name": "soraka",
+  "version": "0.1.0",
+  "description": "A Riot API based Discord bot",
+  "main": "index.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node ."
   },
-  "engines": {
-    "node": "8.11.3",
-    "npm": "6.11.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoxFly/Soraka-Discord-bot.git"
   },
-  "author": "NoxFly",
+  "author": "noxfly",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NoxFly/Soraka-Discord-bot/issues"
+  },
+  "homepage": "https://github.com/NoxFly/Soraka-Discord-bot#readme",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "firebase": "^7.5.2",
-    "fs": "0.0.1-security"
-  },
-  "devDependencies": {
-    "protobufjs": ">=5.0.3"
-  },
-  "description": "A Discord bot in nodejs"
+    "canvas": "^2.6.1",
+    "canvas-5-polyfill": "^0.1.5",
+    "discord.js": "^12.0.2",
+    "file-system": "^2.2.2",
+    "md5": "^2.2.1",
+    "node-fetch": "^2.6.0"
+  }
 }

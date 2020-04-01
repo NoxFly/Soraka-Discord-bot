@@ -1,4 +1,7 @@
-node_modules/
-/node_modules
-./node_modules
-node_modules
+node_modules/*
+data/guilds/*.json
+data/cache/rotation/*.json
+data/cache/rotation/*.png
+data/cache/players/*/*.json
+data/cache/ddragon/*.json
+_conf/model.config.js

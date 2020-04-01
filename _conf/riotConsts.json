@@ -1,0 +1,142 @@
+{
+	"URLS": {
+		"api": {
+			"base": "https://{region}.api.riotgames.com/",
+			"url": {
+				"summonerByName": "lol/summoner/v{version}/summoners/by-name/{name}",
+				"summonerById": "lol/summoner/v{version}/summoners/by-account/{encryptedAccountId}",
+				
+				"championMasteries": "lol/champion-mastery/v{version}/champion-masteries/by-summoner/{encryptedSummonerId}",
+				"championMastery": "lol/champion-mastery/v{version}/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}",
+				"championMasteryScore": "lol/champion-mastery/v{version}/scores/by-summoner/{encryptedSummonerId}",
+
+				"championRotation": "lol/platform/v{version}/champion-rotations",
+
+				"summonerMatchlist": "lol/match/v{version}/matchlists/by-account/{encryptedAccountId}",
+				"match": "lol/match/v{version}/matches/{matchId}",
+
+				"league": "lol/league/v4/entries/by-summoner/{encryptedSummonerId}",
+
+				"status": "lol/status/v{version}/shard-data"
+			}
+		},
+
+		"ddragon": {
+			"base": "https://ddragon.leagueoflegends.com/cdn/",
+			"url": {
+				"champions": "{version}/data/{lang}/champion.json",
+				"champion": "{version}/data/{lang}/champion/{champion}.json",
+				"championSplash": "img/champion/splash/{champion}_{n}.jpg",
+				"championSquare": "{version}/img/champion/{champion}.png",
+				"championLoading": "img/champion/loading/{champion}_0.jpg",
+				"championPassive": "{version}/img/passive/{champion}_P.png",
+
+				"abilities": "{version}/img/spell/{ability}.png",
+
+				"items": "{version}/data/{lang}/item.json",
+				"item": "{version}/img/item/{item}.png",
+				"sprites": "{version}/img/sprite/spell{n}.png",
+
+				"summonerSpells": "{version}/data/{lang}/summoner.json",
+				"summonerSpell": "{version}/img/spell/{spell}.png",
+
+				"profileicons": "{version}/data/{lang}/profileicon.json",
+				"profileicon": "{version}/img/profileicon/{iconId}.png"
+			}
+		},
+
+		"cdragon": {
+			"base": "https://raw.communitydragon.org/10.6/",
+			"url": {
+				"rankCrest": "game/assets/loadouts/regalia/crests/ranked/{n}_{tier}/{n}_{tier}_{image}.png",
+				"prestigeCrest": "game/assets/loadouts/regalia/crests/prestige/prestige_crest_lvl_{level}.png",
+				"banner": "game/assets/loadouts/regalia/banners/{banner}.png",
+				"mastery": "game/assets/ux/mastery/mastery_icon_{level}.png",
+				"championSpell": "game/assets/characters/{champion}/hud/icons2d/{champion}_${spell}.png",
+				"championHead": "game/assets/characters/{champion}/{champion}_circle_{n}.png",
+				"diagram": "game/data/buildingblocks/diagrams/{diagram}.png",
+				"ui": "game/data/images/ui/{image}.png",
+				"portrait": "game/data/images/ui/momentstimelineportraits/{image}.png",
+				"autolevel": "game/data/menu/textures/autolvlrecco.png",
+				"upArrow": "game/data/menu/textures/directionalarrow.png",
+				"rightArrow": "game/data/menu/textures/directionalarrowright.png",
+				"announcement": "game/data/menu_sc4/announcements/{image}.png",
+				"dragonSpellIcon": "game/data/shared/spells/icons2d/{icon}.png",
+				"map": "game/levels/map11/info/2dlevelminimap.png"
+			}
+		},
+		
+		"staticRiot": {
+			"base": "http://static.developer.riotgames.com/docs/",
+			"url": {
+				"queues": "lol/queues.json",
+				"maps": "lol/maps.json",
+				"gameModes": "lol/gameModes.json"
+			}
+		},
+
+		"staticDdragon": {
+			"base": "https://ddragon.leagueoflegends.com/",
+			"url": {
+				"versioning": "api/versions.json",
+				"languages": "cdn/languages.json",
+				"realms": "realms/{region}.json"
+			}
+		}
+	},
+
+	"VERSIONS": {
+		"dd": "10.7.1",
+		"rune":"7.23.1",
+		"rotation": "3",
+		"summoner":"4",
+		"mastery":"4",
+		"league": "4",
+		"match": "4"
+	},
+
+	"REGIONS": {
+		"BR": "br1",
+		"EUN": "eun1",
+		"EUW": "euw1",
+		"JP": "jp1",
+		"KR": "kr",
+		"LA": "la1",
+		"LA2": "la2",
+		"NA": "na1",
+		"OC": "oc1",
+		"TR": "tr1",
+		"RU": "ru"
+	},
+
+	"LANGS": {
+		"fr": "fr_FR",
+		"en": "en_GB",
+		"us": "en_US",
+		"cz": "cs_CZ",
+		"gr": "el_GR",
+		"pl": "pl_PL",
+		"ro": "ro_RO",
+		"hu": "hu_HU",
+		"de": "de_DE",
+		"es": "es_ES",
+		"it": "it_IT",
+		"jp": "ja_JP",
+		"kr": "ko_KR",
+		"mx": "es_MX",
+		"ar": "es_AR",
+		"br": "pt_BR",
+		"au": "en_AU",
+		"ru": "ru_RU",
+		"tr": "tr_TR",
+		"my": "ms_MY",
+		"ph": "en_PH",
+		"sg": "en_SG",
+		"th": "th_TH",
+		"vn": "vn_VN",
+		"id": "id_ID",
+		"zh": "zh_MY",
+		"cn": "zh_CN",
+		"tw": "zh_TW"
+	}
+}
