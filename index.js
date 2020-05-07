@@ -52,7 +52,7 @@ Client.on('ready', e => {
 
 	setInterval(e => {
 		let champion = riotAPI.champions[champIds[Math.floor(Math.random()*champIds.length)]].name;
-		Client.user.setActivity(`with ${champion} | ${tag}!help`, {type: 'PLAYING'});
+		Client.user.setActivity(`with ${champion} | ${tag}help`, {type: 'PLAYING'});
 	}, 600000);
 });
 
