@@ -1,26 +1,29 @@
-const Command = require('../../class.command.js');
-const riotAPI = require('../../../index.js').App.riotAPI;
+const Command = require('../../Command');
 
 module.exports = class Splash extends Command { 
-    match(args) {
+    match(client, message, args) {
         return true;
     }
     
-    action(message, args) {
+    action(client, message, args) {
 		let champion = null;
+
 		if(args.length > 0) {
-			champion = (args.map(arg => arg.charAt(0).toUpperCase() + arg.slice(1))).join('');
+			champion = (args.map(arg => arg.charAt(0).toUpperCase() + arg.slice(1))).join('').replace(/\d+/g, '');
+
 			if(/'.+/.test(champion)) {
-				let i = champion.indexOf("'");
-				champion.replace(champion[i+1], champion[i+1].toLowerCase())
+				const i = champion.indexOf("'");
+				champion = champion.replace(champion[i+1], champion[i+1].toLowerCase());
 				champion = champion.substring(0, i) + champion.substring(i+1);
 			}
-		} else {
-			let r = Math.floor(Math.random()*Object.keys(riotAPI.champions).length);
-			champion = Object.keys(riotAPI.champions)[r];
+		}
+		
+		else {
+			const r = Math.floor(Math.random() * Object.keys(client.riotAPI.champions).length);
+			champion = Object.keys(client.riotAPI.champions)[r];
 		}
 
-		message.channel.send(riotAPI.getSplash(champion));
+		message.channel.send(client.riotAPI.getSplash(champion, args.slice(-1)));
 	}
 	
 	get description() {

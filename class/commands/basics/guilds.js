@@ -1,18 +1,21 @@
-const Command = require('../../class.command.js');
+const Command = require('../../Command');
+const Discord = require('discord.js');
 
 module.exports = class Guilds extends Command {
-    match(args) {
+    match(client, message, args) {
         return args.length < 2;
     }
     
-    action(message, args) {
-		let page = 1;
-		if(args.length == 1) page = parseInt(args[0]);
-		if(isNaN(page)) page = 1;
-
+    action(client, message, args) {
 		let guilds = [];
-		message.client.guilds.cache.each(guild => {guilds.push(`\`${guild.name} [${guild.id}]\``);});
-		message.channel.send(`Guilds I'm in: ${guilds.join(', ')}`);
+
+		message.client.guilds.cache.each(guild => {guilds.push(`${guild.name} \`[${guild.id}]\``);});
+
+		const embed = new Discord.MessageEmbed()
+			.setTitle("Guilds I'm in")
+			.setDescription(guilds.join('\n'));
+
+		message.channel.send(embed);
 	}
 	
 	get description() {

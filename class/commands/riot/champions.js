@@ -1,43 +1,81 @@
-const Command = require('../../class.command');
-const riotAPI = require('../../../index.js').App.riotAPI;
+const Command = require('../../Command');
+const Discord = require('discord.js');
 
 module.exports = class championInfos extends Command {
-	match(args) {
-        return args.length == 0 || (args.length == 1 && /\w/.test(args[0]));
+	match(client, message, args) {
+        return args.length == 0 || (args.length == 1 && /\w+/.test(args[0]));
     }
     
-    action(message, args) {
+    action(client, message, args) {
 		let n = 1; // default page is n°1
 		let limit = 20; // number of champions displayed on an column
 		let type = 0; // 0 = int | 1 = char
-		
-		if(args.length == 1) { // if the user specify which page
+
+
+		// if the user specify which page
+		if(args.length == 1) {
 			n = args[0];
-			if(isNaN(n)) { // if he wants to sort by the first letter
+
+			// if he wants to sort by the first letter
+			if(isNaN(n)) {
 				type = 1;
-			} else { // if he wants to see a specific page
+			}
+
+			// if he wants to see a specific page
+			else {
 				n = parseInt(n);
 			}
 		}
 
-		let championNames = Object.keys(riotAPI.champions);
-		let txt = '```';
+		
+		
+		let championNames = Object.keys(client.riotAPI.champions);
+		let txt = '';
+
+		const embed = new Discord.MessageEmbed()
+			.setTitle('Champions');
+			
+			
+		// searching by name
 		if(type) {
 			championNames = championNames.filter(champion => champion.toLowerCase().startsWith(n.toLowerCase()));
-			txt += championNames.join('\n');
-		} else {
-			let start = (n-1)*(limit*2);
-			let end = start+limit >= championNames.length? championNames : start+limit;
+
+			txt += '**Number of champions found :** ' + championNames.length;
+			
+			txt += '\n```' + championNames.join('\n');
+
+		}
+		
+		// searching by page
+		else {
+			embed.setTitle(`Champions - page ${n}`);
+			
+			txt += '**Number of champions :** ' + championNames.length;
+
+			txt += '\n```';
+
+			let start = (n-1) * limit * 2;
+			let end = (start + limit >= championNames.length)? championNames : start + limit;
 
 			for(let i=start; i < end; i++) {
-				let champion = championNames[i];
-				let champion2 = i+limit >= championNames.length ? '' : championNames[i+limit];
-				txt += champion+(' '.repeat(16-champion.length))+champion2+'\n';
+				const champion = championNames[i];
+				const champion2 = (i + limit >= championNames.length)? '' : championNames[i+limit];
+
+				txt += champion + (' '.repeat(16-champion.length)) + champion2 + '\n';
 			}
 		}
 
 		txt += '```';
-		if(txt != '``````') message.channel.send(txt);
+
+		if(txt.includes(':** 0')) {
+			embed.setDescription('```No champion found```');
+		}
+
+		else {
+			embed.setDescription(txt);
+		}
+
+		message.channel.send(embed);
 	}
 
 	get description() {

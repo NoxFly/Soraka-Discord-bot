@@ -1,14 +1,21 @@
-const Command = require('../../class.command.js');
+const Command = require('../../Command');
+const Discord = require('discord.js');
 
 module.exports = class Ping extends Command { 
-    match(args) {
+    match(client, message, args) {
         return args.length === 0;
     }
     
-    action(message, args) {
+    action(client, message, args) {
         message.channel.send("Pinging...").then(msg => {
-			let ping = msg.createdTimestamp - message.createdTimestamp;
-			msg.edit(`:ping_pong: pong !\nBot latency: *${ping}ms*`);
+			const ping = msg.createdTimestamp - message.createdTimestamp;
+
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`:ping_pong: pong !`)
+				.setColor(0x007fff)
+				.setDescription(`Bot latency: ${ping}ms`);
+
+			msg.edit('', {embed});
 		});
 	}
 	

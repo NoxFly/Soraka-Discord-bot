@@ -1,7 +1,7 @@
-const Command = require('../../class.command.js');
+const Command = require('../../Command');
 
 module.exports = class Server extends Command {
-    match(args) {
+    match(client, message, args) {
         return args.length == 0;
     }
     

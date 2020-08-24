@@ -1,16 +1,16 @@
 {
   "name": "soraka",
-  "version": "0.1.0",
-  "description": "A Riot API based Discord bot",
+  "version": "1.0.0",
+  "description": "**tag :** `s!`",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NoxFly/Soraka-Discord-bot.git"
   },
-  "author": "noxfly",
+  "author": "NoxFly",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NoxFly/Soraka-Discord-bot/issues"
@@ -19,9 +19,9 @@
   "dependencies": {
     "canvas": "^2.6.1",
     "canvas-5-polyfill": "^0.1.5",
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.3.1",
     "file-system": "^2.2.2",
-    "md5": "^2.2.1",
+    "md5": "^2.3.0",
     "node-fetch": "^2.6.0"
   }
 }

@@ -1,12 +1,13 @@
-const Command = require('../../class.command');
-const riotAPI = require('../../../index.js').App.riotAPI;
+const Command = require('../../Command');
 
 module.exports = class Spec extends Command {
-	match(args) {
+	hidden = true;
+	
+	match(client, message, args) {
         return 0 < args.length && args.length < 3;
     }
     
-    action(message, args) {
+    action(client, message, args) {
 		
 	}
 
