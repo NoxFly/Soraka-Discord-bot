@@ -15,6 +15,8 @@
 				"summonerMatchlist": "lol/match/v{version}/matchlists/by-account/{encryptedAccountId}",
 				"match": "lol/match/v{version}/matches/{matchId}",
 
+				"spectator": "lol/spectator/v{version}/active-games/by-summoner/{encryptedSummonerId}",
+
 				"league": "lol/league/v4/entries/by-summoner/{encryptedSummonerId}",
 
 				"status": "lol/status/v{version}/shard-data"
@@ -96,7 +98,8 @@
 		"summoner":"4",
 		"mastery":"4",
 		"league": "4",
-		"match": "4"
+		"match": "4",
+		"spectator": "4"
 	},
 
 	"REGIONS": {

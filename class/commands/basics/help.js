@@ -32,10 +32,10 @@ module.exports = class Help extends Command {
 				.setTitle('Command list - page ' + (min/this.nbCmdPerPage + 1))
 				.setColor(0x007fff);
 
-
 			for(let i = min; i < max; i++) {
 				let command = commands[i];
-				embed.addField(command.name, command.description +'\nUsage: `'+ tag + command.usage +'`');
+				if(!command) continue;
+				embed.addField(command.name, command.description +'\nUsage: `'+ client.prefix + command.usage +'`');
 			}
 
 

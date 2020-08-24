@@ -183,7 +183,7 @@ module.exports = class RiotAPI {
 	 * @param {boolean} image either we just want to recover the stored image about his profile or entire object data
 	 * @return {string|object}
 	 */
-	async summoner(name, region, image=false) {
+	async summoner(name, region, onlyCore=false) {
 		// get basic summoner data
 		let summoner = await fetch(this.format(this.url('summonerByName'), {
 			region: this.REGIONS[region],
@@ -202,6 +202,12 @@ module.exports = class RiotAPI {
 
 		// can't find the summoner
 		if(!summoner?.id) return null;
+		
+		summoner.region = region;
+
+		if(onlyCore) {
+			return summoner;
+		}
 
 		// cached data
 		let data = this.cache.get(`players/${region}/${md5(summoner.id)}`);
@@ -238,8 +244,6 @@ module.exports = class RiotAPI {
 		if(modified) {
 			this.cache.create(`players/${region}/${md5(summoner.id)}`, data);
 		}
-
-		data.region = region;
 
 		return data;
 	}
@@ -355,6 +359,34 @@ module.exports = class RiotAPI {
 		}
 
 		return match.participants[i];
+	}
+
+
+	async spectateGame(summonerName, region) {
+		const summoner = await this.summoner(summonerName, region, true);
+
+		console.log(summoner);
+
+		if(!summoner) {
+			return null;
+		}
+
+		const match = await fetch(this.format(this.url('spectator'), {
+			region: this.REGIONS[region],
+			version: this.VERSIONS.spectator,
+			encryptedSummonerId: summoner.id
+		}) + this.api_key)
+		.then(res => res.json())
+		.catch(console.error);
+
+		console.log(match);
+
+		if(match.status === 404) {
+			return match;
+		}
+
+		return {summoner, match};
+
 	}
 
 	
