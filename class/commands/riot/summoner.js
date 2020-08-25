@@ -223,7 +223,7 @@ module.exports = class Summoner extends Command {
 						champion: client.riotAPI.getChampionById(m.championId).id
 					});
 
-					imageName = 'champion-square'+client.riotAPI.getChampionById(m.championId).id;
+					imageName = 'champion-square-'+client.riotAPI.getChampionById(m.championId).id;
 				}
 				
 				else {

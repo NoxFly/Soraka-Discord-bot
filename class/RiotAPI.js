@@ -119,6 +119,10 @@ module.exports = class RiotAPI {
 		});
 	}
 
+	spellName(spellId) {
+		return Object.keys(this.sumSpells).find(spell => this.sumSpells[spell].key == spellId);
+	}
+
 	/**
 	 * Returns champion's object thanks his id
 	 * @param {number} id champion's id
@@ -157,6 +161,10 @@ module.exports = class RiotAPI {
 
 		// get the cache
 		return img;
+	}
+
+	gameType(gameQueueConfigId) {
+		return this.queues[Object.keys(this.queues).find(q => this.queues[q].queueId == gameQueueConfigId)]?.description.replace(' games', '');
 	}
 
 	/**
@@ -365,8 +373,6 @@ module.exports = class RiotAPI {
 	async spectateGame(summonerName, region) {
 		const summoner = await this.summoner(summonerName, region, true);
 
-		console.log(summoner);
-
 		if(!summoner) {
 			return null;
 		}
@@ -379,7 +385,7 @@ module.exports = class RiotAPI {
 		.then(res => res.json())
 		.catch(console.error);
 
-		console.log(match);
+		// console.log(match);
 
 		if(match.status === 404) {
 			return match;
@@ -471,6 +477,8 @@ module.exports = class RiotAPI {
 					lang: this.LANGS[this.lang]
 				});
 
+				const queuesUrl = this.url('queues');
+
 				// load champions
 				fetch(championsUrl)
 					.then(res => res.json())
@@ -505,7 +513,17 @@ module.exports = class RiotAPI {
 						this.runes = json;
 						this.cache.create('ddragon/runes', this.runes);
 					})
-					.catch(error => console.error('Cannot get cdragon runes.', error, json));
+					.catch(error => console.error('Cannot get cdragon runes.', error));
+
+
+				// const queues type
+				fetch(queuesUrl)
+					.then(res => res.json())
+					.then(json => {
+						this.queues = json;
+						this.cache.create('ddragon/queues', this.queues);
+					})
+					.catch(error => console.error('Cannot get queues constants', error));
 			
 			}
 			
@@ -516,6 +534,7 @@ module.exports = class RiotAPI {
 				this.items = this.cache.get('ddragon/items');
 				this.sumSpells = this.cache.get('ddragon/summonerSpells');
 				this.runes = this.cache.get('ddragon/runes');
+				this.queues = this.cache.get('ddragon/queues');
 			}
 
 		});
