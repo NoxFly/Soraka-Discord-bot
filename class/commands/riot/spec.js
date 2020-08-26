@@ -29,33 +29,8 @@ module.exports = class Spec extends Command {
 		
 		else {			
 
-			// blue team = team 1
-			// red team = team 2
-			// but we reverse them for the embed, to get the red team above, like in the map
+			msg.edit("This player is in game, let me retrieve details of every players who are in this game...");
 
-			const team1 = data.match.participants.filter(player => player.teamId === 100).map(player => {
-				return '• ' + player.summonerName
-			}).join('\n');
-
-
-
-			const team2 = data.match.participants.filter(player => player.teamId === 200).map(player => {
-				return '• ' + player.summonerName
-			}).join('\n');
-
-
-
-
-
-
-			const embed = new Discord.MessageEmbed()
-				.setTitle(`Current game - ${data.summoner.name} - ${data.summoner.region}`)
-				.addField(":red_circle: Team 1", team1)
-				.addField(":blue_circle: Team 2", team2)
-				.setTimestamp();
-
-			//msg.edit('', embed);
-			
 			
 			await this.draw({riotAPI, canvasManager, root, paths}, message, data);
 			
@@ -71,27 +46,53 @@ module.exports = class Spec extends Command {
 		ctx.drawImage(bg, 0, 0);
 
 
+
+
+
 		ctx.fillStyle = '#00060b';
 		ctx.fillRect(0, 0, ctx.canvas.width, 70);
 
 		ctx.fillStyle = '#785a28';
 		ctx.globalAlpha = 0.5;
+
 		ctx.fillRect(ctx.canvas.width / 2, 70, 1, ctx.canvas.height);
 		ctx.fillRect(0, 70, ctx.canvas.width, 1);
+
+		ctx.strokeStyle = '#785a28';
+		ctx.fillStyle = 'none';
+		
+		ctx.beginPath();
+			ctx.moveTo(ctx.canvas.width / 2 - 150, 0);
+			ctx.lineTo(ctx.canvas.width / 2 - 70, 70);
+			ctx.stroke();
+		ctx.closePath();
+
+		ctx.beginPath();
+			ctx.moveTo(ctx.canvas.width / 2 + 150, 0);
+			ctx.lineTo(ctx.canvas.width / 2 + 70, 70);
+			ctx.stroke();
+		ctx.closePath();
+
 		ctx.globalAlpha = 1;
+
+
+
 
 		let picSize = 50;
 		let margin = {x: 20, y: 20};
 		let x = ctx.canvas.width / 2 - picSize - margin.x;
 		let y = 90;
 
-		let banX = ctx.canvas.width / 2 - 20;
+		let banX = ctx.canvas.width / 2 - 190;
 		let banVec = -1;
 
 		ctx.textAlign = 'right';
 		ctx.font = '17px Roboto';
 
 		const rPart = data.match.participants.length / 2;
+
+		console.log(data.match);
+
 
 		// team
 		for(let i=0; i < 2; i++) {
@@ -115,10 +116,7 @@ module.exports = class Spec extends Command {
 						ctx.closePath();
 
 
-						const champPic = await canvasManager.load(`champion-square-${riotAPI.getChampionById(player.championId).id}`, riotAPI.format(riotAPI.url('championSquare'), {
-							version: riotAPI.VERSIONS.dd,
-							champion: riotAPI.getChampionById(player.championId).id
-						}));
+						const champPic = await canvasManager.load(`champion-square-${riotAPI.getChampionById(player.championId).id}`, riotAPI.championSquare(riotAPI.getChampionById(player.championId)?.id));
 
 						ctx.drawImage(champPic, 0, 0, picSize, picSize);
 					ctx.restore();
@@ -135,6 +133,38 @@ module.exports = class Spec extends Command {
 					ctx.fillText(player.summonerName, (i===0)? -50 : picSize + 50, picSize/2 + 8);
 				ctx.restore();
 
+
+
+
+
+				// ban
+				if(data.match.bannedChampions.length > 0) {
+					ctx.lineWidth = 1;
+					ctx.globalAlpha = 0.5;
+					ctx.strokeRect(banX, 20, 30, 30);
+					ctx.globalAlpha = 0.8;
+
+					const bannedChampionId = riotAPI.getChampionById(data.match.bannedChampions.find(ban => ban.pickTurn-1 === j + i*rPart).championId)?.id;
+					let bannedChampion;
+
+					if(bannedChampionId) {
+						bannedChampion = await canvasManager.load(`champion-square-${bannedChampionId}`, riotAPI.championSquare(bannedChampionId));
+					} else {
+						bannedChampion = await canvasManager.load(`no-icon`, './asset/no-icon.jpg');
+					}
+
+					ctx.drawImage(bannedChampion, banX+1, 21, 28, 28);
+
+					ctx.globalAlpha = 1;
+				}
+
+
+
+				banX += banVec * 35;
+
+
+
+
 				y += picSize + margin.y;
 			}
 
@@ -143,7 +173,7 @@ module.exports = class Spec extends Command {
 			ctx.textAlign = 'left';
 
 			banVec = 1;
-			banX = ctx.canvas.width / 2 + 20;
+			banX = ctx.canvas.width / 2 + 160;
 		}
 
 		ctx.font = '15px Roboto';
@@ -156,6 +186,33 @@ module.exports = class Spec extends Command {
 		ctx.font = '20px Roboto';
 
 		ctx.fillText(riotAPI.gameType(data.match.gameQueueConfigId), ctx.canvas.width / 2, 55);
+
+
+
+
+
+		ctx.beginPath();
+			ctx.fillStyle = '#1c4764';
+			ctx.arc(0, 35, 10, -Math.PI/2, Math.PI / 2);
+			ctx.fill();
+		ctx.closePath();
+
+		ctx.beginPath();
+			ctx.fillStyle = '#592927';
+			ctx.arc(ctx.canvas.width, 35, 10, Math.PI/2, -Math.PI / 2);
+			ctx.fill();
+		ctx.closePath();
+
+
+
+
+
+
+
+
+
+
+
 
 		const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `spectate_game-${data.summoner.name}-${data.summoner.region}.png`);
 

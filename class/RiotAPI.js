@@ -501,7 +501,7 @@ module.exports = class RiotAPI {
 				fetch(sumsUrl)
 					.then(res => res.json())
 					.then(json => {
-						this.sumSpells = Object.filter(json.data, key => /Summoner((?!Mana|Snow|Poro).*)/.test(key));
+						this.sumSpells = json.data;
 						this.cache.create('ddragon/summonerSpells', this.sumSpells);
 					})
 					.catch(error => console.error('Cannot get summoner spells.', error));
@@ -537,7 +537,7 @@ module.exports = class RiotAPI {
 				this.queues = this.cache.get('ddragon/queues');
 			}
 
-		});
+		}).catch(console.error);
 	}
 }
 
